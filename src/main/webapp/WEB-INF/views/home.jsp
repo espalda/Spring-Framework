@@ -6,8 +6,10 @@
 	<title>Home</title>
 </head>
 <body>
+<a href="<%=request.getContextPath()%>/signup">회원가입</a>
+<%--
 <h1>
-	Hello world!  
+ 	Hello world!  
 </h1>
 
 <P>  The time on the server is ${serverTime}.${name} </P>
@@ -21,7 +23,7 @@
 <form method="get" action="<%=request.getContextPath()%>/">
 	<input name="count" value="${cnt}">
 	<button>button</button>
-</form>
+</form> --%>
 
 </body>
 </html>
