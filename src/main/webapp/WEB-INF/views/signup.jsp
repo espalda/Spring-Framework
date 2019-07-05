@@ -28,6 +28,7 @@
 <body>
 	<form method="post" action="">
 	<div class="container offset-4 col-4">
+	<h3>회원가입</h3>
 		<div class="form-group">
 			<label for="usr">Id:</label>
 			<input type="text" class="form-control" id="usr" name="id">
