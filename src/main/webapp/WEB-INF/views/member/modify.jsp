@@ -23,7 +23,7 @@
 </style>
 </head>
 <body>
-	<form method="get" action="">
+	<form method="post" action="">
 	<div class="container offset-4 col-4">
 	<h3>회원정보 수정</h3>
 		<div class="form-group">
@@ -33,17 +33,17 @@
 	
 		<div class="form-group">
 			<label for="pwd">기존 비밀번호:</label>
-			<input type="password" class="form-control" id="pwd" name="pw">
+			<input type="password" class="form-control" placeholder="기존비밀번호" id="pwd" name="oldPw">
 		</div>
 		
 		<div class="form-group">
 			<label for="pwd">새 비밀번호:</label>
-			<input type="password" class="form-control" id="pwd" name="pw">
+			<input type="password" class="form-control" placeholder="새비밀번호" id="pwd" name="pw">
 		</div>
 
 		<div class="form-group">
 			<label for="pwd">새 비밀번호 확인:</label>
-			<input type="password" class="form-control" id="pwd" name="">
+			<input type="password" class="form-control" placeholder="비밀번호확인">
 		</div>
 
 		<div class="option">

@@ -46,9 +46,19 @@ public class MemberServiceImp implements MemberService{
 	}
 
 	@Override
-	public boolean modify(MemberVO mVo) {
-		// TODO Auto-generated method stub
+	public boolean modify(MemberVO mVo, String oldPw) {
+		if(mVo == null)
+			return false;
+		/* 입력받은 비밀번호 oldPw 와 db에 있는 비밀번호가 같은지 확인
+		 * 같으면 회원정보수정을 위해 Dao에게 수정될 회원 정보 전달하여 DB에 회원테이블 업데이트 요청 
+		 */
+		MemberVO oVo =	memberDao.getMember(mVo.getId());
+		if(oldPw.equals(oVo.getPw())) {
+			memberDao.modify(mVo);
+			return true;
+		}
 		return false;
+		
 	}
 	
 }

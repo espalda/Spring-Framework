@@ -8,7 +8,7 @@
 <body>
 <a href="<%=request.getContextPath()%>/signup">회원가입</a>
 <a href="<%=request.getContextPath()%>/signin">로그인</a>
-<a href="<%=request.getContextPath()%>/modify">회원수정</a>
+<a href="<%=request.getContextPath()%>/member/modify">회원수정</a>
 <%--
 <h1>
  	Hello world!  

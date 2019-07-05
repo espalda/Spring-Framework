@@ -106,24 +106,25 @@ public class HomeController {
 		 * 2) 일치하면 회원정보수정을 위해 Dao에게 수정될 회원 정보 전달하여 DB에 회원테이블 업데이트 요청
 		 * 
 		 * DAO
-		 * 1) 회원 정보를 이용하여 회우너 테이블 업데이트 쿼리문 작성
+		 * 1) 회원 정보를 이용하여 회원 테이블 업데이트 쿼리문 작성
 		 */
-		@RequestMapping(value = "/modify", method = RequestMethod.GET)
+		@RequestMapping(value = "/member/modify", method = RequestMethod.GET)
 		public String modifyGet(Model model){
 			logger.info("회원수정 페이지 실행중");
 			
-			return "modify";
+			return "/member/modify";
 		}
 		
-		@RequestMapping(value = "/modify", method = RequestMethod.POST)
-		public String modifyPost(MemberVO mVo){
+		@RequestMapping(value = "/member/modify", method = RequestMethod.POST)
+		public String modifyPost(MemberVO mVo, String oldPw){
 			logger.info("회원수정 페이지 진행중");
 			System.out.println(mVo);
+			System.out.println(oldPw);
 			//입력받은 로그인 id와 pw가 같으면 메인 페이지 호출
-			if(memberService.modify(mVo)) {
+			if(memberService.modify(mVo, oldPw)) {
 				return "redirect:/";
 			}
-			return "redirect:/modify"; 
+			return "redirect:/member/modify"; 
 		}
 		
 		 

@@ -11,4 +11,9 @@
 		values(#{id},#{pw},#{gender},#{email},#{name})
 		<!-- mysql에 있는 속성명과 동일하게 적용해야 한다 -->
 	</insert>
+	<update id="modify">
+	update member
+		set pw = #{pw}, gender=#{gender}, email=#{email}
+		where id=#{id} 
+	</update>
 </mapper>

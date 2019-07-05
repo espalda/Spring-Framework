@@ -41,7 +41,7 @@
 
 		<div class="form-group">
 			<label for="pwd">Confirm Password:</label>
-			<input type="password" class="form-control" id="pwd" name="">
+			<input type="password" class="form-control" id="pwd" name="pw">
 		</div>
 
 		<div class="option">
