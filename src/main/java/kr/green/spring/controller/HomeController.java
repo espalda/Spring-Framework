@@ -127,5 +127,8 @@ public class HomeController {
 			return "redirect:/member/modify"; 
 		}
 		
+		/* 아이디 비밀번호 길이 예외처리 script 파일에서
+		 * 회원정보수정에서 새비밀번호를 입력하지 않아도 수정되는 기능*/
+		
 		 
 }
