@@ -7,66 +7,61 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
 	<title>회원수정</title>
 	<style>
 	.container{
 		border: 1px dashed slategray;
 		border-radius: 8px;
-		font-size: 15px;
-		padding: 20px;
-		margin-top: 50px;
+		font-size: 12px;
+		padding: 5px;
+		margin-top: 20px;
 	}
-	.far.fa-kiss-wink-heart{
-		color:lightblue;
+	.main{
+		margin-top:50px;
 	}
-</style>
+	.row{
+		margin: 5px 0px;
+	}
+	</style>
 </head>
 <body>
 	<form method="post" action="">
 	<div class="container offset-4 col-4">
-	<h3>회원정보 수정</h3>
-		<div class="form-group">
-			<label for="usr">아이디:</label>
-			<input type="text" class="form-control" id="usr" name="id">
+		<h4 style="text-align: center;">회원정보수정</h4>
+			<div class="row">
+				<label class="col-4">아이디</label>
+				<input type="text"class="form-control col-7" placeholder="아이디" name="id">
 			</div>
-	
-		<div class="form-group">
-			<label for="pwd">기존 비밀번호:</label>
-			<input type="password" class="form-control" placeholder="기존비밀번호" id="pwd" name="oldPw">
-		</div>
-		
-		<div class="form-group">
-			<label for="pwd">새 비밀번호:</label>
-			<input type="password" class="form-control" placeholder="새비밀번호" id="pwd" name="pw">
-		</div>
-
-		<div class="form-group">
-			<label for="pwd">새 비밀번호 확인:</label>
-			<input type="password" class="form-control" placeholder="비밀번호확인">
-		</div>
-
-		<div class="option">
-			<label for="pwd">성별:</label>
-			<div class="form-check">
+			<div class="row">
+				<label class="col-4">기존 비밀번호</label>
+				<input type="password"class="form-control col-7" placeholder="기존 비밀번호" id="oldPw" name="oldPw">
+			</div>
+			<div class="row">
+				<label class="col-4">비밀번호</label>
+				<input type="password"class="form-control col-7" placeholder="새 비밀번호" id="pw1" name="pw1">
+			</div>
+			<div class="row">
+				<label class="col-4">비밀번호확인</label>
+				<input type="password"class="form-control col-7" id="pw2" name="pw2" placeholder="새 비밀번호확인">
+			</div>
+			<div class="row">
+				<label class="col-4">성별</label>
+				<div class="col-8">
+					<label class="form-check-label col-3">
+						<input type="radio" class="form-check-input" name="gender" value="M" checked>남성
+					</label>
 					<label class="form-check-label">
-						<input type="radio" class="form-check-input" name="gender" value="M" checked>male
+						<input type="radio" class="form-check-input" name="gender" value="F">여성
 					</label>
 				</div>
-
-			<div class="form-check">
-				<label class="form-check-label">
-					<input type="radio" class="form-check-input" name="gender" value="F">female
-				</label>
 			</div>
+			<div class="row">
+				<label class="col-4">이메일</label>
+				<input type="email"class="form-control col-7" placeholder="이메일" name="email">
 			</div>
-		<div class="form-group">
-				<label for="email">E-mail:</label>
-				<input type="email" class="form-control" id="email" name="email">
-		</div>
-		<button type="submit" class="btn btn-primary float-right">Modify</button>
-		<i class="far fa-caret-square-up"></i>
-		
+			<div class="offset-8 col-3 clearfix p-0">
+				<button class="btn btn-primary float-right">가입</button>
+			</div>
 	</div>
 	</form>
 </body>
