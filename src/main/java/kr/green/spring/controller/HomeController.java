@@ -25,8 +25,8 @@ public class HomeController {
 	
 	/**
 	 * Simply selects the home view to render by returning its name.
-	 * 서버부분을 제외한 URL이면 /이고 방식이 GET이면 home 메서드를 실행
 	 */
+	
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String home(Model model, String id, Integer num1, Integer num2, Integer count){
 		logger.info("메인페이지 실행");
@@ -59,14 +59,12 @@ public class HomeController {
 		/* signup */
 		@RequestMapping(value = "/signup", method = RequestMethod.GET)
 		public String signupGet(Model model){
-			logger.info("회원가입 페이지 실행중");
-			
+			logger.info("회원가입 실행");
 			return "signup";
 	}
 		@RequestMapping(value = "/signup", method = RequestMethod.POST)
 		public String signupPost(MemberVO mVo){
-			logger.info("회원가입 진행중");
-			
+			logger.info("회원가입 진행 중");
 			if(memberService.signup(mVo))
 				return "redirect:/";
 			else
@@ -81,33 +79,20 @@ public class HomeController {
 		}
 		
 		@RequestMapping(value = "/signin", method = RequestMethod.POST)
-		public String signinPost(MemberVO mVo){
+		public String signinPost(Model model, MemberVO mVo){
 			logger.info("로그인 페이지 진행중");
 			System.out.println(mVo);
+			MemberVO user = memberService.signin(mVo);
 			//입력받은 로그인 id와 pw가 같으면 메인 페이지 호출
-			if(memberService.signin(mVo)) {
+			//if(memberService.signin(mVo)) {
+			if(user != null) {	
+			model.addAttribute("user", user);
 				return "redirect:/";
 			}
 			return "redirect:/signin"; 
 	}
-		/* modify */
-		/**
-		 * jsp
-		 * 1) 회원 수정 페이지 생성
-		 * 2) 서버로 데이터를 전송하기 위한 작업
-		 * 
-		 * Controller
-		 * 1) jsp가 넘겨준 데이터를 가져와서 확인하기
-		 * 2) 서비스에게 수정될 회원정보와 기존비밀번호를 알려주면서 회원 수정정보를 요청
-		 * 3) 회원정보 수정이 성공하면 메인 페이지 실패하면 현재 페이지 유지
-		 *
-		 * 서비스
-		 * 1) DB의 비밀번호와 기존의 비밀번호가 일치하는지 확인하여 일치하지 않으면 수정 실패라고 알려줌
-		 * 2) 일치하면 회원정보수정을 위해 Dao에게 수정될 회원 정보 전달하여 DB에 회원테이블 업데이트 요청
-		 * 
-		 * DAO
-		 * 1) 회원 정보를 이용하여 회원 테이블 업데이트 쿼리문 작성
-		 */
+		
+		
 		@RequestMapping(value = "/member/modify", method = RequestMethod.GET)
 		public String modifyGet(Model model){
 			logger.info("회원수정 페이지 실행중");

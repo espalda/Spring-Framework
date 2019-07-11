@@ -60,7 +60,7 @@
 				<input type="email"class="form-control col-7" placeholder="이메일" name="email">
 			</div>
 			<div class="offset-8 col-3 clearfix p-0">
-				<button class="btn btn-primary float-right">가입</button>
+				<button class="btn btn-primary float-right">수정</button>
 			</div>
 	</div>
 	</form>

@@ -27,8 +27,8 @@
 
 </head>
 <body> 
-<form method="post" action="">
-	<div class="container offset-4 col-4">
+	<form method="post" action="">
+		<div class="container offset-4 col-4">
 		<h4 style="text-align: center;">로그인</h4>
 			<div class="row">
 				<label class="col-4">아이디</label>
@@ -36,7 +36,7 @@
 			</div>
 			<div class="row">
 				<label class="col-4">비밀번호</label>
-				<input type="password"class="form-control col-7" placeholder="비밀번호" id="pw1" name="pw1">
+				<input type="password"class="form-control col-7" placeholder="비밀번호" id="pw" name="pw">
 			</div>
 			<div class="offset-8 col-3 clearfix p-0">
 				<button class="btn btn-primary float-right">로그인</button>
