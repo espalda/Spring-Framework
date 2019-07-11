@@ -1,0 +1,6 @@
+﻿[ 조회수 증가 ]
+조회수를 증가시키고 
+
+mapper에서는 id를 하나밖에 인식하지 못함
+int oldViews = tmp.getViews();
+tmp.setViews(oldViews + 1);
