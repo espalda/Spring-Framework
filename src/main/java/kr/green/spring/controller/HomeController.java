@@ -1,5 +1,8 @@
 package kr.green.spring.controller;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -115,5 +118,13 @@ public class HomeController {
 		/* 아이디 비밀번호 길이 예외처리 script 파일에서
 		 * 회원정보수정에서 새비밀번호를 입력하지 않아도 수정되는 기능*/
 		
+		
+		@RequestMapping(value="/signout")
+		public String signout(HttpServletRequest request) {
+			HttpSession session = request.getSession();
+			session.removeAttribute("user");
+			
+			return "redirect:/";
+		}
 		 
 }

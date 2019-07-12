@@ -4,3 +4,8 @@
 mapper에서는 id를 하나밖에 인식하지 못함
 int oldViews = tmp.getViews();
 tmp.setViews(oldViews + 1);
+
+오늘 할일들 > 진영이 착즙
+주말에 css로 꾸미기
+ 오늘 복습
+C언어로 야구게임 생성

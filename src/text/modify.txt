@@ -1,1 +1,2 @@
-﻿URI:member/modify 경로를 설정하고 회원정보를 수정하는 기능 구현
+﻿$jsp
+URI:member/modify 경로를 설정하고 회원정보를 수정하는 기능 구현

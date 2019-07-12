@@ -16,7 +16,7 @@ DAO에게서 DB에 저장된 리스트 목록을 가져오도록 요청
 
 @DAO
 Mapper를 통해서 DB 에 저장되어 있는 속성들 전부를 가져옴
- - Mapper
+#Mapper
 select * from board
 @VO
 DB에 저장된 속성들을 편하게 가져오기 위해서 생성
@@ -43,7 +43,7 @@ URI: board/display에 contents가 보이게 하는 jsp 생성
 @DAO 
 mapper를 통해서 데이터베이스 board 정보를 가져온다.
 
-- mapper
+#mapper
 매개변수 num과 다오를 통해 가져온 데이터데이스의 num가 같으면 DAO를 통해 데이터베이스 값을 가져온다.
 게시글 번호가 같으면 내용을 가져온다.
 select * from board where num = #{num} 
@@ -52,6 +52,22 @@ select * from board where num = #{num}
 BoardVO
 
 
+[ 게시글 수정 하는 기능 구현 ]
+updateboard 활용
+URI:board/modify에 게시글 수정 페이지가 보이게 하는 jsp 화면 생성
 
+화면에서 정보가 제대로 넘어왔는지 확인하는 기능 sysout(bVo)
 
- */
+@Controller
+화면에서 입력된 정보인 제목, 내용, 파일, 조회수를 넘겨주면 BoardVO bVo
+서비스에게 업데이트 하라는 기능을 전달
+
+@Service
+넘겨받은 정보가 null이 아니라면 DAO 에게 입력받은 정보를 업데이트 하라고 시킨다
+
+@DAO
+mapper를 통해 넘겨받은 정보를 sql update 처리 한다
+#mapper
+기존에 있는 boardDaoDB 사용
+
+** a 태그는 get 방식 으로 서버에 넘겨주는 태그

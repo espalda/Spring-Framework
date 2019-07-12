@@ -4,12 +4,17 @@
 <!DOCTYPE html>
 <html>
 <head>
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-<meta charset="UTF-8">
-<title>Insert title here</title>
+	<jsp:include page="/WEB-INF/views/common/header.jsp"></jsp:include>
+	<meta charset="UTF-8">
+	<title>board-list</title>
 </head>
 <body>
+	<jsp:include page="/WEB-INF/views/common/nav.jsp"></jsp:include>
 	<h1>게시판</h1>
+		<div class="btn-group">
+		  <a href="<%=request.getContextPath()%>/board/list"><button type="button" class="btn btn-primary">목록</button></a>
+		  <a href="<%=request.getContextPath()%>/board/register?num=${board.num}"><button type="submit" class="btn btn-primary">글쓰기</button></a>
+		</div>
 	<table class="table">
 		<tr>
 			<th width="5%">번호</th>

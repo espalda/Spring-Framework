@@ -1,53 +1,33 @@
 ﻿[ Interceptor를 이용한 로그인 유지 기능 ]
 
+로그인 유지 방법
+
+
 Interceptor 경로 설정은 servlet에서 설정 
 
-AuthInterceptor
-접근 가능
-LoginInterceptor
+AuthInterceptor request.getContextPath()+"/"
+접근 가능 
+LoginInterceptor session.setAttribute("user", user)
 로그인 여부 확인
-UnauthInterceptor 
+UnauthInterceptor request.getContextPath()+"/board/list"
 접근 불가
 
 /에서 아이디와 비밀번호를 입력하여 /signin 로그인시도
-==> Unauthinterceptior 가 실행(prehandle) => /signin이 있는 컨트롤러 실행 되고 /로 가라고 함
-==> Logininterceptor가 실행( 세션에 user 정보 저장)
-==> / 로 가야하는데 Unauthunterceptor의 prehandle이 실행 되고 이전과 달리 세션에 user 정보가 있기 때문에 RequestMapping이 /인 컨트롤러로 가지 않고 /board/list로 가야함
-==> Authunterceptor 의 Prehandle이 실행되고 아무일도 안일어남
+==> Unauthinterceptor 가 실행(prehandle) => /signin이 있는 컨트롤러 실행 되고 /로 가라고 함
+==> Logininterceptor가 실행(세션에 user 정보 저장)
+==> /로 가야하는데 Unauthinterceptor의 prehandle이 실행 되고 이전과 달리 세션에 user 정보가 있기 때문에
+	RequestMapping이 /인 컨트롤러로 가지 않고 /board/list로 가야함
+==> Authuinterceptor 의 Prehandle이 실행되고 아무일도 일어나지 않음
 ==> RequestMapping이 /Board/list인 컨트롤러의 메서드가 실행되고
 ==> list.jsp가 화면에 출력        
 
-
-로그인을 하지 않고 URI에 board/list를 입력하고 엔터를 쳤을 때 실행 순서를 작성
+로그인을 하지않고 URI에 board/list를 입력하고 엔터를 쳤을 때 실행 순서를 작성
 LoginInterceptor의 user정보가 null이기 때문에 세션에 저장되는 정보가 없다.
 prehandle(jsp => controller)이면서 user == null 유저 정보가 없는 Authinterceptor가 실행 
 
 ==> board/*에 있는 jsp 화면들은 전부 로그인했을때 볼수 있는 정보들이기 때문에
 Authinterceptor의 user == null 유저 정보가 null이면
-response.sendRedirect(request.getContextPath()+"/"에 의해서 메인 화면으로 돌아간다.
+response.sendRedirect(request.getContextPath()+"/")에 의해서 메인 화면으로 돌아간다.
 
 ==> Unauthinterceptor가 mapping path로 "/"를 관리하고 있기 때문에 UnauthInterceptor 가 실행되고 로그인 되어 있지 않기 때문에 실행되는것이 없이
-==> 컨트롤러에 /로 이동 ==>jsp 실행
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                         
+==> 컨트롤러에 /로 이동 ==>jsp 실행                                 

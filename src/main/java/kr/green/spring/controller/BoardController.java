@@ -2,6 +2,8 @@ package kr.green.spring.controller;
 
 import java.util.ArrayList;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -30,7 +32,42 @@ public class BoardController {
 			boardService.updateViews(num);	//조회수를 증가 시키는 서비스 추가
 			BoardVO bVo = boardService.getBoard(num);	//매개변수 num을 사용해서 VO객체를 반환하는 메서드 getBoard를 호출하여 bVo에 저장
 			model.addAttribute("board", bVo);	//board 변수에 bVo객체 정보를 넣겠다
-			System.out.println(num);
 			return "board/display";
-	}
+		}
+		
+		
+		@RequestMapping(value="/modify", method=RequestMethod.GET)	//수정전 내용을 화면에 뿌려주는 URI와 GET방식 설정
+		public String boardUpdateModifyGet(Model model, Integer num) {
+			
+			BoardVO bVo = boardService.getBoard(num);
+			
+			model.addAttribute("board", bVo);
+			return "board/modify";	
+		}
+		
+		@RequestMapping(value="/modify", method=RequestMethod.POST)
+		//HttpServletRequest r 로그인한 사람이 작성자인지 아닌지 확인하기 위해서 
+		public String boardUpdateModifyPost(Model model, BoardVO bVo, HttpServletRequest r) {
+			
+			boardService.updateBoard(bVo, r);
+				
+			model.addAttribute("num", bVo.getNum());
+			
+				return "redirect:/board/display";
+		}
+		
+		@RequestMapping(value="/register", method=RequestMethod.GET)
+		public String boardRegisterGET(Model model, Integer num) {
+			BoardVO bVo = boardService.getBoard(num);
+			System.out.println(bVo);
+			model.addAttribute("board", bVo);
+			return "board/register";
+		}
+		
+		@RequestMapping(value="/register", method=RequestMethod.POST)
+		public String boardRegisterPost(Model model, BoardVO bVo) {
+			System.out.println(bVo);
+			return "redirect:/board/display";
+		}
+		
 }
