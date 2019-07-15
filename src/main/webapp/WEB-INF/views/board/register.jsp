@@ -14,11 +14,11 @@
 	<div class="container-fluid">
 		<div class="form-group">
 		  <label for="title">제목</label>
-		  <input type="text" class="form-control" name="title" value="${board.title}">
+		  <input type="text" class="form-control" name="title">
 		</div>
 		<div class="form-group">
 		  <label>작성자</label>
-		  <input type="text" class="form-control" readonly>
+		  <input type="text" class="form-control" name="writer" value="${user.id }" readonly>
 		</div>
 		<div class="form-group">
 		  <label>작성일</label>
@@ -34,7 +34,7 @@
 		</div>
 		<div class="form-group">
 		  <label>첨부파일</label>
-		  <input type="text" class="form-control" name="file" value="${board.file}">
+		  <input type="text" class="form-control" name="file">
 		</div>
 	
 		<div class="btn-group">

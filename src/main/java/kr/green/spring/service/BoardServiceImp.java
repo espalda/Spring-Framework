@@ -19,14 +19,11 @@ public class BoardServiceImp implements BoardService {
 	
 		@Override
 		public ArrayList<BoardVO> getBoardList() {
-		
 			return boardDao.getBoardList();
 		}
 	
 		@Override
 		public BoardVO getBoard(Integer num) {
-		
-			
 			if(num == null)
 				return null;
 			
@@ -49,15 +46,36 @@ public class BoardServiceImp implements BoardService {
 		@Override
 		public void updateBoard(BoardVO bVo, HttpServletRequest r) {
 			MemberVO user = (MemberVO)r.getSession().getAttribute("user");
-			
 			if(user == null || bVo == null) return;
 			if(bVo.getWriter() != null && bVo.getWriter().equals(user.getId())) {
 				boardDao.updateBoardDB(bVo);
 			}
 		}
+
+		@Override
+		public void insertBoard(BoardVO bVo) {
+			boardDao.insertBoardDB(bVo);
 			
+		}
 
+		@Override
+		public void deleteBoard(Integer num) {
+			if(num == null || num <= 0) return;
+			boardDao.deleteBoardDB(num);
+			
+		}
+		
 
+		@Override
+		public boolean isWriter(Integer num, HttpServletRequest r) {
+			BoardVO board = boardDao.getBoard(num);
+			MemberVO user = (MemberVO)r.getSession().getAttribute("user");
+			if(board != null && user != null
+					&& board.getWriter().equals(user.getId())) {
+				return true;
+			}
+			return false;
+		}
 
 	
 }

@@ -13,7 +13,9 @@
 	<h1>게시판</h1>
 		<div class="btn-group">
 		  <a href="<%=request.getContextPath()%>/board/list"><button type="button" class="btn btn-primary">목록</button></a>
-		  <a href="<%=request.getContextPath()%>/board/register?num=${board.num}"><button type="submit" class="btn btn-primary">글쓰기</button></a>
+		  <a href="<%=request.getContextPath()%>/board/register">
+			 <button type="submit" class="btn btn-primary">글쓰기</button>
+		  </a>
 		</div>
 	<table class="table">
 		<tr>

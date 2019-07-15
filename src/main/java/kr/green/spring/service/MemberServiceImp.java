@@ -16,7 +16,7 @@ public class MemberServiceImp implements MemberService{
 		public boolean signup(MemberVO mVo) {
 			if(mVo == null)	//예외처리 - mVo == null 넘겨받는 값이 null이면 실행되서는 안됨
 				return false;
-			mVo.setName("");	//getMember 넘겨받은 정보가 DB값과 일치하는지 확인하는 메서드, 기존의 해당 아이디가 있으면 false 없으면 회원가입 진행
+			//getMember 넘겨받은 정보가 DB값과 일치하는지 확인하는 메서드, 기존의 해당 아이디가 있으면 false 없으면 회원가입 진행
 			if(memberDao.getMember(mVo.getId()) != null)
 				return false;
 			memberDao.signup(mVo);

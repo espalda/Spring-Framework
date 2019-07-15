@@ -37,7 +37,10 @@ public class BoardController {
 		
 		
 		@RequestMapping(value="/modify", method=RequestMethod.GET)	//수정전 내용을 화면에 뿌려주는 URI와 GET방식 설정
-		public String boardUpdateModifyGet(Model model, Integer num) {
+		public String boardUpdateModifyGet(Model model, Integer num, HttpServletRequest r) {
+			if(!boardService.isWriter(num, r)) {
+				return "redirect:/board/list";
+			}
 			
 			BoardVO bVo = boardService.getBoard(num);
 			
@@ -48,26 +51,30 @@ public class BoardController {
 		@RequestMapping(value="/modify", method=RequestMethod.POST)
 		//HttpServletRequest r 로그인한 사람이 작성자인지 아닌지 확인하기 위해서 
 		public String boardUpdateModifyPost(Model model, BoardVO bVo, HttpServletRequest r) {
-			
 			boardService.updateBoard(bVo, r);
-				
 			model.addAttribute("num", bVo.getNum());
-			
-				return "redirect:/board/display";
+			return "redirect:/board/display";
 		}
 		
 		@RequestMapping(value="/register", method=RequestMethod.GET)
 		public String boardRegisterGET(Model model, Integer num) {
-			BoardVO bVo = boardService.getBoard(num);
-			System.out.println(bVo);
-			model.addAttribute("board", bVo);
 			return "board/register";
 		}
 		
 		@RequestMapping(value="/register", method=RequestMethod.POST)
 		public String boardRegisterPost(Model model, BoardVO bVo) {
-			System.out.println(bVo);
-			return "redirect:/board/display";
+			boardService.insertBoard(bVo);
+			return "redirect:/board/list";
 		}
 		
+		@RequestMapping(value="/delete", method=RequestMethod.GET)
+		public String boardDeleteGET(Model model, Integer num, HttpServletRequest r) {
+			
+			if(boardService.isWriter(num, r)) {			
+			boardService.deleteBoard(num);
+			}
+			return "redirect:/board/list";
+			//redirect 없이 그냥  board/list 이면 삭제했던 페이지의 uri에 머무르고
+			//redirect를 붙이면 바로 list 페이지로 들어간다.
+		}
 }

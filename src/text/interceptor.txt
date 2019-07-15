@@ -30,4 +30,11 @@ Authinterceptor의 user == null 유저 정보가 null이면
 response.sendRedirect(request.getContextPath()+"/")에 의해서 메인 화면으로 돌아간다.
 
 ==> Unauthinterceptor가 mapping path로 "/"를 관리하고 있기 때문에 UnauthInterceptor 가 실행되고 로그인 되어 있지 않기 때문에 실행되는것이 없이
-==> 컨트롤러에 /로 이동 ==>jsp 실행                                 
+==> 컨트롤러에 /로 이동 ==>jsp 실행      
+
+
+삭제 수정시 다른 작성자가 삭제나 수정하지 못하도록 설정
+
+
+
+                           
