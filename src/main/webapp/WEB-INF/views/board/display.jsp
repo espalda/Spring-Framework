@@ -12,7 +12,7 @@
 	<jsp:include page="/WEB-INF/views/common/nav.jsp"></jsp:include>
 	<div class="container-fluid">
 		<div class="form-group">
-		  <label for="title">제목</label>
+		  <label>제목</label>
 		  <input type="text" class="form-control" name="title" value="${board.title}" readonly>
 		</div>
 		<div class="form-group">

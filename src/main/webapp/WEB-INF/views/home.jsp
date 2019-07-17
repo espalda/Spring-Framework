@@ -67,7 +67,7 @@
 			<h4 style="text-align: center;">로그인</h4>
 				<div class="row">
 					<label class="col-4">아이디</label>
-					<input type="text"class="form-control col-7" placeholder="아이디" name="id">
+					<input type="text" class="form-control col-7" placeholder="아이디" name="id">
 				</div>
 				<div class="row">
 					<label class="col-4">비밀번호</label>

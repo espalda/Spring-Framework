@@ -10,6 +10,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import kr.green.spring.pagination.Criteria;
+import kr.green.spring.pagination.PageMaker;
 import kr.green.spring.service.BoardService;
 import kr.green.spring.vo.BoardVO;
 
@@ -19,14 +21,31 @@ public class BoardController {
 	
 	@Autowired
 	BoardService boardService;
-	
+		
+		/** 게시판 목록 */
 		@RequestMapping(value="/list", method=RequestMethod.GET)
-		public String boardListGet(Model model) {
-			ArrayList<BoardVO> boardList = boardService.getBoardList();
+		public String boardListGet(Model model, Criteria cri) {
+			cri.setPerPageNum(5); //보이는 페이지 개수
+			
+			ArrayList<BoardVO> boardList = boardService.getBoardList(cri);
+			PageMaker pm = new PageMaker();
+			System.out.println(cri);
+			
+			//pm의 현재 페이지 정보 설정
+			pm.setCriteria(cri);
+			//pm의 displayPageNum 설정
+			pm.setDisplayPageNum(5);	//아래 페이지 개수 리스트
+			//pm의 총 게시글 수 설정
+			int totalCount = boardService.getTotalCount(cri);
+			pm.setTotalCount(totalCount);
+			
+			model.addAttribute("pageMaker", pm);
 			model.addAttribute("list", boardList);
 		return "board/list";	
 		}
 		
+		
+		/** 게시글 확인  */
 		@RequestMapping(value="/display", method=RequestMethod.GET)	//value는 uri 경로 설정, method는 get방식인지 post방식인지 설정하는것
 		public String boardDisplayGet(Model model, Integer num) {	//매개변수로  홈페이지의 객체인 model과 게시판 번호를 입력받으면 boardDisplayGet 메서드를 실행하겠다
 			boardService.updateViews(num);	//조회수를 증가 시키는 서비스 추가
@@ -36,14 +55,14 @@ public class BoardController {
 		}
 		
 		
+		/** 게시글 수정 */
 		@RequestMapping(value="/modify", method=RequestMethod.GET)	//수정전 내용을 화면에 뿌려주는 URI와 GET방식 설정
 		public String boardUpdateModifyGet(Model model, Integer num, HttpServletRequest r) {
-			if(!boardService.isWriter(num, r)) {
+			if(!boardService.isWriter(num, r)) {	//작성자인지 아닌지 확인하는 메서드를 서비스에 생성
 				return "redirect:/board/list";
 			}
 			
 			BoardVO bVo = boardService.getBoard(num);
-			
 			model.addAttribute("board", bVo);
 			return "board/modify";	
 		}
@@ -56,8 +75,10 @@ public class BoardController {
 			return "redirect:/board/display";
 		}
 		
+		
+		/** 게시글 등록 */
 		@RequestMapping(value="/register", method=RequestMethod.GET)
-		public String boardRegisterGET(Model model, Integer num) {
+		public String boardRegisterGET(Model model) {
 			return "board/register";
 		}
 		
@@ -67,6 +88,8 @@ public class BoardController {
 			return "redirect:/board/list";
 		}
 		
+		
+		/** 게시글 삭제 */
 		@RequestMapping(value="/delete", method=RequestMethod.GET)
 		public String boardDeleteGET(Model model, Integer num, HttpServletRequest r) {
 			
