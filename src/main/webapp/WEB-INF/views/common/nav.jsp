@@ -1,9 +1,9 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<nav class="navbar navbar-expand-sm bg-primary navbar-dark">
+<nav class="navbar navbar-expand-sm bg-success navbar-dark">
   <ul class="navbar-nav">
-  <c:if test="${user.id eq board.writer}">
+  <c:if test="${user eq null}">
     <li class="nav-item">
       <a class="nav-link" href="<%=request.getContextPath()%>/signup">회원가입</a>
     </li>
@@ -11,6 +11,7 @@
       <a class="nav-link" href="<%=request.getContextPath()%>/signin">로그인</a>
     </li>
   </c:if>
+  
     <li class="nav-item">
       <a class="nav-link" href="<%=request.getContextPath()%>/signout">로그아웃</a>
     </li>

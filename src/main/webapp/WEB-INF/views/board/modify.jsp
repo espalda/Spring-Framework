@@ -13,27 +13,29 @@
 	<form action="<%=request.getContextPath()%>/board/modify" method="post">
 	<input type="hidden" name="num" value="${board.num }">
 	<div class="container-fluid">
-		<div class="form-group">
+		<div class="form-group col-8">
 		  <label>제목</label>
 		  <input type="text" class="form-control" name="title" value="${board.title}">
 		</div>
-		<div class="form-group">
-		  <label>작성자</label>
-		  <input type="text" class="form-control" name="writer" value="${board.writer}" readonly>
+		<div class="row col-auto">
+			<div class="form-group col-3">
+			  <label>작성자</label>
+			  <input type="text" class="form-control" name="writer" value="${board.writer}" readonly>
+			</div>
+			<div class="form-group col-3">
+			  <label>작성일</label>
+			  <input type="text" class="form-control" name="registered" value="${board.registered}" readonly>
+			</div>
+			<div class="form-group col-1">
+			  <label>조회수</label>
+			  <input type="text" class="form-control" name="views" value="${board.views}" readonly>
+			</div>
 		</div>
-		<div class="form-group">
-		  <label>작성일</label>
-		  <input type="text" class="form-control" name="registered" value="${board.registered}" readonly>
-		</div>
-		<div class="form-group">
-		  <label>조회수</label>
-		  <input type="text" class="form-control" name="views" value="${board.views}" readonly>
-		</div>
-		<div class="form-group">
+		<div class="form-group col-8">
 		  <label>내용</label>
 		  <textarea rows="10" class="form-control" name="contents">${board.contents}</textarea>
 		</div>
-		<div class="form-group">
+		<div class="form-group col-8">
 		  <label>첨부파일</label>
 		  <input type="text" class="form-control" name="file" value="${board.file}">
 		</div>
