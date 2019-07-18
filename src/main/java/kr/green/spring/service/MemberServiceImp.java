@@ -1,6 +1,7 @@
 package kr.green.spring.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import kr.green.spring.dao.MemberDAO;
@@ -12,6 +13,9 @@ public class MemberServiceImp implements MemberService{
 	@Autowired
 	MemberDAO memberDao;
 	
+	@Autowired
+	BCryptPasswordEncoder passwordEncoder;
+	
 		@Override
 		public boolean signup(MemberVO mVo) {
 			if(mVo == null)	//예외처리 - mVo == null 넘겨받는 값이 null이면 실행되서는 안됨
@@ -19,6 +23,9 @@ public class MemberServiceImp implements MemberService{
 			//getMember 넘겨받은 정보가 DB값과 일치하는지 확인하는 메서드, 기존의 해당 아이디가 있으면 false 없으면 회원가입 진행
 			if(memberDao.getMember(mVo.getId()) != null)
 				return false;
+			//회원가입창에서 입력받은 암호를 암호화 시키고 회원 정보의 비밀번호를 암호화된 비밀번호로 변경
+			String encodePw = passwordEncoder.encode(mVo.getPw());
+			mVo.setPw(encodePw);
 			memberDao.signup(mVo);
 			return true;
 		}
@@ -30,7 +37,7 @@ public class MemberServiceImp implements MemberService{
 			MemberVO oVo =	memberDao.getMember(mVo.getId());	//컨트롤러 mVo 내가 입력한 회원정보, db에서 가져온 입력한 id와 일치하는 회원정보
 			if(oVo == null)		//oVo == null 입력받은 id와 db정보가 일치하지 않다.
 				return null;
-			if(oVo.getPw().equals(mVo.getPw()))
+			if(passwordEncoder.matches(mVo.getPw(), oVo.getPw()))
 				return oVo;
 			return null;
 		}
@@ -46,6 +53,16 @@ public class MemberServiceImp implements MemberService{
 				return true;
 			}
 			return false;
-			
 		}
+
+		
+		@Override
+		public boolean isMember(String id) {
+			if(memberDao.getMember(id) == null) {	//내 아이디와 일치하는 정보가 없다면 리턴 false
+				return false;
+			}
+			return true;
+		}
+		
+		
 }

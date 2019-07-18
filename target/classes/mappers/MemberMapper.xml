@@ -8,8 +8,8 @@
 	</select>
 	
 	<insert id="signup">
-		insert into member(id,pw,gender,email,name)
-		values(#{id}, #{pw}, #{gender}, #{email}, #{name})
+		insert into member(id,pw,gender,email)
+		values(#{id}, #{pw}, #{gender}, #{email})
 		<!-- mysql에 있는 속성명과 동일하게 적용해야 한다 -->
 	</insert>
 	

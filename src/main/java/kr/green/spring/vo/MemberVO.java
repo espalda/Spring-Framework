@@ -5,7 +5,7 @@ public class MemberVO {
 	private String pw;
 	private String gender;
 	private String email;
-	private String name;
+	
 	public String getId() {
 		return id;
 	}
@@ -30,16 +30,10 @@ public class MemberVO {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	public String getName() {
-		return name;
-	}
-	public void setName(String name) {
-		this.name = name;
-	}
 	
 	@Override
 	public String toString() {
-		return "MemberVO [id=" + id + ", pw=" + pw + ", gender=" + gender + ", email=" + email + ", name=" + name + "]";
+		return "MemberVO [id=" + id + ", pw=" + pw + ", gender=" + gender + ", email=" + email + " ]";
 	}
 	
 	

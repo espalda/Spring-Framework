@@ -26,49 +26,101 @@
 	}
 </style>
 <script>
-		$(document).ready(function(){
-			$('#pw1').change(function(){
-				if(!checklength('#pw1',8,13)){
-					alert('비밀번호 길이를 8~13자 사이로 입력하세요.');
-				}
-			})
-			$('#pw2').change(function(){
-				if(!equals('#pw1','#pw2')){
-					alert('비밀번호가 일치하지 않습니다.');
-				}else
-					alert('비밀번호가 일치합니다.');
-			})
+	function checkSame(sel1, sel2){
+		var val1 = $(sel1).val();
+		var val2 = $(sel2).val();
+		if(val1 == val2)
+			return true;
+		return false;
+	}
+	
+	function checkLength(sel,min,max){
+		var val = $(sel).val();
+		if(val.length >= min && val.length <= max )
+			return true;
+		return false;
+	}
+
+	var isCheck = false;
+	
+	$(document).ready(function(){
+		$('#signup').submit(function(){
+		if(!checkLength('#signup input[name=id]',8,13)){
+			alert('아이디는 8~13자리입니다.');
+			return false;
+		}
+		
+		if(!isCheck){
+			alert('아이디 중복검사를 하세요');
+			isCheck = false;
+			return false;
+		}else{
+			alert('회원가입에 성공했습니다.');
+			isCheck = false;
+			return true;
+		}
+			
+		if(!checkLength('#signup input[name=pw]',8,13)){
+			alert('비밀번호는 8~13자리입니다.')
+			return false;
+		}
+		
+		if(!checkSame('#signup input[name=pw]','#signup input[name=pw2]')){
+			alert('비밀번호와 일치하지 않습니다.')
+			return false;
+		}
+		
+		if($('#signup input[type=email]').val().length == 0){
+			alert('이메일을 입력해주세요.')
+			return false;
+		}
+		
+	})
+
+	
+	$('#dup').click(function(){
+		var id = $('input[name=id]').val();	//id 유효성 검사
+		$.ajax({
+			async:true,
+			type:'POST',
+			data:id,
+			url:"dup",
+			dataType:"json",
+			contentType:"application/json; charset=UTF-8",
+			success : function(aaa){
+				if(!aaa.isMember){
+					alert('회원 가입이 가능한 아이디입니다.');	//회원이 아니면 회원가입이 가능한 아이디 입니다 라고 출력
+					isCheck = true;}
+				else{
+					alert('사용할수 없는 아이디 입니다.')
+					isCheck = false;}
+			}
 		});
-	
-		function checklength(id,min,max){
-			var length = $(id).val().length;
-			if(length > max || length < min)
-				return false;
-			else return true;
-		}
-	
-		function equals(sel1,sel2){
-			if($(sel1).val() == $(sel2).val())
-				return true;
-					return false;
-		}
+	})
+	$('input[name = id]').change(function(){
+		isCheck = false;
+	})
+})
 	</script>
 </head>
 <body>
-	<form method="post" action="">
+	<form method="post" action="" id="signup">
 		<div class="container offset-4 col-4">
 			<h4 style="text-align: center;">회원가입</h4>
 			<div class="row">
 				<label class="col-4">아이디</label>
 				<input type="text"class="form-control col-7" placeholder="아이디" name="id">
 			</div>
+			<div>
+				<button type="button" class="btn btn-outline-success offset-4 col-7" id="dup">아이디 중복확인</button>
+			</div>
 			<div class="row">
 				<label class="col-4">비밀번호</label>
-				<input type="password"class="form-control col-7" placeholder="비밀번호" id="pw1" name="pw1">
+				<input type="password"class="form-control col-7" placeholder="비밀번호" name="pw">
 			</div>
 			<div class="row">
 				<label class="col-4">비밀번호확인</label>
-				<input type="password"class="form-control col-7" placeholder="비밀번호확인" id="pw2" name="pw2">
+				<input type="password"class="form-control col-7" placeholder="비밀번호확인" name="pw2">
 			</div>
 			<div class="row">
 				<label class="col-4">성별</label>

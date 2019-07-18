@@ -7,9 +7,14 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
-	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+	<jsp:include page="/WEB-INF/views/common/header.jsp"></jsp:include>
+	<link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/main.css">
 	<title>Home</title>
+	<script>
+		$(document).ready(function(){	//아이디 입력창에 마우스 커서가 자동으로 포커스 되는 기능 구현
+			$('input[name=id]').focus();
+		})
+	</script>
 	<style>
 	.top-list{
 		font-size: 11px;
