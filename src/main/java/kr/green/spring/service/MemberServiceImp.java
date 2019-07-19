@@ -64,8 +64,8 @@ public class MemberServiceImp implements MemberService{
 
 		
 		@Override
-		public boolean getMember(String id) {
-			if(memberDao.getMember(id) == null) {	//내 아이디와 일치하는 정보가 없다면 리턴 false
+		public boolean isMember(String id) {
+			if(memberDao.getMember(id) == null) {
 				return false;
 			}
 			return true;
@@ -78,7 +78,6 @@ public class MemberServiceImp implements MemberService{
 				return arr[1];
 			else
 				return "";
-			
 		}
 
 		@Override
@@ -86,16 +85,15 @@ public class MemberServiceImp implements MemberService{
 			MemberVO user = memberDao.getMember(id);
 			if(user != null && user.getEmail().equals(email)) {
 				return true;
-				//유저정보가 널이 아니고 DB에 저장된 이메일과 매개변수 이메일이 같으면 리턴 true
 			}
 			return false;
 		}
 
 		@Override
 		public String createPw() {
-			String str = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
-			String pw = "";
-			for(int i=0; i<8 ;i++) {
+			String str ="0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+			String pw="";
+			for(int i=0; i< 8; i++) {
 				int r = (int)(Math.random()*62);
 				pw += str.charAt(r);
 			}
@@ -106,7 +104,7 @@ public class MemberServiceImp implements MemberService{
 		public void modify(String id, String email, String newPw) {
 			MemberVO user = memberDao.getMember(id);
 			if(user == null)	return;
-			if(!user.getEmail().equals(email)) return;
+			if(!user.getEmail().equals(email))	return;
 			String encodePw = passwordEncoder.encode(newPw);
 			user.setPw(encodePw);
 			memberDao.modify(user);
@@ -114,24 +112,20 @@ public class MemberServiceImp implements MemberService{
 
 		@Override
 		public void sendMail(String email, String title, String contents) {
-			String setfrom = "espalda@naver.com"; 
-			try {
-			    MimeMessage message = mailSender.createMimeMessage();
-			    MimeMessageHelper messageHelper 
-			        = new MimeMessageHelper(message, true, "UTF-8");
-			
-			messageHelper.setFrom(setfrom);  // 보내는사람 생략하거나 하면 정상작동을 안함
-			messageHelper.setTo(email);     // 받는사람 이메일
-			messageHelper.setSubject(title); // 메일제목은 생략이 가능하다
-			messageHelper.setText(contents);  // 메일 내용
-			
+			String setfrom = "stajun@google.com";         
+		    try {
+		        MimeMessage message = mailSender.createMimeMessage();
+		        MimeMessageHelper messageHelper 
+		            = new MimeMessageHelper(message, true, "UTF-8");
+		        
+		        messageHelper.setFrom(setfrom);  // 보내는사람 생략하거나 하면 정상작동을 안함
+		        messageHelper.setTo(email);     // 받는사람 이메일
+		        messageHelper.setSubject(title); // 메일제목은 생략이 가능하다
+		        messageHelper.setText(contents);  // 메일 내용
+
 		        mailSender.send(message);
 		    } catch(Exception e){
 		        System.out.println(e);
 		    }
-				
 		}
-
-		
-		
 }

@@ -21,9 +21,6 @@ public class MemberController {
 	MemberService memberService;
 		
 	
-		
-		
-		
 		/** 회원정보 수정 */
 		@RequestMapping(value = "/modify", method = RequestMethod.GET)
 		public String modifyGet(Model model){
