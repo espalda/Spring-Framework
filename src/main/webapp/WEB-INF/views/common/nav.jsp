@@ -3,6 +3,7 @@
     pageEncoding="UTF-8"%>
 <nav class="navbar navbar-expand-sm bg-success navbar-dark">
   <ul class="navbar-nav">
+  <!-- 유저정보가 null이면 보이게 해라 -->
   <c:if test="${user eq null}">
     <li class="nav-item">
       <a class="nav-link" href="<%=request.getContextPath()%>/signup">회원가입</a>
@@ -12,6 +13,7 @@
     </li>
   </c:if>
   
+  <c:if test="${user ne null}">
     <li class="nav-item">
       <a class="nav-link" href="<%=request.getContextPath()%>/signout">로그아웃</a>
     </li>
@@ -26,5 +28,6 @@
     <li class="nav-item active">
       <a class="nav-link disabled" href="#">[ ${user.id }님 로그인 중 ]</a>
     </li>
+    </c:if>
   </ul>
 </nav>

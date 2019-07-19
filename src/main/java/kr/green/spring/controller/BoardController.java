@@ -4,6 +4,8 @@ import java.util.ArrayList;
 
 import javax.servlet.http.HttpServletRequest;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -19,12 +21,15 @@ import kr.green.spring.vo.BoardVO;
 @RequestMapping(value="/board")
 public class BoardController {
 	
+	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
+	
 	@Autowired
 	BoardService boardService;
 		
 		/** 게시판 목록 */
 		@RequestMapping(value="/list", method=RequestMethod.GET)
 		public String boardListGet(Model model, Criteria cri) {
+			logger.info("Criteria");
 			cri.setPerPageNum(5); //보이는 페이지 개수
 			
 			ArrayList<BoardVO> boardList = boardService.getBoardList(cri);

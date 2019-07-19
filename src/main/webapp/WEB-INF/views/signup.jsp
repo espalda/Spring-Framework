@@ -45,8 +45,8 @@
 	
 	$(document).ready(function(){
 		$('#signup').submit(function(){
-		if(!checkLength('#signup input[name=id]',8,13)){
-			alert('아이디는 8~13자리입니다.');
+		if(!checkLength('#signup input[name=id]',5,13)){
+			alert('아이디는 5~13자리입니다.');
 			return false;
 		}
 		

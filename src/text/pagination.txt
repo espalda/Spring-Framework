@@ -3,3 +3,8 @@
 Criteria 한페이지의 기준이 되는 클래스
 나타낼 콘텐츠의 갯수와 현재 페이지 번호를 나타낸다.
 set은 항상 고민해야함
+
+Reference
+https://github.com/st8324/Docs/blob/master/spring%20framework/Pagination.md
+
+https://github.com/st8324/Docs/blob/master/spring%20framework/Pagination%2BSearch.md

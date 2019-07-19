@@ -36,5 +36,8 @@ response.sendRedirect(request.getContextPath()+"/")에 의해서 메인 화면�
 삭제 수정시 다른 작성자가 삭제나 수정하지 못하도록 설정
 
 
+Reference
+https://github.com/st8324/Docs/blob/master/spring%20framework/Interceptor%EB%A5%BC%20%EC%9D%B4%EC%9A%A9%ED%95%9C%20%EA%B6%8C%ED%95%9C%EC%97%90%20%EB%94%B0%EB%A5%B8%20%ED%8E%98%EC%9D%B4%EC%A7%80%20%EC%82%AC%EC%9A%A9%20%EA%B2%B0%EC%A0%95.md
 
+https://github.com/st8324/Docs/blob/master/spring%20framework/Interceptor%EB%A5%BC%20%EC%9D%B4%EC%9A%A9%ED%95%9C%20%EC%9C%A0%EC%A0%80%20%EC%A0%95%EB%B3%B4%20%EC%84%B8%EC%85%98%EC%97%90%20%EC%A0%80%EC%9E%A5%ED%95%98%EA%B8%B0.md
                            
