@@ -33,6 +33,7 @@ public class HomeController {
 	@Autowired
 	private JavaMailSender mailSender;
 	
+	
 		/** 메인화면 */
 		@RequestMapping(value = "/", method = RequestMethod.GET)
 		public String home(Model model){
