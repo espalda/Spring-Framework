@@ -40,7 +40,7 @@
 		</table>
 	</div>
 	
-	<!-- pagination -->
+	<!-- 페이지네이션 -->
 	<ul class="pagination" style="justify-content: center;">
 		<c:if test="${pageMaker.prev}">	<!-- 이전가기 버튼은 true 이면 보이기 -->
 			<li class="page-item">
@@ -69,6 +69,7 @@
 		</c:if>
 	</ul>
 	
+	<!-- 검색창 -->
 	<form class="float-right" method="get" action="<%=request.getContextPath()%>/board/list">
 		<select name="type" class="float-left">
 			<option value="0">선택</option>

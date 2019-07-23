@@ -26,7 +26,7 @@ public class BoardController {
 	@Autowired
 	BoardService boardService;
 		
-		/** 게시판 목록 */
+		/** 페이지네이션 */
 		@RequestMapping(value="/list", method=RequestMethod.GET)
 		public String boardListGet(Model model, Criteria cri) {
 			logger.info("Criteria");

@@ -4,7 +4,33 @@ Criteria 한페이지의 기준이 되는 클래스
 나타낼 콘텐츠의 갯수와 현재 페이지 번호를 나타낸다.
 set은 항상 고민해야함
 
+1. Criteria 클래스 생성
+	- 멤버변수
+	- getter setter
+	- 생성자
+	- getPageStart()라는 getter 살펴보기
+	=> 쿼리문에서 limit에 들어가야할 정보를 계산하기 위해서
+
+2.PageMaker 클래스 생성
+- 멤버변수
+- getter setter
+- calcData()함수 endpage를 계산하기 위해 displayPageNum
+- setTotalCount() 함수
+생성자 없음
+=> 멤버변수의 초기값이 각 자료형의 기본값으로 초기화된다,
+totalCount 변수와  displayPageNum변수가 중요하다
+calcData()함수가  setTotalCount()함수에 의해 호출되고 calcData()함수는
+totalCount변수와 displayPageNum변수가 필요하다
+- totalCount 변수는 calcData()함수가 호출되기 전에 설정되므로 신경쓰지 않아도 되지만
+displayPageNum은 신경써야한다,
+ =>setTotalCount()가 호출되기전에 setDisplayPageNum()이 호출되어야한다
+	
+[ search ]
+pagination에 search와 type 멤버변수 추가
+private String search;
+private String type;
+
+
 Reference
 https://github.com/st8324/Docs/blob/master/spring%20framework/Pagination.md
-
 https://github.com/st8324/Docs/blob/master/spring%20framework/Pagination%2BSearch.md
