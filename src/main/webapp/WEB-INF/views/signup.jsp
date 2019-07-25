@@ -12,7 +12,7 @@
 	<script src="<%=request.getContextPath()%>/resources/js/jquery.validate.js"></script>
 	<script src="<%=request.getContextPath()%>/resources/js/additional-methods.js"></script>
 	<title>회원가입</title>
-<style>
+	<style>
 	.container{
 		border: 1px dashed slategray;
 		border-radius: 8px;
@@ -26,8 +26,8 @@
 	.row{
 		margin: 5px 0px;
 	}
-</style>
-<script>
+	</style>
+	<script>
 	function checkSame(sel1, sel2){
 		var val1 = $(sel1).val();
 		var val2 = $(sel2).val();
@@ -44,32 +44,34 @@
 	}
 
 	var isCheck = false;
-	
 	$(document).ready(function(){
 		$('#signup').submit(function(){
-	
 		if(!checkLength('#signup input[name=id]',5,13)){
 			alert('아이디는 5~13자리입니다.');
 			return false;
 		}
 		
+		//정규표현식
 		var regex = /^\w*(\d[A-z]|[A-z]\d)\w*$/;
 		var id = $('input[name=id]').val();
 		if(!regex.test(id)) {
 		alert('아이디는 영문자와 숫자를 반드시 1개 이상 포함해야 합니다.');
 		return false;
 		}
-	
+		
+		
 		if(!isCheck){
 			alert('아이디 중복검사를 하세요');
 			isCheck = false;
 			return false;
 		}
+		
 		else{
 			alert('회원가입에 성공했습니다.');
 			isCheck = false;
 			return true;
 		}
+		
 		if(!checkLength('#signup input[name=pw]',8,13)){
 			alert('비밀번호는 8~13자리입니다.');
 			return false;
@@ -104,54 +106,57 @@
 			}
 		});
 	})
+	
 	$('input[name = id]').change(function(){
 		isCheck = false;
 	})
-    $("form").validate({
-        rules: {
-            id: {
-                required : true,
-                minlength : 8,
-                maxlength : 20
-            },
-            pw: {
-                required : true,
-                minlength : 8,
-                maxlength : 20,
-                regex: /^\w*(\d[A-z]|[A-z]\d)\w*$/
-            },
-            pw2: {
-                required : true,
-                equalTo : pw
-            },
-            email: {
-                required : true,
-                email : true
-            }
-        },
+	
+	//플러그인
+	$("form").validate({
+		rules: {
+		    id: {
+		        required : true,
+		        minlength : 8,
+		        maxlength : 20
+		    },
+		    pw: {
+		        required : true,
+		        minlength : 8,
+		        maxlength : 20,
+		        regex: /^\w*(\d[A-z]|[A-z]\d)\w*$/
+		    },
+		    pw2: {
+		        required : true,
+		        equalTo : pw
+		    },
+		    email: {
+		        required : true,
+		        email : true
+		    }
+		},
         //규칙체크 실패시 출력될 메시지
-        messages : {
-            id: {
-                required : "필수로입력하세요",
-                minlength : "최소 {0}글자이상이어야 합니다",
-                maxlength : "최소 {0}글자이하이어야 합니다"
-            },
-            pw: {
-                required : "필수로입력하세요",
-                minlength : "최소 {0}글자이상이어야 합니다",
-                maxlength : "최소 {0}글자이하이어야 합니다",
-                regex : "영문자, 숫자로 이루어져있으며 최소 하나이상 포함"
-            },
-            pw2: {
-                required : "필수로입력하세요",
-                equalTo : "비밀번호가 일치하지 않습니다."
-            },
-            email: {
-                required : "필수로입력하세요",
-                email : "메일규칙에 어긋납니다"
-            }
-	    }
-	});
+       messages : {
+           id: {
+               required : "필수로입력하세요",
+               minlength : "최소 {0}글자이상이어야 합니다",
+               maxlength : "최소 {0}글자이하이어야 합니다"
+           },
+           pw: {
+               required : "필수로입력하세요",
+               minlength : "최소 {0}글자이상이어야 합니다",
+               maxlength : "최소 {0}글자이하이어야 합니다",
+               regex : "영문자, 숫자로 이루어져있으며 최소 하나이상 포함"
+           },
+           pw2: {
+               required : "필수로입력하세요",
+               equalTo : "비밀번호가 일치하지 않습니다."
+           },
+           email: {
+               required : "필수로입력하세요",
+               email : "메일규칙에 어긋납니다"
+           }
+    		}
+		});
 	})
 	$.validator.addMethod(
 	    "regex",

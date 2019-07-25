@@ -11,7 +11,6 @@ import javax.servlet.http.HttpSession;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -29,10 +28,6 @@ public class HomeController {
 	
 	@Autowired
 	MemberService memberService;
-	
-	@Autowired
-	private JavaMailSender mailSender;
-	
 	
 		/** 메인화면 */
 		@RequestMapping(value = "/", method = RequestMethod.GET)
@@ -80,7 +75,6 @@ public class HomeController {
 	}
 		
 		
-		
 		/** 로그아웃 */
 		@RequestMapping(value="/signout")
 		public String signout(HttpServletRequest request) {
@@ -89,14 +83,13 @@ public class HomeController {
 			return "redirect:/";
 		}
 		
-		
+		/** 아이디 중복 검사 */
 		@RequestMapping(value ="/dup")
 		@ResponseBody
 		public Map<Object, Object> idcheck(@RequestBody String id){
 
 		    Map<Object, Object> map = new HashMap<Object, Object>();
-		    //변수 id에 저장된 아이디가 회원 아이디인지 아닌지 확인하여 isMember변수에 
-		    //담아 보낸다.
+		    //변수 id에 저장된 아이디가 회원 아이디인지 아닌지 확인하여 isMember변수에 담아 보낸다.
 		    boolean isMember = memberService.isMember(id);
 		    map.put("isMember", isMember);
 		    return map;
@@ -108,11 +101,10 @@ public class HomeController {
 		    return "mail";
 		}  
 
-		// mailSending 코드
+		/** mailSending 코드 */
 		@RequestMapping(value = "/mail/mailSending")
 		public String mailSending(HttpServletRequest request) {
 
-		    String setfrom = "stajun@naver.com";         
 		    String tomail  = request.getParameter("tomail");     // 받는 사람 이메일
 		    String title   = request.getParameter("title");      // 제목
 		    String contents = request.getParameter("content");    // 내용
@@ -121,11 +113,15 @@ public class HomeController {
 
 		    return "redirect:/mail/mailForm";
 		}
+		
+		
+		/** 비밀번호 찾기 */
 		@RequestMapping(value = "/password/find")
 		public String passwordFind() {
 
 		    return "member/find";
 		} 
+		
 		
 		@RequestMapping(value ="/checkemail")
 		@ResponseBody
@@ -139,7 +135,7 @@ public class HomeController {
 		    try {
 				email=URLDecoder.decode(arr[1], "UTF-8");
 			} catch (UnsupportedEncodingException e) {
-				// TODO Auto-generated catch block
+
 				e.printStackTrace();
 			}
 		    id = memberService.getVal(id);

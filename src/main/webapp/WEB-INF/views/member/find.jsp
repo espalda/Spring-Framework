@@ -11,7 +11,7 @@
 	
 	<script type="text/javascript">
 		$(document).ready(function(){
-			$('input[name=id]').focus();
+			$('input[name=id]').focus();	//마우스 포커스 위치 자동
 			$('#findBtn').click(function(){
 				//ajax를 통해 아이디와 이메일를 서버에 전송 후 일치여부를 확인 
 				var id = $('input[name=id]').val();
@@ -19,7 +19,8 @@
 				$.ajax({
 		        async:true,
 		        type:'POST',
-		        data:{'id':id, 'email': email},
+		        data:{'id':id, 'email': email},	//컨트롤러에게 넘겨줄 매개변수
+		        //정보를 전송할 uri 주소
 		        url:"<%=request.getContextPath()%>/checkemail",
 		        dataType:"json",
 		        contentType:"application/json; charset=UTF-8",
