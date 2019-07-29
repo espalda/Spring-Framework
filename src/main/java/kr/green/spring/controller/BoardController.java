@@ -1,20 +1,34 @@
 package kr.green.spring.controller;
 
+
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.ArrayList;
 
+
+import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 
+import org.apache.commons.io.IOUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
 
 import kr.green.spring.pagination.Criteria;
 import kr.green.spring.pagination.PageMaker;
 import kr.green.spring.service.BoardService;
+import kr.green.spring.utils.UploadFileUtils;
 import kr.green.spring.vo.BoardVO;
 
 @Controller
@@ -25,6 +39,10 @@ public class BoardController {
 	
 	@Autowired
 	BoardService boardService;
+	
+	@Resource
+	private String uploadPath;
+
 		
 		/** 페이지네이션 */
 		@RequestMapping(value="/list", method=RequestMethod.GET)
@@ -74,7 +92,21 @@ public class BoardController {
 		
 		@RequestMapping(value="/modify", method=RequestMethod.POST)
 		//HttpServletRequest r 로그인한 사람이 작성자인지 아닌지 확인하기 위해서 
-		public String boardUpdateModifyPost(Model model, BoardVO bVo, HttpServletRequest r) {
+		public String boardUpdateModifyPost(Model model, BoardVO bVo, HttpServletRequest r, MultipartFile file2)  throws IOException, Exception {
+			if(file2.getOriginalFilename().length() != 0) {
+				String file = UploadFileUtils.uploadFile(uploadPath, file2.getOriginalFilename(), file2.getBytes());
+				bVo.setFile(file);	//파일명을 서버에 전송
+			}
+			//첨부파일에 추가한 파일이 없는 경우
+			else {
+				if(bVo.getFile().length() == 0) {
+					bVo.setFile("");
+				}else {
+				BoardVO tmp = boardService.getBoard(bVo.getNum());
+				bVo.setFile(tmp.getFile());
+				}
+			}
+			
 			boardService.updateBoard(bVo, r);
 			model.addAttribute("num", bVo.getNum());
 			return "redirect:/board/display";
@@ -88,9 +120,38 @@ public class BoardController {
 		}
 		
 		@RequestMapping(value="/register", method=RequestMethod.POST)
-		public String boardRegisterPost(Model model, BoardVO bVo) {
+		public String boardRegisterPost(Model model, BoardVO bVo, MultipartFile file2) throws IOException, Exception {
+			if(file2.getOriginalFilename().length() != 0) {
+				String file = UploadFileUtils.uploadFile(uploadPath, file2.getOriginalFilename(), file2.getBytes());
+				bVo.setFile(file);	//파일명을 서버에 전송
+			}
 			boardService.insertBoard(bVo);
 			return "redirect:/board/list";
+		}
+		
+		
+		/** 업로드된 파일 다운로드 테스트 */
+		@ResponseBody
+		@RequestMapping("/download")
+		public ResponseEntity<byte[]> downloadFile(String fileName)throws Exception{
+		    InputStream in = null;
+		    ResponseEntity<byte[]> entity = null;
+		    try{
+		        HttpHeaders headers = new HttpHeaders();
+		        in = new FileInputStream(uploadPath+fileName);
+
+		        fileName = fileName.substring(fileName.indexOf("_")+1);
+		        headers.setContentType(MediaType.APPLICATION_OCTET_STREAM);
+		        headers.add("Content-Disposition",  "attachment; filename=\"" 
+					+ new String(fileName.getBytes("UTF-8"), "ISO-8859-1")+"\"");
+		        entity = new ResponseEntity<byte[]>(IOUtils.toByteArray(in),headers,HttpStatus.CREATED);
+		    }catch(Exception e) {
+		        e.printStackTrace();
+		        entity = new ResponseEntity<byte[]>(HttpStatus.BAD_REQUEST);
+		    }finally {
+		        in.close();
+		    }
+		    return entity;
 		}
 		
 		

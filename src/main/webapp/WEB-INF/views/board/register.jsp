@@ -10,7 +10,7 @@
 </head>
 <body>
 	<jsp:include page="/WEB-INF/views/common/nav.jsp"></jsp:include>
-	<form action="<%=request.getContextPath()%>/board/register" method="post">
+	<form action="<%=request.getContextPath()%>/board/register" method="post" enctype="multipart/form-data">
 	<div class="container-fluid">
 		<div class="form-group col-8">
 		  <label for="title">제목</label>
@@ -20,7 +20,7 @@
 		  <label>작성자</label>
 		  <input type="text" class="form-control" name="writer" value="${user.id }" readonly>
 		</div>
-		<div class="form-group col-3">
+		<div class="form-group col-1">
 		  <label>작성일</label>
 		  <input type="text" class="form-control" readonly>
 		</div>
@@ -34,7 +34,7 @@
 		</div>
 		<div class="form-group col-8">
 		  <label>첨부파일</label>
-		  <input type="text" class="form-control" name="file">
+		  <input type="file" class="form-control-file" name="file2">
 		</div>
 	
 		<div class="btn-group">

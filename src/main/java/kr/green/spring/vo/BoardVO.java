@@ -62,12 +62,25 @@ public class BoardVO {
 	public void setViews(int views) {
 		this.views = views;
 	}
+	
+	
 	public String getFile() {
+		
 		return file;
 	}
+	
+	public String getFileName() {
+		if(file == null) return "";
+		int index = file.indexOf("_");	//indexOf(괄호) 괄호에 있는 문자를 찾아내는 역할
+		return file.substring(index + 1);	//subString index에서 찾은 문자를 기준
+	}
+	
+	
 	public void setFile(String file) {
 		this.file = file;
 	}
+	
+	
 	@Override
 	public String toString() {
 		return "BoardVO [num=" + num + ", title=" + title + ", contents=" + contents + ", writer=" + writer

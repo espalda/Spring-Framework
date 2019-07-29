@@ -8,19 +8,19 @@
 	<meta charset="UTF-8">
 	<title>board-contents</title>
 </head>
-<body>
+<body class="clear-fix" style="margin: 0 auto;">
 	<jsp:include page="/WEB-INF/views/common/nav.jsp"></jsp:include>
-	<div class="container-fluid">
+	<div class="container-fluid center-block">
 		<div class="form-group col-8">
 		 <label>제목</label>
 		  <input type="text" class="form-control" name="title" value="${board.title}" readonly>
 		</div>
 		<div class="row col-auto">
-			<div class="form-group col-3">
+			<div class="form-group col-2">
 			  <label>작성자</label>
 			  <input type="text" class="form-control" name="writer" value="${board.writer}" readonly>
 			</div>
-			<div class="form-group col-3">
+			<div class="form-group col-2">
 			  <label>작성일</label>
 			  <input type="text" class="form-control" name="registered" value="${board.registered}" readonly>
 			</div>
@@ -35,7 +35,9 @@
 		</div>
 		<div class="form-group col-8">
 		  <label>첨부파일</label>
-		  <input type="text" class="form-control" name="file" value="${board.file}" readonly>
+		  <a href="<%=request.getContextPath()%>/board/download?fileName=${board.file}">
+		  		<input type="text" class="form-control" name="file2" value="${board.fileName}" readonly>
+		  </a>
 		</div>
 	
 		<div class="btn-group col-auto">
