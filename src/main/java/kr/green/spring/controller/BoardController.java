@@ -6,7 +6,6 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
 
-
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 
@@ -28,6 +27,7 @@ import org.springframework.web.multipart.MultipartFile;
 import kr.green.spring.pagination.Criteria;
 import kr.green.spring.pagination.PageMaker;
 import kr.green.spring.service.BoardService;
+import kr.green.spring.service.PageMakerService;
 import kr.green.spring.utils.UploadFileUtils;
 import kr.green.spring.vo.BoardVO;
 
@@ -39,7 +39,8 @@ public class BoardController {
 	
 	@Autowired
 	BoardService boardService;
-	
+	@Autowired
+	PageMakerService pageMakerService;
 	@Resource
 	private String uploadPath;
 
@@ -47,21 +48,10 @@ public class BoardController {
 		/** 페이지네이션 */
 		@RequestMapping(value="/list", method=RequestMethod.GET)
 		public String boardListGet(Model model, Criteria cri) {
-			logger.info("Criteria");
-			cri.setPerPageNum(5); //보이는 페이지 개수
-			
+			cri.setPerPageNum(5); // 화면에 보여지는 리스트 개수
 			ArrayList<BoardVO> boardList = boardService.getBoardList(cri);
-			PageMaker pm = new PageMaker();
-			System.out.println(cri);
-			
-			//pm의 현재 페이지 정보 설정
-			pm.setCriteria(cri);
-			//pm의 displayPageNum 설정
-			pm.setDisplayPageNum(5);	//아래 페이지 개수 리스트
-			//pm의 총 게시글 수 설정
 			int totalCount = boardService.getTotalCount(cri);
-			pm.setTotalCount(totalCount);
-			
+			PageMaker pm = pageMakerService.getPageMaker(5, cri, totalCount);
 			model.addAttribute("pageMaker", pm);
 			model.addAttribute("list", boardList);
 		return "board/list";	

@@ -1,5 +1,8 @@
 package kr.green.spring.service;
 
+import java.util.ArrayList;
+
+import kr.green.spring.pagination.Criteria;
 import kr.green.spring.vo.MemberVO;
 
 public interface MemberService {
@@ -23,4 +26,10 @@ public interface MemberService {
 	public void sendMail(String email, String title, String contents);
 	//리턴타입이 boolean인 인터페이스 기능명세는 회원이면 true 비회원이면 false를 반환하는 기능을 하는 메서드를 정의
 	//구현은 MemeberServiceImp 에서 @overried로 구현, 매개변수 mVo는 컨트롤러가 화면에서 넘겨받은 매개변수와 동일하다
+
+	public ArrayList<MemberVO> getAllMember(Criteria cri);
+
+	public int getTotalCount();
+
+	public void updateAuthority(MemberVO mVo);
 }

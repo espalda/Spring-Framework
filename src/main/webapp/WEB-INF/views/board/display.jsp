@@ -10,8 +10,8 @@
 </head>
 <body class="clear-fix" style="margin: 0 auto;">
 	<jsp:include page="/WEB-INF/views/common/nav.jsp"></jsp:include>
-	<div class="container-fluid center-block">
-		<div class="form-group col-8">
+	<div class="container center-block">
+		<div class="form-group col-8 m-auto">
 		 <label>제목</label>
 		  <input type="text" class="form-control" name="title" value="${board.title}" readonly>
 		</div>

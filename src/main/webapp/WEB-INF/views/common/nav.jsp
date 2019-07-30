@@ -29,5 +29,11 @@
       <a class="nav-link disabled" href="#">[ ${user.id }님 로그인 중 ]</a>
     </li>
     </c:if>
+    
+    <c:if test="${user.authority eq 'admin'}">
+	    <li class="nav-item">
+	      <a class="nav-link" href="<%=request.getContextPath()%>/admin/user/list">관리자 페이지</a>
+	    </li>
+    </c:if>
   </ul>
 </nav>

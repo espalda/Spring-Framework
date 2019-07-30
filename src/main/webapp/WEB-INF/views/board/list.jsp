@@ -12,7 +12,7 @@
 	<jsp:include page="/WEB-INF/views/common/nav.jsp"></jsp:include>
 	<h3 style="text-align:center">📜POST-LIST</h3>
 	<div class="clearfix">
-		<div class="btn float-right ">
+		<div class="btn float-right">
 			<a href="<%=request.getContextPath()%>/board/list"><button type="button" class="btn btn-outline-success">목록</button></a>
 			<a href="<%=request.getContextPath()%>/board/register"><button type="submit" class="btn btn-outline-success">글쓰기</button></a>
 		</div>
