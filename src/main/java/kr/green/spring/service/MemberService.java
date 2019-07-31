@@ -29,7 +29,7 @@ public interface MemberService {
 
 	public ArrayList<MemberVO> getAllMember(Criteria cri);
 
-	public int getTotalCount();
+	public int getTotalCount(Criteria cri);
 
 	public void updateAuthority(MemberVO mVo);
 }

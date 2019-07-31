@@ -138,8 +138,8 @@ public class MemberServiceImp implements MemberService{
 		}
 
 		@Override
-		public int getTotalCount() {
-			return memberDao.getTotalCount();
+		public int getTotalCount(Criteria cri) {
+			return memberDao.getTotalCount(cri);
 		}
 
 		@Override

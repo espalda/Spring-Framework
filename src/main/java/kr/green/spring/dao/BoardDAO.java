@@ -8,10 +8,10 @@ import kr.green.spring.vo.BoardVO;
 public interface BoardDAO {
 
 	ArrayList<BoardVO> getBoardList(Criteria cri);
+	
+	ArrayList<BoardVO> getBoardListAll(Criteria cri);
 
 	BoardVO getBoard(Integer num);
-
-	void updateViewsDB(Integer num);
 
 	void updateBoardDB(BoardVO tmp);
 
@@ -20,6 +20,11 @@ public interface BoardDAO {
 	void deleteBoardDB(Integer num);
 
 	int getTotalCountDB(Criteria cri);
+	
+	int getTotalCountAll(Criteria cri);
+
+	void adminUpdateBoard(BoardVO bVo);
+
 
 	
 }

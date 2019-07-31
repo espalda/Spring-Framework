@@ -16,18 +16,12 @@
 		select * from board where num = #{num} and valid = 'I'
 	</select>
 	
-	<update id="updateViewsDB">
-	update board
-		set views= views + 1
-			where num = #{num} and valid = 'I'
-	</update>
-	
 	<update id="updateBoardDB">
 	update board set title = #{title}, 
 		contents = #{contents}, 
 		file = #{file}, 
 		views = #{views}
-			where num = #{num} and valid = 'I'
+			where num = #{num}
 	</update>
 	
 	<insert id="insertBoardDB">
@@ -48,4 +42,27 @@
 		<if test="type == 2"> and contents like concat('%', #{search}, '%')</if>
 		<if test="type == 3"> and writer like concat('%', #{search}, '%')</if>
 	</select>
+	
+	<select id="getTotalCountAll" resultType = "int">
+		select count(*) from board where 1=1
+		<if test="type == 1"> and title like concat('%', #{search}, '%')</if>
+		<if test="type == 2"> and contents like concat('%', #{search}, '%')</if>
+		<if test="type == 3"> and writer like concat('%', #{search}, '%')</if>
+	</select>
+	
+	<select id="getBoardListAll" resultType = "kr.green.spring.vo.BoardVO">
+		select * from board where 1=1
+		<if test="type == 1"> and title like concat('%', #{search}, '%')</if>
+		<if test="type == 2"> and contents like concat('%', #{search}, '%')</if>
+		<if test="type == 3"> and writer like concat('%', #{search}, '%')</if>
+		order by num desc
+		limit #{pageStart}, #{perPageNum}
+	</select>
+	
+	<update id="adminUpdateBoard">
+	update board
+	set valid = #{valid}
+	where num = #{num}
+	</update>
+
 </mapper>

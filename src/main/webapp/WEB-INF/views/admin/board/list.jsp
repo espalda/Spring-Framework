@@ -6,25 +6,27 @@
 <head>
 	<jsp:include page="/WEB-INF/views/common/header.jsp"></jsp:include>
 	<meta charset="UTF-8">
-	<title>게시글목록</title>
+	<script type="text/javascript">
+	$(document).ready(function(){
+		$('select[name=aaa]').change(function(){
+			location.href = '<%=request.getContextPath()%>/admin/board/update?'+$(this).val();
+		});
+	})
+	</script>
+	<title>게시글 관리</title>
 </head>
 <body>
-	<jsp:include page="/WEB-INF/views/common/nav.jsp"></jsp:include>
-	<h3 style="text-align:center">📜POST-LIST</h3>
-	<div class="clearfix">
-		<div class="btn float-right">
-			<a href="<%=request.getContextPath()%>/board/list"><button type="button" class="btn btn-outline-success">목록</button></a>
-			<a href="<%=request.getContextPath()%>/board/register"><button type="submit" class="btn btn-outline-success">글쓰기</button></a>
-		</div>
-	</div>
+	<jsp:include page="/WEB-INF/views/common/adminnav.jsp"></jsp:include>
+	<h4 class="text-center">📜게시글 리스트📜</h4>
 	<div class="container">
 		<table class="table table-hover">
 		<tr>
-			<th width="5%">번호</th>
-			<th width="30%">제목</th>
-			<th width="10%">작성자</th>
-			<th width="15%">등록일</th>
-			<th width="5%">조회수</th>
+			<th>번호</th>
+			<th>제목</th>
+			<th>작성자</th>
+			<th>등록일</th>
+			<th>조회수</th>
+			<th>설정</th>
 		</tr>
 		
 		<c:forEach var="board" items="${list}">
@@ -34,6 +36,12 @@
 			<td>${board.writer}</td>
 			<td>${board.registered}</td>
 			<td>${board.views}</td>
+			<td>
+				<select name="aaa">
+					<option value="num=${board.num }&valid=D&page=${pageMaker.criteria.page}" <c:if test="${board.valid eq 'D'}">selected</c:if>>Delete</option>
+					<option value="num=${board.num }&valid=I&page=${pageMaker.criteria.page}" <c:if test="${board.valid eq 'I'}">selected</c:if>>valid</option>
+				</select>
+			</td>
 		</tr>
 		</c:forEach>
 		
@@ -44,7 +52,7 @@
 	<ul class="pagination" style="justify-content: center;">
 		<c:if test="${pageMaker.prev}">	<!-- 이전가기 버튼은 true 이면 보이기 -->
 			<li class="page-item">
-			<a class="page-link" href="<%=request.getContextPath()%>/board/list?page=${pageMaker.startPage-1}&type=${pageMaker.criteria.type}&search=${pageMaker.criteria.search}&perPageNum=${pageMaker.criteria.perPageNum}">Previous</a>
+			<a class="page-link" href="<%=request.getContextPath()%>/admin/board/list?page=${pageMaker.startPage-1}&type=${pageMaker.criteria.type}&search=${pageMaker.criteria.search}">Previous</a>
 			</li>
 		</c:if>
 		
@@ -52,25 +60,25 @@
 		<!-- index는 begin부터 end까지 하나씩 증가한다 -->
 		<c:if test="${pageMaker.criteria.page == index }">
 			<li class="page-item active ">
-			<a class="page-link" href="<%=request.getContextPath()%>/board/list?page=${index}&type=${pageMaker.criteria.type}&search=${pageMaker.criteria.search}&perPageNum=${pageMaker.criteria.perPageNum}">${index}</a>
+			<a class="page-link" href="<%=request.getContextPath()%>/admin/board/list?page=${index}&type=${pageMaker.criteria.type}&search=${pageMaker.criteria.search}">${index}</a>
 			</li>
 		</c:if>
 		<c:if test="${pageMaker.criteria.page != index }">
 			<li class="page-item">
-			<a class="page-link" href="<%=request.getContextPath()%>/board/list?page=${index}&type=${pageMaker.criteria.type}&search=${pageMaker.criteria.search}&perPageNum=${pageMaker.criteria.perPageNum}">${index}</a>
+			<a class="page-link" href="<%=request.getContextPath()%>/admin/board/list?page=${index}&type=${pageMaker.criteria.type}&search=${pageMaker.criteria.search}">${index}</a>
 			</li>
 		</c:if>
 		</c:forEach>
 		
 		<c:if test="${pageMaker.next}">
 			<li class="page-item">
-			<a class="page-link" href="<%=request.getContextPath()%>/board/list?page=${pageMaker.endPage+1}&type=${pageMaker.criteria.type}&search=${pageMaker.criteria.search}&perPageNum=${pageMaker.criteria.perPageNum}">Next</a>
+			<a class="page-link" href="<%=request.getContextPath()%>/admin/board/list?page=${pageMaker.endPage+1}&type=${pageMaker.criteria.type}&search=${pageMaker.criteria.search}">Next</a>
 			</li>
 		</c:if>
 	</ul>
 	
 	<!-- 검색창 -->
-	<form class="float-right" method="get" action="<%=request.getContextPath()%>/board/list">
+	<form class="float-right" method="get" action="<%=request.getContextPath()%>/admin/board/list">
 		<select name="type" class="float-left">
 			<option value="0">선택</option>
 			<option value="1" <c:if test="${pageMaker.criteria.type eq 1 }">selected</c:if>>제목</option>

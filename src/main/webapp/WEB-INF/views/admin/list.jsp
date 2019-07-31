@@ -13,7 +13,7 @@
 		});
 	})
 	</script>
-	<title>Insert title here</title>
+	<title>회원 관리</title>
 </head>
 <body>
 	<jsp:include page="/WEB-INF/views/common/adminnav.jsp"></jsp:include>
@@ -21,11 +21,11 @@
 	<h4 class="text-center">🧡회원 리스트🧡</h4>
 		<table class="table table-hover">
 			<tr>
-				<th width="8%">id</th>
-				<th width="5%">email</th>
-				<th width="5%">gender</th>
-				<th width="5%">authority</th>
-				<th width="5%">modify</th>
+				<th>id</th>
+				<th>email</th>
+				<th>gender</th>
+				<th>authority</th>
+				<th>modify</th>
 			</tr>
 			<c:forEach var="member" items="${list}">
 				<tr>
@@ -48,7 +48,7 @@
 	<ul class="pagination" style="justify-content: center;">
 		<c:if test="${pageMaker.prev}">	<!-- 이전가기 버튼은 true 이면 보이기 -->
 			<li class="page-item">
-			<a class="page-link" href="<%=request.getContextPath()%>/admin/user/list?page=${pageMaker.startPage-1}&type=${pageMaker.criteria.type}&search=${pageMaker.criteria.search}">Previous</a>
+			<a class="page-link" href="<%=request.getContextPath()%>/admin/user/list?page=${pageMaker.startPage-1}&type=${pageMaker.criteria.type}&search=${pageMaker.criteria.search}&perPageNum=${pageMaker.criteria.perPageNum}">Previous</a>
 			</li>
 		</c:if>
 		

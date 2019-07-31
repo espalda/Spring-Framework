@@ -22,7 +22,7 @@ public interface MemberDAO {
 
 	ArrayList<MemberVO> getAllMember(Criteria cri);
 
-	int getTotalCount();
+	int getTotalCount(Criteria cri);
 
 	void updateAuthority(MemberVO mVo);
 

@@ -18,24 +18,25 @@
 </head>
 <body>
 	<jsp:include page="/WEB-INF/views/common/nav.jsp"></jsp:include>
-	<div class="container offset-4 col-4">
 	<form method="post" action="<%=request.getContextPath()%>/signin">
-		
-			<h4 style="text-align: center;">로그인</h4>
-				<div class="row">
-					<label class="col-4">아이디</label>
-					<input type="text" class="form-control col-7" placeholder="아이디" name="id">
+		<div class="container col-3 shadow py-3 clearfix">
+			<h4 style="text-align: center;">Login</h4>
+				<div class="row m-1" style="border: 1px solid #101010;">
+					<span class="small text-bottom col-3">ID</span>
+					<input type="text" class="ml-5" name="id" style="border:none">
 				</div>
-				<div class="row">
-					<label class="col-4">비밀번호</label>
-					<input type="password"class="form-control col-7" placeholder="비밀번호" id="pw" name="pw">
+				<div class="row m-1" style="border: 1px solid #101010;">
+					<span class="small text-bottom col-3 ">Password</span>
+					<input type="password" class="ml-5" id="pw" name="pw" style="border:none">
 				</div>
-				<div class="offset-8 col-3 clearfix p-0">
-					<button class="btn btn-success float-right">로그인</button>
+				<div class="float-right mr-1">
+					<a href="<%=request.getContextPath()%>/password/find">
+					<button class="btn btn-outline-success btn-sm">Forgot password</button></a>
+					<button class="btn btn-outline-success btn-sm">Sign In</button>
 				</div>
-				</form>
-				<a href="<%=request.getContextPath()%>/password/find"><button class="btn btn-success">비밀번호 찾기</button></a>
+				
 		</div>
+	</form>
 		
 	
 	

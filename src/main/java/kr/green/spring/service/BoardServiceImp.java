@@ -20,7 +20,12 @@ public class BoardServiceImp implements BoardService {
 	
 		@Override
 		public ArrayList<BoardVO> getBoardList(Criteria cri) {
-			return boardDao.getBoardList(cri);
+			return boardDao.getBoardListAll(cri);
+		}
+		
+		@Override
+		public ArrayList<BoardVO> getBoardListAll(Criteria cri) {
+			return boardDao.getBoardListAll(cri);
 		}
 	
 		@Override
@@ -32,10 +37,7 @@ public class BoardServiceImp implements BoardService {
 		}
 	
 		@Override
-		public void updateViews(Integer num) {
-			//boardDao.updateViewsDB(num);
-			//updateViewDB는 view의 갯수만 하나씩 증가시키는 기능이고
-			//updateBoardDB는 수정한 내용들을 변경시키는 기능, 서비스에서 view 를 증가시키는 기능을 구현한채로 DB에 업데이트 하라고 넘겨준다
+		public void updateBoard(Integer num) {
 			BoardVO tmp = boardDao.getBoard(num);
 			if(tmp != null) {
 				int oldViews = tmp.getViews();
@@ -82,6 +84,19 @@ public class BoardServiceImp implements BoardService {
 		public int getTotalCount(Criteria cri) {
 			return boardDao.getTotalCountDB(cri);
 		}
+		
+		@Override
+		public int getTotalCountAll(Criteria cri) {
+			return boardDao.getTotalCountAll(cri);
+		}
+
+		@Override
+		public void adminUpdateBoard(BoardVO bVo) {
+			boardDao.adminUpdateBoard(bVo);
+			
+		}
+
+	
 
 	
 }

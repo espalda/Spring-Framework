@@ -12,6 +12,8 @@ public class BoardVO {
 	private Date registered;
 	private int views;
 	private String file;
+	private String valid;
+	
 	public int getNum() {
 		return num;
 	}
@@ -75,17 +77,23 @@ public class BoardVO {
 		return file.substring(index + 1);	//subString index에서 찾은 문자를 기준
 	}
 	
-	
 	public void setFile(String file) {
 		this.file = file;
 	}
 	
+	public String getValid() {
+		return valid;
+	}
+	public void setValid(String valid) {
+		this.valid = valid;
+	}
 	
 	@Override
 	public String toString() {
 		return "BoardVO [num=" + num + ", title=" + title + ", contents=" + contents + ", writer=" + writer
-				+ ", registered=" + registered + ", views=" + views + ", file=" + file + "]";
+				+ ", registered=" + registered + ", views=" + views + ", file=" + file + ", valid=" + valid + "]";
 	}
+	
 	
 	
 	
