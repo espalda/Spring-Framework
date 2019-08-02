@@ -6,19 +6,19 @@
   <!-- 유저정보가 null이면 보이게 해라 -->
   <c:if test="${user eq null}">
     <li class="nav-item">
-      <a class="nav-link" href="<%=request.getContextPath()%>/signup">회원가입</a>
+      <a class="nav-link" href="<%=request.getContextPath()%>/signup">Sing Up</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="<%=request.getContextPath()%>/signin">로그인</a>
+      <a class="nav-link" href="<%=request.getContextPath()%>/signin">Sign In</a>
     </li>
   </c:if>
   
   <c:if test="${user ne null}">
     <li class="nav-item">
-      <a class="nav-link" href="<%=request.getContextPath()%>/signout">로그아웃</a>
+      <a class="nav-link" href="<%=request.getContextPath()%>/signout">Sign Out</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="<%=request.getContextPath()%>/member/modify">회원수정</a>
+      <a class="nav-link" href="<%=request.getContextPath()%>/member/modify">Modify</a>
     </li>
     
     <!-- target="_blank" 은 활성화 되어있는 페이지가 아닌 새탭에 생성 -->
@@ -26,13 +26,13 @@
       <a class="nav-link" href="https://github.com/st8324" target="_blank">Github</a>
     </li>
     <li class="nav-item active">
-      <a class="nav-link disabled" href="#">[ ${user.id }님 로그인 중 ]</a>
+      <a class="nav-link disabled" href="#">[ ${user.id }Signing in]</a>
     </li>
     </c:if>
     
     <c:if test="${user.authority eq 'admin'}">
 	    <li class="nav-item">
-	      <a class="nav-link" href="<%=request.getContextPath()%>/admin/user/list">관리자 페이지</a>
+	      <a class="nav-link" href="<%=request.getContextPath()%>/admin/user/list">mng page</a>
 	    </li>
     </c:if>
   </ul>

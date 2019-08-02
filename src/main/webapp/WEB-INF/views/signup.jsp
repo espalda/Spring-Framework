@@ -1,6 +1,5 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,21 +11,6 @@
 	<script src="<%=request.getContextPath()%>/resources/js/jquery.validate.js"></script>
 	<script src="<%=request.getContextPath()%>/resources/js/additional-methods.js"></script>
 	<title>회원가입</title>
-	<style>
-	.container{
-		border: 1px dashed slategray;
-		border-radius: 8px;
-		font-size: 12px;
-		padding: 5px;
-		margin-top: 20px;
-	}
-	.main{
-		margin-top:50px;
-	}
-	.row{
-		margin: 5px 0px;
-	}
-	</style>
 	<script>
 	function checkSame(sel1, sel2){
 		var val1 = $(sel1).val();
@@ -46,7 +30,7 @@
 	var isCheck = false;
 	$(document).ready(function(){
 		$('#signup').submit(function(){
-		if(!checkLength('#signup input[name=id]',5,13)){
+		if(!checkLength('#signup input[name=id]',5,10)){
 			alert('아이디는 5~13자리입니다.');
 			return false;
 		}
@@ -117,7 +101,8 @@
 		    id: {
 		        required : true,
 		        minlength : 5,
-		        maxlength : 20
+		        maxlength : 10,
+		        regex: /^\w*(\d[A-z]|[A-z]\d)\w*$/
 		    },
 		    pw: {
 		        required : true,
@@ -137,23 +122,24 @@
         //규칙체크 실패시 출력될 메시지
        messages : {
            id: {
-               required : "필수로입력하세요",
-               minlength : "최소 {0}글자이상이어야 합니다",
-               maxlength : "최소 {0}글자이하이어야 합니다"
+               required : "must be filled",
+               minlength : "Make sure it's at least {0} characters",
+               maxlength : "Make sure it's at least {0} characters",
+               regex : "Make sure it's at least 5 characters OR at least 10 characters including a number and a lowercase letter"
            },
            pw: {
-               required : "필수로입력하세요",
-               minlength : "최소 {0}글자이상이어야 합니다",
-               maxlength : "최소 {0}글자이하이어야 합니다",
-               regex : "영문자, 숫자로 이루어져있으며 최소 하나이상 포함"
+               required : "must be filled",
+               minlength : "Make sure it's at least {0} characters",
+               maxlength : "Make sure it's at least {0} characters",
+               regex : "Make sure it's at least 8 characters OR at least 20 characters including a number and a lowercase letter"
            },
            pw2: {
-               required : "필수로입력하세요",
-               equalTo : "비밀번호가 일치하지 않습니다."
+               required : "must be filled",
+               equalTo : "Password does not match"
            },
            email: {
-               required : "필수로입력하세요",
-               email : "메일규칙에 어긋납니다"
+               required : "must be filled",
+               email : "Email is invalid"
            }
     		}
 		});
@@ -170,41 +156,48 @@
 </head>
 <body>
 	<form method="post" action="" id="signup">
-		<div class="container offset-4 col-4">
-			<h4 style="text-align: center;">회원가입</h4>
-			<div class="row">
-				<label class="col-4">아이디</label>
-				<input type="text"class="form-control col-7" placeholder="아이디" name="id">
-				<label id="id-error" class="offset-4 col-7 p-0 error" for="id" style="color:red"></label>
+		<div class="container col-4 shadow mt-4 py-3 clearfix">
+			<h4 class="text-center">Sign Up</h4>
+			<hr>
+			<div class="row border border-dark m-1">
+				<label class="col-4 small">ID</label>
+				<input type="text" class="col-7 border border-white" name="id">
 			</div>
-			<div>
-				<button type="button" class="btn btn-outline-success offset-4 col-7" id="dup">아이디 중복확인</button>
+				<label id="id-error" class="offset-4 col-7 p-0 small text-success error" for="id"></label>
+	<!-- 	<div>
+				<button type="button" class="offset-4 btn btn-outline-success btn-sm col-5" id="dup">Check ID Duplication</button>
+			</div> -->
+			<div class="row border border-dark m-1">
+				<label class="col-4 small">Password</label>
+				<input type="password"class="col-7 border border-white" name="pw" id="pw">
 			</div>
-			<div class="row">
-				<label class="col-4">비밀번호</label>
-				<input type="password"class="form-control col-7" placeholder="비밀번호" name="pw" id="pw">
+				<label id="pw-error" class="offset-4 col-7 p-0 small text-success error" for="pw"></label>
+			<div class="row border border-dark m-1">
+				<label class="col-4 small">Confirm Password</label>
+				<input type="password"class="col-7 border border-white" name="pw2">
 			</div>
-			<div class="row">
-				<label class="col-4">비밀번호확인</label>
-				<input type="password"class="form-control col-7" placeholder="비밀번호확인" name="pw2">
-			</div>
-			<div class="row">
-				<label class="col-4">성별</label>
+				<label id="pw2-error" class="offset-4 col-7 p-0 small text-success error" for="pw2"></label>
+			<div class="row border border-dark m-1">
+				<label class="col-4 small">Gender</label>
 				<div class="col-8">
-					<label class="form-check-label col-3">
-						<input type="radio" class="form-check-input" name="gender" value="M" checked>남성
+					<label class="small mr-4">
+						<input type="radio" class="" name="gender" value="M" checked>male
 					</label>
-					<label class="form-check-label">
-						<input type="radio" class="form-check-input" name="gender" value="F">여성
+					<label class="small">
+						<input type="radio" class="" name="gender" value="F">female
 					</label>
 				</div>
 			</div>
-			<div class="row">
-				<label class="col-4">이메일</label>
-				<input type="email"class="form-control col-7" placeholder="이메일" name="email">
+			<div class="row border border-dark m-1">
+				<label class="col-4 small">Email</label>
+				<input type="email" class="col-7 border border-white" name="email">
 			</div>
-			<div class="offset-8 col-3 clearfix p-0">
-				<button class="btn btn-primary float-right">가입</button>
+				<label id="email-error" class="offset-4 col-7 p-0 small text-success error" for="email"></label>
+			<div class="">
+				<button class="btn btn-outline-success btn-sm float-right">Join us</button>
+				<a href="<%=request.getContextPath()%>/">
+				<button type="button" class="btn btn-outline-success btn-sm float-right mr-1">home</button></a>
+			
 			</div>
 	</div>
 	</form>

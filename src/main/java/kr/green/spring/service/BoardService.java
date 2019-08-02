@@ -9,7 +9,6 @@ import org.springframework.stereotype.Service;
 import kr.green.spring.pagination.Criteria;
 import kr.green.spring.vo.BoardVO;
 
-@Service
 public interface BoardService {
 
 	ArrayList<BoardVO> getBoardList(Criteria cri);

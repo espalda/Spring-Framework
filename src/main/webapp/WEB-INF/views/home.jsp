@@ -19,15 +19,16 @@
 <body>
 	<jsp:include page="/WEB-INF/views/common/nav.jsp"></jsp:include>
 	<form method="post" action="<%=request.getContextPath()%>/signin">
-		<div class="container col-3 shadow py-3 clearfix">
-			<h4 style="text-align: center;">Login</h4>
-				<div class="row m-1" style="border: 1px solid #101010;">
-					<span class="small text-bottom col-3">ID</span>
-					<input type="text" class="ml-5" name="id" style="border:none">
+		<div class="container col-4 shadow mt-4 py-3 clearfix">
+			<h4 class="text-center">Login</h4>
+			<hr>
+				<div class="row border border-dark m-1">
+					<label class="col-4 small">ID</label>
+					<input type="text" class="col-7 border border-white" name="id">
 				</div>
-				<div class="row m-1" style="border: 1px solid #101010;">
-					<span class="small text-bottom col-3 ">Password</span>
-					<input type="password" class="ml-5" id="pw" name="pw" style="border:none">
+				<div class="row border border-dark m-1">
+					<label class="col-4 small">Password</label>
+					<input type="password" class="col-7 border border-white" id="pw" name="pw" style="border:none">
 				</div>
 				<div class="float-right mr-1">
 					<a href="<%=request.getContextPath()%>/password/find">
@@ -37,8 +38,6 @@
 				
 		</div>
 	</form>
-		
-	
 	
 </body>
 </html>
