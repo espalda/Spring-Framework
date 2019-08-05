@@ -2,7 +2,7 @@
 <!DOCTYPE mapper
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="kr.green.test.dao.MemberDao">
+<mapper namespace="kr.green.test.dao.MemberDAO">
   <select id="getMember" resultType="kr.green.test.vo.MemberVO">
     select id from member where id = #{id}
   </select>
