@@ -40,12 +40,10 @@ public class HomeController {
 		/** 회원가입 */
 		@RequestMapping(value = "/signup", method = RequestMethod.GET)
 		public String signupGet(Model model){
-			logger.info("회원가입 실행");
 			return "signup";
 	}
 		@RequestMapping(value = "/signup", method = RequestMethod.POST)
 		public String signupPost(MemberVO mVo){
-			logger.info("회원가입 진행 중");
 			if(memberService.signup(mVo))
 				return "redirect:/";
 			else
@@ -56,14 +54,12 @@ public class HomeController {
 		/** 로그인 */
 		@RequestMapping(value = "/signin", method = RequestMethod.GET)
 		public String signinGet(Model model){
-			logger.info("로그인 페이지 실행중");
 			return "signin";
 		}
 		
+		
 		@RequestMapping(value = "/signin", method = RequestMethod.POST)
 		public String signinPost(Model model, MemberVO mVo){
-			logger.info("로그인 페이지 진행중");
-			System.out.println(mVo);
 			MemberVO user = memberService.signin(mVo);
 			//입력받은 로그인 id와 pw가 같으면 메인 페이지 호출
 			//if(memberService.signin(mVo)) {
@@ -87,7 +83,6 @@ public class HomeController {
 		@RequestMapping(value ="/dup")
 		@ResponseBody
 		public Map<Object, Object> idcheck(@RequestBody String id){
-
 		    Map<Object, Object> map = new HashMap<Object, Object>();
 		    //변수 id에 저장된 아이디가 회원 아이디인지 아닌지 확인하여 isMember변수에 담아 보낸다.
 		    boolean isMember = memberService.isMember(id);
@@ -97,14 +92,12 @@ public class HomeController {
 		
 		@RequestMapping(value = "/mail/mailForm")
 		public String mailForm() {
-
 		    return "mail";
 		}  
 
 		/** mailSending 코드 */
 		@RequestMapping(value = "/mail/mailSending")
 		public String mailSending(HttpServletRequest request) {
-
 		    String tomail  = request.getParameter("tomail");     // 받는 사람 이메일
 		    String title   = request.getParameter("title");      // 제목
 		    String contents = request.getParameter("content");    // 내용
@@ -118,7 +111,6 @@ public class HomeController {
 		/** 비밀번호 찾기 */
 		@RequestMapping(value = "/password/find")
 		public String passwordFind() {
-
 		    return "member/find";
 		} 
 		
@@ -128,7 +120,6 @@ public class HomeController {
 		public Map<Object, Object> emailcheck(
 				@RequestBody String str){
 		    Map<Object, Object> map = new HashMap<Object, Object>();
-		    
 		    String [] arr = str.split("&");
 		    String id = arr[0];
 		    String email="";

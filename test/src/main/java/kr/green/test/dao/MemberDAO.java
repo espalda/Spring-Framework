@@ -7,5 +7,4 @@ public interface MemberDAO {
 	MemberVO getMember(String id);
 
 
-
 }

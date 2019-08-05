@@ -28,6 +28,6 @@
 		<property name="dataSource" ref="dataSource" />
 		<property name="mapperLocations" value="classpath:mappers/**/*Mapper.xml"></property>
 	</bean>
-	<mybatis-spring:scan base-package="kr.green.test.dao"/>
+	<mybatis-spring:scan base-package="kr.green.test.dao"/> 	<!-- controller 가 붙여 들어가면 안된다. -->
 
 </beans>
