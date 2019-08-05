@@ -25,8 +25,7 @@ public class MemberServiceImp implements MemberService{
 		@Override
 		public MemberVO signin(MemberVO loginInfo) {
 			MemberVO user = memberDao.getMember(loginInfo.getId());
-			if(user != null && 
-					passwordEncoder.matches(loginInfo.getPw(), user.getPw()))
+			if(user != null && passwordEncoder.matches(loginInfo.getPw(), user.getPw()))
 				return user;
 			return null;
 		}

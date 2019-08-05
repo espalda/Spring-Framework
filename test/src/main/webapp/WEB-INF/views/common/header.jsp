@@ -10,7 +10,7 @@
 	  	<div class="collapse navbar-collapse" id="collapsibleNavbar">
 	    	<ul class="navbar-nav">
 		      	<li class="nav-item">
-		        	<a class="nav-link" href="<%=request.getContextPath()%>/board/list>">게시판</a>
+		        	<a class="nav-link" href="<%=request.getContextPath()%>/board/list">게시판</a>
 		      	</li>
 		      	<li class="nav-item">
 		        	<a class="nav-link" href="#">Link</a>
@@ -21,7 +21,7 @@
 	    	</ul>
 		</div>
 		<c:if test="${user ne null }">
-		<a href="<%=request.getContextPath()%>/signout>" class="float-right">로그아웃</a>
+		<a href="<%=request.getContextPath()%>/signout" class="float-right">로그아웃</a>
 		</c:if>
 	</div> 
 </nav>

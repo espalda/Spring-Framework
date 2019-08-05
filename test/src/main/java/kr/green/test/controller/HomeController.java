@@ -20,12 +20,12 @@ public class HomeController {
 		@RequestMapping(value= "/", method=RequestMethod.GET)
 		public ModelAndView mainGet(ModelAndView mv) throws Exception{
 		    mv.setViewName("/main/home");
-		    mv.addObject("setHeader", "타일즈");
 		    return mv;
 		}
 		
 		@RequestMapping(value= "/", method=RequestMethod.POST)
 		public String mainPost(Model model, MemberVO loginInfo) throws Exception{
+			System.out.println("home loginInfo : " + loginInfo);
 			MemberVO user = memberService.signin(loginInfo);
 			model.addAttribute("user", user);
 		    return "redirect:/";
