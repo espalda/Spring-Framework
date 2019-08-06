@@ -26,27 +26,16 @@
   			<input type="text" class="form-control" name="writer" value="${board.writer }" readonly>
 		</div>
 		
-		<div class="form-group">
-  			<input type="text" class="form-control" name="views" value=${board.views } readonly>
-		</div>
-		
-		<div class="form-group">
-  			<input type="text" class="form-control" name="registered" value=${board.registered } readonly>
-		</div>
-		
 		<div class="contents">
 			${board.contents}
 		</div>
-		
-		<div class="form-group">
-  			<input type="file" class="form-control" name="file" value=${board.file }>
-		</div>
+	
 		
 		<a href="<%=request.getContextPath()%>/board/list?&page=${cri.page}&type=${cri.type}&search=${cri.search}">
 		<button class="btn btn-outline-dark btn-sm">목록</button></a>
-		<c:if test="${user.id eq board.writer }"><!-- 내가 작성자일 때 -->
-		<a href="<%=request.getContextPath()%>/board/modify?num=${board.num }&page=${cri.page}&type=${cri.type}&search=${cri.search}">
-		<button class="btn btn-outline-dark btn-sm">수정</button></a>
+		<c:if test="${user.id eq board.writer }"><!-- 내가 작성자일 때만 수정, 삭제 권한 부여 -->
+		<a href="<%=request.getContextPath()%>/board/modify?num=${board.num }&page=${cri.page}&type=${cri.type}&search=${cri.search}"><button class="btn btn-outline-dark btn-sm">수정</button></a>
+		<a href="<%=request.getContextPath()%>/board/delete?num=${board.num }"><button class="btn btn-outline-dark btn-sm">삭제</button></a>
 		</c:if>
 	</div>
 		

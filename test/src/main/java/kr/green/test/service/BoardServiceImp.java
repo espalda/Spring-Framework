@@ -57,4 +57,21 @@ public class BoardServiceImp implements BoardService{
 			return false;
 		}
 
+		@Override
+		public void deleteBoard(Integer num) {
+			BoardVO board = boardDao.selectBoard(num);
+			if(board == null) return;	//번호가 없으면 아무것도 가져오지 말아라
+			board.setValid("D");
+			boardDao.updateBoard(board);
+			
+		}
+
+		@Override
+		public BoardVO increaseViews(BoardVO board) {
+			int views = board.getViews();
+			board.setViews(views+1);
+			boardDao.updateBoard(board);
+			return board;
+		}
+
 }

@@ -20,4 +20,8 @@ public interface BoardService {
 	public void modifyBoard(BoardVO bVo);
 
 	public boolean isWriter(Integer num, HttpServletRequest r);
+
+	public void deleteBoard(Integer num);
+
+	public BoardVO increaseViews(BoardVO board);
 }
