@@ -23,9 +23,18 @@ public class BoardVO {
 	public String getContents() {
 		return contents;
 	}
+	
+	
+	
 	public String getFile() {
 		return file;
 	}
+	public String getFileName() {
+		int index = file.indexOf("_");
+		return file.substring(index + 1);
+	}
+	
+	
 	public String getWriter() {
 		return writer;
 	}
