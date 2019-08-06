@@ -25,12 +25,11 @@ public class BoardController {
 		@RequestMapping(value= "/board/list", method=RequestMethod.GET)
 		public ModelAndView boardListGet(ModelAndView mv, Criteria cri) throws Exception{
 			String valid = "I";
-			int displayPageNum = 10;
+			int displayPageNum = 5;
+			cri.setPerPageNum(5);
 			ArrayList<BoardVO> list = boardService.getBoardList(cri,valid);
 			int totalCount = boardService.getTotalCount(cri,valid);
 			PageMaker pm = pageMakerService.getPageMaker(displayPageNum, cri, totalCount);
-			System.out.println(totalCount);
-			System.out.println(pm);
 		    mv.setViewName("/board/list");
 			mv.addObject("list", list);
 			mv.addObject("pageMaker", pm);

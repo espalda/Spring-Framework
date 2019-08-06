@@ -11,10 +11,25 @@
     	</when>
     	<otherwise>valid = 'I' or valid = 'D'</otherwise>
     </choose>
-    <!-- if 문은 else if 와 if 를 처리할수 없기 때문에 choose를 사용 
-    otherwise가 else에 해당 -->
+    <choose>
+    	<when test="cri.type == 1">
+    		and title like concat('%',#{cri.search},'%')
+    	</when>
+    	<when test="cri.type == 2">
+    		and writer like concat('%',#{cri.search},'%')
+    	</when>
+    	<when test="cri.type == 3">
+    		and contents like concat('%',#{cri.search},'%')
+    	</when>
+    	<otherwise>
+    		and (title like concat('%',#{cri.search},'%') or 
+    		writer like concat('%',#{cri.search},'%') or 
+    		contents like concat('%',#{cri.search},'%'))
+    	</otherwise>
+    </choose>
     order by num desc limit ${cri.pageStart}, ${cri.perPageNum}
   </select>
+  <!-- if 문은 else if 와 if 를 처리할수 없기 때문에 choose를 사용 otherwise가 else에 해당 -->
   
   <select id="selectCountBoardList" resultType="int">
     select count(*) from board where
@@ -24,5 +39,22 @@
     	</when>
     	<otherwise>valid = 'I' or valid = 'D'</otherwise>
     </choose>
+     <choose>
+    	<when test="cri.type == 1">
+    		and title like concat('%',#{cri.search},'%')
+    	</when>
+    	<when test="cri.type == 2">
+    		and writer like concat('%',#{cri.search},'%')
+    	</when>
+    	<when test="cri.type == 3">
+    		and contents like concat('%',#{cri.search},'%')
+    	</when>
+    	<otherwise>
+    		and (title like concat('%',#{cri.search},'%') or 
+    		writer like concat('%',#{cri.search},'%') or 
+    		contents like concat('%',#{cri.search},'%'))
+    	</otherwise>
+    </choose>
+    
   </select>
 </mapper>

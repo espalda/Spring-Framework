@@ -5,9 +5,34 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+<style>
+	.page-item .fas{
+	 font-size: 20px;
+	 color: gray;
+	}
+</style>
 </head>
 <body>
-	<div>
+	<div style="min-height:561px;">
+	<form action="<%=request.getContextPath()%>/board/list" method="get">
+	<div class="row my-2">
+	<div class="form-group col-1 mb-0 p-0">
+	 <select class="form-control" name="type">
+	    <option value="0" <c:if test="${pageMaker.criteria.type == 0}">selected</c:if> > 선택 </option>
+	    <option value="1" <c:if test="${pageMaker.criteria.type == 1}">selected</c:if> > 제목 </option>
+	    <option value="2" <c:if test="${pageMaker.criteria.type == 2}">selected</c:if> > 작성자 </option>
+	    <option value="3" <c:if test="${pageMaker.criteria.type == 3}">selected</c:if> > 내용 </option>
+	  </select>
+	</div>
+	<div class="form-group col-3 mb-0 px-1">
+  		<input type="text" class="form-control" name="search" value="${pageMaker.criteria.search }">
+	</div>
+		<button type="submit" class="btn btn-outline-dark">검색</button>
+	
+	</div>
+	</form>
+		
 		<div class="container">        
 		  <table class="table table-hover">
 		    <thead>
@@ -38,8 +63,35 @@
 		     </c:if>
 		    </tbody>
 		  </table>
-		</div>
-				
-	</div>
+		  
+	<ul class="pagination" style="justify-content: center;">
+    	<c:if test="${pageMaker.prev}">
+        <li class="page-item">
+            <a class="page-link" href="<%=request.getContextPath()%>/board/list?page=${pageMaker.startPage-1}&type=${pageMaker.criteria.type}&search=${pageMaker.criteria.search}"><i class="fas fa-chevron-left"></i></a>
+        </li>
+    </c:if>
+    <c:forEach begin="${pageMaker.startPage }" end="${pageMaker.endPage}" var="index">
+   	 <c:choose>
+   	 <c:when test="${pageMaker.criteria.page != index }">
+        	<li class="page-item">
+            <a class="page-link" href="<%=request.getContextPath()%>/board/list?page=${index}&type=${pageMaker.criteria.type}&search=${pageMaker.criteria.search}">${index}</a>
+        	</li>
+        </c:when>
+        <c:otherwise>
+        	 <li class="page-item active">
+            <a class="page-link" href="<%=request.getContextPath()%>/board/list?page=${index}&type=${pageMaker.criteria.type}&search=${pageMaker.criteria.search}">${index}</a>
+        	 </li>
+        </c:otherwise>
+       </c:choose>
+    </c:forEach>
+    <c:if test="${pageMaker.next}">
+        <li class="page-item">
+            <a class="page-link" href="<%=request.getContextPath()%>/board/list?page=${pageMaker.endPage+1}&type=${pageMaker.criteria.type}&search=${pageMaker.criteria.search}"><i class="fas fa-chevron-right"></i></a>
+        </li>
+		</c:if>
+	</ul>
+		  
+	</div>			
+</div>
 </body>
 </html>

@@ -26,6 +26,8 @@ public class Criteria {
 	public Criteria() {
 		this.page = 1;
 		this.perPageNum = 10;
+		this.search = "";	//생성자 지정을 하지 않으면 null값이 들어가므로 생성자 설정 필수
+		this.type = "0";
 	}
 	//getter and setter
 	public int getPage() {

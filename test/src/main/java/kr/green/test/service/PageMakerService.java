@@ -7,7 +7,5 @@ import kr.green.test.pagination.PageMaker;
 public interface PageMakerService {
 
 	PageMaker getPageMaker(int displayPageNum, Criteria cri, int totalCount);
-	
-	
-	
+
 }
