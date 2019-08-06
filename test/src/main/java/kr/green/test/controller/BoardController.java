@@ -62,8 +62,10 @@ public class BoardController {
 		
 		@RequestMapping(value= "/board/register", method=RequestMethod.POST)
 		public String boardRegisterPost(BoardVO bVo, MultipartFile file2) throws IOException, Exception{
-			String file = UploadFileUtils.uploadFile(uploadPath, file2.getOriginalFilename(),file2.getBytes());
-			bVo.setFile(file);
+			if(file2.getOriginalFilename().length() != 0) {
+				String file = UploadFileUtils.uploadFile(uploadPath, file2.getOriginalFilename(),file2.getBytes());
+				bVo.setFile(file);
+			}
 			boardService.registerBoard(bVo);
 		    return "redirect:/board/list";
 		}

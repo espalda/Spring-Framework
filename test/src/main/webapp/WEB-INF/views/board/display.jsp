@@ -32,7 +32,12 @@
 		
 		<div class="col-2">
 			<label>첨부파일</label>
+			<c:if test="${board.fileName ne '' }">
 			<a href="<%=request.getContextPath()%>/board/download?filename=${board.file}">${board.fileName }</a>
+			</c:if>
+			<c:if test="${board.fileName eq '' }">
+			없음
+			</c:if>
 		</div>
 		
 		<a href="<%=request.getContextPath()%>/board/list?&page=${cri.page}&type=${cri.type}&search=${cri.search}">

@@ -8,6 +8,7 @@ import java.util.UUID;
 import org.springframework.util.FileCopyUtils;
 
 public class UploadFileUtils {
+	
 	public static String uploadFile(String uploadPath, String originalName, byte[] 	
 			fileData)throws Exception{
 		/** 고유 식별자를 통해 같은 파일명이어도 다르게 저장되도록 하는 UUID 생성 */
