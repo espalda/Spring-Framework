@@ -5,7 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+
 <style>
 	.page-item .fas{
 	 font-size: 20px;
@@ -28,7 +28,7 @@
 	<div class="form-group col-3 mb-0 px-1">
   		<input type="text" class="form-control" name="search" value="${pageMaker.criteria.search }">
 	</div>
-		<button type="submit" class="btn btn-outline-dark">검색</button>
+		<button type="submit" class="btn btn-outline-dark btn-sm">검색</button>
 	
 	</div>
 	</form>
@@ -49,7 +49,7 @@
 		    <c:forEach items="${list }" var="board">
 		      <tr>
 		        <td>${board.num }</td>
-		        <td><a href="<%=request.getContextPath()%>/display/list?=${board.num}"> ${board.title } </a></td>
+		        <td><a href="<%=request.getContextPath()%>/board/display?num=${board.num}&page=${pageMaker.criteria.page}&type=${pageMaker.criteria.type}&search=${pageMaker.criteria.search}"> ${board.title } </a></td>
 		        <td>${board.writer }</td>
 		        <td>${board.registered }</td>
 		        <td>${board.views }</td>
@@ -90,6 +90,11 @@
         </li>
 		</c:if>
 	</ul>
+		  <c:if test="${user ne null }">		
+		  <div>
+		  	<a href="<%=request.getContextPath()%>/board/register"><button class="btn btn-outline-dark btn-sm">등록</button></a>
+		  </div>
+		  </c:if>
 		  
 	</div>			
 </div>

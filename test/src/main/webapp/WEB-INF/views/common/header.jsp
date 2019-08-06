@@ -3,7 +3,7 @@
     pageEncoding="UTF-8"%>
 <nav class="navbar navbar-expand-md bg-dark navbar-dark">
 	<div class="container">
-	  	<a class="navbar-brand" href="#">Navbar</a>
+	  	<a class="navbar-brand" href="<%=request.getContextPath()%>/">홈</a>
 	  	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
 	    	<span class="navbar-toggler-icon"></span>
 	  	</button>
@@ -21,7 +21,7 @@
 	    	</ul>
 		</div>
 		<c:if test="${user ne null }">
-		<a href="<%=request.getContextPath()%>/signout" class="float-right">로그아웃</a>
+		<a href="<%=request.getContextPath()%>/signout" class="float-right text-decoration-none">로그아웃</a>
 		</c:if>
 	</div> 
 </nav>

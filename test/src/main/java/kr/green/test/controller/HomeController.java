@@ -25,7 +25,6 @@ public class HomeController {
 		
 		@RequestMapping(value= "/", method=RequestMethod.POST)
 		public String mainPost(Model model, MemberVO loginInfo) throws Exception{
-			System.out.println("home loginInfo : " + loginInfo);
 			MemberVO user = memberService.signin(loginInfo);
 			model.addAttribute("user", user);
 		    return "redirect:/";
