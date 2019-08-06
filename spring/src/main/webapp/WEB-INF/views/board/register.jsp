@@ -30,7 +30,7 @@
 		</div>
 		<div class="form-group col-8">
 		  <label>내용</label>
-		  <textarea rows="10" class="form-control" name="contents">${board.contents}</textarea>
+		  <textarea rows="10" class="form-control" name="contents"></textarea>
 		</div>
 		<div class="form-group col-8">
 		  <label>첨부파일</label>

@@ -11,9 +11,9 @@
 	<div style="min-height:561px;">
 	<h4 class="my-3">게시글 수정</h4>
 	<form action="<%=request.getContextPath()%>/board/modify" method="post">
-		<input type="hidden" name="num" value=${board.num }>
+		<input type="hidden" name="num" value="${board.num }">
 		<div class="form-group">
-  			<input type="text" class="form-control" name="title" value=${board.title }>
+  			<input type="text" class="form-control" name="title" value="${board.title }">
 		</div>
 		<div class="form-group">
   			<input type="text" class="form-control" name="writer" value="${board.writer }" readonly>

@@ -7,23 +7,23 @@ import kr.green.spring.vo.BoardVO;
 
 public interface BoardDAO {
 
-	ArrayList<BoardVO> getBoardList(Criteria cri);
+	public ArrayList<BoardVO> getBoardList(Criteria cri);
 	
-	ArrayList<BoardVO> getBoardListAll(Criteria cri);
+	public ArrayList<BoardVO> getBoardListAll(Criteria cri);
 
-	BoardVO getBoard(Integer num);
+	public BoardVO getBoard(Integer num);
 
-	void updateBoardDB(BoardVO tmp);
+	public void updateBoardDB(BoardVO tmp);
 
-	void insertBoardDB(BoardVO bVo);
+	public void insertBoardDB(BoardVO bVo);
 
-	void deleteBoardDB(Integer num);
+	public void deleteBoardDB(Integer num);
 
-	int getTotalCountDB(Criteria cri);
+	public int getTotalCountDB(Criteria cri);
 	
-	int getTotalCountAll(Criteria cri);
+	public int getTotalCountAll(Criteria cri);
 
-	void adminUpdateBoard(BoardVO bVo);
+	public void adminUpdateBoard(BoardVO bVo);
 
 
 	

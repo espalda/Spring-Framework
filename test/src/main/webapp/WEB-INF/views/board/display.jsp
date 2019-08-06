@@ -19,7 +19,7 @@
 	<div style="min-height:561px;">
 	<h4 class="my-3">게시글 내용</h4>
 		<div class="form-group">
-  			<input type="text" class="form-control" name="title" value=${board.title } readonly>
+  			<input type="text" class="form-control" name="title" value="${board.title }" readonly>
 		</div>
 		
 		<div class="form-group">
