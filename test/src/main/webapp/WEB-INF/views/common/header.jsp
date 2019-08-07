@@ -13,7 +13,7 @@
 		        	<a class="nav-link" href="<%=request.getContextPath()%>/board/list">게시판</a>
 		      	</li>
 		      	<li class="nav-item">
-		        	<a class="nav-link" href="<%=request.getContextPath()%>/signup">회원가입</a>
+		        	<a class="nav-link" href="#">Link</a>
 		      	</li>
 		      	<li class="nav-item">
 		        	<a class="nav-link" href="#">Link</a>
@@ -22,6 +22,9 @@
 		</div>
 		<c:if test="${user ne null }">
 		<a href="<%=request.getContextPath()%>/signout" class="float-right text-decoration-none">로그아웃</a>
+		</c:if>
+		<c:if test="${user eq null }">
+		<a href="<%=request.getContextPath()%>/signup" class="float-right text-decoration-none">회원가입</a>
 		</c:if>
 	</div> 
 </nav>
