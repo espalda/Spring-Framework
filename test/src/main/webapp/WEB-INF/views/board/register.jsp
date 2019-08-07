@@ -20,7 +20,7 @@
 		<textarea id="summernote" name="contents"></textarea>
 		<input type="file" class="form-control-file border" name="file2">
 		
-		<button type="submit" class="bnt bnt-outline-dark btn-sm">등록</button>
+		<button type="submit" class="btn btn-outline-dark btn-sm">등록</button>
 	</form>
 	</div>
 	
