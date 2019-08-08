@@ -90,6 +90,7 @@ public class HomeController {
 		    return map;
 		}
 		
+		
 		@RequestMapping(value = "/mail/mailForm")
 		public String mailForm() {
 		    return "mail";

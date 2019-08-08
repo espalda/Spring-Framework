@@ -5,6 +5,7 @@
 <mapper namespace="kr.green.test.dao.BoardDAO">
   <select id="selectBoardList" resultType="kr.green.test.vo.BoardVO">
     select * from board where
+    <!-- if 문은 else if 와 if 를 처리할수 없기 때문에 choose를 사용 otherwise가 else에 해당 -->
     <choose>
     	<when test='valid.equals("I") || valid.equals("D")'>
     	valid = #{valid}
@@ -29,7 +30,7 @@
     </choose>
     order by num desc limit ${cri.pageStart}, ${cri.perPageNum}
   </select>
-  <!-- if 문은 else if 와 if 를 처리할수 없기 때문에 choose를 사용 otherwise가 else에 해당 -->
+ 
   
   <select id="selectCountBoardList" resultType="int">
     select count(*) from board where
