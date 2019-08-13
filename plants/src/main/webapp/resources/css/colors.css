@@ -1,0 +1,77 @@
+@charset "EUC-KR";
+
+/*-----------------------------------------------------------------*/
+/* 1. font
+/*-----------------------------------------------------------------*/
+	.font-black{
+	font-size: 11px;
+	text-align: center;
+	}
+	
+	.font-gray{
+	color: #7f7f7f;
+	font-size: 11px;
+	letter-spacing: 3px;
+	}
+	
+	.font-tree{
+	color: #123132;
+	font-size: 11px;
+	}
+	
+	.font-raw{
+	color: #b97f6d;
+	font-size: 11px;
+	}
+
+/*-----------------------------------------------------------------*/
+/* 2. input
+/*-----------------------------------------------------------------*/
+	.sign-input{
+	border:none;
+	border-bottom: 1px solid #7f7f7f;
+	outline: none;
+	width: 320px;
+	margin: 0 auto;
+	display: block;
+	padding-bottom: 10px;
+	}
+	
+	.sign-input:focus {
+  	outline: none;
+	}
+	
+	.sign-input::placeholder {
+	font-size: 11px;
+	color: #123132;
+	text-align: center;
+	}
+	
+/*-----------------------------------------------------------------*/
+/* 3. button
+/*-----------------------------------------------------------------*/
+	.btn-tree{
+	display: block;
+	margin: 0 auto;
+	color: white;
+	background-color: #123132;
+	border: none;
+	border-radius: 5px;
+	width: 350px;
+	height: 28px;
+	font-size: 10px;
+	word-spacing: 3px;
+	}
+
+	.btn-raw{
+	display: block;
+	margin: 0 auto;
+	color:white;
+	background-color: #b97f6d;
+	border: none;
+	border-radius: 5px;
+	width: 350px;
+	height: 28px;
+	font-size: 10px;
+	word-spacing: 2px;
+	}

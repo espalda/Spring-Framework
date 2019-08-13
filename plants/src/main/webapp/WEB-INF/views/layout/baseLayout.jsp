@@ -4,14 +4,25 @@
  
 <html>
 <head>
-<title>spring-test</title>
+<title>plants</title>
 <jsp:include page="/WEB-INF/views/include/script.jsp"></jsp:include>
+	<style>
+		.gray{
+		background-color: #ededed;
+		}
+		.white{
+		background-color: #ffffff;
+		width: 90% !important;
+		}
+	</style>
 </head>
 <body>
     <tiles:insertAttribute name="header"/>
-    <div class="container">        
-        <tiles:insertAttribute name="body" />
-    </div>                                                  
+    <div class="gray h-100">
+    	<div class="white mx-auto h-100">      
+       	<tiles:insertAttribute name="body" />
+       </div>
+    </div>                                        
     <tiles:insertAttribute name="footer" />
 </body>
 </html>
