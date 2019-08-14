@@ -20,7 +20,9 @@
 				<label id="pw-error" for="pw"></label>
 				
 			<div class="font-gray text-right mr-5 pr-4">
-				Find ID / PASSWORD
+				<a class="a-gray" href="<%=request.getContextPath()%>/idFind">Find ID</a>
+				 / 
+				<a class="a-gray" href="<%=request.getContextPath()%>/pwFind">PASSWORD</a>
 			</div>
 				
 			<div class="m-3">
@@ -28,7 +30,7 @@
 			</div>
 			
 			<div class="font-black">
-				회원가입을 하시려면 여기를 클릭하세요.
+				<a class="a-black" href="<%=request.getContextPath()%>/signup">회원가입을 하시려면 여기를 클릭하세요.</a>
 			</div>
 		</div>
 	</form>

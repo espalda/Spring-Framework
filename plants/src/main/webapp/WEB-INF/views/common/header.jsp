@@ -4,8 +4,6 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>header</title>
 	<style>
 	
 	.top-nav a{
@@ -18,15 +16,16 @@
 	color: #b97f6d;
 	}
 	
-	 .top-header{
-	 border: 1px solid #7f7f7f;
-	 background-color:#ededed;
-	 font-size: 10px;
-	 height: 25px;
+	.top-header{
+	border: 1px solid #7f7f7f;
+	background-color:#ededed;
+	font-size: 10px;
+	height: 25px;
 	}
 	
 	.second-nav a{
 	color: #123132;
+	font-size: 15px;
 	letter-spacing: 3px;
 	}
 	
@@ -61,6 +60,9 @@
 		    <a class="nav-link" href="#">BASKET</a>
 		  </li>
 		  <li class="nav-item">
+		    <a class="nav-link" href="<%=request.getContextPath()%>/member/display">MYPAGE</a>
+		  </li>
+		  <li class="nav-item">
 		    <a class="nav-link" href="<%=request.getContextPath()%>/signup">SIGNUP</a>
 		  </li>
 		  <li class="nav-item">
@@ -82,19 +84,24 @@
 		<li class="nav-item">
 		  <a class="nav-link" href="<%=request.getContextPath()%>/">Home</a>
 		</li>
-		|
+
 		<li class="nav-item">
 		  <a class="nav-link" href="#">New</a>
 		</li>
-		|
+
 		<li class="nav-item">
-		  <a class="nav-link" href="#">Shop</a>
+		  <a class="nav-link" data-toggle="dropdown" href="#">Shop</a>
+	<div class="dropdown-menu">
+    <a class="dropdown-item" href="#">Link 1</a>
+    <a class="dropdown-item" href="#">Link 2</a>
+    <a class="dropdown-item" href="#">Link 3</a>
+  </div>
 		</li>
-		 |
+
 		<li class="nav-item">
 		  <a class="nav-link" href="#">Event</a>
 		</li>
-		|
+
 		<li class="nav-item">
 		  <a class="nav-link" href="#">Board</a>
 		</li>

@@ -23,7 +23,7 @@
 				<button class="btn-raw">F I N D  I D</button>
 			</div>
 			
-			<div class="border" style="color:#b97f6d">
+			<div class="find">
 				가입 시 입력하신 아이디는 ${member.id} 입니다.
 			</div>
 		</div>

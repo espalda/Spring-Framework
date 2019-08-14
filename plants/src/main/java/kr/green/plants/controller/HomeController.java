@@ -14,23 +14,33 @@ public class HomeController {
 		@RequestMapping(value="/")
 		public ModelAndView openTilesView(ModelAndView mv){
 		    mv.setViewName("/main/home");
-		    mv.addObject("setHeader", "타일즈");
 		    return mv;
 		}
 		
 		@RequestMapping(value="/signup")
 		public ModelAndView openTilesView2(ModelAndView mv){
 		    mv.setViewName("/sign/signup");
-		    mv.addObject("setHeader", "타일즈");
 		    return mv;
 		}
 		
 		@RequestMapping(value="/signin")
 		public ModelAndView openTilesView3(ModelAndView mv){
 		    mv.setViewName("/sign/signin");
-		    mv.addObject("setHeader", "타일즈");
 		    return mv;
 		}
+		
+		@RequestMapping(value="/idFind")
+		public ModelAndView openTilesView4(ModelAndView mv){
+		    mv.setViewName("/sign/idFind");
+		    return mv;
+		}
+	
+		@RequestMapping(value="/pwFind")
+		public ModelAndView openTilesView5(ModelAndView mv){
+		    mv.setViewName("/sign/pwFind");
+		    return mv;
+		}
+	
 	
 		
 		
