@@ -1,5 +1,8 @@
 @charset "EUC-KR";
 
+	body{
+	font-size: 11px;
+	}
 
 	a, a:hover{
 	text-decoration: none;
@@ -11,23 +14,19 @@
 /*-----------------------------------------------------------------*/
 	.font-black{
 	color: #000000;
-	font-size: 11px;
 	text-align: center;
 	}
 	
 	.font-gray{
 	color: #7f7f7f;
-	font-size: 11px;
 	}
 	
 	.font-tree{
 	color: #123132;
-	font-size: 11px;
 	}
 	
 	.font-raw{
 	color: #b97f6d;
-	font-size: 11px;
 	}
 
 	.border-raw{
@@ -47,7 +46,6 @@
 	}
 	
 	.sign-input::placeholder {
-	font-size: 11px;
 	color: #123132;
 	text-align: center;
 	}
@@ -101,7 +99,6 @@
 	width: 320px;
 	height: 50px;
 	line-height: 48px;
-	font-size: 11px;
 	text-align: center;
 	color: black;
 	margin: 0 auto;
@@ -109,13 +106,21 @@
 	
 	.a-gray, .a-gray:hover{
 	color: #7f7f7f;
-	font-size: 11px;
 	letter-spacing: 3px;
 	text-decoration: none;
 	}
 	
 	.a-black, .a-black:hover{
 	color: #000000;
-	font-size: 11px;
 	text-decoration: none;
 	}
+	
+/*-----------------------------------------------------------------*/
+/* 4. member
+/*-----------------------------------------------------------------*/
+	.member-line{
+	 color: #b97f6d;    /* IE */
+    border-color: #b97f6d;  /* 사파리 */
+    background-color: #b97f6d;   /* 크롬, 모질라 등, 기타 브라우저 */
+	 width: 90%;
+	 }

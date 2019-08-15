@@ -6,7 +6,7 @@
 </head>
 <body class="text-center">
 	<div class="py-3">
-		<p>M Y B O A R D</p>
+		<p>M Y A D D R E S S</p>
 			<hr class="member-line">
 	</div>
 </body>

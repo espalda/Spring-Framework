@@ -13,10 +13,17 @@ public class MemberController {
 	private static final Logger logger = LoggerFactory.getLogger(MemberController.class);
 	
 		@RequestMapping(value="/display")
-		public ModelAndView openTilesView1(ModelAndView mv){
+		public ModelAndView openTilesView0(ModelAndView mv){
 		    mv.setViewName("/member/display");
 		    return mv;
 		}
+		
+		@RequestMapping(value="/modify")
+		public ModelAndView openTilesView1(ModelAndView mv){
+		    mv.setViewName("/member/modify");
+		    return mv;
+		}
+		
 		
 		@RequestMapping(value="/order")
 		public ModelAndView openTilesView2(ModelAndView mv){

@@ -4,16 +4,6 @@
 <html>
 <head>
 <style>
-	body{
-	font-size: 11px;
-	}
-	
-	.line{
-	 color: #b97f6d;    /* IE */
-    border-color: #b97f6d;  /* 사파리 */
-    background-color: #b97f6d;   /* 크롬, 모질라 등, 기타 브라우저 */
-	 width: 90%;
-	 }
 	
 	ul{
 	 list-style:none;
@@ -46,8 +36,6 @@
 
 	}
 	
-
-	
 	.label-a, .label-a:hover{
 	display: list-item;
 	margin : 0 auto;
@@ -55,19 +43,25 @@
 	color: black;
 	}
 
+	.top label{
+	display:inline-block;
+	text-align: left;
+	width: 100px;
+	margin: 0 auto;
+	}
 </style>
 </head>
 <body class="text-center">
 	<div class="py-3">
 		<p>M Y  P A G E</p>
-			<hr class="line">
+			<hr class="member-line">
 		<div class="mb-3">
 			<ul class="top">
 				<li>adorable 님은 환영합니다.</li>
-				<li><span>등급 : </span>		<a class="a-black" href="<%=request.getContextPath()%>/#">[ 환영 ]</a></li>
-				<li><span>총적립금 : </span>	3050 원<button class="btn-1">조회</button></li>
-				<li><span>총주문 : </span>		52900원</li>
-				<li><span>쿠폰 : </span>		3개<button class="btn-1">조회</button></li>
+				<li><label>등급 : </label>		<label><a class="a-black" href="<%=request.getContextPath()%>/#">[ 환영 ]</a></label></li>
+				<li><label>총적립금 : </label>	<label>3050 원<button class="btn-1">조회</button></label></li>
+				<li><label>총주문 : </label>		<label>52900원</label></li>
+				<li><label>쿠폰 : </label>		<label>3개<button class="btn-1">조회</button></label></li>
 			</ul>
 		</div>
 		

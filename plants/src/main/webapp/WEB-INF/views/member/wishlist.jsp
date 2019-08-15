@@ -4,10 +4,10 @@
 <html>
 <head>
 </head>
-<body>
+<body class="text-center">
 	<div class="py-3">
-		<p>M Y  P A G E</p>
-			<hr class="line">
+		<p>M Y  W I S H L I S T</p>
+			<hr class="member-line">
 	</div>
 </body>
 </html>

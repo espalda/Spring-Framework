@@ -4,6 +4,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+<link rel="shortcut icon" href="<%=request.getContextPath()%>/resources/img/favicon.ico">
 	<style>
 	
 	.top-nav a{
