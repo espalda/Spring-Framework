@@ -3,6 +3,15 @@
 
 <html>
 <head>
+<style>
+	.carousel-item{
+	padding: 0 150px;
+	}
+	
+	.carousel-control-prev-icon, .carousel-control-next-icon{
+	background-color: gray;
+	}
+</style>
 </head>
 <body>
 	<div id="demo" class="carousel slide" data-ride="carousel">
@@ -17,13 +26,13 @@
 	  <!-- The slideshow -->
 	  <div class="carousel-inner">
 	    <div class="carousel-item active">
-	      <img src="la.jpg" alt="Los Angeles" width="1100" height="500">
+	      <img src="<%=request.getContextPath()%>/resources/img/garlic-1.jpg" alt="Los Angeles" width="100%" height="300">
 	    </div>
 	    <div class="carousel-item">
-	      <img src="chicago.jpg" alt="Chicago" width="1100" height="500">
+	      <img src="<%=request.getContextPath()%>/resources/img/garlic-2.jpg" alt="Chicago" width="100%" height="300">
 	    </div>
 	    <div class="carousel-item">
-	      <img src="ny.jpg" alt="New York" width="1100" height="500">
+	      <img src="<%=request.getContextPath()%>/resources/img/garlic-3.jpg" alt="New York" width="100%" height="300">
 	    </div>
 	  </div>
 	  
@@ -35,5 +44,6 @@
 	    <span class="carousel-control-next-icon"></span>
 	  </a>
 	</div>
+	
 </body>
 </html>

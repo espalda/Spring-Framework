@@ -52,13 +52,13 @@
 	<div class="top-nav">
 		<ul class="nav top-header clearfix border-bottom-0 d-block" >
 		  <li class="nav-item mr-5">
-		    <a class="nav-link" href="#">HELP</a>
+		    <a class="nav-link" href="<%=request.getContextPath()%>/help">HELP</a>
 		  </li>
 		  <li class="nav-item">
-		    <a class="nav-link" href="#">ORDER</a>
+		    <a class="nav-link" href="<%=request.getContextPath()%>/order/list">ORDER</a>
 		  </li>
 		  <li class="nav-item">
-		    <a class="nav-link" href="#">BASKET</a>
+		    <a class="nav-link" href="<%=request.getContextPath()%>/basket">BASKET</a>
 		  </li>
 		  <li class="nav-item">
 		    <a class="nav-link" href="<%=request.getContextPath()%>/member/display">MYPAGE</a>
@@ -87,24 +87,26 @@
 		</li>
 
 		<li class="nav-item">
-		  <a class="nav-link" href="#">New</a>
+		  <a class="nav-link" href="<%=request.getContextPath()%>/item/new">New</a>
 		</li>
 
 		<li class="nav-item">
-		  <a class="nav-link" data-toggle="dropdown" href="#">Shop</a>
+		  <a class="nav-link" data-toggle="dropdown" href="<%=request.getContextPath()%>/item/list">Shop</a>
 	<div class="dropdown-menu">
-    <a class="dropdown-item" href="#">Link 1</a>
-    <a class="dropdown-item" href="#">Link 2</a>
-    <a class="dropdown-item" href="#">Link 3</a>
+    <a class="dropdown-item" href="<%=request.getContextPath()%>/item/display">Succulents</a>
+    <a class="dropdown-item" href="<%=request.getContextPath()%>/item/display">Cactus</a>
+    <a class="dropdown-item" href="<%=request.getContextPath()%>/item/display">Plant</a>
+    <a class="dropdown-item" href="<%=request.getContextPath()%>/item/display">Hanging plant</a>
+    <a class="dropdown-item" href="<%=request.getContextPath()%>/item/display">Goods</a>
   </div>
 		</li>
 
 		<li class="nav-item">
-		  <a class="nav-link" href="#">Event</a>
-		</li>
+		  <a class="nav-link" href="<%=request.getContextPath()%>/item/envent">Event</a>
+		</li> 
 
 		<li class="nav-item">
-		  <a class="nav-link" href="#">Board</a>
+		  <a class="nav-link" href="<%=request.getContextPath()%>/board/list">Board</a>
 		</li>
 	</ul>
 	</div>

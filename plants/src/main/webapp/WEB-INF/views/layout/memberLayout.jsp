@@ -16,21 +16,14 @@
 	width: 90% !important;
 	}
 	
-	.member-main{
-	width: 600px;
-	height: 75%;
-	padding: 10px 0;
-	}
-	
 	.main-box{
-	height: 100%;
 	border: 1px solid #b97f6d;
 	box-sizing: border-box;
 	}
 	
 	.box{
+	width: 950px;
 	margin: 0 auto;
-	width: 800px;
 	}
 	
 	.member-menu {
@@ -70,7 +63,7 @@
 	}
 
 	.member-main{
-	width: 600px;
+	width: 750px;
 	height: 75%;
 	padding: 10px 0;
 	}
@@ -90,12 +83,12 @@
     	<div class="white mx-auto h-100">
     		<div class="box clearfix">
 				<nav class="member-menu float-left">
-					<div class="border h-25"></div>
-					 <a href="<%=request.getContextPath()%>/member/display" class="">PROFILE</a>
+					<div class="border h-25" style="margin: 10px 10px 0 0;"></div>
+					<a href="<%=request.getContextPath()%>/member/display" class="">P R O F I L E</a>
 				   <a href="<%=request.getContextPath()%>/member/modify" class="member-btn">MODIFY</a>
 				   <a href="<%=request.getContextPath()%>/member/order" class="member-btn">ORDER</a>
 				   <a href="<%=request.getContextPath()%>/member/wishlist" class="member-btn">WISHLIST</a>
-					 <a href="<%=request.getContextPath()%>/member/board" class="member-btn">BOARD</a>
+					<a href="<%=request.getContextPath()%>/member/board" class="member-btn">BOARD</a>
 				   <a href="<%=request.getContextPath()%>/member/coupon" class="member-btn">COUPON</a>
 				   <a href="<%=request.getContextPath()%>/member/address" class="member-btn">ADDRESS</a>
 			  	</nav>

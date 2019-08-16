@@ -4,10 +4,7 @@
 <html>
 <head>
 </head>
-<body class="text-center">
-	<div class="py-3">
-		<p>M Y B O A R D</p>
-			<hr class="member-line">
-	</div>
+<body>
+
 </body>
 </html>

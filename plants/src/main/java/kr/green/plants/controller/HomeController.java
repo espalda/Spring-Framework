@@ -40,6 +40,12 @@ public class HomeController {
 		    mv.setViewName("/sign/pwFind");
 		    return mv;
 		}
+		
+		@RequestMapping(value="/basket")
+		public ModelAndView openTilesView6(ModelAndView mv){
+		    mv.setViewName("/main/basket");
+		    return mv;
+		}
 	
 	
 		

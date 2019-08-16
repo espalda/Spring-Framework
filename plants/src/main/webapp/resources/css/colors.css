@@ -3,7 +3,7 @@
 	body{
 	font-size: 11px;
 	}
-
+	
 	a, a:hover{
 	text-decoration: none;
 	color: #000000;
@@ -59,11 +59,11 @@
 	color: white;
 	background-color: #123132;
 	border: none;
-	border-radius: 3px;
+	border-radius: 5px;
 	width: 350px;
 	height: 28px;
 	font-size: 10px;
-	word-spacing: 3px;
+	letter-spacing: 4px;
 	}
 
 	.btn-raw{
@@ -72,12 +72,26 @@
 	color:white;
 	background-color: #b97f6d;
 	border: none;
-	border-radius: 3px;
+	border-radius: 5px;
 	width: 350px;
 	height: 28px;
 	font-size: 10px;
-	word-spacing: 2px;
+	letter-spacing: 4px;
 	}
+	
+	.btn-gray{
+	display: block;
+	margin: 0 auto;
+	color:white;
+	background-color: #7f7f7f;
+	border: none;
+	border-radius: 5px;
+	width: 350px;
+	height: 28px;
+	font-size: 10px;
+	letter-spacing: 4px;
+	}
+	
 	
 	.btn-1{
 	font-size: 8px;

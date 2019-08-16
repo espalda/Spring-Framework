@@ -27,7 +27,7 @@ public class MemberController {
 		
 		@RequestMapping(value="/order")
 		public ModelAndView openTilesView2(ModelAndView mv){
-		    mv.setViewName("/member/order");
+		    mv.setViewName("/member/menu");
 		    return mv;
 		}
 		
@@ -39,19 +39,19 @@ public class MemberController {
 		
 		@RequestMapping(value="/board")
 		public ModelAndView openTilesView4(ModelAndView mv){
-		    mv.setViewName("/member/board");
+		    mv.setViewName("/member/menu");
 		    return mv;
 		}
 		
 		@RequestMapping(value="/coupon")
 		public ModelAndView openTilesView5(ModelAndView mv){
-		    mv.setViewName("/member/coupon");
+		    mv.setViewName("/member/menu");
 		    return mv;
 		}
 		
 		@RequestMapping(value="/address")
 		public ModelAndView openTilesView6(ModelAndView mv){
-		    mv.setViewName("/member/address");
+		    mv.setViewName("/member/menu");
 		    return mv;
 		}
 		
