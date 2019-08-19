@@ -6,23 +6,25 @@
 <head>
 <title>plants</title>
 <jsp:include page="/WEB-INF/views/include/script.jsp"></jsp:include>
-	<style>
-		.gray{
-		background-color: #ededed;
-		}
-		.white{
-		background-color: #ffffff;
-		width: 90% !important;
-		}
-	</style>
+<style>
+	.box{
+	max-width: 950px;
+	margin: 0 auto;
+	padding: 10px 0;
+	}
+</style>
 </head>
 <body>
-    <tiles:insertAttribute name="header"/>
-    <div class="gray h-100">
-    	<div class="white mx-auto h-100">      
-       	<tiles:insertAttribute name="body" />
-       </div>
-    </div>                                        
-    <tiles:insertAttribute name="footer" />
+	<tiles:insertAttribute name="header"/>
+	<div class="wrapper">
+		<div class="gray">
+			<div class="white">
+				<div class="box">
+       			<tiles:insertAttribute name="body" />
+       		</div>
+			</div>
+		</div>
+	</div>                                     
+	<tiles:insertAttribute name="footer" />
 </body>
 </html>

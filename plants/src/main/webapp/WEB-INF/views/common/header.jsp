@@ -93,16 +93,16 @@
 		<li class="nav-item">
 		  <a class="nav-link" data-toggle="dropdown" href="<%=request.getContextPath()%>/item/list">Shop</a>
 	<div class="dropdown-menu">
-    <a class="dropdown-item" href="<%=request.getContextPath()%>/item/display">Succulents</a>
-    <a class="dropdown-item" href="<%=request.getContextPath()%>/item/display">Cactus</a>
-    <a class="dropdown-item" href="<%=request.getContextPath()%>/item/display">Plant</a>
-    <a class="dropdown-item" href="<%=request.getContextPath()%>/item/display">Hanging plant</a>
-    <a class="dropdown-item" href="<%=request.getContextPath()%>/item/display">Goods</a>
+    <a class="dropdown-item" href="<%=request.getContextPath()%>/item/list">Succulents</a>
+    <a class="dropdown-item" href="<%=request.getContextPath()%>/item/list">Cactus</a>
+    <a class="dropdown-item" href="<%=request.getContextPath()%>/item/list">Plant</a>
+    <a class="dropdown-item" href="<%=request.getContextPath()%>/item/list">Hanging plant</a>
+    <a class="dropdown-item" href="<%=request.getContextPath()%>/item/list">Goods</a>
   </div>
 		</li>
 
 		<li class="nav-item">
-		  <a class="nav-link" href="<%=request.getContextPath()%>/item/envent">Event</a>
+		  <a class="nav-link" href="<%=request.getContextPath()%>/item/event">Event</a>
 		</li> 
 
 		<li class="nav-item">

@@ -6,24 +6,12 @@
 <head>
 <title>plants</title>
 <jsp:include page="/WEB-INF/views/include/script.jsp"></jsp:include>
-	<style>
-	.gray{
-	background-color: #ededed;
-	}
-	
-	.white{
-	background-color: #ffffff;
-	width: 90% !important;
-	}
-	
-	.main-box{
-	border: 1px solid #b97f6d;
-	box-sizing: border-box;
-	}
-	
+<style>
+
 	.box{
-	width: 950px;
+	max-width: 950px;
 	margin: 0 auto;
+	box-sizing: border-box;
 	}
 	
 	.member-menu {
@@ -77,11 +65,11 @@
 	</style>
 </head>
 <body>
-    <tiles:insertAttribute name="header"/>
-       
-    <div class="gray h-100">
-    	<div class="white mx-auto h-100">
-    		<div class="box clearfix">
+   <tiles:insertAttribute name="header"/>
+	<div class="wrapper">
+		<div class="gray">
+			<div class="white"> 
+		<div class="box clearfix">
 				<nav class="member-menu float-left">
 					<div class="border h-25" style="margin: 10px 10px 0 0;"></div>
 					<a href="<%=request.getContextPath()%>/member/display" class="">P R O F I L E</a>
@@ -98,9 +86,9 @@
   					</div>
  		 		</div>
 			</div>
-    	</div>
-    </div>
-                                           
-    <tiles:insertAttribute name="footer" />
+			</div>
+		</div>
+	</div>                                     
+	<tiles:insertAttribute name="footer" />
 </body>
 </html>

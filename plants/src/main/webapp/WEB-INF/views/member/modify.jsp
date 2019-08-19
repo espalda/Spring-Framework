@@ -4,6 +4,9 @@
 <html>
 <head>
 <style>
+	body{
+	font-size: 11px;
+	}
 	.mt-4 div{
 	margin: 0 0 10px;
 	}

@@ -24,7 +24,6 @@ public class ItemController {
 		    return mv;
 		}
 		
-	
 		@RequestMapping(value="/list")
 		public ModelAndView openTilesView0(ModelAndView mv){
 		    mv.setViewName("/item/list");
@@ -33,9 +32,11 @@ public class ItemController {
 		
 		@RequestMapping(value="/display")
 		public ModelAndView openTilesView1(ModelAndView mv){
-		    mv.setViewName("/item/Succulents");
+		    mv.setViewName("/item/display");
 		    return mv;
 		}
+		
+	
 		
 		
 		

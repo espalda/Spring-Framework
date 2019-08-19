@@ -21,6 +21,10 @@
 	height: 100px;
 	border: 1px solid #b97f6d;
 	}
+	
+	td:nth-child(4){
+	padding: 12px 12px 12px 0 !important;
+	}
 </style>
 </head>
 <body class="text-center">
@@ -53,7 +57,7 @@
 		</tbody>
 		<tfoot>
 			<tr>
-				<td colspan="10" class="text-right" style="background-color: #ededed">
+				<td colspan="10" class="text-right" style="background-color: #b97f6d; color: white;">
 					<span>상품구매금액 52,900 + 배송비 0 (무료) = 합계 : 52,900원</span>
 				</td>
 			</tr>

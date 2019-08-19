@@ -3,6 +3,11 @@
 <!DOCTYPE html>
 <html>
 <head>
+<style>
+	tr, td, th{
+	font-size: 11px;
+	}
+</style>
 </head>
 <body class="text-center">
 	<div class="py-3">
@@ -35,9 +40,8 @@
 			</tr>
 		</tbody>
 		</table>
-		
 		<button class="btn-1">주문</button>
-		<button class="btn-1">장바구니</button>
+		<button class="btn-1" style="width:80px;">장바구니</button>
 	</div>
 	</div>
 </body>

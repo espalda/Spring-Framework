@@ -16,7 +16,23 @@
     <definition name=".member" template="/WEB-INF/views/layout/memberLayout.jsp">
         <put-attribute name="title" value="" />
         <put-attribute name="header" value="/WEB-INF/views/common/header.jsp" />
-        <put-attribute name="menu" value="/WEB-INF/views/common/menu.jsp" />        
+        <put-attribute name="menu" value="" />        
+        <put-attribute name="footer" value="/WEB-INF/views/common/footer.jsp" />
+    </definition>
+    
+    <!-- * 3 레이아웃 -->
+    <definition name=".item" template="/WEB-INF/views/layout/itemLayout.jsp">
+        <put-attribute name="title" value="" />
+        <put-attribute name="header" value="/WEB-INF/views/common/header.jsp" />
+        <put-attribute name="menu" value="" />        
+        <put-attribute name="footer" value="/WEB-INF/views/common/footer.jsp" />
+    </definition>
+    
+    <!-- * 4 레이아웃 -->
+    <definition name=".board" template="/WEB-INF/views/layout/boardLayout.jsp">
+        <put-attribute name="title" value="" />
+        <put-attribute name="header" value="/WEB-INF/views/common/header.jsp" />
+        <put-attribute name="menu" value="" />        
         <put-attribute name="footer" value="/WEB-INF/views/common/footer.jsp" />
     </definition>
     
@@ -36,6 +52,16 @@
  	 <!-- * 2 -->    
     <definition name="/member/*" extends=".member">
       <put-attribute name="body" value="/WEB-INF/views/member/{1}.jsp" />
+    </definition>
+    
+    <!-- * 3 -->    
+    <definition name="/item/*" extends=".item">
+      <put-attribute name="body" value="/WEB-INF/views/item/{1}.jsp" />
+    </definition>
+    
+    <!-- * 4 -->    
+    <definition name="/board/*" extends=".board">
+      <put-attribute name="body" value="/WEB-INF/views/board/{1}.jsp" />
     </definition>
     
     <!-- * 0 기본 -->

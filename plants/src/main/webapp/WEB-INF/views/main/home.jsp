@@ -26,13 +26,13 @@
 	  <!-- The slideshow -->
 	  <div class="carousel-inner">
 	    <div class="carousel-item active">
-	      <img src="<%=request.getContextPath()%>/resources/img/garlic-1.jpg" alt="Los Angeles" width="100%" height="300">
+	      <img src="<%=request.getContextPath()%>/resources/img/garlic-1.jpg" width="100%" height="300">
 	    </div>
 	    <div class="carousel-item">
-	      <img src="<%=request.getContextPath()%>/resources/img/garlic-2.jpg" alt="Chicago" width="100%" height="300">
+	      <img src="<%=request.getContextPath()%>/resources/img/garlic-2.jpg" width="100%" height="300">
 	    </div>
 	    <div class="carousel-item">
-	      <img src="<%=request.getContextPath()%>/resources/img/garlic-3.jpg" alt="New York" width="100%" height="300">
+	      <img src="<%=request.getContextPath()%>/resources/img/garlic-3.jpg" width="100%" height="300">
 	    </div>
 	  </div>
 	  

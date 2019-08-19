@@ -18,3 +18,4 @@
 
 <!-- * css 연결 -->
 <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/colors.css">
+<link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/layout.css">

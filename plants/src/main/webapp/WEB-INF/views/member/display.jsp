@@ -4,6 +4,10 @@
 <html>
 <head>
 <style>
+
+body{
+font-size: 11px;
+}
 	
 	ul{
 	 list-style:none;
