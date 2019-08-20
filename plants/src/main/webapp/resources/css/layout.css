@@ -1,21 +1,18 @@
 @charset "EUC-KR";
-
 /*-----------------------------------------------------------------*/
 /* 1. base-layout
 /*-----------------------------------------------------------------*/
-	
 	.gray{
 	background-color: #ededed;
 	height: auto;
 	}
+	
 	.white{
 	background-color: #ffffff;
 	max-width: 90% !important;
 	height: auto;
-	padding-bottom: 150px;
 	margin: 0 auto;
 	}
-	
 	
 	/* body, html, .wrapper {
 	width: 100%;

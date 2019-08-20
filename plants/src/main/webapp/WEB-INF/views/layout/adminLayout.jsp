@@ -6,13 +6,21 @@
 <head>
 <title>plants</title>
 <jsp:include page="/WEB-INF/views/include/script.jsp"></jsp:include>
+<style>
+	.menu{
+	height: 100%;
+	}
+</style>
 </head>
 <body>
 	<tiles:insertAttribute name="header"/>
 	<div class="wrapper">
 		<div class="gray">
-			<div class="white">      
+			<div class="white">
+				<tiles:insertAttribute name="menu" />
+				<div class="menu"></div>
        		<tiles:insertAttribute name="body" />
+       		
 			</div>
 		</div>
 	</div>                                     

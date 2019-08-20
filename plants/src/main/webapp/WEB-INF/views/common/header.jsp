@@ -55,7 +55,10 @@
 		    <a class="nav-link" href="<%=request.getContextPath()%>/help">HELP</a>
 		  </li>
 		  <li class="nav-item">
-		    <a class="nav-link" href="<%=request.getContextPath()%>/order/list">ORDER</a>
+		    <a class="nav-link" href="<%=request.getContextPath()%>/admin/list">ADMIN</a>
+		  </li>
+		  <li class="nav-item">
+		    <a class="nav-link" href="<%=request.getContextPath()%>/order">ORDER</a>
 		  </li>
 		  <li class="nav-item">
 		    <a class="nav-link" href="<%=request.getContextPath()%>/basket">BASKET</a>
@@ -91,17 +94,6 @@
 		</li>
 
 		<li class="nav-item">
-		  <a class="nav-link" data-toggle="dropdown" href="<%=request.getContextPath()%>/item/list">Shop</a>
-	<div class="dropdown-menu">
-    <a class="dropdown-item" href="<%=request.getContextPath()%>/item/list">Succulents</a>
-    <a class="dropdown-item" href="<%=request.getContextPath()%>/item/list">Cactus</a>
-    <a class="dropdown-item" href="<%=request.getContextPath()%>/item/list">Plant</a>
-    <a class="dropdown-item" href="<%=request.getContextPath()%>/item/list">Hanging plant</a>
-    <a class="dropdown-item" href="<%=request.getContextPath()%>/item/list">Goods</a>
-  </div>
-		</li>
-
-		<li class="nav-item">
 		  <a class="nav-link" href="<%=request.getContextPath()%>/item/event">Event</a>
 		</li> 
 
@@ -111,7 +103,12 @@
 	</ul>
 	</div>
 	</nav>
-	
+	<script>
+$("#leftside-navigation .sub-menu > a").click(function(e) {
+  $("#leftside-navigation ul ul").slideUp(), $(this).next().is(":visible") || $(this).next().slideDown(),
+  e.stopPropagation()
+})
+</script>
 	
 </body>
 </html>

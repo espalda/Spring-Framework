@@ -1,7 +1,7 @@
 @charset "EUC-KR";
 
 	tr, td, th, .table{
-	font-size: 11px;
+	font-size: 12px;
 	}
 	
 	a, a:hover{
@@ -16,7 +16,8 @@
 	}
 	
 	body{
-	font-size: 11px;
+	font-size: 12px;
+	font-family: Consolas,monaco,monospace; 
 	}
 
 /*-----------------------------------------------------------------*/
@@ -41,6 +42,11 @@
 
 	.border-raw{
 	border: 1px solid #b97f6d;
+	box-sizing: border-box;
+	}
+	.border-gray{
+	border: 1px solid #7f7f7f;
+	box-sizing: border-box;
 	}
 /*-----------------------------------------------------------------*/
 /* 2. input - sign

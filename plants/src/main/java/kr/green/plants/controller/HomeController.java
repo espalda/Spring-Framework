@@ -46,6 +46,19 @@ public class HomeController {
 		    mv.setViewName("/main/basket");
 		    return mv;
 		}
+		
+		@RequestMapping(value="/order")
+		public ModelAndView openTilesView7(ModelAndView mv){
+		    mv.setViewName("/main/order");
+		    return mv;
+		}
+		
+		@RequestMapping(value="/help")
+		public ModelAndView openTilesView8(ModelAndView mv){
+		    mv.setViewName("/main/help");
+		    return mv;
+		}
+	
 	
 	
 		
