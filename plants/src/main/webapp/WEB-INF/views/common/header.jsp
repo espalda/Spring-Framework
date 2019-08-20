@@ -4,8 +4,30 @@
 <!DOCTYPE html>
 <html>
 <head>
-<link rel="shortcut icon" href="<%=request.getContextPath()%>/resources/img/favicon.ico">
 	<style>
+	
+			ul, li, a{
+			list-style: none;
+			padding-left:0px;
+		}
+		.shop-1 a{
+			width: 150px;
+			text-decoration: none;
+			font-size: 12px;
+		}
+		
+		.shop-list{
+		display: none;
+		position: absolute;
+		left: -50px;
+		z-index: 101;
+		}
+		.shop-1{
+		position: relative;
+		}
+	
+	
+	
 	
 	.top-nav a{
 	color: #b97f6d;
@@ -45,7 +67,30 @@
 	float: right;
 	}
 	
-	
+	.shop-list a{
+			width: 150px;
+			color: black;
+			background-color: #ededed;
+			text-decoration: none;
+			display: block;
+			padding: 12px;
+			font-size: 12px;
+			border: 1px solid #b97f6d;
+			border-top: 0 !important;
+			font-family: Consolas,monaco,monospace;
+		}
+		.shop-list a:hover{
+			width: 150px;
+			color: #ffffff;
+			background-color: #123132;
+			text-decoration: none;
+			display: block;
+			padding: 12px;
+			font-size: 12px;
+			border: 1px solid #b97f6d;
+			border-top: 0 !important;
+			font-family: Consolas,monaco,monospace;
+		}
 	</style>
 </head>
 <body>
@@ -84,31 +129,50 @@
 
 	<!-- Links -->
 	<div class="second-nav">
-	<ul class="navbar-nav">
-		<li class="nav-item">
-		  <a class="nav-link" href="<%=request.getContextPath()%>/">Home</a>
-		</li>
-
-		<li class="nav-item">
-		  <a class="nav-link" href="<%=request.getContextPath()%>/item/new">New</a>
-		</li>
-
-		<li class="nav-item">
-		  <a class="nav-link" href="<%=request.getContextPath()%>/item/event">Event</a>
-		</li> 
-
-		<li class="nav-item">
-		  <a class="nav-link" href="<%=request.getContextPath()%>/board/list">Board</a>
-		</li>
-	</ul>
-	</div>
-	</nav>
-	<script>
-$("#leftside-navigation .sub-menu > a").click(function(e) {
-  $("#leftside-navigation ul ul").slideUp(), $(this).next().is(":visible") || $(this).next().slideDown(),
-  e.stopPropagation()
-})
-</script>
+		<ul class="navbar-nav">
+			<li class="nav-item">
+			  <a class="nav-link" href="<%=request.getContextPath()%>/">Home</a>
+			</li>
 	
+			<li class="nav-item">
+			  <a class="nav-link" href="<%=request.getContextPath()%>/item/new">New</a>
+			</li>
+
+		<div>
+		<div class="shop-1">
+			<a>shop</a>
+				<ul class="shop-list">
+					<li><a href="#">Succulents</a></li>
+					<li><a href="#">Cactus</a></li>
+					<li><a href="#">Plant</a></li>
+					<li><a href="#">Hanging plant</a></li>
+					<li><a href="#">Goods</a></li>
+				</ul>
+		</div>
+	</div>
+
+
+	
+	
+			<li class="nav-item">
+			  <a class="nav-link" href="<%=request.getContextPath()%>/item/event">Event</a>
+			</li> 
+	
+			<li class="nav-item">
+			  <a class="nav-link" href="<%=request.getContextPath()%>/board/list">Board</a>
+			</li>
+		</ul>
+	</div>
+</nav>
+
+<script>
+$(".shop-1 > a").mouseenter(function(aaa) {
+  $(".shop-list").slideUp(), $(this).next().is(":visible") || $(this).next().slideDown(), aaa.stopPropagation()
+})
+
+$(".shop-1 .shop-list").mouseleave(function(aaa) {
+  $(".shop-list").slideUp(), $(this).next().is(":visible") || $(this).next().slideDown(), aaa.stopPropagation()
+})
+</script>	
 </body>
 </html>

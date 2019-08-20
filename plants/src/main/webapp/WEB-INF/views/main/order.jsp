@@ -43,7 +43,7 @@
 	padding-right: 10px;
 	}
 	.order-2{
-float: left;
+	float: left;
 	width: 388px;
 	height: 300px;
 	padding: 10px;

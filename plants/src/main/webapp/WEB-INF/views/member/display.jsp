@@ -63,9 +63,9 @@ font-size: 11px;
 			<ul class="top">
 				<li>adorable 님은 환영합니다.</li>
 				<li><label>등급 : </label>		<label><a class="a-black" href="<%=request.getContextPath()%>/#">[ 환영 ]</a></label></li>
-				<li><label>총적립금 : </label>	<label>3050 원<button class="btn-1">조회</button></label></li>
+				<li><label>총적립금 : </label>	<label>3050 원<kbd>조회</kbd></label></li>
 				<li><label>총주문 : </label>		<label>52900원</label></li>
-				<li><label>쿠폰 : </label>		<label>3개<button class="btn-1">조회</button></label></li>
+				<li><label>쿠폰 : </label>		<label>3개<kbd>조회</kbd></label></li>
 			</ul>
 		</div>
 		

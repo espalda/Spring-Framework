@@ -17,7 +17,7 @@
 	
 	body{
 	font-size: 12px;
-	font-family: Consolas,monaco,monospace; 
+	font-family: Consolas,monaco,monospace;
 	}
 
 /*-----------------------------------------------------------------*/
@@ -122,19 +122,18 @@
 	}
 	
 	kbd {
-    background-color: #f7f7f7;
-    border: 1px solid #ccc;
-    border-radius: 3px;
-    box-shadow: 0 1px 0 rgba(0,0,0,0.2), 0 0 0 2px #fff inset;
-    color: #333;
-    font-size: 12px;
-    font-weight: normal;
-    margin: 0 .1em;
-    padding: .1em .6em;
-    text-shadow: 0 1px 0 #fff;
-    vertical-align: 2px;
-    white-space: nowrap;
-}
+	background-color: #f7f7f7;
+	border: 1px solid #ccc;
+	border-radius: 3px;
+	box-shadow: 0 1px 0 rgba(0,0,0,0.2), 0 0 0 2px #fff inset;
+	color: #333;
+	font-weight: normal;
+	margin: 0 .1em;
+	padding: .1em .6em;
+	text-shadow: 0 1px 0 #fff;
+	vertical-align: 2px;
+	white-space: nowrap;
+	}
 /*-----------------------------------------------------------------*/
 /* 4. sign - find
 /*-----------------------------------------------------------------*/

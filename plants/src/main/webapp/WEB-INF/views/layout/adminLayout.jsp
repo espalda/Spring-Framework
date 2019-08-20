@@ -7,20 +7,27 @@
 <title>plants</title>
 <jsp:include page="/WEB-INF/views/include/script.jsp"></jsp:include>
 <style>
-	.menu{
+	.menu-1{
+	width: 250px;
 	height: 100%;
 	}
+	.menu-2{
+	width: 900px;
+	height: 100%;
+	border:1px solid black;
 </style>
 </head>
 <body>
 	<tiles:insertAttribute name="header"/>
 	<div class="wrapper">
 		<div class="gray">
-			<div class="white">
-				<tiles:insertAttribute name="menu" />
-				<div class="menu"></div>
+			<div class="white clearfix">
+				<div class="menu-1 float-left">
+					<tiles:insertAttribute name="menu" />
+				</div>
+				<div class="menu-2 float-left">
        		<tiles:insertAttribute name="body" />
-       		
+       	</div>
 			</div>
 		</div>
 	</div>                                     

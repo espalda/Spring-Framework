@@ -83,12 +83,13 @@
 	  padding-top: 13px;
 	  padding-bottom: 13px;
 	  color: #aeb2b7;
+	  border-bottom: 1px solid #b97f6d;
 	}
 	
 	</style>
 </head>
 <body>
-	<div class="container">
+	<div class="">
 	<aside class="sidebar">
 	  <div id="leftside-navigation" class="nano">
 	    <ul class="nano-content">
