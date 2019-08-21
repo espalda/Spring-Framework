@@ -11,7 +11,13 @@ import org.springframework.web.servlet.ModelAndView;
 public class AdminController {
 	
 	private static final Logger logger = LoggerFactory.getLogger(AdminController.class);
-	
+		
+		@RequestMapping(value="/seller")
+		public ModelAndView openTilesView4(ModelAndView mv){
+		    mv.setViewName("/admin/seller");
+		    return mv;
+		}
+		
 		@RequestMapping(value="/list")
 		public ModelAndView openTilesView0(ModelAndView mv){
 		    mv.setViewName("/admin/list");

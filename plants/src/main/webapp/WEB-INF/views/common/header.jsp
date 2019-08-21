@@ -19,11 +19,15 @@
 		.shop-list{
 		display: none;
 		position: absolute;
+		border: 1px solid #b97f6d;
+		border-top: none;
 		left: -50px;
-		z-index: 101;
+		top: 38px;
+		z-index: 100;
 		}
+		
 		.shop-1{
-		position: relative;
+ 			position: relative;	
 		}
 	
 	
@@ -75,8 +79,7 @@
 			display: block;
 			padding: 12px;
 			font-size: 12px;
-			border: 1px solid #b97f6d;
-			border-top: 0 !important;
+			border-top: 1px solid #b97f6d;
 			font-family: Consolas,monaco,monospace;
 		}
 		.shop-list a:hover{
@@ -87,8 +90,7 @@
 			display: block;
 			padding: 12px;
 			font-size: 12px;
-			border: 1px solid #b97f6d;
-			border-top: 0 !important;
+			border-top: 1px solid #b97f6d;
 			font-family: Consolas,monaco,monospace;
 		}
 	</style>
@@ -138,18 +140,18 @@
 			  <a class="nav-link" href="<%=request.getContextPath()%>/item/new">New</a>
 			</li>
 
-		<div>
+		<li class="nav-link clearfix">
 		<div class="shop-1">
 			<a>shop</a>
 				<ul class="shop-list">
-					<li><a href="#">Succulents</a></li>
-					<li><a href="#">Cactus</a></li>
-					<li><a href="#">Plant</a></li>
-					<li><a href="#">Hanging plant</a></li>
-					<li><a href="#">Goods</a></li>
+					<li><a class="nav-link" href="<%=request.getContextPath()%>/item/list">Succulents</a></li>
+					<li><a class="nav-link" href="<%=request.getContextPath()%>/item/list">Cactus</a></li>
+					<li><a class="nav-link" href="<%=request.getContextPath()%>/item/list">Plant</a></li>
+					<li><a class="nav-link" href="<%=request.getContextPath()%>/item/list">Hanging plant</a></li>
+					<li><a class="nav-link" href="<%=request.getContextPath()%>/item/list">Goods</a></li>
 				</ul>
 		</div>
-	</div>
+	</li>
 
 
 	

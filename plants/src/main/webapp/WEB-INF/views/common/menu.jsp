@@ -8,8 +8,6 @@
 	  color: #5D5F63;
 	  padding: 0;
 	  margin: 0;
-	  text-rendering: optimizeLegibility;
-	  -webkit-font-smoothing: antialiased;
 	}
 	.sidebar-toggle {
 	  margin-left: -240px;
@@ -19,12 +17,6 @@
 	  height: 100%;
 	  background: #293949;
 	  position: absolute;
-	  -webkit-transition: all 0.3s ease-in-out;
-	  -moz-transition: all 0.3s ease-in-out;
-	  -o-transition: all 0.3s ease-in-out;
-	  -ms-transition: all 0.3s ease-in-out;
-	  transition: all 0.3s ease-in-out;
-	  z-index: 100;
 	}
 	.sidebar #leftside-navigation ul,
 	.sidebar #leftside-navigation ul ul {
@@ -35,7 +27,6 @@
 	  list-style-type: none;
 	  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 	}
-	/* hover 글자색 */
 	.sidebar #leftside-navigation ul li.active > a {
 	  color: #1abc9c;
 	}
@@ -49,11 +40,6 @@
 	  padding: 18px 0 18px 25px;
 	  font-size: 12px;
 	  outline: 0;
-	  -webkit-transition: all 200ms ease-in;
-	  -moz-transition: all 200ms ease-in;
-	  -o-transition: all 200ms ease-in;
-	  -ms-transition: all 200ms ease-in;
-	  transition: all 200ms ease-in;
 	}
 	.sidebar #leftside-navigation ul li a:hover {
 	  color: #1abc9c;
@@ -94,72 +80,69 @@
 	  <div id="leftside-navigation" class="nano">
 	    <ul class="nano-content">
 	      <li class="active">
-	        <a href="index.html"><i class="fas fa-grin"></i><span>관리자 페이지</span></a>
+	        <a href="<%=request.getContextPath()%>/admin/seller"><i class="fas fa-grin"></i><span>관리자 페이지</span></a>
 	      </li>
 	      <li class="sub-menu">
 	        <a href="javascript:void(0);"><i class="fas fa-user"></i><span>회원 관리</span></a>
 	        <ul>
-	
-	          <li><a href="ui-alerts-notifications.html">회원 검색</a>
+	          <li><a href="<%=request.getContextPath()%>/admin/list">회원 검색</a>
 	          </li>
-	          <li><a href="ui-panels.html">회원 관리</a>
+	          <li><a href="<%=request.getContextPath()%>/admin/list">회원 관리</a>
 	          </li>
-	          <li><a href="ui-buttons.html">회원 등급</a>
+	          <li><a href="<%=request.getContextPath()%>/admin/list">회원 등급</a>
 	          </li>
-	          <li><a href="ui-buttons.html">회원 쿠폰</a>
-	          </li>
-	          <li><a href="ui-buttons.html">회원 적립금</a>
+	          <li><a href="<%=request.getContextPath()%>/admin/list">회원 쿠폰</a>
 	          </li>
 	        </ul>
 	      </li>
 	      <li class="sub-menu">
 	        <a href="javascript:void(0);"><i class="fas fa-cube"></i><span>상품 관리</span></a>
 	        <ul>
-	          <li><a href="tables-basic.html">상품 등록</a>
+	          <li><a href="<%=request.getContextPath()%>/admin/list">상품 등록</a>
 	          </li>
 	
-	          <li><a href="tables-data.html">상품 수정</a>
+	          <li><a href="<%=request.getContextPath()%>/admin/list">상품 수정</a>
 	          </li>
 	
-	          <li><a href="tables-data.html">상품 관리</a>
+	          <li><a href="<%=request.getContextPath()%>/admin/list">상품 관리</a>
 	          </li>
 	        </ul>
 	      </li>
 	      <li class="sub-menu">
 	        <a href="javascript:void(0);"><i class="fa fa fa-tasks"></i><span>주문 관리</span></a>
 	        <ul>
-	          <li><a href="forms-components.html">주문 현황</a>
+	          <li><a href="<%=request.getContextPath()%>/admin/list">주문 현황</a>
 	          </li>
-	          <li><a href="forms-validation.html">배송 관리</a>
+	          <li><a href="<%=request.getContextPath()%>/admin/list">배송 관리</a>
 	          </li>
-	          <li><a href="forms-mask.html">배송 수정</a>
+	          <li><a href="<%=request.getContextPath()%>/admin/list">배송 수정</a>
 	          </li>
 	        </ul>
 	      </li>
 	      <li class="sub-menu">
 	        <a href="javascript:void(0);"><i class="fa fa-file"></i><span>게시글 관리</span></a>
 	        <ul>
-	          <li><a href="pages-blank.html">공지 사항</a>
+	          <li><a href="<%=request.getContextPath()%>/admin/list">공지 사항</a>
 	          </li>
-	          <li><a href="pages-login.html">게시글 관리</a>
+	          <li><a href="<%=request.getContextPath()%>/admin/list">게시글 관리</a>
 	          </li>
-	          <li><a href="pages-sign-up.html">게시글 수정</a>
+	          <li><a href="<%=request.getContextPath()%>/admin/list">게시글 수정</a>
 	          </li>
 	        </ul>
 	      </li>
 	      <li class="sub-menu">
 	        <a href="javascript:void(0);"><i class="fa fa-envelope"></i><span>메일</span></a>
 	        <ul>
-	          <li><a href="mail-inbox.html">메일 보내기</a>
+	          <li><a href="<%=request.getContextPath()%>/admin/list">메일 보내기</a>
 	          </li>
 	        </ul>
 	      </li>
 	      <li class="sub-menu">
 	        <a href="javascript:void(0);"><i class="fas fa-chart-pie"></i><span>통계</span></a>
 	        <ul>
-	          <li><a href="charts-chartjs.html">금주 베스트</a>
+	          <li><a href="<%=request.getContextPath()%>/admin/list">금주 베스트</a>
 	          </li>
-	          <li><a href="charts-morris.html">이달 베스트</a>
+	          <li><a href="<%=request.getContextPath()%>/admin/list">이달 베스트</a>
 	          </li>
 	        </ul>
 	      </li>
