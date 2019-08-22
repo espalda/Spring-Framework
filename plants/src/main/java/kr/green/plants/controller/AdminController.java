@@ -13,29 +13,50 @@ public class AdminController {
 	private static final Logger logger = LoggerFactory.getLogger(AdminController.class);
 		
 		@RequestMapping(value="/seller")
-		public ModelAndView openTilesView4(ModelAndView mv){
+		public ModelAndView openTilesView0(ModelAndView mv){
 		    mv.setViewName("/admin/seller");
 		    return mv;
 		}
 		
-		@RequestMapping(value="/list")
-		public ModelAndView openTilesView0(ModelAndView mv){
-		    mv.setViewName("/admin/list");
-		    return mv;
-		}
-		
-		@RequestMapping(value="/display")
+		@RequestMapping(value="/member")
 		public ModelAndView openTilesView1(ModelAndView mv){
-		    mv.setViewName("/admin/display");
+		    mv.setViewName("/admin/member");
 		    return mv;
 		}
 		
-		
-		@RequestMapping(value="/modify")
+		@RequestMapping(value="/item")
 		public ModelAndView openTilesView2(ModelAndView mv){
-		    mv.setViewName("/admin/modify");
+		    mv.setViewName("/admin/item");
 		    return mv;
 		}
+		
+		
+		@RequestMapping(value="/order")
+		public ModelAndView openTilesView3(ModelAndView mv){
+		    mv.setViewName("/admin/order");
+		    return mv;
+		}
+		
+		@RequestMapping(value="/board")
+		public ModelAndView openTilesView4(ModelAndView mv){
+		    mv.setViewName("/admin/board");
+		    return mv;
+		}
+		
+		@RequestMapping(value="/mail")
+		public ModelAndView openTilesView5(ModelAndView mv){
+		    mv.setViewName("/admin/mail");
+		    return mv;
+		}
+		
+		@RequestMapping(value="/chart")
+		public ModelAndView openTilesView6(ModelAndView mv){
+		    mv.setViewName("/admin/chart");
+		    return mv;
+		}
+		
+		
+		
 		
 	
 }

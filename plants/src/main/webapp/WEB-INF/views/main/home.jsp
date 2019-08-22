@@ -4,46 +4,57 @@
 <html>
 <head>
 <style>
-	.carousel-item{
-	padding: 0 150px;
-	}
-	
-	.carousel-control-prev-icon, .carousel-control-next-icon{
-	background-color: gray;
-	}
+body, html {
+  height: 100%;
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.hero-image {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("resources/img/item-1.jpg");
+  height: 50%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+}
+
+.hero-text {
+  text-align: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+}
+
+.hero-text button {
+  border: none;
+  outline: 0;
+  display: inline-block;
+  padding: 10px 25px;
+  color: black;
+  background-color: #ddd;
+  text-align: center;
+  cursor: pointer;
+}
+
+.hero-text button:hover {
+  background-color: #555;
+  color: white;
+}
 </style>
 </head>
 <body>
-	<div id="demo" class="carousel slide" data-ride="carousel">
-	
-	  <!-- Indicators -->
-	  <ul class="carousel-indicators">
-	    <li data-target="#demo" data-slide-to="0" class="active"></li>
-	    <li data-target="#demo" data-slide-to="1"></li>
-	    <li data-target="#demo" data-slide-to="2"></li>
-	  </ul>
-	  
-	  <!-- The slideshow -->
-	  <div class="carousel-inner">
-	    <div class="carousel-item active">
-	      <img src="<%=request.getContextPath()%>/resources/img/garlic-1.jpg" width="100%" height="300">
-	    </div>
-	    <div class="carousel-item">
-	      <img src="<%=request.getContextPath()%>/resources/img/garlic-2.jpg" width="100%" height="300">
-	    </div>
-	    <div class="carousel-item">
-	      <img src="<%=request.getContextPath()%>/resources/img/garlic-3.jpg" width="100%" height="300">
-	    </div>
-	  </div>
-	  
-	  <!-- Left and right controls -->
-	  <a class="carousel-control-prev" href="#demo" data-slide="prev">
-	    <span class="carousel-control-prev-icon"></span>
-	  </a>
-	  <a class="carousel-control-next" href="#demo" data-slide="next">
-	    <span class="carousel-control-next-icon"></span>
-	  </a>
-	</div>
-	
+
+<div class="hero-image">
+  <div class="hero-text">
+    <h1 style="font-size:50px">I am John Doe</h1>
+    <p>And I'm a Photographer</p>
+    <button>Hire me</button>
+  </div>
+</div>
+
+<p>Page Content..</p>
 </body>
 </html>

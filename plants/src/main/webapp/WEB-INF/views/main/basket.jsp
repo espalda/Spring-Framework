@@ -28,7 +28,7 @@
 </style>
 </head>
 <body class="text-center">
-<h1>B A S K E T</h1>
+<h2>Basket</h2>
 	<div class="basket-table">
 		<table class="table">
 		<thead>

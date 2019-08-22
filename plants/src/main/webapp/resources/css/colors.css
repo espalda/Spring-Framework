@@ -1,5 +1,11 @@
 @charset "EUC-KR";
-
+	
+	html body{
+	font-size: 12px;
+	box-sizing: border-box;
+	font-family: Consolas,monaco,monospace;
+	}
+	
 	tr, td, th, .table{
 	font-size: 12px;
 	}
@@ -13,11 +19,6 @@
 	text-decoration: none;
 	list-style:none;
 	padding-left:0px;
-	}
-	
-	body{
-	font-size: 12px;
-	font-family: Consolas,monaco,monospace;
 	}
 
 /*-----------------------------------------------------------------*/
@@ -52,12 +53,12 @@
 /* 2. input - sign
 /*-----------------------------------------------------------------*/
 	.sign-input, .sign-input:focus{
+	display: block;
 	border:none;
 	border-bottom: 1px solid #7f7f7f;
 	outline: none;
 	width: 320px;
 	margin: 0 auto;
-	display: block;
 	padding-bottom: 10px;
 	}
 	
@@ -78,7 +79,7 @@
 	border-radius: 5px;
 	width: 350px;
 	height: 28px;
-	font-size: 10px;
+	font-size: 11px;
 	letter-spacing: 4px;
 	}
 
@@ -91,7 +92,7 @@
 	border-radius: 5px;
 	width: 350px;
 	height: 28px;
-	font-size: 10px;
+	font-size: 11px;
 	letter-spacing: 4px;
 	}
 	
@@ -104,7 +105,7 @@
 	border-radius: 5px;
 	width: 350px;
 	height: 28px;
-	font-size: 10px;
+	font-size: 11px;
 	letter-spacing: 4px;
 	}
 	

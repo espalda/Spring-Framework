@@ -4,168 +4,161 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<style>
-	
-			ul, li, a{
-			list-style: none;
-			padding-left:0px;
-		}
-		.shop-1 a{
-			width: 150px;
-			text-decoration: none;
-			font-size: 12px;
-		}
-		
-		.shop-list{
-		display: none;
-		position: absolute;
-		border: 1px solid #b97f6d;
-		border-top: none;
-		left: -50px;
-		top: 38px;
-		z-index: 100;
-		}
-		
-		.shop-1{
- 			position: relative;	
-		}
-	
-	
-	
-	
-	.top-nav a{
-	color: #b97f6d;
-	letter-spacing: 3px;
+<style>
+	body{
+	background-color: #ededed;
 	}
-	
-	.top-nav a:hover{
+
+	ul, li, a{
+	list-style: none;
 	text-decoration: none;
-	color: #b97f6d;
+	padding-left:0px;
 	}
+		
+	.shop-1 a{
+	width: 150px;
+	text-decoration: none;
+	font-size: 12px;
+	}
+			
+	.shop-list{
+	display: none;
+	position: absolute;
+	border: 1px solid #b97f6d;
+	border-top: none;
+	left: -50px;
+	top: 30px;
+	z-index: 100;
+  	}
 	
-	.top-header{
-	border: 1px solid #7f7f7f;
+	.shop-1{
+	position: relative;
+	}
+
+
+/* ---------------------------- navigation-1 */
+	.navigation-1{
+	border-bottom: 0px;
 	background-color:#ededed;
-	font-size: 10px;
+	font-size: 11px;
 	height: 25px;
 	}
-	
-	.second-nav a{
+	.navigation-1 a{
+	color: #b97f6d;
+	line-height: 10px;
+	letter-spacing: 1px;
+	}
+	.navigation-1 ul{
+	margin-right: 70px;
+	}
+
+
+/* ---------------------------- navigation-2 */
+	.navigation-2{
+	width: 90%;
+	border-bottom: 1px solid rgba(185, 127, 109, 0.5);
+	background-color: white;
+	color: #123132;
+	margin: 0 auto;
+	}
+	.navigation-2 a{
 	color: #123132;
 	font-size: 15px;
-	letter-spacing: 3px;
 	}
 	
-	.nav-link{
-	padding-right: 10px;
-	line-height: 5px;
-	}
-	
-	.menu-bar{
-	border: 1px solid #7f7f7f;
-	background-color:#ededed;
-	color: #123132;
-	}
-	
-	.nav-item{
-	float: right;
-	}
-	
+/* ---------------------------- dropbox-shop */
 	.shop-list a{
-			width: 150px;
-			color: black;
-			background-color: #ededed;
-			text-decoration: none;
-			display: block;
-			padding: 12px;
-			font-size: 12px;
-			border-top: 1px solid #b97f6d;
-			font-family: Consolas,monaco,monospace;
-		}
-		.shop-list a:hover{
-			width: 150px;
-			color: #ffffff;
-			background-color: #123132;
-			text-decoration: none;
-			display: block;
-			padding: 12px;
-			font-size: 12px;
-			border-top: 1px solid #b97f6d;
-			font-family: Consolas,monaco,monospace;
-		}
-	</style>
+	width: 150px;
+	color: black;
+	background-color: #ededed;
+	text-decoration: none;
+	display: block;
+	padding: 12px;
+	font-size: 12px;
+	border-top: 1px solid #b97f6d;
+	font-family: Consolas,monaco,monospace;
+	
+	}
+
+	.shop-list a:hover{
+	width: 150px;
+	color: #ffffff;
+	background-color: #123132;
+	text-decoration: none;
+	display: block;
+	padding: 12px;
+	font-size: 12px;
+	border-top: 1px solid #b97f6d;
+	font-family: Consolas,monaco,monospace;
+	}
+	
+</style>
 </head>
 <body>
-	<div class="top-nav">
-		<ul class="nav top-header clearfix border-bottom-0 d-block" >
-		  <li class="nav-item mr-5">
-		    <a class="nav-link" href="<%=request.getContextPath()%>/help">HELP</a>
-		  </li>
-		  <li class="nav-item">
-		    <a class="nav-link" href="<%=request.getContextPath()%>/admin/list">ADMIN</a>
-		  </li>
-		  <li class="nav-item">
-		    <a class="nav-link" href="<%=request.getContextPath()%>/order">ORDER</a>
-		  </li>
-		  <li class="nav-item">
-		    <a class="nav-link" href="<%=request.getContextPath()%>/basket">BASKET</a>
-		  </li>
-		  <li class="nav-item">
-		    <a class="nav-link" href="<%=request.getContextPath()%>/member/display">MYPAGE</a>
-		  </li>
-		  <li class="nav-item">
-		    <a class="nav-link" href="<%=request.getContextPath()%>/signup">SIGNUP</a>
-		  </li>
-		  <li class="nav-item">
-		    <a class="nav-link" href="<%=request.getContextPath()%>/signin">SIGNIN</a>
-		  </li>
+
+	<div class="navigation-1">
+		<ul class="nav justify-content-end" >
+			<li class="nav-item">
+		   	<a class="nav-link" href="<%=request.getContextPath()%>/signin">SIGNIN</a>
+		  	</li>
+		  	<li class="nav-item">
+				<a class="nav-link" href="<%=request.getContextPath()%>/signup">SIGNUP</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" href="<%=request.getContextPath()%>/member/display">MYPAGE</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" href="<%=request.getContextPath()%>/basket">BASKET</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" href="<%=request.getContextPath()%>/order">ORDER</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" href="<%=request.getContextPath()%>/admin/seller">ADMIN</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" href="<%=request.getContextPath()%>/help">HELP</a>
+			</li>
 		</ul>
 	</div>
 	
-	
-	<nav class="navbar navbar-expand-sm menu-bar">
-	<!-- * menubar -->
- 	<a class="navbar-brand" href="#">
-	<img alt="" src="<%=request.getContextPath()%>/resources/img/logo-tmp.png" width="200px">
-	</a>
 
-	<!-- Links -->
-	<div class="second-nav">
-		<ul class="navbar-nav">
+		<!-- Links -->
+	<div class="navigation-2">
+		<ul class="nav">
 			<li class="nav-item">
-			  <a class="nav-link" href="<%=request.getContextPath()%>/">Home</a>
+				<a class="menu-img" href="#"><img alt="" src="<%=request.getContextPath()%>/"></a>
 			</li>
-	
 			<li class="nav-item">
-			  <a class="nav-link" href="<%=request.getContextPath()%>/item/new">New</a>
+				<a class="nav-link" href="<%=request.getContextPath()%>/">Home</a>
 			</li>
-
-		<li class="nav-link clearfix">
-		<div class="shop-1">
-			<a>shop</a>
-				<ul class="shop-list">
-					<li><a class="nav-link" href="<%=request.getContextPath()%>/item/list">Succulents</a></li>
-					<li><a class="nav-link" href="<%=request.getContextPath()%>/item/list">Cactus</a></li>
-					<li><a class="nav-link" href="<%=request.getContextPath()%>/item/list">Plant</a></li>
-					<li><a class="nav-link" href="<%=request.getContextPath()%>/item/list">Hanging plant</a></li>
-					<li><a class="nav-link" href="<%=request.getContextPath()%>/item/list">Goods</a></li>
-				</ul>
-		</div>
-	</li>
-
-
-	
-	
+			<li class="nav-item">
+				<a class="nav-link" href="<%=request.getContextPath()%>/item/new">New</a>
+			</li>
+			
+			<!-- dropbox-tab -->
+			<li class="nav-link">
+				<div class="shop-1 clearfix">
+					<a>product</a>
+					<ul class="shop-list">
+						<li><a class="nav-link" href="<%=request.getContextPath()%>/item/list">Succulents</a></li>
+						<li><a class="nav-link" href="<%=request.getContextPath()%>/item/list">Cactus</a></li>
+						<li><a class="nav-link" href="<%=request.getContextPath()%>/item/list">Plant</a></li>
+						<li><a class="nav-link" href="<%=request.getContextPath()%>/item/list">Hanging plant</a></li>
+						<li><a class="nav-link" href="<%=request.getContextPath()%>/item/list">Goods</a></li>
+					</ul>
+				</div>
+			</li>	
 			<li class="nav-item">
 			  <a class="nav-link" href="<%=request.getContextPath()%>/item/event">Event</a>
 			</li> 
-	
 			<li class="nav-item">
 			  <a class="nav-link" href="<%=request.getContextPath()%>/board/list">Board</a>
 			</li>
 		</ul>
 	</div>
-</nav>
+
+
 
 <script>
 $(".shop-1 > a").mouseenter(function(aaa) {

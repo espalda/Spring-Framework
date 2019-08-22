@@ -8,29 +8,69 @@
 </style>
 </head>
 <body>
-<div class="py-3">
-		<p>M Y  O R D E R</p>
-			<hr class="member-line">
-			<div class="gray-container">
-				<table class="table member-table">
-					<tr>
-						<th width="15%">주문일자</th>
-						<th width="15%">이미지</th>
-						<th width="40%">상품정보</th>
-						<th width="8%">수량</th>
-						<th width="10%">금액</th>
-						<th width="17%">주문상태</th>
-					</tr>
-					<tr>
-						<td>2019-08-16</td>
-						<td><div class="border-raw" style="width: 50px; height: 50px;"></div></td>
-						<td>미세먼지 공지정화 식물추천</td>
-						<td>1</td>
-						<td>52900</td>
-						<td>발송완료</td>
-					</tr>
-				</table>
-			</div>
-	</div>
+<div class="container">
+  <h2>Seller</h2>
+  <!-- Nav tabs -->
+  <ul class="nav nav-tabs" role="tablist">
+    <li class="nav-item">
+      <a class="nav-link active" data-toggle="tab" href="#home">판매자 정보</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" data-toggle="tab" href="#menu1">판매자 등록</a>
+    </li>
+  </ul>
+
+  <!-- Tab panes -->
+  <div class="tab-content">
+    <div id="home" class="container tab-pane active"><br>
+	  	 <table class="table">
+	     		<tr>
+	     			<th>번호</th>
+	     			<th>이름</th>
+	     			<th>사업자번호</th>
+	     			<th>전화</th>
+	     			<th>주소</th>
+	     			<th>이메일</th>
+	     		</tr>
+	     		<tr>
+	     			<td>번호</td>
+	     			<td>이름</td>
+	     			<td>사업자번호</td>
+	     			<td>전화</td>
+	     			<td>주소</td>
+	     			<td>이메일</td>
+	     		</tr>
+	     </table>
+    </div>
+    <div id="menu1" class="container tab-pane fade"><br>
+			<table class="table">
+				<tr>
+					<th>판매자명</th>
+					<td><input type="text"></td>
+				</tr>
+				<tr>
+					<th>판매자이름</th>
+					<td><input type="text"></td>
+				</tr>
+				<tr>
+					<th>사업자번호</th>
+					<td><input type="text"></td>
+				</tr>
+				<tr>
+					<th>연락처</th>
+					<td><input type="text"></td>
+				</tr>
+				<tr>
+					<th>주소</th>
+					<td><input type="text"></td>
+				</tr>
+				<tr>
+					<th>이메일</th>
+					<td><input type="text"></td>
+				</tr>
+			</table>
+    </div>
+  </div>
+</div>
 </body>
 </html>
