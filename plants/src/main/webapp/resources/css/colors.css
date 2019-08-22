@@ -1,13 +1,13 @@
 @charset "EUC-KR";
 	
 	html body{
-	font-size: 12px;
+	font-size: 11px;
 	box-sizing: border-box;
 	font-family: Consolas,monaco,monospace;
 	}
 	
 	tr, td, th, .table{
-	font-size: 12px;
+	font-size: 11px;
 	}
 	
 	a, a:hover{
@@ -20,12 +20,18 @@
 	list-style:none;
 	padding-left:0px;
 	}
+	
+	.table th{
+	border:none;
+	}
+
 
 /*-----------------------------------------------------------------*/
 /* 1. font-color
 /*-----------------------------------------------------------------*/
 	.font-black{
 	color: #000000;
+	font-size: 11px;
 	text-align: center;
 	}
 	
@@ -41,11 +47,13 @@
 	color: #b97f6d;
 	}
 
-	.border-raw{
-	border: 1px solid #b97f6d;
+	.background-raw{
+	color: #ffffff;
+	background-color: #b97f6d;
 	box-sizing: border-box;
 	}
 	.border-gray{
+	color: #ffffff;
 	border: 1px solid #7f7f7f;
 	box-sizing: border-box;
 	}
@@ -55,7 +63,7 @@
 	.sign-input, .sign-input:focus{
 	display: block;
 	border:none;
-	border-bottom: 1px solid #7f7f7f;
+	border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 	outline: none;
 	width: 320px;
 	margin: 0 auto;
@@ -71,44 +79,40 @@
 /* 3. button - base
 /*-----------------------------------------------------------------*/
 	.btn-tree{
-	display: block;
 	margin: 0 auto;
 	color: white;
 	background-color: #123132;
 	border: none;
 	border-radius: 5px;
-	width: 350px;
+	width: 150px;
 	height: 28px;
 	font-size: 11px;
 	letter-spacing: 4px;
 	}
 
 	.btn-raw{
-	display: block;
 	margin: 0 auto;
 	color:white;
 	background-color: #b97f6d;
 	border: none;
 	border-radius: 5px;
-	width: 350px;
+	width: 150px;
 	height: 28px;
 	font-size: 11px;
 	letter-spacing: 4px;
 	}
 	
 	.btn-gray{
-	display: block;
 	margin: 0 auto;
 	color:white;
 	background-color: #7f7f7f;
 	border: none;
 	border-radius: 5px;
-	width: 350px;
+	width: 150px;
 	height: 28px;
 	font-size: 11px;
 	letter-spacing: 4px;
 	}
-	
 	
 	.btn-1{
 	font-size: 8px;

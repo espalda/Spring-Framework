@@ -3,95 +3,75 @@
 <!DOCTYPE html>
 <html>
 <head>
-<style>
-	.gray-container{
-	border: 1px solid #7f7f7f;
-	width: 90%;
-	height: 50%;
-	margin: 0 auto;
-	}
-	
-	.member-table{
-	font-size: 11px;
-	font-weight: normal;
-	text-align: center;
-	}
-	.table th{
-	border: none;
-	}
-
-</style>
 </head>
-<body class="text-center">
-	<!-- member/order -->
-	<div class="py-3">
-		<p>M Y  O R D E R</p>
-			<hr class="member-line">
-			<div class="gray-container">
-				<table class="table member-table">
-					<tr>
-						<th width="15%">주문일자</th>
-						<th width="15%">이미지</th>
-						<th width="40%">상품정보</th>
-						<th width="8%">수량</th>
-						<th width="10%">금액</th>
-						<th width="17%">주문상태</th>
-					</tr>
-					<tr>
-						<td>2019-08-16</td>
-						<td><div class="border-raw" style="width: 50px; height: 50px;"></div></td>
-						<td>미세먼지 공지정화 식물추천</td>
-						<td>1</td>
-						<td>52900</td>
-						<td>발송완료</td>
-					</tr>
-				</table>
-			</div>
+<body>
+	<!-- member-order -->
+	<div class="container-m">
+		<p>O R D E R S T A T E</p>
+		<div>
+			<table class="table">
+				<tr>
+					<th width="10%">주문번호</th>
+					<th width="20%">이미지</th>
+					<th width="40%">상품정보</th>
+					<th width="8%">수량</th>
+					<th width="10%">금액</th>
+					<th width="17%">주문상태</th>
+				</tr>
+				<tr>
+					<td>20190624-0000124</td>
+					<td>image</td>
+					<td>test</td>
+					<td>test</td>
+					<td>52900</td>
+					<td>test</td>
+				</tr>
+			</table>
+		</div>
 	</div>
-	<!-- member/board -->
-	<div class="py-3 d-none">
-		<p>M Y B O A R D</p>
-			<hr class="member-line">
-			<div class="gray-container">
-				<table class="table member-table">
-					<tr>
-						<th width="10%">번호</th>
-						<th width="10%">분류</th>
-						<th width="40%">제목</th>
-						<th width="15%">작성자</th>
-						<th width="15%">작성일</th>
-					</tr>
-					<tr>
-						<td>test</td>
-						<td>test</td>
-						<td>test</td>
-						<td>test</td>
-						<td>test</td>
-					</tr>
-				</table>
-			</div>
+	
+	<!-- member-board -->
+	<div class="container-m">
+		<p>P O S T I N G</p>
+		<div>
+			<table class="table">
+				<tr>
+					<th width="10%">게시글번호</th>
+					<th width="10%">분류</th>
+					<th width="40%">제목</th>
+					<th width="15%">작성자</th>
+					<th width="15%">작성일</th>
+				</tr>
+				<tr>
+					<td>test</td>
+					<td>test</td>
+					<td>test</td>
+					<td>test</td>
+					<td>test</td>
+				</tr>
+			</table>
+		</div>
 	</div>
-	<!-- member/coupon -->
-	<div class="py-3 d-none">
-		<p>M Y C O U P O N</p>
-			<hr class="member-line">
-			<div class="gray-container">
-				<table class="table member-table">
-					<tr>
-						<th width="8%">번호</th>
-						<th width="25%">쿠폰명</th>
-						<th width="27%">상품</th>
-						<th width="10%">할인금액</th>
-						<th width="25%">사용가능기간</th>
-					</tr>
-					<tr>
-						<td>001</td>
-						<td>여름 세일 10% 쿠폰</td>
-						<td>미세먼지 공기정화 식물추천</td>
-						<td>10%</td>
-						<td>yyyy-mm-dd ~ yyyy-mm-dd</td>
-					</tr>
-				</table>
+	<!-- member-coupon -->
+	<div class="container-m">
+		<p>C O U P O N</p>
+		<div>
+			<table class="table">
+				<tr>
+					<th width="10%">쿠폰번호</th>
+					<th width="25%">쿠폰명</th>
+					<th width="25%">상품</th>
+					<th width="10%">할인금액</th>
+					<th width="25%">사용가능기간</th>
+				</tr>
+				<tr>
+					<td>test</td>
+					<td>여름 세일 10% 쿠폰</td>
+					<td>test</td>
+					<td>test</td>
+					<td>yyyy-mm-dd ~ yyyy-mm-dd</td>
+				</tr>
+			</table>
 		</div>
 	</div>
 	<!-- member/address -->

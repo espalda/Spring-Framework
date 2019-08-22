@@ -5,8 +5,10 @@
 <html>
 <head>
 <style>
+
 	body{
 	background-color: #ededed;
+	box-sizing: border-box;
 	}
 
 	ul, li, a{
@@ -28,7 +30,7 @@
 	border-top: none;
 	left: -50px;
 	top: 30px;
-	z-index: 100;
+	z-index: 999;
   	}
 	
 	.shop-1{
@@ -130,10 +132,10 @@
 				<a class="menu-img" href="#"><img alt="" src="<%=request.getContextPath()%>/"></a>
 			</li>
 			<li class="nav-item">
-				<a class="nav-link" href="<%=request.getContextPath()%>/">Home</a>
+				<a class="nav-link" href="<%=request.getContextPath()%>/">home</a>
 			</li>
 			<li class="nav-item">
-				<a class="nav-link" href="<%=request.getContextPath()%>/item/new">New</a>
+				<a class="nav-link" href="<%=request.getContextPath()%>/item/new">new</a>
 			</li>
 			
 			<!-- dropbox-tab -->
@@ -150,10 +152,10 @@
 				</div>
 			</li>	
 			<li class="nav-item">
-			  <a class="nav-link" href="<%=request.getContextPath()%>/item/event">Event</a>
+			  <a class="nav-link" href="<%=request.getContextPath()%>/item/event">event</a>
 			</li> 
 			<li class="nav-item">
-			  <a class="nav-link" href="<%=request.getContextPath()%>/board/list">Board</a>
+			  <a class="nav-link" href="<%=request.getContextPath()%>/board/list">board</a>
 			</li>
 		</ul>
 	</div>

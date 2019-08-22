@@ -39,7 +39,7 @@ $(document).ready(function(){
 	}
 	.main-box{
 	height: 100%;
-	border: 1px solid #b97f6d;
+	border: 1px solid #293949;
 	box-sizing: border-box;
 	}
 
@@ -47,37 +47,37 @@ $(document).ready(function(){
 	.m-menu{
 	 width: 200px;
 	}
-.o-1 {
-  display: block;
-	border-radius: 5px;
-	position: relative;
-	height: 36px;
-	line-height: 36px;
-	margin: 10px 10px 10px 0;
-	padding: 0 15px;
-	font-size: 11px;
-	color: #123132;
-	text-decoration: none;
-	border: 1px solid #7f7f7f;
-	letter-spacing: 3px;
-	text-align: left;
-}
-
-.o-1:hover, .o-1.active {
-	color: #b97f6d;
-	border: 1px solid #7f7f7f;
-	background-color: #293949;
-}
-.fa-angle-right {
-  line-height: 35px;
-  float: right;
-}
+	.o-1 {
+	  display: block;
+		border-radius: 5px;
+		position: relative;
+		height: 36px;
+		line-height: 36px;
+		margin: 10px 10px 10px 0;
+		padding: 0 15px;
+		font-size: 11px;
+		color: #123132;
+		text-decoration: none;
+		border: 1px solid #7f7f7f;
+		letter-spacing: 3px;
+		text-align: left;
+	}
+	
+	.o-1:hover, .o-1.active {
+		color: #b97f6d;
+		border: 1px solid #7f7f7f;
+		background-color: #293949;
+	}
+	.fa-angle-right {
+	  line-height: 35px;
+	  float: right;
+	}
 .fas, .fa{
   padding-right: 5px;
 }
 </style>
 </head>
-<body class="text-center">
+<body>
 <tiles:insertAttribute name="header"/>
 	<div class="wrapper">
 		<div class="gray">

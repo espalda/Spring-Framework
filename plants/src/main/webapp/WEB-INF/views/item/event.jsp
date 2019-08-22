@@ -3,14 +3,11 @@
 <!DOCTYPE html>
 <html>
 <head>
-<style>
-
-
-</style>	
 </head>
 <body class="text-center">
 	<div class="container">
 		<h1>SUMMER 30% DISCOUNT COUPON</h1>
+		<p>PROTECT YOUR PRIVATE HOME FROM FINE DUST</p>
 		<img src="<%=request.getContextPath()%>/resources/img/item-1.jpg">
 		<p>PROTECT YOUR PRIVATE HOME FROM FINE DUST</p>
 	</div>

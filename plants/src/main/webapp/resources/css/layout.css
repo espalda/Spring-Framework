@@ -2,9 +2,14 @@
 /*-----------------------------------------------------------------*/
 /* 1. base-layout
 /*-----------------------------------------------------------------*/
+	body, html{
+	box-sizing: border-box;
+	}
 	.gray{
 	background-color: #ededed;
 	height: auto;
+	margin: 0;
+	padding: 0;
 	}
 	
 	.white{
@@ -12,6 +17,7 @@
 	max-width: 90% !important;
 	height: auto;
 	margin: 0 auto;
+	padding-bottom: 10%;
 	}
 	
 	/* body, html, .wrapper {

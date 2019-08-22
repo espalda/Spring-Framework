@@ -4,12 +4,12 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Home</title>
 </head>
 <body>
 	<form method="post" action="" id="signin">
-		<div class="container">
-			<div class="pt-3">
+		<div class="container text-center">
+		<h2>Sign In</h2>
+			<div>
 				<input type="text" class="sign-input" placeholder="아이디" name="id">
 			</div>
 				<label id="id-error" for="id"></label>
@@ -24,16 +24,9 @@
 				 / 
 				<a class="a-gray" href="<%=request.getContextPath()%>/pwFind">PASSWORD</a>
 			</div>
-				
-			<div class="m-3">
-				<button class="btn-tree">S I G N  I N</button>
-			</div>
-			
-			<div class="font-black">
-				<a class="a-black" href="<%=request.getContextPath()%>/signup">회원가입을 하시려면 여기를 클릭하세요.</a>
-			</div>
+				<button class="btn-tree d-block">SIGN IN</button>
+				<a class="text-center" href="<%=request.getContextPath()%>/signup">회원가입을 하시려면 여기를 클릭하세요.</a>
 		</div>
-	</form>
-			
+	</form>	
 </body>
 </html>

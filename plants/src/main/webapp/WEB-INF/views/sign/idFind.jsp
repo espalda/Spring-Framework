@@ -4,12 +4,12 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Home</title>
 </head>
 <body>
 	<form method="post" action="" id="idFind">
-		<div class="container">
-			<div class="pt-3">
+		<div class="container text-center">
+		<h2>Find Id</h2>
+			<div>
 				<input type="text" class="sign-input" placeholder="아이디" name="id">
 			</div>
 				<label id="id-error" for="id"></label>
@@ -19,11 +19,9 @@
 			</div>
 				<label id="pw-error" for="pw"></label>
 				
-			<div class="m-3">
-				<button class="btn-raw">F I N D  I D</button>
-			</div>
-			
-			<div class="find">
+				<button class="btn-raw">FIND ID</button>
+		
+			<div>
 				가입 시 입력하신 아이디는 ${member.id} 입니다.
 			</div>
 		</div>

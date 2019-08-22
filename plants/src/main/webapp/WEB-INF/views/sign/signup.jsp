@@ -4,18 +4,13 @@
 <!DOCTYPE html>
 <html>
 <head>
-<script>
-$(document).ready(function(){
-  $('[data-toggle="tooltip"]').tooltip(); 
-});
-</script>
 </head>
 <body>
 	<form method="post" action="" id="signup">
-		<div class="container">
-			<div class="pt-3">
+		<div class="container text-center">
+		<h2>Sign Up</h2>
+			<div>
 				<input type="text" class="sign-input" placeholder="아이디" name="id">
-				<a href="#" data-toggle="tooltip" title="아이디는 6자에서 12자 사이로 입력해주세요">exam</a>
 			</div>
 				<label id="id-error" for="id"></label>
 
@@ -39,21 +34,16 @@ $(document).ready(function(){
 			</div>
 				<label id="email-error" for="email"></label>
 				
-			<div class="mt-4">
-				<button class="btn-tree">S I G N  U P</button>
-			</div>
+				<button class="btn-tree">SIGN UP</button>
 			
-			
-			<div class="font-black py-3 mx-5">
+			<div>
 				본인은 만 14세 이상이며, [이용약관 동의] 와 [개인정보 수집 및 이용 동의] 에 확인 하였으며, 동의합니다.
 			</div>
 			
-			<div class="font-black py-3">
+			<div>
 				@Pickles Corp. All right reserved.
 			</div>
 			
-				<!-- <a href="<%=request.getContextPath()%>/">
-				<button type="button" class="btn btn-outline-success btn-sm float-right mr-1">home</button></a>  -->
 		</div>
 	</form>
 </body>

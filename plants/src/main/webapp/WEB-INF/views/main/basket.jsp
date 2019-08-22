@@ -4,34 +4,13 @@
 <html>
 <head>
 <style>
-	table{
-	font-size: 11px;
-	}
-	.basket-table{
-	width: 900px;
-	margin: 0 auto;
-	}
-	.basket-item{
-	border: 1px solid #7f7f7f;
-	height: 100px;
-	padding: 8px;
-	}
-	.basket-img{
-	width: 100px;
-	height: 100px;
-	border: 1px solid #b97f6d;
-	}
-	
-	td:nth-child(4){
-	padding: 12px 12px 12px 0 !important;
-	}
+
 </style>
 </head>
-<body class="text-center">
-<h2>Basket</h2>
-	<div class="basket-table">
+<body>
+	<div class="container-11">
+	<h2>Basket</h2>
 		<table class="table">
-		<thead>
 			<tr>
 				<th width="3%"><input type="checkbox"></th>
 				<th width="15%">주문번호</th>
@@ -42,29 +21,23 @@
 				<th width="10%">배송비</th>
 				<th width="10%">상품금액</th>
 			</tr>
-		</thead>
-		<tbody>
 			<tr>
 				<td><input type="checkbox" checked></td>
 				<td>20190624-0000124</td>
-				<td><div class="basket-img"></div></td>
-				<td><div class="basket-item">미세먼지 공기정화 추천상품</div></td>
-				<td>1</td>
+				<td>image</td>
+				<td>test</td>
+				<td>test</td>
 				<td>피클즈</td>
 				<td>2500</td>
 				<td>52900</td>
 			</tr>
-		</tbody>
-		<tfoot>
 			<tr>
-				<td colspan="10" class="text-right" style="background-color: #b97f6d; color: white;">
+				<td colspan="10" class="background-raw text-right">
 					<span>상품구매금액 52,900 + 배송비 0 (무료) = 합계 : 52,900원</span>
 				</td>
 			</tr>
-		</tfoot>
 		</table>
-		
-		<button class="btn-tree">O R D E R</button>
+		<button class="btn-tree">ORDER</button>
 	</div>
 </body>
 </html>

@@ -4,6 +4,8 @@
 <html>
 <head>
 <style>
+
+/* ------------------bootstrap-image tag */
 body, html {
   height: 100%;
   margin: 0;
@@ -46,15 +48,14 @@ body, html {
 </style>
 </head>
 <body>
-
-<div class="hero-image">
-  <div class="hero-text">
-    <h1 style="font-size:50px">I am John Doe</h1>
-    <p>And I'm a Photographer</p>
-    <button>Hire me</button>
-  </div>
-</div>
-
-<p>Page Content..</p>
+	<!-- bootstrap -->
+	<div class="hero-image">
+	  <div class="hero-text">
+	    <h1 style="font-size:50px">For your Home</h1>
+	    <p>And I'm a Plants</p>
+	    <button>click me</button>
+	  </div>
+	</div>
+	<p>Page Content..</p>
 </body>
 </html>

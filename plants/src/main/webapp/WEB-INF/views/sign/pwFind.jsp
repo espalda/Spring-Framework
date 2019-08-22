@@ -4,12 +4,12 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Home</title>
 </head>
 <body>
 	<form method="post" action="" id="pwFind">
-		<div class="container">
-			<div class="pt-3">
+		<div class="container text-center">
+		<h2>Find Password</h2>
+			<div>
 				<input type="text" class="sign-input" placeholder="아이디" name="id">
 			</div>
 				<label id="id-error" for="id"></label>
@@ -24,11 +24,11 @@
 			</div>
 				<label id="pw-error" for="pw"></label>
 				
-			<div class="m-3">
-				<button class="btn-raw">F I N D  P A S S W O R D</button>
+			<div>
+				<button class="btn-raw">FIND PASSWORD</button>
 			</div>
 			
-			<div class="find">
+			<div>
 				입력하신 이메일로 비밀번호가 전송되었습니다.
 			</div>
 		</div>

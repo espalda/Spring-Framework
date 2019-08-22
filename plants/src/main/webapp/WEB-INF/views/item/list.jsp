@@ -4,12 +4,6 @@
 <html>
 <head>
 <style>
-	ul, li{
-	text-decoration: none;
-	list-style:none;
-	padding-left:0px;
-	}
-	
 	.item-1 li{
 	float: left;
 	padding: 10px;
@@ -25,16 +19,11 @@
 <body>
 	<div class="container">
 		<img src="<%=request.getContextPath()%>/resources/img/garlic-1.jpg" width="100%" height="300">
-			<div class="clearfix">
-				<div class="dropdown float-right">
-					<button type="button" class="dropdown-toggle" data-toggle="dropdown">정 렬</button>
-					<div class="dropdown-menu">
-						<a class="dropdown-item" href="#">등록순</a>
-					   <a class="dropdown-item" href="#">가격순</a>
-					   <a class="dropdown-item" href="#">인기순</a>
-					</div>
-				</div>
-			</div>
+		<select>
+			<option>등록순</option>
+			<option>가격순</option>
+			<option>인기순</option>
+		</select>
 
 	<div class="item-1">
 		<ul class="item-2 clearfix">

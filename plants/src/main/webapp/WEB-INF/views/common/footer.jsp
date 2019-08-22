@@ -9,6 +9,9 @@
 		background-color: #123132;
 		font-size: 11px;
 		color: #b97f6d;
+		padding: 0;
+		margin: 0;
+		box-sizing: border-box;
 		}
 		.footer a{
 		font-size: 11px;

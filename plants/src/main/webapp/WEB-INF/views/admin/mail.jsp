@@ -32,21 +32,6 @@ border: 1px solid #b97f6d;
 					<td><textarea rows="5" cols="78"></textarea></td>
 				</tr>
 			</table>
-			
-			<div>
-				<div>
-					<label>받는사람</label>
-					<input type="text" size="40">
-				</div>
-				<div>
-					<label>제목</label>
-					<input type="text" size="80">
-				</div>
-				<div class="c-1">
-					<label>내 용</label>
-					<textarea rows="5" cols="78"></textarea>
-				</div>
-			</div>
 			<button class="btn-raw">S E N D</button>
 	</div>
 </body>

@@ -4,43 +4,32 @@
 <html>
 <head>
 <style>
-	.top{
-	border: 1px solid #7f7f7f;
-	box-sizing: border-box;
-	}
 </style>
 </head>
 <body>
-<div class="top px-3" >
-	<div style="padding: 12px;">
-		<span>작성자</span>
-		<span>조회수</span>
-		<span>작성일</span>
-	</div>
-	<table class="table">
-		<thead>
+	<div class="container-11">
+		<table class="table">
 			<tr>
-				<td width="15%">카테고리</td>
-				<td colspan="2">제목</td>
+				<th>작성자</th>
+				<th>조회수</th>
+				<th>작성일</th>
 			</tr>
-		</thead>
-		<tbody>
-			<tr>
-				<td height="300px" colspan="3">내용</td>
-			</tr>
-		</tbody>
-		<tfoot>
-			<tr>
-				<td>첨부파일</td>
-			</tr>
-		</tfoot>
-	</table>
-</div>
-
-	<div>
-		<button class="btn-tree">M O D I F Y</button>
-		<button class="btn-raw">D E L E T E</button>
-		<button class="btn-gray">L I S T</button>
+				<tr>
+					<th width="15%">카테고리</th>
+					<th colspan="2">제목</th>
+				</tr>
+				<tr>
+					<td height="300px" colspan="3">내용</td>
+				</tr>
+				<tr>
+					<td>첨부파일</td>
+				</tr>
+		</table>
+		<div class="float-right">
+			<button class="btn-tree">MODIFY</button>
+			<button class="btn-raw">DELETE</button>
+			<button class="btn-gray">LIST</button>
+		</div>
 	</div>
 </body>
 </html>
