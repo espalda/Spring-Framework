@@ -7,7 +7,7 @@
 <body>
 	<!-- member-order -->
 	<div class="container-m">
-		<p>O R D E R S T A T E</p>
+		<h2>Order State</h2>
 		<div>
 			<table class="table">
 				<tr>
@@ -32,7 +32,7 @@
 	
 	<!-- member-board -->
 	<div class="container-m">
-		<p>P O S T I N G</p>
+		<h2>Posting</h2>
 		<div>
 			<table class="table">
 				<tr>
@@ -54,7 +54,7 @@
 	</div>
 	<!-- member-coupon -->
 	<div class="container-m">
-		<p>C O U P O N</p>
+		<h2>Coupon</h2>
 		<div>
 			<table class="table">
 				<tr>

@@ -15,9 +15,9 @@
 				<label id="id-error" for="id"></label>
 
 			<div>
-				<input type="password" class="sign-input" placeholder="비밀번호" name="pw" id="pw">
+				<input type="email" class="sign-input" placeholder="이메일" name="email" id="email">
 			</div>
-				<label id="pw-error" for="pw"></label>
+				<label id="email-error" for="email"></label>
 				
 				<button class="btn-raw">FIND ID</button>
 		

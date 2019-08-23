@@ -1,15 +1,152 @@
 @charset "EUC-KR";
+/*-----------------------------------------------------------------*/
+/* 1. layout
+/*-----------------------------------------------------------------*/
+	.gray{
+	background-color: #ededed;
+	height: auto;
+	margin: 0;
+	padding: 0;
+	}
+	
+	.white{
+	background-color: #ffffff;
+	max-width: 90% !important;
+	height: auto;
+	margin: 0 auto;
+	padding-bottom: 10%;
+	}
+	
+	.volume{
+	max-width: 1100px;
+	padding: 10px;
+	margin: 0 auto;
 
+	}
+
+/*-----------------------------------------------------------------*/
+/* 3. menu-layout
+/*-----------------------------------------------------------------*/
+	.mrbx{
+	width: 880px;
+	height: auto;
+	padding: 10px;
+	margin-top: 10px;
+	border: 1px solid #b97f6d;
+	}
+/*--------------- m-menu */
+	.mlbx{
+	width: 200px;
+	}
+	.am-1 {
+	display: block;
+	border-radius: 5px;
+	position: relative;
+	height: 36px;
+	line-height: 36px;
+	margin: 10px 10px 10px 0;
+	padding: 0 15px;
+	font-size: 11px;
+	color: #123132;
+	text-decoration: none;
+	border: 1px solid #7f7f7f;
+	letter-spacing: 3px;
+	text-align: left;
+	}
+	
+	.am-1:hover, .am-1.active {
+	color: #b97f6d;
+	border: 1px solid #7f7f7f;
+	background-color: #293949;
+	}
+	.fa-angle-right {
+	line-height: 35px;
+	float: right;
+	}
+	.fas, .fa{
+	padding-right: 5px;
+	}
+	
+/*-----------------------------------------------------------------*/
+/* 2. login
+/*-----------------------------------------------------------------*/
+	.shadow{
+	width: 500px;
+	height: 500px;
+	margin: 0 auto;
+	}
+/*-----------------------------------------------------------------*/
+/* 3. html
+/*-----------------------------------------------------------------*/
+		
+	html body{
+	font-size: 11px;
+	box-sizing: border-box;
+	font-family: Consolas,monaco,monospace;
+	}
+	
+	tr, td, th, .table{
+	font-size: 11px;
+	}
+	
+	a, a:hover{
+	text-decoration: none;
+	color: #000000;
+	}
+	
+	ul, li{
+	text-decoration: none;
+	list-style:none;
+	padding-left:0px;
+	}
+	
+	.table th{
+	border:none;
+	}
+	
+/*-----------------------------------------------------------------*/
+/* 4. item
+/*-----------------------------------------------------------------*/
+
+/*-----------------------------------------------------------------*/
+/* 5. board
+/*-----------------------------------------------------------------*/
+
+/*-----------------------------------------------------------------*/
+/* 6. admin
+/*-----------------------------------------------------------------*/
+
+.mm-1 {
+	display: block;
+	border-radius: 5px;
+	position: relative;
+	height: 36px;
+	line-height: 36px;
+	margin: 10px 10px 10px 0;
+	padding: 0 15px;
+	font-size: 11px;
+	color: #123132;
+	text-decoration: none;
+	border: 1px solid #7f7f7f;
+	letter-spacing: 3px;
+	text-align: left;
+	}
+	
+	.mm-1:hover, .mm-1.active {
+	color: #ffffff;
+	border: 1px solid #7f7f7f;
+	background-color: #b97f6d;
+	}
 /*-----------------------------------------------------------------*/
 /* 1. member
 /*-----------------------------------------------------------------*/
-.container-m{
-  width: 100%;
-  padding: 10px;
-  margin: 0 auto;
-  font-size: 11px;
-  text-align: center;
-}
+	.container-m{
+	width: 100%;
+	padding: 10px;
+	margin: 0 auto;
+	font-size: 11px;
+	text-align: center;
+	}
 /*-----------------------------------------------------------------*/
 /* 2. basket
 /*-----------------------------------------------------------------*/

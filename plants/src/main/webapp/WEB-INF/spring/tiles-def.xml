@@ -29,7 +29,7 @@
     </definition>
     
     <!-- * 4 board-레이아웃 -->
-    <definition name=".board" template="/WEB-INF/views/layout/baseLayout.jsp">
+    <definition name=".board" template="/WEB-INF/views/layout/boardLayout.jsp">
         <put-attribute name="title" value="" />
         <put-attribute name="header" value="/WEB-INF/views/common/header.jsp" />
         <put-attribute name="menu" value="" />        

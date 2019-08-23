@@ -3,6 +3,7 @@
 
 <!-- * jquery -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="<%=request.getContextPath()%>/resources/js/script.js"></script>
 
 <!-- * fontawsome -->
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
@@ -18,5 +19,5 @@
 
 <!-- * css 연결 -->
 <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/colors.css">
-<link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/layout.css">
 <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/main.css">
+<link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/animation.css">

@@ -7,8 +7,7 @@
 </style>
 </head>
 <body>
-	<div class="container-11">
-		<span>카테고리</span>
+	<span>카테고리</span>
 		<select>
 			<option>공지</option>
 			<option>건의</option>
@@ -33,6 +32,5 @@
 		</table>
 		
 		<a href="<%=request.getContextPath()%>/board/register"><button class="btn-raw float-right">WRITE</button></a>
-	</div>
 </body>
 </html>

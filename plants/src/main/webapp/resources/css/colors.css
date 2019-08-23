@@ -1,62 +1,13 @@
 @charset "EUC-KR";
-	
-	html body{
-	font-size: 11px;
-	box-sizing: border-box;
-	font-family: Consolas,monaco,monospace;
-	}
-	
-	tr, td, th, .table{
-	font-size: 11px;
-	}
-	
-	a, a:hover{
-	text-decoration: none;
-	color: #000000;
-	}
-	
-	ul, li{
-	text-decoration: none;
-	list-style:none;
-	padding-left:0px;
-	}
-	
-	.table th{
-	border:none;
-	}
-
-
 /*-----------------------------------------------------------------*/
 /* 1. font-color
 /*-----------------------------------------------------------------*/
-	.font-black{
-	color: #000000;
-	font-size: 11px;
-	text-align: center;
-	}
-	
-	.font-gray{
-	color: #7f7f7f;
-	}
-	
-	.font-tree{
-	color: #123132;
-	}
-	
-	.font-raw{
-	color: #b97f6d;
-	}
-
 	.background-raw{
 	color: #ffffff;
 	background-color: #b97f6d;
 	box-sizing: border-box;
 	}
-	.border-gray{
-	color: #ffffff;
-	border: 1px solid #7f7f7f;
-	box-sizing: border-box;
-	}
+
 /*-----------------------------------------------------------------*/
 /* 2. input - sign
 /*-----------------------------------------------------------------*/
@@ -76,7 +27,7 @@
 	}
 	
 /*-----------------------------------------------------------------*/
-/* 3. button - base
+/* 3. button
 /*-----------------------------------------------------------------*/
 	.btn-tree{
 	margin: 0 auto;
@@ -143,33 +94,8 @@
 /* 4. sign - find
 /*-----------------------------------------------------------------*/
 
-	.find{
-	border: 1px solid #b97f6d;
-	width: 320px;
-	height: 50px;
-	line-height: 48px;
-	text-align: center;
-	color: black;
-	margin: 0 auto;
-	}
-	
-	.a-gray, .a-gray:hover{
-	color: #7f7f7f;
-	letter-spacing: 3px;
-	text-decoration: none;
-	}
-	
-	.a-black, .a-black:hover{
-	color: #000000;
-	text-decoration: none;
-	}
 	
 /*-----------------------------------------------------------------*/
 /* 4. member
 /*-----------------------------------------------------------------*/
-	.member-line{
-	 color: #b97f6d;    /* IE */
-    border-color: #b97f6d;  /* 사파리 */
-    background-color: #b97f6d;   /* 크롬, 모질라 등, 기타 브라우저 */
-	 width: 90%;
-	 }
+

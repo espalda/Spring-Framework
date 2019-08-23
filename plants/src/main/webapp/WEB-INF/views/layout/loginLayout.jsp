@@ -5,19 +5,17 @@
 <html>
 <head>
 <title>plants</title>
-<jsp:include page="/WEB-INF/views/include/script.jsp"></jsp:include>
+<jsp:include page="/WEB-INF/views/include/path.jsp"></jsp:include>
 </head>
 <body>
    <tiles:insertAttribute name="header"/>
-	<div class="wrapper">
 		<div class="gray">
 			<div class="white"> 
 				<div class="shadow">   
-       			<tiles:insertAttribute name="body" />
-       		</div>
+		     			<tiles:insertAttribute name="body" />
+		     	</div>
 			</div>
-		</div>
-	</div>                                     
+		</div>                                   
 	<tiles:insertAttribute name="footer" />
 </body>
 </html>

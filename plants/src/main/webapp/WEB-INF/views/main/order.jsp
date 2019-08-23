@@ -4,18 +4,18 @@
 <html>
 <head>
 <style>
-	.order-1{
-		float: left;
+	.ob-1{
+	float: left;
 	width: 500px;
 	height: 300px;
 	padding: 10px;
 	margin-right: 12px;
 	}
-	.order-1 label{
+	.ob-1 label{
 	width: 80px;
 	padding-right: 10px;
 	}
-	.order-2{
+	.ob-2{
 	float: left;
 	width: 388px;
 	height: 300px;
@@ -26,7 +26,7 @@
 </head>
 <body>
 	<div class="container-11">
-	<p>주 문 페 이 지</p>
+		<h2>Order</h2>
 		<table class="table">
 			<tr>
 				<th width="10%">이미지</th>
@@ -48,8 +48,8 @@
 	
 	<hr>
 
-	<div class="clearfix order">
-		<div class="border order-1">
+	<div class="clearfix">
+		<div class="border ob-1">
 			<div>배송 정보</div>
 			<hr>
 			<div>
@@ -73,7 +73,7 @@
 				<label>메모</label>
 				<input type="text" size="40"></div>
 		</div>
-		<div class="border order-2">
+		<div class="border ob-2">
 				<strong>결제금액</strong>
 				<h1>5200원</h1>
 				<hr>
@@ -93,32 +93,30 @@
 	
 		
 	</div>
-		<div class="order-3">
+		<div class="ob-3">
 			<!-- Tab links -->
 			<div class="tab">
-			  <button class="tablinks" onclick="openCity(event, 'London')">카드결제</button>
-			  <button class="tablinks" onclick="openCity(event, 'Paris')">무통장입금</button>
-			  <button class="tablinks" onclick="openCity(event, 'Tokyo')">휴대폰결제</button>
+			  <button class="tablinks" onclick="openCity(event, 'card')">카드결제</button>
+			  <button class="tablinks" onclick="openCity(event, 'bank')">무통장입금</button>
+			  <button class="tablinks" onclick="openCity(event, 'phone')">휴대폰결제</button>
 			</div>
 			
 			<!-- Tab content -->
-			<div id="London" class="tabcontent">
-			  <h3>카드결제</h3>
-			  <p>test</p>
+			<div id="card" class="tabcontent">
+			  <p>test1</p>
 			</div>
 			
-			<div id="Paris" class="tabcontent">
-			  <h3>무통장입금</h3>
-			  <p>test</p> 
+			<div id="bank" class="tabcontent">
+			  <p>test2</p> 
 			</div>
 			
-			<div id="Tokyo" class="tabcontent">
-			  <h3>휴대폰결제</h3>
-			  <p>test</p>
+			<div id="phone" class="tabcontent">
+			  <p>test3</p>
 			</div>
 		</div>
 		
 <script>
+/* ob-3 bootstrap-script */
 function openCity(evt, cityName) {
   var i, tabcontent, tablinks;
   tabcontent = document.getElementsByClassName("tabcontent");
