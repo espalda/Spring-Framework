@@ -34,17 +34,17 @@ public class MemberServiceImp implements MemberService{
 			if(memberDao.getMember(mVo.getId()) != null)
 				return false;
 			//회원가입창에서 입력받은 암호를 암호화 시키고 회원 정보의 비밀번호를 암호화된 비밀번호로 변경
-			String encodePw = passwordEncoder.encode(mVo.getPw());
-			mVo.setPw(encodePw);
+			String encode = passwordEncoder.encode(mVo.getPw());
+			mVo.setPw(encode);
 			memberDao.signup(mVo);
 			return true;
 		}
 	
 		@Override
-		public MemberVO signin(MemberVO mVo) {
+		public MemberVO signin(MemberVO mVo) {	//컨트롤러 mVo 내가 입력한 회원정보
 			if(mVo == null)
 				return null;
-			MemberVO oVo =	memberDao.getMember(mVo.getId());	//컨트롤러 mVo 내가 입력한 회원정보, db에서 가져온 입력한 id와 일치하는 회원정보
+			MemberVO oVo =	memberDao.getMember(mVo.getId());	//id를 통해 db에서 가져온 정보를 ovo에 저장
 			if(oVo == null)		//oVo == null 입력받은 id와 db정보가 일치하지 않다.
 				return null;
 			if(passwordEncoder.matches(mVo.getPw(), oVo.getPw()))

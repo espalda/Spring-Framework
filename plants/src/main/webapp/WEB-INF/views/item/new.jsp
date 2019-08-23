@@ -8,7 +8,7 @@
 	<div class="container">
 		<h1>NEW ARRIVAL</h1>
 		<div class="img">
-   		<div class="scale"><img src="<%=request.getContextPath()%>/resources/img/item-1.jpg" width="300px"></div>
+   		<div class="scale"><img src="<%=request.getContextPath()%>/resources/img/item-1.jpg" width="350px"></div>
 		</div>
 	</div>
 </body>

@@ -18,12 +18,6 @@ public class MemberController {
 		    return mv;
 		}
 		
-		@RequestMapping(value="/modify")
-		public ModelAndView openTilesView1(ModelAndView mv){
-		    mv.setViewName("/member/modify");
-		    return mv;
-		}
-		
 		
 		@RequestMapping(value="/order")
 		public ModelAndView openTilesView2(ModelAndView mv){

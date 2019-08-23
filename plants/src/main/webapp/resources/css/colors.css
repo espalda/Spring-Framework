@@ -11,17 +11,19 @@
 /*-----------------------------------------------------------------*/
 /* 2. input - sign
 /*-----------------------------------------------------------------*/
-	.sign-input, .sign-input:focus{
+	.input, .input:focus{
 	display: block;
 	border:none;
 	border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 	outline: none;
-	width: 320px;
+	width: 350px;
 	margin: 0 auto;
 	padding-bottom: 10px;
+	font-size: 15px;
 	}
 	
-	.sign-input::placeholder {
+	.input::placeholder {
+	font-size: 11px;
 	color: #123132;
 	text-align: center;
 	}

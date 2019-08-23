@@ -10,12 +10,12 @@
 		<div class="container text-center">
 		<h2>Find Id</h2>
 			<div>
-				<input type="text" class="sign-input" placeholder="아이디" name="id">
+				<input type="text" class="input" placeholder="아이디" name="id">
 			</div>
 				<label id="id-error" for="id"></label>
 
 			<div>
-				<input type="email" class="sign-input" placeholder="이메일" name="email" id="email">
+				<input type="email" class="input" placeholder="이메일" name="email" id="email">
 			</div>
 				<label id="email-error" for="email"></label>
 				

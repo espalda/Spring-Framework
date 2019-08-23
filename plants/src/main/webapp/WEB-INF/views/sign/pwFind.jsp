@@ -10,17 +10,17 @@
 		<div class="container text-center">
 		<h2>Find Password</h2>
 			<div>
-				<input type="text" class="sign-input" placeholder="아이디" name="id">
+				<input type="text" class="input" placeholder="아이디" name="id">
 			</div>
 				<label id="id-error" for="id"></label>
 				
 			<div>
-				<input type="text" class="sign-input" placeholder="이름" name="name">
+				<input type="text" class="input" placeholder="이름" name="name">
 			</div>
 				<label id="id-error" for="name"></label>
 
 			<div>
-				<input type="email" class="sign-input" placeholder="이메일" name="email" id="email">
+				<input type="email" class="input" placeholder="이메일" name="email" id="email">
 			</div>
 				<label id="email-error" for="email"></label>
 				

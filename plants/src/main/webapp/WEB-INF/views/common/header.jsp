@@ -1,20 +1,12 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 
 <!DOCTYPE html>
 <html>
 <head>
 <style>
-
 	body{
 	background-color: #ededed;
-	box-sizing: border-box;
-	}
-
-	ul, li, a{
-	list-style: none;
-	text-decoration: none;
-	padding-left:0px;
 	}
 		
 	.shop-1 a{
@@ -28,7 +20,7 @@
 	position: absolute;
 	border: 1px solid #b97f6d;
 	border-top: none;
-	left: -50px;
+	left: -30px;
 	top: 30px;
 	z-index: 999;
   	}
@@ -37,33 +29,35 @@
 	position: relative;
 	}
 
-
 /* ---------------------------- navigation-1 */
-	.navigation-1{
+	.nav-1{
 	border-bottom: 0px;
 	background-color:#ededed;
 	font-size: 11px;
 	height: 25px;
 	}
-	.navigation-1 a{
+	
+	.nav-1 a{
 	color: #b97f6d;
 	line-height: 10px;
 	letter-spacing: 1px;
 	}
-	.navigation-1 ul{
+	
+	.nav-1 ul{
 	margin-right: 70px;
 	}
 
 
 /* ---------------------------- navigation-2 */
-	.navigation-2{
+	.nav-2{
 	width: 90%;
 	border-bottom: 1px solid rgba(185, 127, 109, 0.5);
 	background-color: white;
 	color: #123132;
 	margin: 0 auto;
 	}
-	.navigation-2 a{
+	
+	.nav-2 a{
 	color: #123132;
 	font-size: 15px;
 	}
@@ -79,7 +73,7 @@
 	font-size: 12px;
 	border-top: 1px solid #b97f6d;
 	font-family: Consolas,monaco,monospace;
-	
+	text-align: left;
 	}
 
 	.shop-list a:hover{
@@ -92,42 +86,57 @@
 	font-size: 12px;
 	border-top: 1px solid #b97f6d;
 	font-family: Consolas,monaco,monospace;
+	text-align: left;
 	}
 	
 </style>
 </head>
 <body>
-
-	<div class="navigation-1">
+	<div class="nav-1">
 		<ul class="nav justify-content-end" >
-			<li class="nav-item">
-		   	<a class="nav-link" href="<%=request.getContextPath()%>/signin">SIGNIN</a>
-		  	</li>
-		  	<li class="nav-item">
-				<a class="nav-link" href="<%=request.getContextPath()%>/signup">SIGNUP</a>
-			</li>
-			<li class="nav-item">
-				<a class="nav-link" href="<%=request.getContextPath()%>/member/display">MYPAGE</a>
-			</li>
-			<li class="nav-item">
-				<a class="nav-link" href="<%=request.getContextPath()%>/basket">BASKET</a>
-			</li>
-			<li class="nav-item">
-				<a class="nav-link" href="<%=request.getContextPath()%>/order">ORDER</a>
-			</li>
-			<li class="nav-item">
-				<a class="nav-link" href="<%=request.getContextPath()%>/admin/seller">ADMIN</a>
-			</li>
-			<li class="nav-item">
-				<a class="nav-link" href="<%=request.getContextPath()%>/help">HELP</a>
-			</li>
+			<c:if test="${login eq null }">
+				<li class="nav-item">
+			   	<a class="nav-link" href="<%=request.getContextPath()%>/signin">SIGNIN</a>
+			  	</li>
+			  	<li class="nav-item">
+					<a class="nav-link" href="<%=request.getContextPath()%>/signup">SIGNUP</a>
+				</li>
+			</c:if>
+			
+			<c:if test="${login ne null }">
+				<li class="nav-item">
+					<a class="nav-link" href="<%=request.getContextPath()%>/signout">SIGNOUT</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="<%=request.getContextPath()%>/member/display">MYPAGE</a>
+			</c:if>
+			
+				<li class="nav-item">
+					<a class="nav-link" href="<%=request.getContextPath()%>/basket">BASKET</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="<%=request.getContextPath()%>/order">ORDER</a>
+				</li>
+				
+			<c:if test="${login.authority eq 'admin' }">
+				<li class="nav-item">
+					<a class="nav-link" href="<%=request.getContextPath()%>/admin/seller">ADMIN</a>
+				</li>
+			</c:if>
+			
+				<li class="nav-item">
+					<a class="nav-link" href="<%=request.getContextPath()%>/help">HELP</a>
+				</li>
 		</ul>
 	</div>
 	
 
 		<!-- Links -->
-	<div class="navigation-2">
-		<ul class="nav">
+	<div class="nav-2">
+		<div class="text-center">
+			<img alt="" src="<%=request.getContextPath()%>/resources/img/logo-tmp.png" width="200px;">
+		</div>
+		<ul class="nav justify-content-center">
 			<li class="nav-item">
 				<a class="menu-img" href="#"><img alt="" src="<%=request.getContextPath()%>/"></a>
 			</li>

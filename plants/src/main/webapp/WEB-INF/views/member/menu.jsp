@@ -5,8 +5,8 @@
 <head>
 </head>
 <body>
+	<div class="text-center">
 	<!-- member-order -->
-	<div class="container-m">
 		<h2>Order State</h2>
 		<div>
 			<table class="table">
@@ -28,10 +28,8 @@
 				</tr>
 			</table>
 		</div>
-	</div>
 	
 	<!-- member-board -->
-	<div class="container-m">
 		<h2>Posting</h2>
 		<div>
 			<table class="table">
@@ -51,9 +49,8 @@
 				</tr>
 			</table>
 		</div>
-	</div>
+
 	<!-- member-coupon -->
-	<div class="container-m">
 		<h2>Coupon</h2>
 		<div>
 			<table class="table">
@@ -73,13 +70,12 @@
 				</tr>
 			</table>
 		</div>
-	</div>
+
 	<!-- member/address -->
-	<div class="py-3 d-none">
-		<p>M Y A D D R E S S</p>
-			<hr class="member-line">
-			<div class="gray-container">
-				<table class="table member-table">
+
+		<h2>Address</h2>
+			<div>
+				<table class="table">
 					<tr>
 						<th width="10%">분류</th>
 						<th width="10%">수령인</th>
@@ -95,9 +91,9 @@
 				</table>
 		</div>
 	
-			<div class="btn-box clearfix mt-2">
-				<button class="btn-1 float-left ml-5">수정</button>
-				<button class="btn-1 float-left">삭제</button>
+			<div class="btn-box float-left">
+				<button class="btn-tree">수정</button>
+				<button class="btn-gray">삭제</button>
 			</div>
 	</div>
 </body>

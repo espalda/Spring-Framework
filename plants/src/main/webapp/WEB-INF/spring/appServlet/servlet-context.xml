@@ -21,12 +21,45 @@
 		<beans:property name="suffix" value=".jsp" />
 	</beans:bean>
 	
-	<context:component-scan base-package="kr.green.plants.controller" />
+	<context:component-scan base-package="kr.green.plants" />
+	
+	<beans:bean id="loginInterceptor" 
+	class="kr.green.plants.interceptor.LoginInterceptor"></beans:bean>
+	<beans:bean id="authInterceptor" 
+	class="kr.green.plants.interceptor.AuthInterceptor"></beans:bean>
+	<beans:bean id="unauthInterceptor" 
+	class="kr.green.plants.interceptor.UnauthInterceptor"></beans:bean>
+	<beans:bean id="adminInterceptor" 
+	class="kr.green.plants.interceptor.AdminInterceptor"></beans:bean>
+	
+	<interceptors>
+	   <interceptor>
+    	  <mapping path="/signin"/>
+        <beans:ref bean="loginInterceptor"/>
+	   </interceptor>
+	   
+	   <interceptor>
+        <mapping path="/board/**"/>
+        <beans:ref bean="authInterceptor"/>
+		</interceptor>
+		
+		<interceptor>
+        <mapping path="/signin"/>
+        <mapping path="/signup"/>
+        <mapping path="/"/>
+        <beans:ref bean="unauthInterceptor"/>
+		</interceptor>
+		
+		<interceptor>
+        <mapping path="/admin/**"/>
+        <beans:ref bean="adminInterceptor"/>
+		</interceptor>
+	</interceptors>
 	
 	<!-- * tiles -->
 	<beans:bean id="tilesViewResolver" class="org.springframework.web.servlet.view.UrlBasedViewResolver">
 	    <beans:property name="viewClass" value="org.springframework.web.servlet.view.tiles3.TilesView" />
-	    <beans:property name="order" value="1" /><!-- 순서를 우선으로 지정 -->
+	    <beans:property name="order" value="1" />		<!-- 순서를 우선으로 지정 -->
 	</beans:bean>
 	     
 	<beans:bean id="tilesConfigurer" class="org.springframework.web.servlet.view.tiles3.TilesConfigurer">
@@ -37,5 +70,16 @@
 	    </beans:property>
 	</beans:bean>
 	
+	
+	<!--  * file-upload -->
+	<beans:bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+	<!-- 업로드 최대 크기 10Mb -->
+	<beans:property name="maxUploadSize" value="10485760"></beans:property>
+	</beans:bean>
+	<!--  * file-upload path -->
+	<beans:bean id="uploadPath" class="java.lang.String">
+	<!--<beans:constructor-arg value="서버에 저장할 경로"></beans:constructor-arg>-->
+	<beans:constructor-arg value="C:\\github\\uploadfiles"></beans:constructor-arg>
+	</beans:bean>
 	
 </beans:beans>
