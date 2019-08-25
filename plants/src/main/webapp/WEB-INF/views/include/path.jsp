@@ -4,6 +4,8 @@
 <!-- * jquery -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script src="<%=request.getContextPath()%>/resources/js/script.js"></script>
+<script src="<%=request.getContextPath()%>/resources/js/jquery.validate.js"></script>
+<script src="<%=request.getContextPath()%>/resources/js/additional-methods.js"></script>
 
 <!-- * fontawsome -->
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">

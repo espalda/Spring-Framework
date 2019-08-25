@@ -19,7 +19,7 @@ public class UnauthInterceptor extends HandlerInterceptorAdapter {
 		MemberVO user = (MemberVO)session.getAttribute("login");
 		
 		if(user != null) {
-			response.sendRedirect(request.getContextPath()+"/board/list");
+			response.sendRedirect(request.getContextPath()+"/");
 		}
 		return true;
 	}
