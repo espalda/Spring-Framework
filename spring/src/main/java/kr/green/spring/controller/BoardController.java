@@ -153,7 +153,7 @@ public class BoardController {
 			boardService.deleteBoard(num);
 			}
 			return "redirect:/board/list";
-			//redirect 없이 그냥  board/list 이면 삭제했던 페이지의 uri에 머무르고
+			//그냥  board/list 이면 삭제했던 페이지의 uri에 머무르고
 			//redirect를 붙이면 바로 list 페이지로 들어간다.
 		}
 }

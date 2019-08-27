@@ -18,17 +18,23 @@
 					
 		<table class="table">
 			<tr>
-				<th width="60%">제목</th>
+				<th width="5%">번호</th>
+				<th width="55%">제목</th>
 				<th width="10%">작성자</th>
 				<th width="20%">작성일</th>
 				<th width="10%">조회수</th>
 			</tr>
+			
+			<c:forEach var="board" items="${boardList }">
 			<tr>
-				<td>test</td>
-				<td>test</td>
-				<td>test</td>
-				<td>test</td>
+				<td>${board.num }</td>
+				<td><a href="<%=request.getContextPath()%>/board/display?num=${board.num}">${board.title }</a></td>
+				<td>${board.member_id }</td>
+				<td>${board.registered }</td>
+				<td>${board.views }</td>
 			</tr>
+			</c:forEach>
+			
 			<c:if test="${list.size() eq 0 }">
 		 	<tr>
 		   	<td colspan="5">게시글이 존재하지 않습니다</td>

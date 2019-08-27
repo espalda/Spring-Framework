@@ -5,24 +5,26 @@
 <head>
 </head>
 <body>
-	<form action="">
+	<form action="<%=request.getContextPath()%>/board/register" method="post">
 		<p>게시글 작성</p>
 			<div>
+			 <input type="hidden" name="member_id" value="${login.id }" readonly>
 				<table class="table table-borderless">
 					<tr>
 						<th width="15%">
 							<span>카테고리</span>
-							<select>
-								<option>공지</option>
-								<option>건의</option>
-								<option>질문</option>
-								<option>교환</option>
-								<option>환불</option>
+							<select name="category">
+								<option>선택</option>
+								<option value="공지">공지</option>
+								<option value="건의">건의</option>
+								<option value="질문">질문</option>
+								<option value="교환">교환</option>
+								<option value="환불">환불</option>
 							</select>
 						</th>
 						<th colspan="2">
 							<span>제목</span>
-							<input type="text" size="100">
+							<input type="text" size="100" name="title">
 						</th>
 					</tr>
 					<tr>
@@ -37,9 +39,10 @@
 					</tr>
 				</table>
 			</div>
+			
 			<div class="float-right">
 				<button class="btn-tree">REGISTER</button>
-				<button class="btn-gray">LIST</button>
+				<a href="<%=request.getContextPath()%>/board/list"><button class="btn-gray">LIST</button></a>
 			</div>
 	</form>
 </body>

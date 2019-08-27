@@ -9,25 +9,25 @@
 <body>
 	<table class="table">
 		<tr>
-			<th>작성자</th>
-			<th>조회수</th>
-			<th>작성일</th>
+			<th>${board.member_id }</th>
+			<th>${board.views }</th>
+			<th>${board.registered }</th>
 		</tr>
 			<tr>
-				<th width="15%">카테고리</th>
-				<th colspan="2">제목</th>
+				<th width="15%">${board.category }</th>
+				<th colspan="2">${board.title }</th>
 			</tr>
 			<tr>
-				<td height="300px" colspan="3">내용</td>
+				<td height="300px" colspan="3">${board.contents }</td>
 			</tr>
 			<tr>
 				<td>첨부파일</td>
 			</tr>
 	</table>
 	<div class="float-right">
-		<button class="btn-tree">MODIFY</button>
-		<button class="btn-raw">DELETE</button>
-		<button class="btn-gray">LIST</button>
+		<a href="<%=request.getContextPath()%>/board/modify?num=${board.num}"><button class="btn-tree">MODIFY</button></a>
+		<a href="<%=request.getContextPath()%>/board/delete?num=${board.num}"><button class="btn-raw">DELETE</button></a>
+		<a href="<%=request.getContextPath()%>/board/list"><button class="btn-gray">LIST</button></a>
 	</div>
 </body>
 </html>

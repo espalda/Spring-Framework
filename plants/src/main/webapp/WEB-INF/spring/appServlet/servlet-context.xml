@@ -39,6 +39,12 @@
 	   </interceptor>
 		
 		<interceptor>
+        <mapping path="/board/register"/>
+        <mapping path="/board/display"/>
+        <beans:ref bean="authInterceptor"/>
+		</interceptor>
+		
+		<interceptor>
         <mapping path="/signin"/>
         <mapping path="/signup"/>
         <beans:ref bean="unauthInterceptor"/>

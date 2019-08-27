@@ -4,14 +4,20 @@ import java.util.ArrayList;
 
 import org.apache.ibatis.annotations.Param;
 
-import kr.green.plants.pagination.Criteria;
 import kr.green.plants.vo.BoardVO;
 
 public interface BoardDAO {
 
-	public ArrayList<BoardVO> getBoard();
+	public void insertBoard(@Param("board") BoardVO board);
 
-	public int getTotalCount();
+	public ArrayList<BoardVO> selectBoard();
+
+	public BoardVO getBoard(@Param("num") Integer num);
+
+	public void updateBoard(@Param("board") BoardVO board);
+
+	public void deleteBoard(@Param("num") Integer num);
+
 
 
 }

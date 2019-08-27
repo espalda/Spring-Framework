@@ -19,7 +19,7 @@ public class AuthInterceptor extends HandlerInterceptorAdapter {
 		MemberVO user = (MemberVO)session.getAttribute("login");
 		
 		if(user == null) {
-			response.sendRedirect(request.getContextPath()+"/");
+			response.sendRedirect(request.getContextPath()+"/signin");
 		}
 		return true;
 	}
