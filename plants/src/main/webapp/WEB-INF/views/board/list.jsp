@@ -28,7 +28,13 @@
 				<td>test</td>
 				<td>test</td>
 				<td>test</td>
-			</tr>		
+			</tr>
+			<c:if test="${list.size() eq 0 }">
+		 	<tr>
+		   	<td colspan="5">게시글이 존재하지 않습니다</td>
+		  	</tr>
+			</c:if>
+				
 		</table>
 		
 		<a href="<%=request.getContextPath()%>/board/register"><button class="btn-raw float-right">WRITE</button></a>

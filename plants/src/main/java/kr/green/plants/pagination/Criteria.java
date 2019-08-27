@@ -1,35 +1,19 @@
 package kr.green.plants.pagination;
 
 public class Criteria {
-	//현재 페이지
-	private int page; 
-	//한 페이지 당 컨텐츠 갯수
-	private int perPageNum;
+	private int page; /* 현재 페이지 */
+	private int perPageNum;	/* 한 페이지 당 컨텐츠 갯수 */
 	private String search;
 	private String type;
 	
-	public String getSearch() {
-	    return search;
-	}
-	public void setSearch(String search) {
-	    this.search = search;
-	}
-	public String getType() {
-	    return type;
-	}
-	public void setType(String type) {
-	    this.type = type;
-	}
-	
-	//Criteria 디폴트 생성자 : 현재 페이지를 1페이지로, 한 페이지에 10개의 컨텐츠
-	
+	/* Criteria 생성자 : 현재 페이지를 1페이지로, 한 페이지에 10개의 컨텐츠 */
 	public Criteria() {
 		this.page = 1;
 		this.perPageNum = 10;
-		this.search = "";	//생성자 지정을 하지 않으면 null값이 들어가므로 생성자 설정 필수
+		this.search = "";	/* 생성자 지정을 하지 않으면 null값이 들어가므로 생성자 설정 필수 */
 		this.type = "0";
 	}
-	//getter and setter
+	
 	public int getPage() {
 		return page;
 	}
@@ -52,6 +36,19 @@ public class Criteria {
 		}
 		else
 			this.perPageNum = perPageNum;
+	}
+	
+	public String getSearch() {
+	    return search;
+	}
+	public void setSearch(String search) {
+	    this.search = search;
+	}
+	public String getType() {
+	    return type;
+	}
+	public void setType(String type) {
+	    this.type = type;
 	}
 	
 	/* 쿼리문에서 limit에 사용되는 인덱스를 계산하는 getter */

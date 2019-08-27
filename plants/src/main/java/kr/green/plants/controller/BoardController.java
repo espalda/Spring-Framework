@@ -8,9 +8,9 @@ import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 @RequestMapping(value="/board")
-public class BoradController {
+public class BoardController {
 	
-	private static final Logger logger = LoggerFactory.getLogger(BoradController.class);
+	private static final Logger logger = LoggerFactory.getLogger(BoardController.class);
 	
 		@RequestMapping(value="/list")
 		public ModelAndView openTilesView0(ModelAndView mv){

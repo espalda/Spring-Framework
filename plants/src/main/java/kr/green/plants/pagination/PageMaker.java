@@ -1,7 +1,7 @@
 package kr.green.plants.pagination;
 
 public class PageMaker {
-	//3가지 필수 displayPageNum, criteria, totalCount
+	
 	private int totalCount;
 	private int startPage;
 	private int endPage;
@@ -9,7 +9,7 @@ public class PageMaker {
 	private boolean next;
 	private int displayPageNum;
 	private Criteria criteria;
-	
+	/* 필수 3가지 displayPageNum, criteria, totalCount */
 	
 	/* endPage, startPage, prev, next 값 계산 */
 	public void calcData() {

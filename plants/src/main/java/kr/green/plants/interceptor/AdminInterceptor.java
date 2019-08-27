@@ -16,7 +16,7 @@ public class AdminInterceptor extends HandlerInterceptorAdapter {
 			Object handler)
 			throws Exception {
 		HttpSession session = request.getSession();
-		MemberVO user = (MemberVO) session.getAttribute("user");
+		MemberVO user = (MemberVO) session.getAttribute("login");
 		
 		if(user == null) {
 			response.sendRedirect(request.getContextPath()+"/");
