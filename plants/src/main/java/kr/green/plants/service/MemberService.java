@@ -8,7 +8,7 @@ public interface MemberService {
 
 	public MemberVO signin(MemberVO mvo);
 	
-	public MemberVO getMember(MemberVO mvo);
+	public MemberVO getMember(String id);
 
 	public void updateMember(MemberVO mvo);
 }

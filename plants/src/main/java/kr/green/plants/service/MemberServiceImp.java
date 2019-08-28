@@ -17,8 +17,8 @@ public class MemberServiceImp implements MemberService {
 	BCryptPasswordEncoder passwordEncoder;
 	
 		@Override
-		public MemberVO getMember(MemberVO mvo) {
-			return memberDao.getMember(mvo.getId());	/** 화면에서 입력받은 정보중 아이디를 통해서 회원 정보 전체를 가져오겠다 */
+		public MemberVO getMember(String id) {
+			return memberDao.getMember(id);	/** 화면에서 입력받은 정보중 아이디를 통해서 회원 정보 전체를 가져오겠다 */
 		}
 	
 		@Override

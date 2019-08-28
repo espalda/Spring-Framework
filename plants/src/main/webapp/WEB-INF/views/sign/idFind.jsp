@@ -15,11 +15,11 @@ padding: 15px 15px 0 15px;
 </style>
 </head>
 <body>
-	<form action="" method="post" id="idFind">
+	<form action="<%=request.getContextPath()%>/sign/idFind" method="post" id="idFind">
 		<div class="container text-center">
 		<h2>Find Id</h2>
 			<div>
-				<input type="text" class="input" placeholder="아이디" name="id">
+				<input type="text" class="input" placeholder="이름" name="name" id="name">
 			</div>
 
 			<div>

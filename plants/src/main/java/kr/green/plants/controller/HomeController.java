@@ -1,5 +1,8 @@
 package kr.green.plants.controller;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import javax.servlet.http.HttpServletRequest;
 
 import org.slf4j.Logger;
@@ -8,10 +11,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import kr.green.plants.service.BoardService;
 import kr.green.plants.service.MemberService;
 import kr.green.plants.vo.MemberVO;
 
@@ -41,7 +47,21 @@ public class HomeController {
 			if(!memberService.signup(mvo)) return null;
 		    return "redirect:/";
 		}
-		
+		/** 아이디 중복 검사 */
+		@RequestMapping(value ="/checkId")
+		@ResponseBody
+		public Map<Object, Object> idcheck(@RequestBody String id){
+		    Map<Object, Object> map = new HashMap<Object, Object>();
+		    //변수 id에 저장된 아이디가 회원 아이디인지 아닌지 확인하여 isMember변수에 담아 보낸다.
+		    System.out.println("idcheck : " + id);
+		    MemberVO mvo = memberService.getMember(id);
+		    System.out.println(mvo);
+		    boolean check = false;
+		    if(mvo == null) check = false;
+		    else check = true;
+		    map.put("idCheck", check);
+		    return map;
+		}
 		
 		@RequestMapping(value="/signin", method=RequestMethod.GET)
 		public ModelAndView signinGet(ModelAndView mv){

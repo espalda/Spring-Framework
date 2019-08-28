@@ -6,7 +6,19 @@
 <head>
 <script>
 	$(document).ready(function(){
-		$('input[name=id]').focus();	/* 입력창에 마우스 커서가 자동으로 포커스 되는 기능 구현 */
+		$('input[name=id]').focus();	/** 입력창에 마우스 커서가 자동으로 포커스 되는 기능 구현 */
+		
+		$('.pop').click(function(){
+			var test = $('#signup').valid();	/** validate의 양식이 맞으면 true, 다르면 false */
+			if(!test){
+				alert("입력창을 다시 확인해 주세요.")
+				return false;
+			}
+			alert("회원가입이 완료되었습니다.");
+			$('#signup').submit();
+		});
+		
+		/** plug-in */
 		$("#signup").validate({
 			rules: {
 			    id: {
@@ -70,7 +82,30 @@
 		       }
 			}
 		});
-	})
+		
+		$('input[name=id]').change(function(){
+			var id = $('input[name=id]').val();	//id 유효성 검사
+			$.ajax({
+				async:false,
+				type:'POST',
+				data:id,
+				url:"<%=request.getContextPath()%>/checkId",
+				dataType:"json",
+				contentType:"application/json; charset=UTF-8",
+				success : function(test){
+					if(test.idCheck){
+						$('#id-error').html("이미 존재하는 아이디 입니다.");
+					}else{
+						$('#id-error').html("가입 가능한 아이디 입니다.");
+					}
+				}
+			});
+		})
+		
+		$('input[name=id]').change(function(){
+			isCheck = false;
+		})
+	})		//레디
 	$.validator.addMethod(
 	    "regex",
 	    function(value, element, regexp) {
@@ -79,6 +114,7 @@
 	    },
 	    "Please check your input."
 	);
+	
 </script>
 <style>
 .sb{
@@ -124,7 +160,7 @@ color: #cc0000;
 					<label id="email-error" for="email"></label>
 					
 			<div class="sb">
-				<button class="btn-tree up">SIGN UP</button>
+				<button type="button" class="btn-tree pop">SIGN UP</button>
 			</div>
 			<div class="sb">
 				본인은 만 14세 이상이며, <a href="#">[이용약관 동의]</a> 와 <a href="#">[개인정보 수집 및 이용 동의]</a> 에 확인 하였으며, 동의합니다.
