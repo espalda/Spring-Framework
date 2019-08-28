@@ -108,7 +108,7 @@
 					<a class="nav-link" href="<%=request.getContextPath()%>/signout">SIGNOUT</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link" href="<%=request.getContextPath()%>/member/display">MYPAGE</a>
+					<a class="nav-link" href="<%=request.getContextPath()%>/member/profile">MYPAGE</a>
 			</c:if>
 			
 				<li class="nav-item">

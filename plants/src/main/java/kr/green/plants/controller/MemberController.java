@@ -2,25 +2,38 @@ package kr.green.plants.controller;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
+
+import kr.green.plants.service.MemberService;
+import kr.green.plants.vo.MemberVO;
 
 @Controller
 @RequestMapping(value="/member")
 public class MemberController {
-	
+		
+	@Autowired
+	MemberService memberService;
 	private static final Logger logger = LoggerFactory.getLogger(MemberController.class);
 	
-		@RequestMapping(value="/display")
-		public ModelAndView openTilesView0(ModelAndView mv){
-		    mv.setViewName("/member/display");
+		@RequestMapping(value="/profile")
+		public ModelAndView memberProfileGet(ModelAndView mv){
+		    mv.setViewName("/member/profile");
 		    return mv;
+		}
+		@RequestMapping(value="/profile", method=RequestMethod.POST)
+		public String memberProfilePost(Model model, MemberVO mvo){
+			memberService.updateMember(mvo);
+		   return "redirect:/member/profile";
 		}
 		
 		
 		@RequestMapping(value="/order")
-		public ModelAndView openTilesView2(ModelAndView mv){
+		public ModelAndView memberOrderGet(ModelAndView mv){
 		    mv.setViewName("/member/menu");
 		    return mv;
 		}

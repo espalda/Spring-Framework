@@ -18,7 +18,7 @@
 	<update id="updateBoard">
 	update board 
 	set title = #{board.title},
-		 contents = #{board.contents}, 
+		 contents = #{board.contents},
 		 views = #{board.views}
 	where num = #{board.num}
 	</update>

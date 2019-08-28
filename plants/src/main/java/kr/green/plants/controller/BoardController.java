@@ -2,6 +2,8 @@ package kr.green.plants.controller;
 
 import java.util.ArrayList;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,7 +26,7 @@ public class BoardController {
 		
 		/** 게시글 리스트 + 페이지네이션 */
 		@RequestMapping(value="/list")
-		public ModelAndView openTilesView0(ModelAndView mv){
+		public ModelAndView boardListGet(ModelAndView mv){
 			ArrayList<BoardVO> board = boardService.selectBoard();
 		    mv.setViewName("/board/list");
 		    mv.addObject("boardList", board);
@@ -49,26 +51,28 @@ public class BoardController {
 		    return mv;
 		}
 		@RequestMapping(value="/register", method=RequestMethod.POST)
-		public ModelAndView boardRegisterPost(ModelAndView mv, BoardVO bvo){
+		public String boardRegisterPost(Model model, BoardVO bvo){
 			boardService.insertBoard(bvo);
-			mv.setViewName("redirect:/board/list");
-			return mv;
+			return "redirect:/board/list";
 		}
 		
 		/** 게시글 수정 */
-		@RequestMapping(value="/modify", method=RequestMethod.GET)
-		public ModelAndView boardModifyGet(ModelAndView mv, Integer num){
-			System.out.println("게시글수정 번호 :" + num);
-		    mv.setViewName("/board/modify");
-		    return mv;
+		@RequestMapping(value="/modify", method=RequestMethod.GET)	/* 기존에 내용 불러오기 */
+		public String boardModifyGet(ModelAndView mv, Model model, Integer num){
+		/*
+		 * if(!boardService.isWriter(num, r)) , HttpServletRequest r return
+		 * "redirect:/board/list";
+		 */
+			
+			BoardVO bvo = boardService.getBoard(num);
+		    model.addAttribute("board", bvo);
+		    return "redirect:/board/modify";
 		}
-		@RequestMapping(value="/modify", method=RequestMethod.POST)
-		public ModelAndView boardModifyPost(ModelAndView mv, BoardVO bvo){
-			System.out.println("게시글수정 내용 :" + bvo);
-			boardService.getBoard(bvo.getNum());
-		    mv.setViewName("redirect:/board/display");
-		    mv.addObject("board", bvo);
-		    return mv;
+		@RequestMapping(value="/modify", method=RequestMethod.POST)	/* 화면에서 입력한 내용 DB에 저장 */
+		public String boardModifyPost(Model model, BoardVO bvo){
+			boardService.updateBoard(bvo);
+			model.addAttribute("num", bvo.getNum());
+		    return "redirect:/board/display";
 		}
 		
 		/** 게시글 삭제 */

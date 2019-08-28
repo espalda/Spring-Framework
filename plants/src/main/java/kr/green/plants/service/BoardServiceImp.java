@@ -3,6 +3,8 @@ package kr.green.plants.service;
 
 import java.util.ArrayList;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -38,16 +40,18 @@ public class BoardServiceImp implements BoardService {
 			int views = board.getViews();
 			board.setViews(views + 1);
 			boardDao.updateBoard(board);
-			
 		}
 	
 		@Override
 		public void deleteBoard(Integer num) {
 			boardDao.deleteBoard(num);
-			
+		}
+
+		@Override
+		public void updateBoard(BoardVO bvo) {
+			if(bvo == null) return;
+			boardDao.updateBoard(bvo);	
 		}
 
 
-
-	
 }

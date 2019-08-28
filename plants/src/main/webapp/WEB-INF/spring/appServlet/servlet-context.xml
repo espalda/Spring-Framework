@@ -34,25 +34,26 @@
 	
 	<interceptors>
 	   <interceptor>
-    	  <mapping path="/signin"/>
-        <beans:ref bean="loginInterceptor"/>
+			<mapping path="/signin"/>
+			<beans:ref bean="loginInterceptor"/>
 	   </interceptor>
 		
 		<interceptor>
-        <mapping path="/board/register"/>
-        <mapping path="/board/display"/>
-        <beans:ref bean="authInterceptor"/>
+			<mapping path="/member/**"/>
+			<mapping path="/board/register"/>
+			<mapping path="/board/display"/>
+			<beans:ref bean="authInterceptor"/>
 		</interceptor>
 		
 		<interceptor>
-        <mapping path="/signin"/>
-        <mapping path="/signup"/>
-        <beans:ref bean="unauthInterceptor"/>
+			<mapping path="/signin"/>
+			<mapping path="/signup"/>
+			<beans:ref bean="unauthInterceptor"/>
 		</interceptor>
 		
 		<interceptor>
-        <mapping path="/admin/**"/>
-        <beans:ref bean="adminInterceptor"/>
+			<mapping path="/admin/**"/>
+			<beans:ref bean="adminInterceptor"/>
 		</interceptor>
 	</interceptors>
 	

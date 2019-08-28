@@ -6,8 +6,8 @@
 </head>
 <body>
 	<form action="<%=request.getContextPath()%>/board/modify" method="post" enctype="multipart/form-data">
-	<input type="hidden" name="num" value="${board.num }">
-		<p>${board.category }</p>
+	<input type="hidden" name="num" value="${board.num}">
+		<p>${board.category}</p>
 			<div>
 				<table class="table table-borderless">
 					<tr>
@@ -23,12 +23,12 @@
 						</th>
 						<th colspan="2">
 							<label>제목</label>
-							<input type="text" size="100" name="title" value="${board.title }">
+							<input type="text" size="100" name="title" value="${board.title}">
 						</th>
 					</tr>
 					<tr>
 						<td colspan="2">
-							<textarea id="summernote" name="contents">${board.contents }</textarea>
+							<textarea id="summernote" name="contents">${board.contents}</textarea>
 						</td>
 					</tr>
 					<tr>

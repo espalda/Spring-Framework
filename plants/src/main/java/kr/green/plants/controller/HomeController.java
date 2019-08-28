@@ -38,7 +38,7 @@ public class HomeController {
 		}
 		@RequestMapping(value="/signup", method= RequestMethod.POST)
 		public String signupPost(Model model, MemberVO mvo){
-			if(memberService.signup(mvo));
+			if(!memberService.signup(mvo)) return null;
 		    return "redirect:/";
 		}
 		
@@ -50,8 +50,9 @@ public class HomeController {
 		}
 		@RequestMapping(value="/signin", method=RequestMethod.POST)
 		public String signinPost(Model model, MemberVO mvo){
-			MemberVO user = memberService.signin(mvo);
-			if(user != null) {					/** 유저정보가 null이 아니면 session에 user 정보를 넣고 메인 화면으로 이동 */
+			if(mvo == null) return null;
+			MemberVO user = memberService.signin(mvo);	/* 없는 아이디 일 때 */
+			if(user != null) {	/** 유저정보가 null이 아니면 session에 user 정보를 넣고 메인 화면으로 이동 */
 				model.addAttribute("login", user);
 				logger.info("로그인 성공");
 				return "redirect:/";
@@ -61,8 +62,8 @@ public class HomeController {
 		}
 		
 		@RequestMapping(value="/signout", method=RequestMethod.GET)
-		public String signoutGet(HttpServletRequest now){
-			now.getSession().removeAttribute("login");
+		public String signoutGet(HttpServletRequest r){
+			r.getSession().removeAttribute("login");
 		    return "redirect:/";
 		}
 		

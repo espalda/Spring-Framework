@@ -13,7 +13,7 @@
 			<div class="white"> 
 				<div class="volume clearfix">
 					<div class="mlbx float-left">
-					   <a href="<%=request.getContextPath()%>/member/display" 	class="mm-1">PROFILE</a>
+					   <a href="<%=request.getContextPath()%>/member/profile" 	class="mm-1">PROFILE</a>
 					   <a href="<%=request.getContextPath()%>/member/order"		class="mm-1">ORDER</a>
 					   <a href="<%=request.getContextPath()%>/member/wishlist" 	class="mm-1">WISHLIST</a>
 						<a href="<%=request.getContextPath()%>/member/board" 		class="mm-1">BOARD</a>

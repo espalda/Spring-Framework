@@ -37,6 +37,12 @@ public class MemberServiceImp implements MemberService {
 			System.out.println("MemberVO :" + user);
 			return null;
 		}
+
+		@Override
+		public void updateMember(MemberVO mvo) {
+			memberDao.updateMember(mvo);
+			
+		}
 	
 
 }
