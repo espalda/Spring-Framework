@@ -6,7 +6,10 @@
 <head>
 <script>
 	$(document).ready(function(){
-		$('input[name=id]').focus();	/* 입력창에 마우스 커서가 자동으로 포커스 되는 기능 구현 */
+		/** 입력창에 마우스 커서가 자동으로 포커스 되는 기능 구현 */
+		$('input[name=id]').focus();
+
+		/** plug-in */
 		$("#signin").validate({
 			rules: {
 			    id: {
@@ -37,7 +40,7 @@
 				 },
 			}
 		});
-	})
+	}) /** document.ready */
 	$.validator.addMethod(
 	    "regex",
 	    function(value, element, regexp) {
@@ -47,11 +50,13 @@
 	    "Please check your input."
 	);
 </script>
+
 <style>
-#signin label{
-color: #b30000;
-}
+	#signin label{
+	color: #b30000;
+	}
 </style>
+
 </head>
 <body>
 	<form action="<%=request.getContextPath()%>/signin" method="post" id="signin">
@@ -67,14 +72,17 @@ color: #b30000;
 			</div>
 				<label id="pw-error" for="pw"></label>
 				
+				
+				
 			<div class="text-right">
 				<a href="<%=request.getContextPath()%>/idFind">Find ID</a>
-				/
+				
 				<a href="<%=request.getContextPath()%>/pwFind">PASSWORD</a>
 			</div>
+			
 				<button class="btn-tree d-block">SIGN IN</button>
 				<br>
-				<a class="text-center" href="<%=request.getContextPath()%>/signup">회원가입을 하시려면 여기를 클릭하세요. 아이디 중복 검사 plugin 구현</a>
+				<a class="text-center" href="<%=request.getContextPath()%>/signup">회원가입을 하시려면 여기를 클릭하세요.</a>
 		</div>
 	</form>
 </body>

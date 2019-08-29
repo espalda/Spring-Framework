@@ -11,4 +11,12 @@ public interface MemberService {
 	public MemberVO getMember(String id);
 
 	public void updateMember(MemberVO mvo);
+
+	public void deleteMember(String id);
+
+	public String getVal(String str);
+
+	public String findMemberId(String name, String email);
+
+
 }

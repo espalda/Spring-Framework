@@ -1,5 +1,7 @@
 package kr.green.plants.controller;
 
+import java.io.UnsupportedEncodingException;
+import java.net.URLDecoder;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -30,13 +32,15 @@ public class HomeController {
 	BCryptPasswordEncoder passwordEncoder;
 	
 	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
-	
+		
+		/** 메인 홈 화면 */
 		@RequestMapping(value="/")
 		public ModelAndView main(ModelAndView mv){
 		    mv.setViewName("/main/home");
 		    return mv;
 		}
 		
+		/** 회원 가입 */
 		@RequestMapping(value="/signup", method= RequestMethod.GET)
 		public ModelAndView signupGet(ModelAndView mv){
 		    mv.setViewName("/sign/signup");
@@ -47,22 +51,15 @@ public class HomeController {
 			if(!memberService.signup(mvo)) return null;
 		    return "redirect:/";
 		}
-		/** 아이디 중복 검사 */
+		/** ajax 아이디 중복 검사 */
 		@RequestMapping(value ="/checkId")
 		@ResponseBody
-		public Map<Object, Object> idcheck(@RequestBody String id){
-		    Map<Object, Object> map = new HashMap<Object, Object>();
-		    //변수 id에 저장된 아이디가 회원 아이디인지 아닌지 확인하여 isMember변수에 담아 보낸다.
-		    System.out.println("idcheck : " + id);
-		    MemberVO mvo = memberService.getMember(id);
-		    System.out.println(mvo);
-		    boolean check = false;
-		    if(mvo == null) check = false;
-		    else check = true;
-		    map.put("idCheck", check);
-		    return map;
+		public boolean idCheck(@RequestBody String id){
+			if(memberService.getMember(id) != null) return true;
+		    return false;
 		}
 		
+		/** 로그인 */
 		@RequestMapping(value="/signin", method=RequestMethod.GET)
 		public ModelAndView signinGet(ModelAndView mv){
 		    mv.setViewName("/sign/signin");
@@ -70,56 +67,84 @@ public class HomeController {
 		}
 		@RequestMapping(value="/signin", method=RequestMethod.POST)
 		public String signinPost(Model model, MemberVO mvo){
-			if(mvo == null) return null;
-			MemberVO user = memberService.signin(mvo);	/* 없는 아이디 일 때 */
-			if(user != null) {	/** 유저정보가 null이 아니면 session에 user 정보를 넣고 메인 화면으로 이동 */
-				model.addAttribute("login", user);
+			MemberVO user = memberService.signin(mvo);
+			if(user == null) {							/** 화면에서 넘어오는 정보가 없으면 return */
+				return "redirect:/sign/signin";
+			}
+			MemberVO isMember = memberService.getMember(mvo.getId());
+			if(!mvo.getId().equals(isMember.getId())){	/** 입력한 id와 DB에 id가 같지 않으면 return */
+				return "redirect:/sign/signin";
+			}else {
+				model.addAttribute("login", user);	/** 유저정보가 null이 아니면 session에 user 정보를 넣고 메인 화면으로 이동 */
 				logger.info("로그인 성공");
 				return "redirect:/";
 			}
-			logger.info("로그인 실패");
-			return "redirect:/signin"; 
 		}
 		
+		/** 로그아웃 */
 		@RequestMapping(value="/signout", method=RequestMethod.GET)
 		public String signoutGet(HttpServletRequest r){
 			r.getSession().removeAttribute("login");
 		    return "redirect:/";
 		}
 		
-		@RequestMapping(value="/idFind")
+		
+		/** 아이디 찾기 */
+		@RequestMapping(value="/idFind", method=RequestMethod.GET)
 		public ModelAndView openTilesView4(ModelAndView mv){
 		    mv.setViewName("/sign/idFind");
 		    return mv;
 		}
-	
+		/** ajax 아이디 찾기 */
+		@RequestMapping(value ="/findId")
+		@ResponseBody
+		public Map<Object, Object> idFind(@RequestBody String str){
+		    Map<Object, Object> map = new HashMap<Object, Object>();
+		    String [] arr = str.split("&");
+		    String name = arr[0];
+		    String email = arr[1];
+		    try {
+				name = URLDecoder.decode(arr[0], "UTF-8");
+				email = URLDecoder.decode(arr[1], "UTF-8");
+			} catch (UnsupportedEncodingException e) {
+				/** 한글 name, 이메일 특문 decode */
+				e.printStackTrace();
+			}
+		    name = memberService.getVal(name);
+		    email = memberService.getVal(email);
+		    String find = memberService.findMemberId(name,email);
+		    map.put("idFind", find);
+		    return map;
+		}
+		
+		
+		/* 비밀번호 찾기 */
 		@RequestMapping(value="/pwFind")
 		public ModelAndView openTilesView5(ModelAndView mv){
 		    mv.setViewName("/sign/pwFind");
 		    return mv;
 		}
 		
+		/* 장바구니 */
 		@RequestMapping(value="/basket")
 		public ModelAndView openTilesView6(ModelAndView mv){
 		    mv.setViewName("/main/basket");
 		    return mv;
 		}
 		
+		/* 주문 페이지 */
 		@RequestMapping(value="/order")
 		public ModelAndView openTilesView7(ModelAndView mv){
 		    mv.setViewName("/main/order");
 		    return mv;
 		}
 		
+		/* 문의 페이지 */
 		@RequestMapping(value="/help")
 		public ModelAndView openTilesView8(ModelAndView mv){
 		    mv.setViewName("/main/help");
 		    return mv;
 		}
-	
-	
-	
-		
-		
+
 	
 }

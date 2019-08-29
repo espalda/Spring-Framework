@@ -5,8 +5,29 @@
 <head>
 <script>
 $(document).ready(function(){
-	$('input[name=id]').focus();	/* 입력창에 마우스 커서가 자동으로 포커스 되는 기능 구현 */
-})
+	
+	/** 아이디 찾기 기능 */
+	$('.find').click(function(){
+		var name = $('input[name=name]').val();
+		var email = $('input[name=email]').val();
+		$.ajax({
+			async:true,
+			type:'POST',
+			data:{'name':name, 'email':email},
+			url:"<%=request.getContextPath()%>/findId",
+			dataType:"json",
+			contentType:"application/json; charset=UTF-8",
+			success : function(test){
+				if(test.idFind == null){
+					$('.ctn').html("가입시 입력하신 아이디는 [ " + test.idFind + " ] 입니다.");
+				}
+			},
+			error:function(){
+				$('.ctn').html("존재 ㄴㄴ 아이디");
+			}
+		});
+	});
+})	/** document.ready */
 </script>
 <style>
 .sb{
@@ -15,7 +36,7 @@ padding: 15px 15px 0 15px;
 </style>
 </head>
 <body>
-	<form action="<%=request.getContextPath()%>/sign/idFind" method="post" id="idFind">
+	<form action="" id="idFind">
 		<div class="container text-center">
 		<h2>Find Id</h2>
 			<div>
@@ -31,10 +52,10 @@ padding: 15px 15px 0 15px;
 			</div>
 			
 			<div class="sb">
-				<button class="btn-raw">FIND ID</button>
+				<button type="button" class="btn-raw find">FIND ID</button>
 			</div>
 		
-			<div class="sb">
+			<div class="sb ctn">
 				가입 시 입력하신 아이디는 ${member.id} 입니다.
 			</div>
 		</div>

@@ -23,8 +23,8 @@ public class BoardController {
 	@Autowired
 	BoardService boardService;
 	private static final Logger logger = LoggerFactory.getLogger(BoardController.class);
-		
-		/** 게시글 리스트 + 페이지네이션 */
+		/* isWriter 구현 + pagenation */
+		/** 게시글 리스트 */
 		@RequestMapping(value="/list")
 		public ModelAndView boardListGet(ModelAndView mv){
 			ArrayList<BoardVO> board = boardService.selectBoard();
@@ -63,7 +63,6 @@ public class BoardController {
 		 * if(!boardService.isWriter(num, r)) , HttpServletRequest r return
 		 * "redirect:/board/list";
 		 */
-			
 			BoardVO bvo = boardService.getBoard(num);
 		    model.addAttribute("board", bvo);
 		    return "redirect:/board/modify";

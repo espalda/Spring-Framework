@@ -114,8 +114,6 @@ public class HomeController {
 		public String passwordFind() {
 		    return "member/find";
 		} 
-		
-		
 		@RequestMapping(value ="/checkemail")
 		@ResponseBody
 		public Map<Object, Object> emailcheck(

@@ -19,8 +19,9 @@ public class MemberController {
 	@Autowired
 	MemberService memberService;
 	private static final Logger logger = LoggerFactory.getLogger(MemberController.class);
-	
-		@RequestMapping(value="/profile")
+		
+		/** 회원 수정 */
+		@RequestMapping(value="/profile", method=RequestMethod.GET)
 		public ModelAndView memberProfileGet(ModelAndView mv){
 		    mv.setViewName("/member/profile");
 		    return mv;
@@ -62,7 +63,13 @@ public class MemberController {
 		    return mv;
 		}
 		
-		
+		/* 회원탈퇴 */
+		@RequestMapping(value="/delete", method=RequestMethod.GET)
+		public String memberWithdrawGet(Model model, String id){
+			System.out.println("회원탈퇴 : " + id);
+			memberService.deleteMember(id);
+		   return "redirect:/signout";
+		}
 	
 		
 		

@@ -1,6 +1,4 @@
-/**
- member 레이아웃 메뉴 클릭 유지 스크립트* 
- */
+/** member 레이아웃 메뉴 클릭 유지 스크립트 */
 $(document).ready(function(){
 	$('.mm-1').each(function(){
 		
@@ -21,9 +19,7 @@ $(document).ready(function(){
 	 });
 })
 
-/**
- admin 레이아웃 메뉴 클릭 유지 스크립트* 
- */
+/** admin 레이아웃 메뉴 클릭 유지 스크립트 */
 $(document).ready(function(){
 	$('.am-1').each(function(){
 		
@@ -53,3 +49,7 @@ $(document).ready(function(){
     lang: 'kr-KRs'
   });
  })
+/** id 입력창에 마우스 커서가 자동 포커스 기능 */
+ $(document).ready(function(){
+	$('input[name=id]').focus();
+})

@@ -1,17 +1,17 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-
 <!DOCTYPE html>
 <html>
 <head>
 <script>
 	$(document).ready(function(){
-		$('input[name=id]').focus();	/** 입력창에 마우스 커서가 자동으로 포커스 되는 기능 구현 */
+		/** 입력창에 마우스 커서가 자동으로 포커스 되는 기능 구현 */
+		$('input[name=id]').focus();	
 		
+		/** validate(plug-in)의 양식이 맞으면 true, 다르면 false */
 		$('.pop').click(function(){
-			var test = $('#signup').valid();	/** validate의 양식이 맞으면 true, 다르면 false */
+			var test = $('#signup').valid();	
 			if(!test){
-				alert("입력창을 다시 확인해 주세요.")
 				return false;
 			}
 			alert("회원가입이 완료되었습니다.");
@@ -50,7 +50,7 @@
 			        email : true
 			    }
 			},
-		   /* 규칙체크 실패시 출력될 메시지 */
+		   /** 규칙체크 실패시 출력될 메시지 */
 		   messages : {
 		       id: {
 		           required : "아이디를 필수로 입력하세요.",
@@ -83,10 +83,11 @@
 			}
 		});
 		
+		/** ajax id 중복 검사 */
 		$('input[name=id]').change(function(){
 			var id = $('input[name=id]').val();	//id 유효성 검사
 			$.ajax({
-				async:false,
+				async:false, /** 비동기식 */
 				type:'POST',
 				data:id,
 				url:"<%=request.getContextPath()%>/checkId",
@@ -101,11 +102,8 @@
 				}
 			});
 		})
-		
-		$('input[name=id]').change(function(){
-			isCheck = false;
-		})
-	})		//레디
+	})	/** document.ready */
+	
 	$.validator.addMethod(
 	    "regex",
 	    function(value, element, regexp) {
@@ -113,9 +111,10 @@
 	        return this.optional(element) || re.test(value);
 	    },
 	    "Please check your input."
-	);
+	);	/** plug-in 메서드 */
 	
 </script>
+
 <style>
 .sb{
 padding: 15px 15px 0 15px;
@@ -124,6 +123,7 @@ padding: 15px 15px 0 15px;
 color: #cc0000;
 }
 </style>
+
 </head>
 <body>
 	<form action="<%=request.getContextPath()%>/signup" method="post" id="signup">
