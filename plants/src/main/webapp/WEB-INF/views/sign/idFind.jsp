@@ -12,19 +12,21 @@ $(document).ready(function(){
 		var email = $('input[name=email]').val();
 		$.ajax({
 			async:true,
-			type:'POST',
+			type:'GET',
 			data:{'name':name, 'email':email},
 			url:"<%=request.getContextPath()%>/findId",
 			dataType:"json",
 			contentType:"application/json; charset=UTF-8",
 			success : function(test){
-				if(test.idFind == null){
+				if(test.idFind != null){
 					$('.ctn').html("가입시 입력하신 아이디는 [ " + test.idFind + " ] 입니다.");
+				}else{
+					$('.ctn').html("아이디 ㄴㄴ");
 				}
-			},
-			error:function(){
-				$('.ctn').html("존재 ㄴㄴ 아이디");
 			}
+			/* error:function(){
+				$('.ctn').html("존재 ㄴㄴ 아이디");
+			} */
 		});
 	});
 })	/** document.ready */

@@ -4,10 +4,10 @@
 <html>
 <head>
 <style>
-.pagination a {
+.pagination a, i {
   color: black;
   float: left;
-  padding: 10px;
+  padding: 5px 10px;
   text-decoration: none;
   transition: background-color .3s;
 }
@@ -22,11 +22,11 @@
 	<div class="container-11">
 		<h2>Help</h2>
 		<div class="pagination">
-		  <a href="#"><i class="fas fa-backward"></i></a>
+		  <i class="fas fa-backward"></i>
 		  <a href="#">1</a>
 		  <a href="#">2</a>
 		  <a href="#">3</a>
-		  <a href="#"><i class="fas fa-forward"></i></a>
+		  <i class="fas fa-forward"></i>
 		</div>
 	</div>
 </body>

@@ -35,7 +35,6 @@ public class MemberServiceImp implements MemberService {
 			if(mvo == null) return null;
 			MemberVO user = memberDao.getMember(mvo.getId());
 			System.out.println("회원수정 서비스: " + user);
-			
 			if(user == null) {
 				return null;
 			}
@@ -75,9 +74,10 @@ public class MemberServiceImp implements MemberService {
 		@Override
 		public String findMemberId(String name, String email) {
 			MemberVO mvo = memberDao.findMemberId(name, email);	/** 동일한 내용을 여러개 담을수 있는 ArrayList로 하는게 효율적 */
-			if(mvo.getId() != null && mvo.getName().equals(name) && mvo.getEmail().equals(email)) {
-				return mvo.getId();
-			}
+			if(mvo.getId() != null) {
+				return mvo.getId(); 
+				/* equals로 name과 email을 비교하지 않았는데 아이디 가져오는게 가능한 이유 */
+			}	/* ajax에서 else로 하면 작동 안되는 이유 error: function()은 작동됨 */
 			System.out.println("서비스아이디 찾기 : " + mvo.getId());
 			return null;
 		}
