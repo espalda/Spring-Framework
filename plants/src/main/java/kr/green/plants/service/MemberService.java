@@ -15,8 +15,17 @@ public interface MemberService {
 	public void deleteMember(String id);
 
 	public String getVal(String str);
+	
+	/* id, pw 찾기 관련 서비스 */
 
-	public String findMemberId(String name, String email);
+	public MemberVO findMemberId(String name, String email);
 
+	public MemberVO findMemberPw(String id, String name, String email);
+
+	public String createPw();
+
+	public void modifyPw(String id, String email, String newPw);
+
+	public void sendMail(String email, String title, String contents);
 
 }

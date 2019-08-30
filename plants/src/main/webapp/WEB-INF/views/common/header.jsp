@@ -118,7 +118,7 @@
 					<a class="nav-link" href="<%=request.getContextPath()%>/order">ORDER</a>
 				</li>
 				
-			<c:if test="${login.authority eq 'admin' }">
+			<c:if test="${login.authority eq 'admin' ||  login.authority eq 'seller'}">
 				<li class="nav-item">
 					<a class="nav-link" href="<%=request.getContextPath()%>/admin/seller">ADMIN</a>
 				</li>

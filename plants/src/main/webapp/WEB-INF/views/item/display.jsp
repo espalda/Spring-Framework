@@ -27,20 +27,20 @@
 </head>
 <body>
 <div class="container-11">
-	<div class="border clearfix mx-auto" style="width:900px;">
+	<div class="border clearfix mx-auto" style="width:710px;">
 	<section class="float-left">
 		<div class="img-l1">
 			<img src="<%=request.getContextPath()%>/resources/img/item-1.jpg" width="350px" height="auto">
 		</div>
-		<div class="img-l2">제품 상세 설명
-		제품 상세 설명제품 상세 설명제품 상세 설명제품 상세 설명제품 상세 설명
+		<div class="img-l2">
+		제품 상세 설명
 		</div>
 	</section>
 	
 	<section class="float-left">
 		<div class="img-r1 border-raw">
 			<p>Succulents</p>
-			<p>Succulents item name</p>
+			<h4>Succulents item name</h4>
 			<hr>
 			<ul>
 				<li>

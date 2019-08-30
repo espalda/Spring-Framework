@@ -32,7 +32,7 @@
 				</div>
 				<div class="float-right mr-1">
 					<a href="<%=request.getContextPath()%>/password/find">
-					<button class="btn btn-outline-success btn-sm">Forgot password</button></a>
+					<button type ="button" class="btn btn-outline-success btn-sm">Forgot password</button></a>
 					<button class="btn btn-outline-success btn-sm">Sign In</button>
 				</div>
 				

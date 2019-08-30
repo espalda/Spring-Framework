@@ -1,6 +1,10 @@
 package kr.green.plants.service;
 
+import javax.mail.internet.MimeMessage;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.mail.javamail.JavaMailSender;
+import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -15,6 +19,10 @@ public class MemberServiceImp implements MemberService {
 
 	@Autowired
 	BCryptPasswordEncoder passwordEncoder;
+	
+	@Autowired
+	private JavaMailSender mailSender;
+
 	
 		@Override
 		public MemberVO getMember(String id) {
@@ -34,19 +42,16 @@ public class MemberServiceImp implements MemberService {
 		public MemberVO signin(MemberVO mvo) {
 			if(mvo == null) return null;
 			MemberVO user = memberDao.getMember(mvo.getId());
-			System.out.println("회원수정 서비스: " + user);
-			if(user == null) {
-				return null;
+			if(user == null) return null;	/* 화면에서 넘겨주는 정보와 DB에서 가져오는 정보가 null 이면 return null*/
+			if(!passwordEncoder.matches(mvo.getPw(), user.getPw())) {/** rawPassword 와 encodedPassword 비교 */
+				return null;						
 			}
-			if(passwordEncoder.matches(mvo.getPw(), user.getPw())) {/** rawPassword 와 encodedPassword 비교 */
-				return user;										
-			}
-			return null;
+			return user;
 		}
 
 		@Override
 		public void updateMember(MemberVO mvo) {
-			System.out.println("회원정보 수정 : "+ mvo);
+			mvo.setValid("I");
 			mvo.setPw(passwordEncoder.encode(mvo.getPw()));	/** 비밀번호 인코딩  */
 			memberDao.updateMember(mvo);
 			
@@ -72,14 +77,58 @@ public class MemberServiceImp implements MemberService {
 		}
 
 		@Override
-		public String findMemberId(String name, String email) {
+		public MemberVO findMemberId(String name, String email) {
 			MemberVO mvo = memberDao.findMemberId(name, email);	/** 동일한 내용을 여러개 담을수 있는 ArrayList로 하는게 효율적 */
-			if(mvo.getId() != null) {
-				return mvo.getId(); 
+			if(mvo != null) {
+				return mvo; 
 				/* equals로 name과 email을 비교하지 않았는데 아이디 가져오는게 가능한 이유 */
 			}	/* ajax에서 else로 하면 작동 안되는 이유 error: function()은 작동됨 */
-			System.out.println("서비스아이디 찾기 : " + mvo.getId());
 			return null;
+		}
+
+		@Override
+		public MemberVO findMemberPw(String id, String name, String email) {
+			return memberDao.findMemberPw(id, name, email);
+		}
+
+		@Override
+		public String createPw() {
+			String str ="0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+			String pw="";
+			for(int i=0; i< 8; i++) {
+				int r = (int)(Math.random()*62);
+				pw += str.charAt(r);
+			}
+			return pw;
+		}
+
+		@Override
+		public void modifyPw(String id, String email, String newPw) {
+			/** 새로운 인코딩한 비밀번호를 DB에 업데이트 하는 기능 */
+			MemberVO mvo = memberDao.getMember(id);
+			if(mvo == null)	return;
+			mvo.setPw(passwordEncoder.encode(newPw));
+			updateMember(mvo);
+			//memberDao.updateMember(mvo);
+		}
+
+		@Override
+		public void sendMail(String email, String title, String contents) {
+			String setfrom = "espalda@naver.com";         
+		    try {
+		        MimeMessage message = mailSender.createMimeMessage();
+		        MimeMessageHelper messageHelper 
+		            = new MimeMessageHelper(message, true, "UTF-8");
+		        
+		        messageHelper.setFrom(setfrom);  	/* [보내는사람] 생략불가 */
+		        messageHelper.setTo(email);     	/* [받는사람] email */
+		        messageHelper.setSubject(title); 	/* [메일제목] */
+		        messageHelper.setText(contents);  	/* [메일내용] */
+
+		        mailSender.send(message);
+		    } catch(Exception e){
+		        System.out.println(e);
+		    }
 		}
 
 	

@@ -5,6 +5,7 @@
 <head>
 <script>
 $(document).ready(function(){
+	/* find 버튼을 클릭했을때 html 태그가 실행되게 하는 코드 */
 	
 	/** 아이디 찾기 기능 */
 	$('.find').click(function(){
@@ -12,7 +13,7 @@ $(document).ready(function(){
 		var email = $('input[name=email]').val();
 		$.ajax({
 			async:true,
-			type:'GET',
+			type:'POST',
 			data:{'name':name, 'email':email},
 			url:"<%=request.getContextPath()%>/findId",
 			dataType:"json",
@@ -21,12 +22,13 @@ $(document).ready(function(){
 				if(test.idFind != null){
 					$('.ctn').html("가입시 입력하신 아이디는 [ " + test.idFind + " ] 입니다.");
 				}else{
-					$('.ctn').html("아이디 ㄴㄴ");
+					$('.ctn').html("존재하지 않는 아이디입니다.");
 				}
-			}
-			/* error:function(){
+			},
+			error:function(request,status,error){
+				console.log( request.responseText );
 				$('.ctn').html("존재 ㄴㄴ 아이디");
-			} */
+			}
 		});
 	});
 })	/** document.ready */

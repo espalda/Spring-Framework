@@ -5,9 +5,30 @@
 <head>
 <script>
 $(document).ready(function(){
-	$('input[name=id]').focus();	/* 입력창에 마우스 커서가 자동으로 포커스 되는 기능 구현 */
-	$('.pw').click(function(){
-		console.log("입력하신 이메일로 비밀번호가 전송되었습니다.");
+	/** 비밀번호 찾기 기능 */
+	$('.find').click(function(){
+		var id = $('input[name=id]').val();
+		var name = $('input[name=name]').val();
+		var email = $('input[name=email]').val();
+		$.ajax({
+			async:true,
+			type:'POST',
+			data:{'id':id, 'name':name, 'email':email},
+			url:"<%=request.getContextPath()%>/findPw",
+			dataType:"json",
+			contentType:"application/json; charset=UTF-8",
+			success : function(test){
+				if(test.pwFind != ""){
+					$('.ctn').html("가입시 입력하신 이메일 [ " + test.pwFind + " ] 로 임시 비밀번호가 발급되었습니다.");
+				}else{
+					$('.ctn').html("존재하지 않는 정보입니다.");
+				}
+			},
+			error:function(request,status,error){
+				console.log( request.responseText );
+				$('.ctn').html("존재 ㄴㄴ 정보");
+			}
+		});
 	});
 })
 </script>
@@ -18,7 +39,7 @@ padding: 15px 15px 0 15px;
 </style>
 </head>
 <body>
-	<form action="" method="post" id="pwFind">
+	<form action="<%=request.getContextPath()%>/password/send" id="pwFind">
 		<div class="container text-center">
 		<h2>Find Password</h2>
 			<div>
@@ -37,14 +58,13 @@ padding: 15px 15px 0 15px;
 				<a href="<%=request.getContextPath()%>/idFind">Find ID</a>
 			</div>
 			<div class="sb">
-				<button class="btn-raw pw">FIND PASSWORD</button>
+				<button type="button" class="btn-raw find">FIND PASSWORD</button>
 			</div>
 			
-			<div class="sb">
+			<div class="sb ctn">
 				입력하신 이메일로 비밀번호가 전송되었습니다.
 			</div>
 		</div>
 	</form>
-			
 </body>
 </html>

@@ -111,7 +111,7 @@ public class HomeController {
 		
 		/** 비밀번호 찾기 */
 		@RequestMapping(value = "/password/find")
-		public String passwordFind() {
+		public String passwordFind(Model model) {
 		    return "member/find";
 		} 
 		@RequestMapping(value ="/checkemail")
