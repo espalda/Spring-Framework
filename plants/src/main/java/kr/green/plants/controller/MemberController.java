@@ -32,41 +32,45 @@ public class MemberController {
 		   return "redirect:/member/profile";
 		}
 		
-		
+		/* 회원 주문 내역 */
 		@RequestMapping(value="/order")
 		public ModelAndView memberOrderGet(ModelAndView mv){
 		    mv.setViewName("/member/menu");
 		    return mv;
 		}
 		
+		/* 회원 위시리스트 내역 */
 		@RequestMapping(value="/wishlist")
 		public ModelAndView openTilesView3(ModelAndView mv){
 		    mv.setViewName("/member/wishlist");
 		    return mv;
 		}
 		
+		
+		/* 회원 게시글 내역 */
 		@RequestMapping(value="/board")
 		public ModelAndView openTilesView4(ModelAndView mv){
 		    mv.setViewName("/member/menu");
 		    return mv;
 		}
 		
+		/* 회원 보유 쿠폰 내역 */
 		@RequestMapping(value="/coupon")
 		public ModelAndView openTilesView5(ModelAndView mv){
 		    mv.setViewName("/member/menu");
 		    return mv;
 		}
 		
+		/* 회원 주소록 */
 		@RequestMapping(value="/address")
 		public ModelAndView openTilesView6(ModelAndView mv){
 		    mv.setViewName("/member/menu");
 		    return mv;
 		}
 		
-		/* 회원탈퇴 */
+		/** 회원탈퇴 */
 		@RequestMapping(value="/delete", method=RequestMethod.GET)
 		public String memberWithdrawGet(Model model, String id){
-			System.out.println("회원탈퇴 : " + id);
 			memberService.deleteMember(id);
 		   return "redirect:/signout";
 		}

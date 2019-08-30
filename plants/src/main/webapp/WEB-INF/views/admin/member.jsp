@@ -16,7 +16,7 @@
       <a class="nav-link" data-toggle="tab" href="#menu1">회원 등급</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" data-toggle="tab" href="#menu2">회원 쿠폰</a>
+      <a class="nav-link" data-toggle="tab" href="#menu2">회원 권한</a>
     </li>
   </ul>
 

@@ -140,6 +140,7 @@ color: blue;
 				<button type="button" class="btn-tree modi">UPDATE</button>
 				<a href="<%=request.getContextPath()%>/member/delete?id=${login.id}">
 				<button type="button" class="btn-gray delete">WITHDRAW</button></a>
+				<p>회원탈퇴시 알림창 문구 및 비밀번호 다시 확인 창 미구현</p>
 		</div>
 	</form>
 </body>

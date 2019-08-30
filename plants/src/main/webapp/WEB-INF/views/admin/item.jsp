@@ -10,7 +10,7 @@
   <!-- Nav tabs -->
   <ul class="nav nav-tabs" role="tablist">
     <li class="nav-item">
-      <a class="nav-link active" data-toggle="tab" href="#home">상품 리스트</a>
+      <a class="nav-link active" data-toggle="tab" href="#home">상품 정보</a>
     </li>
     <li class="nav-item">
       <a class="nav-link" data-toggle="tab" href="#menu1">상품 등록</a>
