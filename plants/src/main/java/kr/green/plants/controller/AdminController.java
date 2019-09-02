@@ -77,8 +77,6 @@ public class AdminController {
 		public String adminItemRegister(Model model, ItemVO ivo, MultipartFile[] file2) {
 			System.out.println("관리자 상품 등록 :" + ivo);
 			itemService.adminItemRegister(ivo);
-			
-
 			return "redirect:/admin/item/register";
 		}
 		/* 첨부파일 등록 */

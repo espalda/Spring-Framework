@@ -35,9 +35,10 @@
 		</div>
 		<div class="form-group col-8">
 		  <label>첨부파일</label>
-		  <a href="<%=request.getContextPath()%>/board/download?fileName=${board.file}">
-		  		<input type="text" class="form-control" name="file2" value="${board.fileName}" readonly>
-		  </a>
+			<c:if test="${board.fileName ne '' }">
+				<a href="<%=request.getContextPath()%>/board/download?filename=${board.file}">${board.fileName }</a>
+			</c:if>
+			<c:if test="${board.fileName eq '' }">없음</c:if>
 		</div>
 	
 		<div class="btn-group col-auto">

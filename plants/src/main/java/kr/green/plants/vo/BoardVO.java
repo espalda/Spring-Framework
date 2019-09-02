@@ -15,6 +15,7 @@ public class BoardVO {
 	private Date registered;
 	private String contents;
 	private String valid;
+	private String file;
 	
 	
 	
@@ -133,12 +134,33 @@ public class BoardVO {
 
 
 
+	public String getFile() {
+		return file;
+	}
+
+
+
+	public void setFile(String file) {
+		this.file = file;
+	}
+	
+	public String getFileName() {
+		   if(file == null) return "";
+		   int index = file.indexOf("_");
+		      return file.substring(index + 1);
+		}
+
+
+
 	@Override
 	public String toString() {
 		return "BoardVO [num=" + num + ", views=" + views + ", file_num=" + file_num + ", member_id=" + member_id
 				+ ", category=" + category + ", title=" + title + ", registered=" + registered + ", contents="
-				+ contents + ", valid=" + valid + "]";
+				+ contents + ", valid=" + valid + ", file=" + file + "]";
 	}
+
+
+
 	
 	
 }

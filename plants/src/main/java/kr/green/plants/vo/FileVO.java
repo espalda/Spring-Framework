@@ -30,12 +30,12 @@ public class FileVO {
 		this.path = path;
 	}
 	
-	/* 무슨 역할이지? */
+	/* ex) aoa_bcddss */
 	public String getFileName() {
 		if(path == null)
 			return "";
-		int index = path.indexOf("_");
-		return path.substring(index+1);
+		int index = path.indexOf("_");	/* _의 위치를 찾는 역할 */
+		return path.substring(index+1); /* _다음의 값을 불러오는 역할 */
 	}
 	
 	
