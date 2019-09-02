@@ -1,5 +1,7 @@
 package kr.green.plants.service;
 
+import java.util.ArrayList;
+
 import javax.mail.internet.MimeMessage;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,6 +12,7 @@ import org.springframework.stereotype.Service;
 
 import kr.green.plants.dao.MemberDAO;
 import kr.green.plants.vo.MemberVO;
+import kr.green.plants.vo.SellerVO;
 
 @Service
 public class MemberServiceImp implements MemberService {
@@ -114,13 +117,14 @@ public class MemberServiceImp implements MemberService {
 
 		@Override
 		public void sendMail(String email, String title, String contents) {
-			String setfrom = "espalda@naver.com";         
+			System.out.println("메일보내기 :"+ email);
+			String setfrom = "test";         /** 값 필수 입력 */
 		    try {
 		        MimeMessage message = mailSender.createMimeMessage();
 		        MimeMessageHelper messageHelper 
 		            = new MimeMessageHelper(message, true, "UTF-8");
 		        
-		        messageHelper.setFrom(setfrom);  	/* [보내는사람] 생략불가 */
+		        messageHelper.setFrom(setfrom);  	/* [보내는사람] 생략 불가 */
 		        messageHelper.setTo(email);     	/* [받는사람] email */
 		        messageHelper.setSubject(title); 	/* [메일제목] */
 		        messageHelper.setText(contents);  	/* [메일내용] */
@@ -129,6 +133,22 @@ public class MemberServiceImp implements MemberService {
 		    } catch(Exception e){
 		        System.out.println(e);
 		    }
+		}
+
+		/** seller 정보 업데이트*/
+		@Override
+		public void updateSeller(SellerVO svo) {
+			memberDao.updateSeller(svo);
+		}
+
+		@Override
+		public ArrayList<SellerVO> selectSeller() {
+			return memberDao.selectSeller();
+		}
+
+		@Override
+		public ArrayList<MemberVO> selectMember() {
+			return memberDao.selectMember();
 		}
 
 	

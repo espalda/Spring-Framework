@@ -24,4 +24,17 @@
 	<select id="findMemberPw" resultType="kr.green.plants.vo.MemberVO">
 	select * from member where id = #{id} and name = #{name} and email = #{email}
 	</select>
+	
+	<insert id="updateSeller">
+	insert into seller(num, `name`, address, phone, email)
+	values (#{seller.num}, #{seller.name}, #{seller.address}, #{seller.phone}, #{seller.email})
+	</insert>
+	
+	<select id="selectSeller" resultType="kr.green.plants.vo.SellerVO">
+	select * from seller where valid='I'
+	</select>
+	
+	<select id="selectMember" resultType="kr.green.plants.vo.MemberVO">
+	select * from member
+	</select>
 </mapper>

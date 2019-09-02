@@ -1,6 +1,9 @@
 package kr.green.plants.service;
 
+import java.util.ArrayList;
+
 import kr.green.plants.vo.MemberVO;
+import kr.green.plants.vo.SellerVO;
 
 public interface MemberService {
 
@@ -27,5 +30,11 @@ public interface MemberService {
 	public void modifyPw(String id, String email, String newPw);
 
 	public void sendMail(String email, String title, String contents);
+
+	public void updateSeller(SellerVO svo);
+
+	public ArrayList<SellerVO> selectSeller();
+
+	public ArrayList<MemberVO> selectMember();
 
 }

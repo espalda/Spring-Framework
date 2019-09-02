@@ -24,27 +24,25 @@
   <div class="tab-content">
     <div id="home" class="container tab-pane active"><br>
     <!-- * 회원 정보 -->
-		<table class="table">
+		<table class="table table-hover">
 			<tr>
-				<th>번호</th>
 				<th>아이디</th>
 				<th>이름</th>
 				<th>전화</th>
-				<th>주소</th>
 				<th>이메일</th>
 				<th>등급</th>
 				<th>권한</th>
 			</tr>
+			<c:forEach var="member" items="${memberList }">
 			<tr>
-				<td>번호</td>
-				<td>아이디</td>
-				<td>이름</td>
-				<td>전화</td>
-				<td>주소</td>
-				<td>이메일</td>
-				<td>등급</td>
-				<td>권한</td>
+				<td>${member.id }</td>
+				<td>${member.name }</td>
+				<td>${member.phone }</td>
+				<td>${member.email }</td>
+				<td>${member.grade}</td>
+				<td>${member.authority }</td>
 			</tr>
+			</c:forEach>
 		</table>
     </div>
     
@@ -57,22 +55,13 @@
 		</select>
     </div>
     
-    <!-- * 회원 쿠폰 -->
+    <!-- * 회원 권한 -->
     <div id="menu2" class="container tab-pane fade"><br>
-		<table class="table">
-     		<tr>
-     			<th>번호</th>
-     			<th>쿠폰명</th>
-     			<th>할인금액</th>
-     			<th>유효기간</th>
-     		</tr>
-     		<tr>
-     			<td>번호</td>
-     			<td>쿠폰명</td>
-     			<td>할인금액</td>
-     			<td>유효기간</td>
-     		</tr>
-	     </table>
+		<select>
+			<option>seller</option>
+			<option>admin</option>
+			<option>member</option>
+		</select>
     </div>
   </div>
 </div>

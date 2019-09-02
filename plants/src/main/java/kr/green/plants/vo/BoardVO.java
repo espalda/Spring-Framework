@@ -18,11 +18,9 @@ public class BoardVO {
 	
 	
 	
-	
 	public int getNum() {
 		return num;
 	}
-
 
 
 
@@ -32,11 +30,9 @@ public class BoardVO {
 
 
 
-
 	public int getViews() {
 		return views;
 	}
-
 
 
 
@@ -46,11 +42,9 @@ public class BoardVO {
 
 
 
-
 	public int getFile_num() {
 		return file_num;
 	}
-
 
 
 
@@ -60,11 +54,9 @@ public class BoardVO {
 
 
 
-
 	public String getMember_id() {
 		return member_id;
 	}
-
 
 
 
@@ -74,11 +66,9 @@ public class BoardVO {
 
 
 
-
 	public String getCategory() {
 		return category;
 	}
-
 
 
 
@@ -88,18 +78,15 @@ public class BoardVO {
 
 
 
-
 	public String getTitle() {
 		return title;
 	}
 
 
 
-
 	public void setTitle(String title) {
 		this.title = title;
 	}
-
 
 
 	public String getRegistered() {
@@ -122,11 +109,9 @@ public class BoardVO {
 	}
 
 
-
 	public String getContents() {
 		return contents;
 	}
-
 
 
 
@@ -136,18 +121,15 @@ public class BoardVO {
 
 
 
-
 	public String getValid() {
 		return valid;
 	}
 
 
 
-
 	public void setValid(String valid) {
 		this.valid = valid;
 	}
-
 
 
 

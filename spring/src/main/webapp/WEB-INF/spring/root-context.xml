@@ -26,7 +26,8 @@
 	    <property name="mapperLocations" value="classpath:mappers/**/*Mapper.xml"></property>
 	</bean>
 <mybatis-spring:scan base-package="kr.green.spring.dao"/>
-<!-- root-context.xml -->
+
+	<!-- mail Sending - setFrom -->
 	<bean id="mailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl">
 	    <property name="host" value="smtp.gmail.com" />
 	    <property name="port" value="587" />

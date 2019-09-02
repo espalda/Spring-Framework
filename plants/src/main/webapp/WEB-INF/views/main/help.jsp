@@ -38,26 +38,26 @@ border: 1px solid #b97f6d;
 		  <i class="fas fa-forward"></i>
 		</div>
 	</div>
-	
-	<div class="container">
-		<h2>Mail</h2>
-		<p>FOR SPECIAL REQUESTS ORDERS</p>
-			<table>
-				<tr>
-					<td>reciever</td>
-					<td><input type="text" size="40"></td>
-				</tr>
-				<tr>
-					<td>title</td>
-					<td><input type="text" size="40"></td>
-				</tr>
-				<tr>
-					<td>contents</td>
-					<td><textarea rows="5" cols="78"></textarea></td>
-				</tr>
-			</table>
-			<button class="btn-raw">S E N D</button>
-	</div>
-	
+	<form action="<%= request.getContextPath()%>/mail/mailSending">
+		<div class="container">
+			<h2>Mail</h2>
+			<p>FOR SPECIAL REQUESTS ORDERS</p>
+				<table>
+					<tr>
+						<td>receiver</td>
+						<td><input type="text" size="40" name="tomail"></td>
+					</tr>
+					<tr>
+						<td>title</td>
+						<td><input type="text" size="40" name="title"></td>
+					</tr>
+					<tr>
+						<td>contents</td>
+						<td><textarea rows="5" cols="78" name="contents"></textarea></td>
+					</tr>
+				</table>
+				<button class="btn-raw">S E N D</button>
+		</div>
+	</form>
 </body>
 </html>

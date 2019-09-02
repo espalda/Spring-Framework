@@ -69,11 +69,12 @@ public class HomeController {
 		/* 비밀번호가 다를때 예외처리 */
 		/* 입력한 id와 DB에 id가 같지 않으면 return */
 		/* 화면에서 넘어오는 정보가 없으면 return */
+		/** sign/signin 이 아닌 jsp form 태그 action 경로*/
 		@RequestMapping(value="/signin", method=RequestMethod.POST)
 		public String signinPost(Model model, MemberVO mvo){
 			MemberVO user = memberService.signin(mvo);	
 			if(user == null) {
-				return "redirect:/signin";
+				return "redirect:/signin"; 
 			}
 			model.addAttribute("login", user);	/** 유저정보가 null이 아니면 session에 user 정보를 넣고 메인 화면으로 이동 */
 			logger.info("로그인 성공");
@@ -190,30 +191,22 @@ public class HomeController {
 		    return mv;
 		}
 		
-		/* 문의 페이지 */
+		/** help 문의 페이지 */
 		@RequestMapping(value="/help")
 		public ModelAndView openTilesView8(ModelAndView mv){
 		    mv.setViewName("/main/help");
 		    return mv;
 		}
-		/* 이메일 전송 */
+		/** mailSending */
 		@RequestMapping(value = "/mail/mailSending")
 		public String mailSending(HttpServletRequest request) {
-		    String setfrom = "espalda@naver.com";         
-		    String tomail  = request.getParameter("espalda@naver.com");     /* [받는사람] 이메일  */
-		    String title   = request.getParameter("test - title");      /* [메일제목] */
-		    String contents = request.getParameter("test - content");   /* [메일내용] */
+		    String tomail  = request.getParameter("tomail");     /* [받는사람] 이메일  */
+		    String title   = request.getParameter("title");      /* [메일제목] */
+		    String contents = request.getParameter("contents");   /* [메일내용] */ 
 		    memberService.sendMail(tomail, title, contents);
 
-		    return "redirect:/mail/mailForm";
+		    return "redirect:/help";
 		}
-		/* mailForm */
-		@RequestMapping(value = "/mail/mailForm")
-		public String mailForm() {
-
-		    return "/sign/mailSend";
-		}  
-		
 
 	
 }

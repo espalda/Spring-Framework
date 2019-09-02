@@ -28,8 +28,10 @@
 	<div class="item-1">
 		<ul class="item-2 clearfix">
 			<li>
-				<a href="<%=request.getContextPath()%>/item/display"><div class="img">
-				<img class="scale" src="<%=request.getContextPath()%>/resources/img/item-1.jpg" width="350px" height="auto"></div>
+				<a href="<%=request.getContextPath()%>/item/display">
+				<div class="img">
+					<img class="scale" src="<%=request.getContextPath()%>/resources/img/item-1.jpg" width="350px" height="auto">
+				</div>
 				<h1>Succulents test</h1>
 				<h2>5000 원</h2>
 				</a>

@@ -24,7 +24,7 @@
   <div class="tab-content">
     <div id="home" class="container tab-pane active"><br>
     <!-- * 회원 정보 -->
-		<table class="table">
+		<table class="table table-hover">
 			<tr>
 				<th>번호</th>
 				<th>아이디</th>

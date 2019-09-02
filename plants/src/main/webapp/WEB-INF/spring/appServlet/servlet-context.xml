@@ -80,7 +80,7 @@
 	<!--  * file-upload path -->
 	<beans:bean id="uploadPath" class="java.lang.String">
 	<!--<beans:constructor-arg value="서버에 저장할 경로"></beans:constructor-arg>-->
-	<beans:constructor-arg value="C:\\github\\uploadfiles"></beans:constructor-arg>
+	<beans:constructor-arg value="C:\\github\\Spring-Framework\\plants\\src\\main\\webapp\\resources\\uploadfiles"></beans:constructor-arg>
 	</beans:bean>
 	
 </beans:beans>
