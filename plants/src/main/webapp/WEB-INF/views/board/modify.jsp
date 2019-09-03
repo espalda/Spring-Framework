@@ -33,7 +33,13 @@
 					</tr>
 					<tr>
 						<td colspan="2">
-							<input type="file"><i class="fas fa-trash-alt"></i>
+							<label>첨부파일 :</label>
+							<c:if test="${board.fileName ne '' }">
+								<a href="<%=request.getContextPath()%>/board/download?fileName=${board.file}" id="file-link">${board.fileName }</a>
+								<input type="hidden" name="file" value="${board.file }"><i class="fas fa-times del"></i>	<!-- 기존 첨부파일 삭제 -->
+							</c:if>
+							<c:if test="${board.fileName eq '' }">없음</c:if>
+							<input type="file" name="file2">
 						</td>
 					</tr>
 				</table>
@@ -54,6 +60,12 @@
         lang: 'kr-KRs',
       });
 	 })
+	 
+	 $('.del').click(function(){	//a태그와 x버튼 사라지게 하는 기능
+   	  $('#file-link').remove();
+    	  $('input[name=file]').val('');
+    	  $(this).css('display','none');
+     });
 </script>
 
 </body>

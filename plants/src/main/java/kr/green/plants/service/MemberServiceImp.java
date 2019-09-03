@@ -108,11 +108,12 @@ public class MemberServiceImp implements MemberService {
 		@Override
 		public void modifyPw(String id, String email, String newPw) {
 			/** 새로운 인코딩한 비밀번호를 DB에 업데이트 하는 기능 */
+			System.out.println("서비스 새 비밀번호 " + newPw);
 			MemberVO mvo = memberDao.getMember(id);
 			if(mvo == null)	return;
 			mvo.setPw(passwordEncoder.encode(newPw));
-			updateMember(mvo);
-			//memberDao.updateMember(mvo);
+			System.out.println(mvo);
+			memberDao.updateMember(mvo);
 		}
 
 		@Override

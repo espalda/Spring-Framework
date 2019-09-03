@@ -79,7 +79,23 @@ color: blue;
 </style>
 </head>
 <body>
-	<form action="<%=request.getContextPath()%>/member/profile" method="post" id="modify">
+
+<div class="container">
+  <h2>Member</h2>
+  <!-- Nav tabs -->
+  <ul class="nav nav-tabs" role="tablist">
+    <li class="nav-item">
+      <a class="nav-link active" data-toggle="tab" href="#home">프로필</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" data-toggle="tab" href="#menu1">회원 수정</a>
+    </li>
+  </ul>
+
+  <!-- Tab panes -->
+  <div class="tab-content">
+    <div id="home" class="container tab-pane active"><br>
+    <!-- * 회원 정보 -->
 		<div class="text-center">
 			<h2>Profile</h2>
 			<div>
@@ -99,6 +115,12 @@ color: blue;
 				</table>
 			</div>
 		
+    </div>
+    </div>
+    
+    <!-- * 회원 등급 -->
+    <div id="menu1" class="container tab-pane fade"><br>
+    	<form action="<%=request.getContextPath()%>/member/profile" method="post" id="modify">
 		<h2>modify</h2>
 			<div class="modify">
 				<div>
@@ -125,23 +147,25 @@ color: blue;
 					
 				<div>
 					<span>휴대폰</span>
-					<input type="text" placeholder="휴대폰" name="phone">
+					<input type="text" placeholder="휴대폰" name="phone" value="${login.phone }">
 				</div>
 					<label id="phone-error" for="phone"></label>
 					
 				<div>
 					<span>이메일</span>
-					<input type="email" placeholder="이메일" name="email">
+					<input type="email" placeholder="이메일" name="email" value="${login.email }">
 				</div>
 					<label id="email-error" for="email"></label>
-					
 			</div>
 	
 				<button type="button" class="btn-tree modi">UPDATE</button>
 				<a href="<%=request.getContextPath()%>/member/delete?id=${login.id}">
 				<button type="button" class="btn-gray delete">WITHDRAW</button></a>
 				<p>회원탈퇴시 알림창 문구 및 비밀번호 다시 확인 창 미구현</p>
+			</form>
 		</div>
-	</form>
+
+	</div></div>
+	 </div>
 </body>
 </html>

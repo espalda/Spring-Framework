@@ -41,17 +41,19 @@ public class BoardServiceImp implements BoardService {
 			board.setViews(views + 1);
 			boardDao.updateBoard(board);
 		}
+		
+		@Override
+		public void updateBoard(BoardVO bvo) {
+			if(bvo == null) return;
+			boardDao.updateBoard(bvo);	
+		}
 	
 		@Override
 		public void deleteBoard(Integer num) {
 			boardDao.deleteBoard(num);
 		}
 
-		@Override
-		public void updateBoard(BoardVO bvo) {
-			if(bvo == null) return;
-			boardDao.updateBoard(bvo);	
-		}
+		
 
 
 }

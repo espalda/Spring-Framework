@@ -5,6 +5,10 @@
 <head>
 <script>
 $(document).ready(function(){
+	/** id 입력창에 마우스 커서가 자동 포커스 기능 */
+	 $(document).ready(function(){
+		$('input[name=id]').focus();
+	})
 	/** 비밀번호 찾기 기능 */
 	$('.find').click(function(){
 		var id = $('input[name=id]').val();
@@ -16,7 +20,7 @@ $(document).ready(function(){
 			data:{'id':id, 'name':name, 'email':email},
 			url:"<%=request.getContextPath()%>/findPw",
 			dataType:"json",
-			contentType:"application/json; charset=UTF-8",
+			/* contentType:"application/json; charset=UTF-8", */
 			success : function(test){
 				if(test.pwFind != ""){
 					$('.ctn').html("가입시 입력하신 이메일 [ " + test.pwFind + " ] 로 임시 비밀번호가 발급되었습니다.");

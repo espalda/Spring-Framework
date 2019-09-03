@@ -39,17 +39,3 @@ $(document).ready(function(){
 	   $(this).addClass('active');
 	 });
 })
-
-/** summer note */
- $(document).ready(function(){
-  $('#summernote').summernote({
-    placeholder: '내용을 입력해주세요',
-    tabsize: 2,
-    height: 300,
-    lang: 'kr-KRs'
-  });
- })
-/** id 입력창에 마우스 커서가 자동 포커스 기능 */
- $(document).ready(function(){
-	$('input[name=id]').focus();
-})

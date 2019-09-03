@@ -39,11 +39,9 @@ public class BoardController {
 	@Resource
 	private String uploadPath;
 
-	
 	private static final Logger logger = LoggerFactory.getLogger(BoardController.class);
 	
-	
-		/* isWriter 구현 + pagenation */
+		/* isWriter 구현 + 페이지네이션 */
 		/** 게시글 리스트 */
 		@RequestMapping(value="/list")
 		public ModelAndView boardListGet(ModelAndView mv){
@@ -52,6 +50,7 @@ public class BoardController {
 		    mv.addObject("boardList", board);
 		    return mv;
 		}
+		
 		
 		/** 게시글 상세 + 조회수 증가 */
 		@RequestMapping(value="/display", method=RequestMethod.GET)
@@ -62,7 +61,7 @@ public class BoardController {
 		    mv.addObject("board", bvo);
 		    return mv;
 		}
-
+		
 		
 		/** 게시글 등록 */
 		@RequestMapping(value="/register", method=RequestMethod.GET)
@@ -70,7 +69,7 @@ public class BoardController {
 		    mv.setViewName("/board/register");
 		    return mv;
 		}
-		/* 첨부파일 등록 */
+		/** 첨부파일 등록 */
 		@RequestMapping(value="/register", method=RequestMethod.POST)
 		public String boardRegisterPost(Model model, BoardVO bvo, MultipartFile file2) throws IOException, Exception{
 			if(file2.getOriginalFilename().length() != 0) {
@@ -79,8 +78,9 @@ public class BoardController {
 			}
 			boardService.insertBoard(bvo);
 			return "redirect:/board/list";
+			/* display로 돌아갈때 게시글 번호 추가 해서 다시 돌아가게 하는 기능 추가 */
 		}
-		/* 서버에 파일 저장 */
+		/** 서버에 파일 저장 */
 		private String uploadFile(String name, byte[] data) throws Exception{
 		    /* 고유한 파일명을 위해 UUID를 이용 */
 			UUID uid = UUID.randomUUID();
@@ -89,14 +89,13 @@ public class BoardController {
 			FileCopyUtils.copy(data, target);
 			return savaName;
 		}
-		/* 파일 다운로드 */
+		/** 파일 다운로드 */
 		@ResponseBody
-		@RequestMapping("download")
+		@RequestMapping("/download")
 		public ResponseEntity<byte[]> downloadFile(String fileName)throws Exception{
 		    InputStream in = null;
 		    ResponseEntity<byte[]> entity = null;
 		    try{
-		        String FormatName = fileName.substring(fileName.lastIndexOf(".")+1);
 		        HttpHeaders headers = new HttpHeaders();
 		        in = new FileInputStream(uploadPath+fileName);
 
@@ -117,21 +116,33 @@ public class BoardController {
 		
 		/** 게시글 수정 */
 		@RequestMapping(value="/modify", method=RequestMethod.GET)	/* 기존에 내용 불러오기 */
-		public String boardModifyGet(ModelAndView mv, Model model, Integer num){
-		/*
-		 * if(!boardService.isWriter(num, r)) , HttpServletRequest r return
-		 * "redirect:/board/list";
-		 */
+		public ModelAndView boardModifyGet(ModelAndView mv, Model model, Integer num){
 			BoardVO bvo = boardService.getBoard(num);
 		    model.addAttribute("board", bvo);
-		    return "redirect:/board/modify";
+		    mv.setViewName("/board/modify");
+		    return mv;
 		}
-		@RequestMapping(value="/modify", method=RequestMethod.POST)	/* 화면에서 입력한 내용 DB에 저장 */
-		public String boardModifyPost(Model model, BoardVO bvo){
+		/** 게시글 수정 + 첨부파일 수정 */
+		@RequestMapping(value="/modify", method=RequestMethod.POST)
+		public String boardModifyPost(Model model, BoardVO bvo, MultipartFile file2)throws IOException, Exception{
+			if(file2.getOriginalFilename().length() != 0) {
+				String file = UploadFileUtils.uploadFile(uploadPath, file2.getOriginalFilename(), file2.getBytes());
+				bvo.setFile(file);	/* 파일명을 서버에 전송 */
+			}
+			/* 첨부파일에 추가한 파일이 없는 경우 */
+			else {
+				if(bvo.getFile().length() == 0) {
+					bvo.setFile("");
+			       }else {
+				    BoardVO tmp = boardService.getBoard(bvo.getNum());
+					bvo.setFile(tmp.getFile());
+				   }
+			}
 			boardService.updateBoard(bvo);
 			model.addAttribute("num", bvo.getNum());
 		    return "redirect:/board/list";
 		}
+		
 		
 		/** 게시글 삭제 */
 		@RequestMapping(value="/delete", method=RequestMethod.GET)

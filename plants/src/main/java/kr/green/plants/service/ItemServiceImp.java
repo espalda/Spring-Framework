@@ -1,5 +1,7 @@
 package kr.green.plants.service;
 
+import java.util.ArrayList;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -12,10 +14,14 @@ public class ItemServiceImp implements ItemService{
 	@Autowired
 	ItemDAO itemDao;
 
-	@Override
-	public void adminItemRegister(ItemVO ivo) {
-		System.out.println("상품 등록 서비스 ivo 확인"+ivo);
-		itemDao.updateItem(ivo);
-		
-	}
+		@Override
+		public void insertItem(ItemVO ivo) {
+			itemDao.insertItem(ivo);
+		}
+	
+		@Override
+		public ArrayList<ItemVO> selectItem() {
+			return itemDao.selectItem();
+		}
+
 }

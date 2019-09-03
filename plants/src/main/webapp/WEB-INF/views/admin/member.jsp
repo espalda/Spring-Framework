@@ -22,7 +22,7 @@
 
   <!-- Tab panes -->
   <div class="tab-content">
-    <div id="home" class="container tab-pane active"><br>
+    <div id="home" class="container tab-pane active">
     <!-- * 회원 정보 -->
 		<table class="table table-hover">
 			<tr>
@@ -47,7 +47,7 @@
     </div>
     
     <!-- * 회원 등급 -->
-    <div id="menu1" class="container tab-pane fade"><br>
+    <div id="menu1" class="container tab-pane fade">
 		<select>
 			<option>환영</option>
 			<option>골드</option>
@@ -56,7 +56,7 @@
     </div>
     
     <!-- * 회원 권한 -->
-    <div id="menu2" class="container tab-pane fade"><br>
+    <div id="menu2" class="container tab-pane fade">
 		<select>
 			<option>seller</option>
 			<option>admin</option>

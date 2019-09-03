@@ -5,9 +5,9 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class ItemVO {
-
+	
+	private int num;
 	private String name;
-	private String seller_num;
 	private Date registered;
 	private int count;
 	private int price;
@@ -16,8 +16,20 @@ public class ItemVO {
 	private String file;
 	private String option;
 	private String valid;
+	private String seller_member_id;
 	
 	
+	
+	public int getNum() {
+		return num;
+	}
+
+
+	public void setNum(int num) {
+		this.num = num;
+	}
+
+
 	public String getName() {
 		return name;
 	}
@@ -27,15 +39,6 @@ public class ItemVO {
 		this.name = name;
 	}
 	
-	
-	public String getSeller_num() {
-		return seller_num;
-	}
-	
-	
-	public void setSeller_num(String seller_num) {
-		this.seller_num = seller_num;
-	}
 	
 	
 	public String getRegistered() {
@@ -103,6 +106,12 @@ public class ItemVO {
 		return file;
 	}
 	
+	public String getFileName() {
+		   if(file == null) return "";
+		   int index = file.indexOf("_");
+		      return file.substring(index + 1);
+		}
+	
 	
 	public void setFile(String file) {
 		this.file = file;
@@ -128,15 +137,24 @@ public class ItemVO {
 		this.valid = valid;
 	}
 
+	public String getSeller_member_id() {
+		return seller_member_id;
+	}
+
+
+	public void setSeller_member_id(String seller_member_id) {
+		this.seller_member_id = seller_member_id;
+	}
+
 
 	@Override
 	public String toString() {
-		return "itemVO [name=" + name + ", seller_num=" + seller_num + ", registered=" + registered + ", count=" + count
-				+ ", price=" + price + ", deliveryfee=" + deliveryfee + ", contents=" + contents + ", file=" + file
-				+ ", option=" + option + ", valid=" + valid + "]";
+		return "ItemVO [num=" + num + ", name=" + name + ", registered=" + registered + ", count=" + count + ", price="
+				+ price + ", deliveryfee=" + deliveryfee + ", contents=" + contents + ", file=" + file + ", option="
+				+ option + ", valid=" + valid + ", seller_member_id=" + seller_member_id + "]";
 	}
-	
-	
+
+
 	
 	
 	

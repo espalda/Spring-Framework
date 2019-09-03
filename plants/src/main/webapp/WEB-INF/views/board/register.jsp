@@ -34,7 +34,7 @@
 					</tr>
 					<tr>
 						<td colspan="2">
-							<input type="file"><i class="fas fa-trash-alt"></i>
+							<input type="file" name="file2"><i class="fas fa-trash-alt del"></i>
 						</td>
 					</tr>
 				</table>
@@ -45,5 +45,20 @@
 				<a href="<%=request.getContextPath()%>/board/list"><button class="btn-gray">LIST</button></a>
 			</div>
 	</form>
+<script>
+/** summer note */
+$(document).ready(function(){
+ $('#summernote').summernote({
+   placeholder: '내용을 입력해주세요',
+   tabsize: 2,
+   height: 300,
+   lang: 'kr-KRs'
+ });
+})
+
+$('.del').click(function(){	/* 파일 값 없애기 */
+	  $('input[type=file]').val('');
+});
+</script>
 </body>
 </html>

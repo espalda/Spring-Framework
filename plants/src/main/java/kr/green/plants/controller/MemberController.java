@@ -18,6 +18,7 @@ public class MemberController {
 		
 	@Autowired
 	MemberService memberService;
+	
 	private static final Logger logger = LoggerFactory.getLogger(MemberController.class);
 		
 		/** 회원 수정 */
@@ -35,7 +36,7 @@ public class MemberController {
 		/* 회원 주문 내역 */
 		@RequestMapping(value="/order")
 		public ModelAndView memberOrderGet(ModelAndView mv){
-		    mv.setViewName("/member/menu");
+		    mv.setViewName("/member/order");
 		    return mv;
 		}
 		
@@ -50,21 +51,21 @@ public class MemberController {
 		/* 회원 게시글 내역 */
 		@RequestMapping(value="/board")
 		public ModelAndView openTilesView4(ModelAndView mv){
-		    mv.setViewName("/member/menu");
+		    mv.setViewName("/member/board");
 		    return mv;
 		}
 		
 		/* 회원 보유 쿠폰 내역 */
 		@RequestMapping(value="/coupon")
 		public ModelAndView openTilesView5(ModelAndView mv){
-		    mv.setViewName("/member/menu");
+		    mv.setViewName("/member/coupon");
 		    return mv;
 		}
 		
 		/* 회원 주소록 */
 		@RequestMapping(value="/address")
 		public ModelAndView openTilesView6(ModelAndView mv){
-		    mv.setViewName("/member/menu");
+		    mv.setViewName("/member/address");
 		    return mv;
 		}
 		

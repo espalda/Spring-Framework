@@ -5,6 +5,11 @@
 <head>
 <script>
 $(document).ready(function(){
+	/** id 입력창에 마우스 커서가 자동 포커스 기능 */
+	 $(document).ready(function(){
+		$('input[name=id]').focus();
+	})
+	
 	/* find 버튼을 클릭했을때 html 태그가 실행되게 하는 코드 */
 	
 	/** 아이디 찾기 기능 */

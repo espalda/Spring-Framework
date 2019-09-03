@@ -2,6 +2,7 @@ package kr.green.plants.vo;
 
 public class SellerVO {
 	
+	private String member_id;
 	private String num;
 	private String name;
 	private String address;
@@ -10,7 +11,12 @@ public class SellerVO {
 	private String valid;
 	
 	
-	
+	public String getMember_id() {
+		return member_id;
+	}
+	public void setMember_id(String member_id) {
+		this.member_id = member_id;
+	}
 	public String getNum() {
 		return num;
 	}
@@ -51,9 +57,10 @@ public class SellerVO {
 	
 	@Override
 	public String toString() {
-		return "SellerVO [num=" + num + ", name=" + name + ", address=" + address + ", phone=" + phone + ", email="
-				+ email + ", valid=" + valid + "]";
+		return "SellerVO [member_id=" + member_id + ", num=" + num + ", name=" + name + ", address=" + address
+				+ ", phone=" + phone + ", email=" + email + ", valid=" + valid + "]";
 	}
+	
 	
 	
 	

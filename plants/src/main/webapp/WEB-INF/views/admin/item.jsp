@@ -3,14 +3,6 @@
 <!DOCTYPE html>
 <html>
 <head>
-<style>
-.table th{
-width: 100px;
-}
-.table input{
-width: 621px;
-}
-</style>
 </head>
 <body>
 <div class="container">
@@ -23,34 +15,42 @@ width: 621px;
     <li class="nav-item">
       <a class="nav-link" data-toggle="tab" href="#menu1">상품 등록</a>
     </li>
+    <li class="nav-item">
+      <a class="nav-link" data-toggle="tab" href="#menu2">상품 수정</a>
+    </li>
   </ul>
 
   <!-- Tab panes -->
   <div class="tab-content">
-    <div id="home" class="container tab-pane active"><br>
+    <div id="home" class="container tab-pane active">
     <!-- * 상품 정보 -->
 		<table class="table table-hover">
 			<tr>
-				<th>번호</th>
-				<th>이름</th>
-				<th>수량</th>
+			 	<th>이미지</th>
+				<th>상품명</th>
 				<th>가격</th>
-				<th>등록일</th>
+				<th>수량</th>
+				<th>상품설명</th>
+				<th>옵션</th>
 			</tr>
-			
+			<c:forEach var="item" items="${itemList }">
 			<tr>
-				<td>번호</td>
-				<td>아이디</td>
-				<td>이름</td>
-				<td>전화</td>
-				<td>주소</td>
+				<td><img src="<%=request.getContextPath()%>/resources/uploadfiles${item.file}" width="50px;"></td>
+				<td>${item.name }</td>
+				<td>${item.price }</td>
+				<td>${item.count }</td>
+				<td>${item.contents }</td>
+				<td>${item.option }</td>
 			</tr>
+			</c:forEach>
 		</table>
+		
     </div>
     
     <!-- * 상품 등록 --> 
     <div id="menu1" class="container tab-pane fade">
-    	<form action="<%=request.getContextPath()%>/admin/item/register" enctype="multipart/form-data">
+    	<form action="<%=request.getContextPath()%>/admin/item/register" enctype="multipart/form-data" method="post">
+    		
 			<table class="table table-borderless">
 				<tr>
 					<th>상품명</th>
@@ -74,28 +74,31 @@ width: 621px;
 				</tr>
 				<tr>
 					<th>이미지</th>
-					<td><input type="file" name="file2">
-						<i class="fas fa-trash-alt"></i>
+					<td><input type="file" name="file2"><i class="fas fa-trash-alt"></i>
 					</td>
-				</tr>			
+				</tr>		
+					
 			</table>
+
 			<button class="btn-tree">상품 등록</button>
 		</form>
     </div>
-
+	<div id="menu2" class="container tab-pane fade">
+	상품 수정 구현 later
+	카테고리 추가
+	Succulents
+	Cactus
+	Plant
+	Hanging Plant
+	Goods
+	옵션 추가
+	</div>
   </div> <!-- Tab panes -->
 </div>	<!-- container -->
-<script type="text/javascript">
-		$(document).ready(function(){
-			addInputEvent();
-		})
-		function addInputEvent(){
-			$('input[name=file2]').change(function(){
-				var str = '<input type="file" class="form-control" name="file2" value="">'
-				$(this).after(str);
-				addInputEvent();
-			})
-		}
-	</script>
+<script>
+$('.del').click(function(){	/* 파일 값 없애기 */
+	  $('input[type=file]').val('');
+});
+</script>
 </body>
 </html>

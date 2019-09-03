@@ -1,6 +1,9 @@
 package kr.green.plants.controller;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
+import java.util.UUID;
 
 import javax.annotation.Resource;
 
@@ -9,6 +12,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.util.FileCopyUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
@@ -16,6 +20,7 @@ import org.springframework.web.servlet.ModelAndView;
 import kr.green.plants.service.BoardService;
 import kr.green.plants.service.ItemService;
 import kr.green.plants.service.MemberService;
+import kr.green.plants.utils.UploadFileUtils;
 import kr.green.plants.vo.BoardVO;
 import kr.green.plants.vo.ItemVO;
 import kr.green.plants.vo.MemberVO;
@@ -69,17 +74,30 @@ public class AdminController {
 		/** 관리자 상품 관리 */
 		@RequestMapping(value="/item")
 		public ModelAndView adminItem(ModelAndView mv){
+			ArrayList<ItemVO> ivo = itemService.selectItem();
 		    mv.setViewName("/admin/item");
+		    mv.addObject("itemList", ivo);
 		    return mv;
 		}
 		/** 관리자 상품 등록 */
 		@RequestMapping(value="/item/register")
-		public String adminItemRegister(Model model, ItemVO ivo, MultipartFile[] file2) {
-			System.out.println("관리자 상품 등록 :" + ivo);
-			itemService.adminItemRegister(ivo);
-			return "redirect:/admin/item/register";
+		public String adminItemRegister(Model model, ItemVO ivo, MultipartFile file2) throws IOException, Exception {
+			if(file2.getOriginalFilename().length() != 0) {
+				String file = UploadFileUtils.uploadFile(uploadPath, file2.getOriginalFilename(),file2.getBytes());
+				ivo.setFile(file);
+			}
+			itemService.insertItem(ivo);
+			return "redirect:/admin/item";
 		}
-		/* 첨부파일 등록 */
+		/** 서버에 파일 저장 */
+		private String uploadFile(String name, byte[] data) throws Exception{
+		    /* 고유한 파일명을 위해 UUID를 이용 */
+			UUID uid = UUID.randomUUID();
+			String savaName = uid.toString() + "_" + name;
+			File target = new File(uploadPath, savaName);
+			FileCopyUtils.copy(data, target);
+			return savaName;
+		}
 		
 		
 		

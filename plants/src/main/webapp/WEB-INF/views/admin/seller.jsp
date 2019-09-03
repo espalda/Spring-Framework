@@ -3,14 +3,6 @@
 <!DOCTYPE html>
 <html>
 <head>
-<style>
-.table th{
-width: 100px;
-}
-.table input{
-width: 300px;
-}
-</style>
 </head>
 <body>
 	<div class="container">
@@ -23,9 +15,12 @@ width: 300px;
 	    <li class="nav-item">
 	      <a class="nav-link" data-toggle="tab" href="#menu1">판매자 등록</a>
 	    </li>
+	    <li class="nav-item">
+	      <a class="nav-link" data-toggle="tab" href="#menu2">판매자 수정</a>
+	    </li>
 	  </ul>
 	
-	<!-- Tab panes -->
+	<!-- 판매자 정보 화면 -->
 	<div class="tab-content">
 		<div id="home" class="container tab-pane active">
 			<table class="table table-hover">
@@ -49,8 +44,10 @@ width: 300px;
 			</table>
 		</div>
 		
+		<!-- 판매자 등록 화면 -->
 	    <div id="menu1" class="container tab-pane fade">
 	    <form action="<%=request.getContextPath()%>/admin/seller/register">
+	    <input type="hidden" name="${login.id }">
 				<table class="table table-borderless">
 					<tr>
 						<th>사업자번호</th>
@@ -75,6 +72,11 @@ width: 300px;
 				</table>
 				<button class="btn-tree">판매자 등록</button>
 			</form>					
+	    </div>
+	    
+	    <!-- 판매자 수정 화면 -->
+	    <div id="menu2" class="container tab-pane fade">
+	    	판매자 수정 페이지 화면 구현
 	    </div>
 	  </div>
 	</div>

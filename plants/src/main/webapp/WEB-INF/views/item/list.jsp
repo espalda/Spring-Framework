@@ -24,7 +24,7 @@
 			<option>가격순</option>
 			<option>인기순</option>
 		</select>
-
+	<!--  상품 등록한 이미지를 화면에 뿌려주어야 한다. -->
 	<div class="item-1">
 		<ul class="item-2 clearfix">
 			<li>
