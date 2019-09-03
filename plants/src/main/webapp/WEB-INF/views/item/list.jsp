@@ -42,13 +42,15 @@
 				<h1>Succulents test</h1>
 				<h2>5000 원</h2>
 				</a>
+			</li>
 			<li>
 				<a href="<%=request.getContextPath()%>/item/display">
 				<img src="<%=request.getContextPath()%>/resources/img/item-3.jpg" width="350px" height="auto">
 				<h1>Succulents test</h1>
 				<h2>5000 원</h2>
 				</a>
-			<li>
+			</li>
+		<li>
 			<a href="<%=request.getContextPath()%>/item/display">
 			<img src="<%=request.getContextPath()%>/resources/img/item-1.jpg" width="350px" height="auto">
 			<h1>Succulents test</h1>
@@ -61,31 +63,15 @@
 			<h1>Succulents test</h1>
 			<h2>5000 원</h2>
 			</a>
+			</li>
 		<li>
 			<a href="<%=request.getContextPath()%>/item/display">
 			<img src="<%=request.getContextPath()%>/resources/img/item-3.jpg" width="350px" height="auto">
-			<h1>Succulents test</h1>
-			<h2>5000 원</h2>
-			</a>
-			<li>
-			<a href="<%=request.getContextPath()%>/item/display">
-			<img src="<%=request.getContextPath()%>/resources/img/item-1.jpg" width="350px" height="auto">
 			<h1>Succulents test</h1>
 			<h2>5000 원</h2>
 			</a>
 		</li>
-		<li>
-			<a href="<%=request.getContextPath()%>/item/display">
-			<img src="<%=request.getContextPath()%>/resources/img/item-2.jpg" width="350px" height="auto">
-			<h1>Succulents test</h1>
-			<h2>5000 원</h2>
-			</a>
-		<li>
-			<a href="<%=request.getContextPath()%>/item/display">
-			<img src="<%=request.getContextPath()%>/resources/img/item-3.jpg" width="350px" height="auto">
-			<h1>Succulents test</h1>
-			<h2>5000 원</h2>
-			</a>
+
 		</ul>
 	</div>
 	</div>

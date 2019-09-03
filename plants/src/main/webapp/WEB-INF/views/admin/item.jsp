@@ -50,7 +50,7 @@
     <!-- * 상품 등록 --> 
     <div id="menu1" class="container tab-pane fade">
     	<form action="<%=request.getContextPath()%>/admin/item/register" enctype="multipart/form-data" method="post">
-    		
+    		<input type="hidden" value="${login.id }" name="seller_member_id">
 			<table class="table table-borderless">
 				<tr>
 					<th>상품명</th>

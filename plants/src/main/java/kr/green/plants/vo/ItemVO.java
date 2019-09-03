@@ -137,6 +137,7 @@ public class ItemVO {
 		this.valid = valid;
 	}
 
+	
 	public String getSeller_member_id() {
 		return seller_member_id;
 	}
