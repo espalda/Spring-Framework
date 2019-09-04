@@ -23,10 +23,11 @@
   <!-- Tab panes -->
   <div class="tab-content">
     <div id="home" class="container tab-pane active">
-    <!-- * 상품 정보 -->
+    <!-- 상품 정보 -->
 		<table class="table table-hover">
 			<tr>
 			 	<th>이미지</th>
+			 	<th>카테고리</th>
 				<th>상품명</th>
 				<th>가격</th>
 				<th>수량</th>
@@ -36,22 +37,39 @@
 			<c:forEach var="item" items="${itemList }">
 			<tr>
 				<td><img src="<%=request.getContextPath()%>/resources/uploadfiles${item.file}" width="50px;"></td>
+				<td>${item.category }</td>
 				<td>${item.name }</td>
 				<td>${item.price }</td>
 				<td>${item.count }</td>
 				<td>${item.contents }</td>
-				<td>${item.option }</td>
+				<td>
+					<select>
+						<option>test</option>	
+					</select>
+				</td>
 			</tr>
 			</c:forEach>
 		</table>
 		
     </div>
     
-    <!-- * 상품 등록 --> 
+    <!-- 상품 등록 --> 
     <div id="menu1" class="container tab-pane fade">
     	<form action="<%=request.getContextPath()%>/admin/item/register" enctype="multipart/form-data" method="post">
     		<input type="hidden" value="${login.id }" name="seller_member_id">
 			<table class="table table-borderless">
+				<tr>
+					<th>카테고리</th>
+					<td>
+						<select name="category">
+							<option value="Succulents">Succulents</option>
+							<option value="Cactus">Cactus</option>
+							<option value="Plant">Plant</option>
+							<option value="Hanging Plant">Hanging Plant</option>
+							<option value="Goods">Goods</option>
+						</select>
+					</td>
+				</tr>
 				<tr>
 					<th>상품명</th>
 					<td><input type="text" name="name"></td>
@@ -70,7 +88,13 @@
 				</tr>
 				<tr>
 					<th>옵션</th>
-					<td><input type="text" name="option"></td>
+					<td>
+						<input type="text" name="option">
+						<input type="text" name="option">
+						<input type="text" name="option">
+						<input type="text" name="option">
+						<mark> 상품 옵션 등록시 select 박스 형태로 나오게 하는 법 </mark>
+					</td>
 				</tr>
 				<tr>
 					<th>이미지</th>
@@ -83,18 +107,14 @@
 			<button class="btn-tree">상품 등록</button>
 		</form>
     </div>
+    
+   <!-- tab2 내용 -->
 	<div id="menu2" class="container tab-pane fade">
-	상품 수정 구현 later
-	카테고리 추가
-	Succulents
-	Cactus
-	Plant
-	Hanging Plant
-	Goods
-	옵션 추가
-	</div>
-  </div> <!-- Tab panes -->
-</div>	<!-- container -->
+			<mark>상품 수정 구현 later</mark>
+	</div>	<!-- tab2 end -->
+	
+  </div> <!-- Tab panes end -->
+</div>	<!-- container end -->
 <script>
 $('.del').click(function(){	/* 파일 값 없애기 */
 	  $('input[type=file]').val('');

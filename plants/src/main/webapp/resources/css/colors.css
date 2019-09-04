@@ -7,6 +7,9 @@
 	background-color: #b97f6d;
 	box-sizing: border-box;
 	}
+	mark{
+	background-color: #9ebede !important;
+	}
 
 /*-----------------------------------------------------------------*/
 /* 2. input - sign
@@ -67,16 +70,16 @@
 	letter-spacing: 4px;
 	}
 	
-	.btn-1{
-	font-size: 8px;
-	width: 40px;
-	height: 18px;
-	letter-spacing: 2px;
-	border-radius: 3px;
-	border: 1px solid #b97f6d;
-	background-color: rgb(243, 243, 243);
-	color: gray;
-	margin-left: 10px;
+	.btn-gold{
+	margin: 0 auto;
+	color: #cca300;
+	background-color: #293949;
+	border: none;
+	border-radius: 5px;
+	width: 150px;
+	height: 28px;
+	font-size: 11px;
+	letter-spacing: 4px;
 	}
 	
 	kbd {

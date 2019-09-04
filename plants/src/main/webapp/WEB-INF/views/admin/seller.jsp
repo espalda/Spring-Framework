@@ -23,11 +23,12 @@
 	<!-- 판매자 정보 화면 -->
 	<div class="tab-content">
 		<div id="home" class="container tab-pane active">
+		<mark>사업자번호 중복 검사</mark>
 			<table class="table table-hover">
 	   		<tr>
 	   			<th>사업자번호</th>
-	   			<th>이름</th>
-	   			<th>전화</th>
+	   			<th>판매자이름</th>
+	   			<th>연락처</th>
 	   			<th>주소</th>
 	   			<th>이메일</th>
 	   		</tr>
@@ -47,7 +48,7 @@
 		<!-- 판매자 등록 화면 -->
 	    <div id="menu1" class="container tab-pane fade">
 	    <form action="<%=request.getContextPath()%>/admin/seller/register">
-	    <input type="hidden" name="${login.id }">
+	    <input type="hidden" name="member_id" value="${login.id }">
 				<table class="table table-borderless">
 					<tr>
 						<th>사업자번호</th>
@@ -76,7 +77,7 @@
 	    
 	    <!-- 판매자 수정 화면 -->
 	    <div id="menu2" class="container tab-pane fade">
-	    	판매자 수정 페이지 화면 구현
+	    	<mark>판매자 수정 페이지 화면 구현 중 </mark>
 	    </div>
 	  </div>
 	</div>

@@ -5,11 +5,18 @@ import java.util.ArrayList;
 import org.apache.ibatis.annotations.Param;
 
 import kr.green.plants.vo.ItemVO;
+import kr.green.plants.vo.OptionVO;
 
 public interface ItemDAO {
 
 	public void insertItem(@Param("item") ItemVO ivo);
 
 	public ArrayList<ItemVO> selectItem();
+
+	public ItemVO getItem(@Param("num")Integer num);
+
+	public ArrayList<ItemVO> selectNewItem();
+
+	public void insertItemOption(@Param("ovo") OptionVO ovo);
 
 }

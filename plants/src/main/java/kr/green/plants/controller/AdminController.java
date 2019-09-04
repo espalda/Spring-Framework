@@ -24,6 +24,7 @@ import kr.green.plants.utils.UploadFileUtils;
 import kr.green.plants.vo.BoardVO;
 import kr.green.plants.vo.ItemVO;
 import kr.green.plants.vo.MemberVO;
+import kr.green.plants.vo.OptionVO;
 import kr.green.plants.vo.SellerVO;
 
 @Controller
@@ -75,18 +76,24 @@ public class AdminController {
 		@RequestMapping(value="/item")
 		public ModelAndView adminItem(ModelAndView mv){
 			ArrayList<ItemVO> ivo = itemService.selectItem();
-
 		    mv.setViewName("/admin/item");
 		    mv.addObject("itemList", ivo);
 		    return mv;
 		}
 		/** 관리자 상품 등록 */
 		@RequestMapping(value="/item/register")
-		public String adminItemRegister(Model model, ItemVO ivo, MultipartFile file2) throws IOException, Exception {
-			System.out.println(ivo);
+		public String adminItemRegister(Model model, ItemVO ivo, MultipartFile file2, String[] option) throws IOException, Exception {
 			if(file2.getOriginalFilename().length() != 0) {
 				String file = UploadFileUtils.uploadFile(uploadPath, file2.getOriginalFilename(),file2.getBytes());
 				ivo.setFile(file);
+			}
+			/* 상품 옵션을 배열을 통해서 집어넣는 방법 */
+			for(int i=0; i<option.length; i++) {
+				OptionVO ovo = new OptionVO();
+				ovo.setOption(option[i]);
+				ovo.setItem_name(ivo.getName());
+				System.out.println(ovo);
+				itemService.insertOption(ovo);
 			}
 			itemService.insertItem(ivo);
 			return "redirect:/admin/item";

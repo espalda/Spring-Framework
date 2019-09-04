@@ -8,18 +8,20 @@ public class ItemVO {
 	
 	private int num;
 	private String name;
+	private String category;
 	private Date registered;
 	private int count;
 	private int price;
-	private int deliveryfee;
 	private String contents;
 	private String file;
-	private String option;
+	private String option_num;
 	private String valid;
 	private String seller_member_id;
+	private int delivery_charge;
 	
 	
-	
+
+
 	public int getNum() {
 		return num;
 	}
@@ -39,6 +41,14 @@ public class ItemVO {
 		this.name = name;
 	}
 	
+	public String getCategory() {
+		return category;
+	}
+
+
+	public void setCategory(String category) {
+		this.category = category;
+	}
 	
 	
 	public String getRegistered() {
@@ -82,16 +92,6 @@ public class ItemVO {
 	}
 	
 	
-	public int getDeliveryfee() {
-		return deliveryfee;
-	}
-	
-	
-	public void setDeliveryfee(int deliveryfee) {
-		this.deliveryfee = deliveryfee;
-	}
-	
-	
 	public String getContents() {
 		return contents;
 	}
@@ -118,13 +118,13 @@ public class ItemVO {
 	}
 	
 	
-	public String getOption() {
-		return option;
+	public String getOption_num() {
+		return option_num;
 	}
 	
 	
-	public void setOption(String option) {
-		this.option = option;
+	public void setOption_num(String option_num) {
+		this.option_num = option_num;
 	}
 	
 	
@@ -147,16 +147,28 @@ public class ItemVO {
 		this.seller_member_id = seller_member_id;
 	}
 
-
-	@Override
-	public String toString() {
-		return "ItemVO [num=" + num + ", name=" + name + ", registered=" + registered + ", count=" + count + ", price="
-				+ price + ", deliveryfee=" + deliveryfee + ", contents=" + contents + ", file=" + file + ", option="
-				+ option + ", valid=" + valid + ", seller_member_id=" + seller_member_id + "]";
+	
+	public int getDelivery_charge() {
+		return delivery_charge;
 	}
 
 
+	public void setDelivery_charge(int delivery_charge) {
+		this.delivery_charge = delivery_charge;
+	}
+
+
+	@Override
+	public String toString() {
+		return "ItemVO [num=" + num + ", name=" + name + ", category=" + category + ", registered=" + registered
+				+ ", count=" + count + ", price=" + price + ", contents=" + contents + ", file=" + file + ", option_num="
+				+ option_num + ", valid=" + valid + ", seller_member_id=" + seller_member_id + ", delivery_charge="
+				+ delivery_charge + "]";
+	}
+
 	
 	
+	
+
 	
 }

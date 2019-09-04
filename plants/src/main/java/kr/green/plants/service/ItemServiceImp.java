@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import kr.green.plants.dao.ItemDAO;
 import kr.green.plants.vo.ItemVO;
+import kr.green.plants.vo.OptionVO;
 
 @Service
 public class ItemServiceImp implements ItemService{
@@ -22,6 +23,25 @@ public class ItemServiceImp implements ItemService{
 		@Override
 		public ArrayList<ItemVO> selectItem() {
 			return itemDao.selectItem();
+		}
+
+		@Override
+		public ItemVO getItem(Integer num) {
+			return itemDao.getItem(num);
+		}
+
+		@Override
+		public ArrayList<ItemVO> selectNewItem() {
+			return itemDao.selectNewItem();
+		}
+
+		@Override
+		public void insertOption(OptionVO ovo) {
+			if(ovo == null) {
+				return;
+			}
+			itemDao.insertItemOption(ovo);
+			
 		}
 
 }

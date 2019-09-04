@@ -25,9 +25,11 @@
 	select * from member where id = #{id} and name = #{name} and email = #{email}
 	</select>
 	
+	
+		<!-- Seller mapper -->
 	<insert id="updateSeller">
-	insert into seller(num, `name`, address, phone, email)
-	values (#{seller.num}, #{seller.name}, #{seller.address}, #{seller.phone}, #{seller.email})
+	insert into seller(member_id ,num, `name`, address, phone, email)
+	values (#{seller.member_id}, #{seller.num}, #{seller.name}, #{seller.address}, #{seller.phone}, #{seller.email})
 	</insert>
 	
 	<select id="selectSeller" resultType="kr.green.plants.vo.SellerVO">

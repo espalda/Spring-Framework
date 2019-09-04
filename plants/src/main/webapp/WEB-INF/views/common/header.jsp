@@ -51,7 +51,6 @@
 /* ---------------------------- navigation-2 */
 	.nav-2{
 	width: 90%;
-	border-bottom: 1px solid rgba(185, 127, 109, 0.5);
 	background-color: white;
 	color: #123132;
 	margin: 0 auto;

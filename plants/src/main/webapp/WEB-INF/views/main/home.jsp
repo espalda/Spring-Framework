@@ -13,7 +13,7 @@ body, html {
 }
 
 .hero-image {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("resources/img/item-1.jpg");
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("resources/img/garlic-4.jpg");
   height: 50%;
   background-position: center;
   background-repeat: no-repeat;
@@ -52,10 +52,11 @@ body, html {
 	<div class="hero-image">
 	  <div class="hero-text">
 	    <h1 style="font-size:50px">For your Home</h1>
-	    <p>And I'm a Plants</p>
+	    <p>I'm Yours to protect your own home</p>
 	    <button>click me</button>
 	  </div>
 	</div>
 	<h2>Best</h2>
+	<mark>판매 갯수가 높은 아이템 best3</mark>
 </body>
 </html>

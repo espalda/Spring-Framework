@@ -3,13 +3,36 @@
 <!DOCTYPE html>
 <html>
 <head>
+<style>
+	.item-1 li{
+	float: left;
+	padding: 10px;
+	}
+	
+	item-2{
+	width: 1120px;
+	margin: 0 auto;
+	}
+</style>
 </head>
 <body class="text-center">
 	<div class="container">
 		<h1>NEW ARRIVAL</h1>
-		<div class="img">
-   		<div class="scale"><img src="<%=request.getContextPath()%>/resources/img/item-1.jpg" width="350px"></div>
-		</div>
+		<div class="item-1">
+		<ul class="item-2 clearfix">
+		<c:forEach var="item" items="${itemNewList }">
+			<li>
+				<a href="<%=request.getContextPath()%>/item/display?num=${item.num}">
+				<div class="img">
+					<img class="scale" src="<%=request.getContextPath()%>/resources/uploadfiles${item.file}" width="350px" height="auto">
+				</div>
+				<h1>${item.name }</h1>
+				<h2>${item.price }</h2>
+				</a>
+			</li>
+		</c:forEach>
+		</ul>
+	</div>
 	</div>
 </body>
 </html>
