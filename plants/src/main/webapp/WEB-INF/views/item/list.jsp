@@ -4,42 +4,52 @@
 <html>
 <head>
 <style>
-	.item-1 li{
-	float: left;
-	padding: 10px;
-	}
-	
-	item-2{
+	.item-2{
 	width: 1120px;
 	margin: 0 auto;
 	}
-
+	.item-list{
+	float: left;
+	padding: 10px;
+	}
+	.centered {
+	font-size: 60px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
 </style>
 </head>
 <body>
 	<div class="container">
-		<img src="<%=request.getContextPath()%>/resources/img/garlic-3.jpg" width="100%" height="300">
+		<section style="position:relative;">
+			<h1 class="centered">Succulents</h1>
+			<img src="<%=request.getContextPath()%>/resources/img/back-6.jpg" width="100%">
+		</section>
+		
 		<select name="category">
-			<option value="1">등록순</option>
-			<option value="2">가격순</option>
-			<option value="3">인기순</option>
+			<option value="등록순">등록순</option>
+			<option value="가격순">가격순</option>
+			<option value="인기순">인기순</option>
 		</select>
-	
-	<div class="item-1 text-center">
-		<ul class="item-2 clearfix">
-		<c:forEach var="item" items="${itemList }">
-			<li>
+		
+		<section class="text-center">
+			<div class="item-2 clearfix">
+			<c:forEach var="item" items="${itemList }">
+			<div class="item-list">
 				<a href="<%=request.getContextPath()%>/item/display?num=${item.num}">
 				<div class="img">
 					<img class="scale" src="<%=request.getContextPath()%>/resources/uploadfiles${item.file}" width="350px" height="auto">
 				</div>
-				<h1>${item.name }</h1>
-				<h2>${item.price }</h2>
+				<h2>${item.name }</h2>
+				<h3>${item.price }</h3>
 				</a>
-			</li>
-		</c:forEach>
-		</ul>
-	</div>
+			</div>
+			</c:forEach>
+			</div>
+		</section>
+		
 	</div>
 </body>
 </html>

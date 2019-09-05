@@ -30,7 +30,7 @@
 
 .img-magnifier-glass {
   position: absolute;
-  border: 1px solid rgba(185, 127, 109, 0.5);
+  /* border: 1px solid rgba(185, 127, 109, 0.5); */
   cursor: none;
   /*Set the size of the magnifier glass:*/
   width: 100px;

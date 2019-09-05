@@ -34,7 +34,7 @@
 					</tr>
 					<tr>
 						<td colspan="2">
-							<input type="file" name="file2"><i class="fas fa-trash-alt del"></i>
+							<input type="file" name="file2"><i class="fas fa-trash-alt del">삭제</i>
 						</td>
 					</tr>
 				</table>

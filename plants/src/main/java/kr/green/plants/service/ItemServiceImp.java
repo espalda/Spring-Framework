@@ -44,4 +44,9 @@ public class ItemServiceImp implements ItemService{
 			
 		}
 
+		@Override
+		public ArrayList<OptionVO> selectOption() {
+			return itemDao.selectOption();
+		}
+
 }

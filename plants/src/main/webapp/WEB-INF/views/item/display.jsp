@@ -58,7 +58,7 @@
 					<label>옵션</label>
 					<select>
 						<option>선택</option>
-						<option value="${item.option}">${item.option}</option>
+						<option></option>
 					</select>
 				</li>
 				<li>
@@ -85,7 +85,7 @@
 
 <script>
 /* Execute the magnify function: */
-magnify("myimage", 2);
+magnify("myimage", 3);
 /* Specify the id of the image, and the strength of the magnifier glass: */ 
 </script>
 </body>

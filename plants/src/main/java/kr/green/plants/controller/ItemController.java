@@ -34,7 +34,7 @@ public class ItemController {
 		
 		/* 이벤트 상품 */
 		@RequestMapping(value="/event")
-		public ModelAndView openTilesView3(ModelAndView mv){
+		public ModelAndView itemEvent(ModelAndView mv){
 		    mv.setViewName("/item/event");
 		    return mv;
 		}
@@ -53,8 +53,8 @@ public class ItemController {
 		
 		
 		/** 제품 상세 화면 */
-		@RequestMapping(value="/display", method=RequestMethod.GET)
-		public ModelAndView itemDisplayGet(ModelAndView mv, Integer num){
+		@RequestMapping(value="/display")
+		public ModelAndView itemDisplay(ModelAndView mv, Integer num){
 			ItemVO ivo = itemService.getItem(num);
 		    mv.setViewName("/item/display");
 		    mv.addObject("item", ivo);

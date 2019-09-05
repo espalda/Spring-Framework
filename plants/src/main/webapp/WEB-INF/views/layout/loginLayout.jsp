@@ -11,9 +11,7 @@
    <tiles:insertAttribute name="header"/>
 		<div class="gray">
 			<div class="white"> 
-				<div class="shadow">   
-		     			<tiles:insertAttribute name="body" />
-		     	</div>
+		     	<tiles:insertAttribute name="body" />
 			</div>
 		</div>                                   
 	<tiles:insertAttribute name="footer" />

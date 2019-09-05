@@ -17,6 +17,8 @@ public interface ItemDAO {
 
 	public ArrayList<ItemVO> selectNewItem();
 
-	public void insertItemOption(@Param("ovo") OptionVO ovo);
+	public void insertItemOption(@Param("opt") OptionVO ovo);
+
+	public ArrayList<OptionVO> selectOption();
 
 }

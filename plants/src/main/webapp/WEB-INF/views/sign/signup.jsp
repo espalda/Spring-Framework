@@ -127,8 +127,9 @@ color: #cc0000;
 </head>
 <body>
 	<form action="<%=request.getContextPath()%>/signup" method="post" id="signup">
-		<div class="container text-center">
-			<h2>Sign Up</h2>
+		<div class="container text-center"><br>
+			<mark> pickles 에 오신것을 환영합니다.<br>
+			지금 회원 가입하신 후 다양한 서비스를 만나보세요.</mark>
 				<div>
 					<input type="text" class="input" placeholder="아이디" name="id">
 				</div>
@@ -163,6 +164,7 @@ color: #cc0000;
 				<button type="button" class="btn-tree pop">SIGN UP</button>
 			</div>
 			<div class="sb">
+				<input type="checkbox">
 				본인은 만 14세 이상이며, <a href="#">[이용약관 동의]</a> 와 <a href="#">[개인정보 수집 및 이용 동의]</a> 에 확인 하였으며, 동의합니다.
 			</div>
 			<div class="sb">

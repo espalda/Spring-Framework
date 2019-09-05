@@ -60,6 +60,9 @@ public class AdminController {
 			
 		}
 		
+		
+		/* 관리자 회원 권한 */
+		/* 관리자 회원 등급 */
 		/** 관리자 회원 정보 */
 		@RequestMapping(value="/member")
 		public ModelAndView adminMember(ModelAndView mv){
@@ -68,16 +71,17 @@ public class AdminController {
 		    mv.addObject("memberList", member);
 		    return mv;
 		}
-		/* 관리자 회원 권한 */
-		/* 관리자 회원 등급 */
+
 		
 		
 		/** 관리자 상품 관리 */
 		@RequestMapping(value="/item")
 		public ModelAndView adminItem(ModelAndView mv){
 			ArrayList<ItemVO> ivo = itemService.selectItem();
+			ArrayList<OptionVO> ovo = itemService.selectOption();
 		    mv.setViewName("/admin/item");
 		    mv.addObject("itemList", ivo);
+		    mv.addObject("optionList", ovo);
 		    return mv;
 		}
 		/** 관리자 상품 등록 */
@@ -92,7 +96,6 @@ public class AdminController {
 				OptionVO ovo = new OptionVO();
 				ovo.setOption(option[i]);
 				ovo.setItem_name(ivo.getName());
-				System.out.println(ovo);
 				itemService.insertOption(ovo);
 			}
 			itemService.insertItem(ivo);

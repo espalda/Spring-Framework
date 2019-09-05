@@ -24,4 +24,8 @@
 	insert into `option`(item_name, `option`) 
 		values(#{ovo.item_name}, #{ovo.option})
 	</insert>
+	
+	<select id="selectOption" resultType="kr.green.plants.vo.OptionVO">
+	select * from `option` where valid = 'I'
+	</select>
 </mapper>

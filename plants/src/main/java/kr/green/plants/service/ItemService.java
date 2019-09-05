@@ -17,4 +17,6 @@ public interface ItemService {
 
 	public void insertOption(OptionVO ovo);
 
+	public ArrayList<OptionVO> selectOption();
+
 }

@@ -61,7 +61,7 @@
 <body>
 	<form action="<%=request.getContextPath()%>/signin" method="post" id="signin">
 		<div class="container text-center">
-		<h2>Sign In</h2>
+		<mark>로그인</mark>
 			<div>
 				<input type="text" class="input" placeholder="아이디" name="id">
 			</div>
@@ -74,7 +74,7 @@
 				
 				
 				
-			<div class="text-right">
+			<div>
 				<a href="<%=request.getContextPath()%>/idFind">Find ID</a>
 				
 				<a href="<%=request.getContextPath()%>/pwFind">PASSWORD</a>

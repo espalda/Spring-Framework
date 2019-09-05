@@ -3,6 +3,11 @@
 <!DOCTYPE html>
 <html>
 <head>
+<style>
+.option-box input{
+margin-bottom: 10px;
+}
+</style>
 </head>
 <body>
 <div class="container">
@@ -24,6 +29,7 @@
   <div class="tab-content">
     <div id="home" class="container tab-pane active">
     <!-- 상품 정보 -->
+    <mark> option ajax로 정보 가져오기 </mark>
 		<table class="table table-hover">
 			<tr>
 			 	<th>이미지</th>
@@ -35,19 +41,26 @@
 				<th>옵션</th>
 			</tr>
 			<c:forEach var="item" items="${itemList }">
-			<tr>
-				<td><img src="<%=request.getContextPath()%>/resources/uploadfiles${item.file}" width="50px;"></td>
-				<td>${item.category }</td>
-				<td>${item.name }</td>
-				<td>${item.price }</td>
-				<td>${item.count }</td>
-				<td>${item.contents }</td>
-				<td>
-					<select>
-						<option>test</option>	
-					</select>
-				</td>
-			</tr>
+				<tr>  
+					<td><img src="<%=request.getContextPath()%>/resources/uploadfiles${item.file}" width="50px;"></td>
+					<td>${item.category }</td>
+					<td>${item.name }</td>
+					<td>${item.price }</td>
+					<td>${item.count }</td>
+					<td>${item.contents }</td>
+					<td >
+						<select class="option">
+						<c:forEach var="option" items="${optionList }">
+							<c:if test="${item.name eq option.item_name}">
+								<option>${option.option }</option>
+							</c:if>
+							<c:if test="${option.item_name eq null}">
+								<option>없음</option>
+							</c:if>
+						</c:forEach>
+						</select>
+					</td>
+				</tr> 
 			</c:forEach>
 		</table>
 		
@@ -88,17 +101,13 @@
 				</tr>
 				<tr>
 					<th>옵션</th>
-					<td>
-						<input type="text" name="option">
-						<input type="text" name="option">
-						<input type="text" name="option">
-						<input type="text" name="option">
-						<mark> 상품 옵션 등록시 select 박스 형태로 나오게 하는 법 </mark>
+					<td class="option-box">
+						<input type="text" name="option"><button type="button" class="add">추가</button><br>
 					</td>
 				</tr>
 				<tr>
 					<th>이미지</th>
-					<td><input type="file" name="file2"><i class="fas fa-trash-alt"></i>
+					<td><input type="file" name="file2"><i class="fas fa-trash-alt del">삭제</i>
 					</td>
 				</tr>		
 					
@@ -119,6 +128,17 @@
 $('.del').click(function(){	/* 파일 값 없애기 */
 	  $('input[type=file]').val('');
 });
+
+$('.add').click(function(){
+	var str = '<input type="text" name="option"><br>';
+	$('.option-box').append(str);
+})
+
+$('.option').each(function(){
+	if($(this).find('option').length == 0){
+		$(this).html('<option>없음</option>');
+	}
+})
 </script>
 </body>
 </html>
