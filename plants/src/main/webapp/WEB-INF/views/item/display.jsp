@@ -41,7 +41,7 @@
 	
 	<section class="float-left">
 		<div class="img-r1">
-			<p><mark>클릭시 해당 카테고리 리스트로 돌아가는 기능</mark>${item.category }</p>
+			<p><mark>클릭시 해당 카테고리 리스트로 돌아가는 기능</mark><br>${item.category }</p>
 			<h4>${item.name }</h4>
 			<hr>
 			<ul>
@@ -57,8 +57,9 @@
 				<li>
 					<label>옵션</label>
 					<select>
-						<option>선택</option>
-						<option></option>
+						<c:forEach var="opt" items="${optionList }">
+							<option>${opt.option }</option>
+						</c:forEach>
 					</select>
 				</li>
 				<li>

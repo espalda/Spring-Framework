@@ -13,6 +13,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import kr.green.plants.service.ItemService;
 import kr.green.plants.vo.ItemVO;
+import kr.green.plants.vo.OptionVO;
 
 @Controller
 @RequestMapping(value="/item")
@@ -56,8 +57,10 @@ public class ItemController {
 		@RequestMapping(value="/display")
 		public ModelAndView itemDisplay(ModelAndView mv, Integer num){
 			ItemVO ivo = itemService.getItem(num);
+			ArrayList<OptionVO> ovo = itemService.getOption(ivo.getName());
 		    mv.setViewName("/item/display");
 		    mv.addObject("item", ivo);
+		    mv.addObject("optionList", ovo);
 		    return mv;
 		}
 		

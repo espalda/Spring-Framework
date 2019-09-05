@@ -3,9 +3,9 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="kr.green.plants.dao.ItemDAO">
 	<insert id="insertItem">
-	insert into item(seller_member_id, `name`, category, price, `count`, contents, option_num, `file`, delivery_charge)
+	insert into item(seller_member_id, `name`, category, price, `count`, contents, `file`)
 	values(#{item.seller_member_id}, #{item.name}, #{item.category}, #{item.price},
-			#{item.count}, #{item.contents}, #{item.option_num}, #{item.file}, #{item.delivery_charge})
+			#{item.count}, #{item.contents}, #{item.file})
 	</insert>
 	
 	<select id="selectItem" resultType="kr.green.plants.vo.ItemVO">
@@ -22,10 +22,14 @@
 	
 	<insert id="insertItemOption">
 	insert into `option`(item_name, `option`) 
-		values(#{ovo.item_name}, #{ovo.option})
+		values(#{opt.item_name}, #{opt.option})
 	</insert>
 	
 	<select id="selectOption" resultType="kr.green.plants.vo.OptionVO">
 	select * from `option` where valid = 'I'
+	</select>
+	
+	<select id="getOption" resultType="kr.green.plants.vo.OptionVO">
+	select * from `option` where item_name = #{name} and valid = 'I'
 	</select>
 </mapper>

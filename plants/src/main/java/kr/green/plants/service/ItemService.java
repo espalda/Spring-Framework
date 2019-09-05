@@ -19,4 +19,6 @@ public interface ItemService {
 
 	public ArrayList<OptionVO> selectOption();
 
+	public ArrayList<OptionVO> getOption(String name);
+
 }

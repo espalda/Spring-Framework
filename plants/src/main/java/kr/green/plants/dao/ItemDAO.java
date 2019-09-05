@@ -21,4 +21,6 @@ public interface ItemDAO {
 
 	public ArrayList<OptionVO> selectOption();
 
+	public ArrayList<OptionVO> getOption(@Param("name") String name);
+
 }
