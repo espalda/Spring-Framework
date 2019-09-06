@@ -102,7 +102,7 @@ margin-bottom: 10px;
 				<tr>
 					<th>옵션</th>
 					<td class="option-box">
-						<input type="text" name="option"><button type="button" class="add">추가</button><br>
+						<input type="text" name="option"><input type="text" name="option_price"><button type="button" class="add">추가</button><br>
 					</td>
 				</tr>
 				<tr>
@@ -130,7 +130,7 @@ $('.del').click(function(){	/* 파일 값 없애기 */
 });
 
 $('.add').click(function(){
-	var str = '<input type="text" name="option"><br>';
+	var str = '<input type="text" name="option"><input type="text" name="option_price"><br>';
 	$('.option-box').append(str);
 })
 

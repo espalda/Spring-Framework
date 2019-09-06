@@ -13,7 +13,6 @@
 		<table class="table">
 			<tr>
 				<th width="3%"><input type="checkbox"></th>
-				<th width="15%">주문번호</th>
 				<th width="10%">이미지</th>
 				<th width="35%">상품정보</th>
 				<th width="8%">수량</th>
@@ -23,17 +22,16 @@
 			</tr>
 			<tr>
 				<td><input type="checkbox" checked></td>
-				<td>20190624-0000124</td>
-				<td>image</td>
-				<td>test</td>
-				<td>test</td>
-				<td>피클즈</td>
-				<td>2500</td>
-				<td>52900</td>
+				<td><img src="<%=request.getContextPath()%>/resources/uploadfiles${item.file }" width="80px"></td>
+				<td>${item.name }</td>
+				<td>${item.count }</td>
+				<td>${item.seller_member_id }</td>
+				<td>${item.delivery_charge }</td>
+				<td>${item.price }</td>
 			</tr>
 			<tr>
 				<td colspan="10" class="background-raw text-right">
-					<span>상품구매금액 52,900 + 배송비 0 (무료) = 합계 : 52,900원</span>
+					<span><mark>상품구매금액 52,900 + 배송비 0 (무료) = 합계 : 52,900원</mark></span>
 				</td>
 			</tr>
 		</table>

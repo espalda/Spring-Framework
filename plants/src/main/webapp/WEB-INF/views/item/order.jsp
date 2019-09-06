@@ -29,6 +29,7 @@
 		<h2>Order</h2>
 		<table class="table">
 			<tr>
+				<th>주문번호</th>
 				<th width="10%">이미지</th>
 				<th width="35%">상품정보</th>
 				<th width="8%">수량</th>
@@ -37,6 +38,7 @@
 				<th width="10%">상품금액</th>
 			</tr>
 			<tr>
+				<td>주문번호</td>
 				<td>image</td>
 				<td>test</td>
 				<td>test</td>

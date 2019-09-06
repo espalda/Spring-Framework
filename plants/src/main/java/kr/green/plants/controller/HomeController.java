@@ -179,20 +179,6 @@ public class HomeController {
 		}
 		
 		
-		/* 장바구니 */
-		@RequestMapping(value="/basket")
-		public ModelAndView openTilesView6(ModelAndView mv){
-		    mv.setViewName("/main/basket");
-		    return mv;
-		}
-		
-		/* 주문 페이지 */
-		@RequestMapping(value="/order")
-		public ModelAndView openTilesView7(ModelAndView mv){
-		    mv.setViewName("/main/order");
-		    return mv;
-		}
-		
 		/** help 문의 페이지 */
 		@RequestMapping(value="/help")
 		public ModelAndView openTilesView8(ModelAndView mv){

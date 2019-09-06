@@ -21,8 +21,8 @@
 	</select>
 	
 	<insert id="insertItemOption">
-	insert into `option`(item_name, `option`) 
-		values(#{opt.item_name}, #{opt.option})
+	insert into `option`(item_name, `option`, option_price) 
+		values(#{opt.item_name}, #{opt.option}, #{opt.option_price})
 	</insert>
 	
 	<select id="selectOption" resultType="kr.green.plants.vo.OptionVO">

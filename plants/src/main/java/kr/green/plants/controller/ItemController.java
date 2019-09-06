@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import kr.green.plants.service.ItemService;
+import kr.green.plants.vo.BasketVO;
 import kr.green.plants.vo.ItemVO;
 import kr.green.plants.vo.OptionVO;
 
@@ -54,7 +55,7 @@ public class ItemController {
 		
 		
 		/** 제품 상세 화면 */
-		@RequestMapping(value="/display")
+		@RequestMapping(value="/display", method=RequestMethod.GET)
 		public ModelAndView itemDisplay(ModelAndView mv, Integer num){
 			ItemVO ivo = itemService.getItem(num);
 			ArrayList<OptionVO> ovo = itemService.getOption(ivo.getName());
@@ -66,6 +67,29 @@ public class ItemController {
 		
 		
 	
+		/* 장바구니에 담긴 여러개의 정보와 옵션테이블에 있는 여러개의 정보를 가져와야 한다. */
+		/* 로그인한 회원만 장바구니에 담아 저장할수 있다. */
+		/** 장바구니 */
+		@RequestMapping(value="/basket", method=RequestMethod.GET)
+		public ModelAndView itemBasketGet(ModelAndView mv){
+		    mv.setViewName("/item/basket");
+		    return mv;
+		}
+		
+		@RequestMapping(value="/basket", method=RequestMethod.POST)
+		public ModelAndView itemBasketPost(ModelAndView mv, ItemVO item){
+	
+		    mv.setViewName("/item/basket");
+		    return mv;
+		}
+		
+		
+		/* 주문 페이지 */
+		@RequestMapping(value="/order")
+		public ModelAndView openTilesView7(ModelAndView mv){
+		    mv.setViewName("/item/order");
+		    return mv;
+		}
 		
 		
 		

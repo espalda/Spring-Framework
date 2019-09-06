@@ -111,10 +111,10 @@
 			</c:if>
 			
 				<li class="nav-item">
-					<a class="nav-link" href="<%=request.getContextPath()%>/basket">BASKET</a>
+					<a class="nav-link" href="<%=request.getContextPath()%>/item/basket">BASKET</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link" href="<%=request.getContextPath()%>/order">ORDER</a>
+					<a class="nav-link" href="<%=request.getContextPath()%>/item/order">ORDER</a>
 				</li>
 				
 			<c:if test="${login.authority eq 'admin' ||  login.authority eq 'seller'}">

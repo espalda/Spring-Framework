@@ -96,8 +96,8 @@ public class MemberServiceImp implements MemberService {
 
 		@Override
 		public String createPw() {
-			String str ="0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
-			String pw="";
+			String str = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+			String pw = "";
 			for(int i=0; i< 8; i++) {
 				int r = (int)(Math.random()*62);
 				pw += str.charAt(r);
