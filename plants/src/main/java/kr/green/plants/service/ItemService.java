@@ -21,4 +21,6 @@ public interface ItemService {
 
 	public ArrayList<OptionVO> getOption(String name);
 
+	public OptionVO getOption2(int num);
+
 }

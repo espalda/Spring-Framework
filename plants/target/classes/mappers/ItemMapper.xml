@@ -32,4 +32,8 @@
 	<select id="getOption" resultType="kr.green.plants.vo.OptionVO">
 	select * from `option` where item_name = #{name} and valid = 'I'
 	</select>
+	
+	<select id="getOption2" resultType="kr.green.plants.vo.OptionVO">
+	select * from `option` where num = #{num} and valid = 'I'
+	</select>
 </mapper>

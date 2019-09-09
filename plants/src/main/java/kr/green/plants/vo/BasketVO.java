@@ -7,6 +7,8 @@ public class BasketVO {
 	private int Item_num;
 	private int count;
 	private int option_num;
+	
+	
 	public int getNum() {
 		return num;
 	}

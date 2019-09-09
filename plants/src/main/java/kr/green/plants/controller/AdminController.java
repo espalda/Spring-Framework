@@ -86,7 +86,7 @@ public class AdminController {
 		}
 		/** 관리자 상품 등록 */
 		@RequestMapping(value="/item/register")
-		public String adminItemRegister(Model model, ItemVO ivo, MultipartFile file2, String[] option) throws IOException, Exception {
+		public String adminItemRegister(Model model, ItemVO ivo, MultipartFile file2, String[] option, Integer[]option_price) throws IOException, Exception {
 			if(file2.getOriginalFilename().length() != 0) {
 				String file = UploadFileUtils.uploadFile(uploadPath, file2.getOriginalFilename(),file2.getBytes());
 				ivo.setFile(file);
@@ -95,6 +95,7 @@ public class AdminController {
 			for(int i=0; i<option.length; i++) {
 				OptionVO ovo = new OptionVO();
 				ovo.setOption(option[i]);
+				ovo.setOption_price(option_price[i]);
 				ovo.setItem_name(ivo.getName());
 				itemService.insertOption(ovo);
 			}

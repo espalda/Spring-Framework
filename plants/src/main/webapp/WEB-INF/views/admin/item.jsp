@@ -102,7 +102,9 @@ margin-bottom: 10px;
 				<tr>
 					<th>옵션</th>
 					<td class="option-box">
-						<input type="text" name="option"><input type="text" name="option_price"><button type="button" class="add">추가</button><br>
+						<input type="text" placeholder="옵션명" name="option">
+						<input type="text" placeholder="옵션추가금액" name="option_price">
+						<button type="button" class="add">추가</button><br>
 					</td>
 				</tr>
 				<tr>

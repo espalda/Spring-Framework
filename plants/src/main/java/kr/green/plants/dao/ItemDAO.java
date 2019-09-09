@@ -23,4 +23,6 @@ public interface ItemDAO {
 
 	public ArrayList<OptionVO> getOption(@Param("name") String name);
 
+	public OptionVO getOption2(@Param("num") int num);
+
 }

@@ -54,4 +54,9 @@ public class ItemServiceImp implements ItemService{
 			return itemDao.getOption(name);
 		}
 
+		@Override
+		public OptionVO getOption2(int num) {
+			return itemDao.getOption2(num);
+		}
+
 }
