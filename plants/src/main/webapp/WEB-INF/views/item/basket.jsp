@@ -20,22 +20,26 @@
 				<th width="10%">배송비</th>
 				<th width="10%">상품금액</th>
 			</tr>
-			<tr>
-				<td><input type="checkbox" checked></td>
-				<td><img src="<%=request.getContextPath()%>/resources/uploadfiles${item.file }" width="80px"></td>
-				<td>${item.name }</td>
-				<td>${item.count }</td>
-				<td>${item.seller_member_id }</td>
-				<td>${item.delivery_charge }</td>
-				<td>${item.price }</td>
-			</tr>
+			<c:forEach var="bas" items="${basketList }">
+				<tr>
+					<td><input type="checkbox" checked></td>
+					<td><img src="<%=request.getContextPath()%>/resources/uploadfiles${bas.item_file }" width="80px"></td>
+					<td>${bas.item_name }, <br>${bas.option }</td>
+					<td>${bas.option_count }</td>
+					<td>${bas.seller_member_id }</td>
+					<td>${bas.delivery_charge }</td>
+					<td>${bas.total_price }</td>
+				</tr>
+			</c:forEach>
 			<tr>
 				<td colspan="10" class="background-raw text-right">
-					<span><mark>상품구매금액 52,900 + 배송비 0 (무료) = 합계 : 52,900원</mark></span>
+					<span>${bas.total_price }</span>
 				</td>
 			</tr>
 		</table>
 		<button class="btn-tree">ORDER</button>
+		<a href="<%=request.getContextPath()%>/basket/delete">
+		<button class="btn-tree">DELETE</button></a>
 	</div>
 </body>
 </html>

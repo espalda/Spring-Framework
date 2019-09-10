@@ -36,4 +36,16 @@
 	<select id="getOption2" resultType="kr.green.plants.vo.OptionVO">
 	select * from `option` where num = #{num} and valid = 'I'
 	</select>
+	
+	<insert id="insertBasket">
+	insert into basket(item_num, member_id, seller_member_id, delivery_charge, item_name, item_file, option_num,
+		`option`, option_count, option_total_price, total_price)
+	values(#{item.num}, #{member_id}, #{item.seller_member_id}, #{item.delivery_charge}, 
+	#{item.name}, #{item.file}, #{opt.num}, #{opt.option}, #{opt.option_count},
+	 #{option_total_price}, #{total_price})
+	</insert>
+	
+	<select id="selectBasket" resultType="kr.green.plants.vo.BasketVO">
+	select * from basket where member_id = #{member_id}
+	</select>
 </mapper>

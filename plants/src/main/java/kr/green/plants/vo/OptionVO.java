@@ -7,6 +7,9 @@ public class OptionVO {
 	private String option;
 	private String valid;
 	private String item_name;
+	private int option_count;	
+
+	
 	public int getNum() {
 		return num;
 	}
@@ -39,11 +42,22 @@ public class OptionVO {
 	}
 	
 	
+	public int getOption_count() {
+		return option_count;
+	}
+	public void setOption_count(int option_count) {
+		this.option_count = option_count;
+	}
 	@Override
 	public String toString() {
 		return "OptionVO [num=" + num + ", option_price=" + option_price + ", option=" + option + ", valid=" + valid
-				+ ", item_name=" + item_name + "]";
+				+ ", item_name=" + item_name + ", option_count=" + option_count + "]";
 	}
+	
+	
+	
+	
+	
 	
 	
 	

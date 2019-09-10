@@ -111,7 +111,7 @@
 			</c:if>
 			
 				<li class="nav-item">
-					<a class="nav-link" href="<%=request.getContextPath()%>/item/basket">BASKET</a>
+					<a class="nav-link" href="<%=request.getContextPath()%>/item/basket?member_id=${login.id}">BASKET</a>
 				</li>
 				<li class="nav-item">
 					<a class="nav-link" href="<%=request.getContextPath()%>/item/order">ORDER</a>
