@@ -14,7 +14,7 @@ public class ItemVO {
 	private int price;
 	private String contents;
 	private String file;
-	private String option_num;
+	private int option_num;
 	private String valid;
 	private String seller_member_id;
 	private int delivery_charge;
@@ -118,12 +118,12 @@ public class ItemVO {
 	}
 	
 	
-	public String getOption_num() {
+	public int getOption_num() {
 		return option_num;
 	}
 	
 	
-	public void setOption_num(String option_num) {
+	public void setOption_num(int option_num) {
 		this.option_num = option_num;
 	}
 	

@@ -38,14 +38,14 @@
 	</select>
 	
 	<insert id="insertBasket">
-	insert into basket(item_num, member_id, seller_member_id, delivery_charge, item_name, item_file, option_num,
-		`option`, option_count, option_total_price, total_price)
-	values(#{item.num}, #{member_id}, #{item.seller_member_id}, #{item.delivery_charge}, 
-	#{item.name}, #{item.file}, #{opt.num}, #{opt.option}, #{opt.option_count},
-	 #{option_total_price}, #{total_price})
+	insert into basket(item_num, member_id, option_num, option_count)
+	values(#{item.num}, #{member_id}, #{opt.num}, #{opt.option_count})
 	</insert>
 	
 	<select id="selectBasket" resultType="kr.green.plants.vo.BasketVO">
-	select * from basket where member_id = #{member_id}
+	select * FROM basket
+	join `option` on basket.option_num = `option`.num
+	join  `item` on basket.item_num = item.num
+	where member_id = #{member_id};
 	</select>
 </mapper>

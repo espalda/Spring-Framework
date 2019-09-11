@@ -11,7 +11,9 @@ $(document).ready(function(){
 	})
 	
 	/* find 버튼을 클릭했을때 html 태그가 실행되게 하는 코드 */
+	$('.ctn')click(function(){
 	
+	})
 	/** 아이디 찾기 기능 */
 	$('.find').click(function(){
 		var name = $('input[name=name]').val();

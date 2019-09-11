@@ -26,8 +26,7 @@ public interface ItemDAO {
 
 	public OptionVO getOption2(@Param("num") int num);
 
-	public void insertBasket(@Param("opt") OptionVO opt, @Param("member_id")String member_id, @Param("item")ItemVO ivo, 
-			@Param("option_total_price")Integer option_total_price, @Param("total_price")Integer total_price);
+	public void insertBasket(@Param("opt") OptionVO opt, @Param("member_id")String member_id, @Param("item")ItemVO ivo);
 
 	public ArrayList<BasketVO> selectBasket(@Param("member_id") String member_id);
 

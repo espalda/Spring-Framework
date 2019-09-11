@@ -40,14 +40,7 @@
 	<!-- input hidden -->
 	<input type="hidden" name="num" value="${item.num }">
 	<input type="hidden" name="member_id" value="${login.id }">
-	<input type="hidden" name="seller_member_id" value="${item.seller_member_id}">
-	<input type="hidden" name="name" value="${item.name}">
-	<input type="hidden" name="file" value="${item.file }">
-	<input type="hidden" name="delivery_charge" value="${item.delivery_charge }">
-	<input type="hidden" name="total_price" id="total_price">
-	<input type="hidden" name="option_total_price" id="option_total_price">
 
-		 
 	<div class="container-11">
 		<div class="clearfix mx-auto" style="width:710px;">
 			<!-- image -->
