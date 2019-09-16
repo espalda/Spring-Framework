@@ -30,7 +30,7 @@
 	</insert>
 	
 	<select id="selectWish" resultType="kr.green.plants.vo.WishVO">
-	select * from wishlist where member_id = ${id}
+	select * from wishlist where member_id = #{id}
 	</select>
 	
 		<!-- Seller mapper -->

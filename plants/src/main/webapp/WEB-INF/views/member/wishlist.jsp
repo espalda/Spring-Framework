@@ -18,6 +18,7 @@
 					<th width="10%">배송비</th>
 					<th width="15%">상품금액</th>
 				</tr>
+				<c:forEach var="wish" items="${wishlist }">
 				<tr>
 					<td><input type="checkbox" checked></td>
 					<td><div>image</div></td>
@@ -27,6 +28,7 @@
 					<td>2500</td>
 					<td>52900</td>
 				</tr>
+				</c:forEach>
 			</table>
 			<div class="float-right">
 				<button class="btn-tree">ORDER</button>

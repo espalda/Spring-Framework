@@ -89,8 +89,7 @@
 		if($(this).prop("checked")){ /* 주문페이지로 넘길때 조건 */
 			alert("체크");
 			$(this).parents('.tr').find('input[name=basket-check]').val(1);
-			if($('.check').prop('checked')){		/* 체크박스가 전부 체크되었을때 check-all이 체크되는 기능 */
-				$('.check-all').prop("checked", true);	   
+			if($('.check').prop('checked')){		/* 체크박스가 전부 체크되었을때 check-all이 체크되는 기능 */  
 			}
 		}else{
 			alert("체크해제");

@@ -44,13 +44,19 @@ public class MemberController {
 		}
 		
 		/** 회원 위시리스트 내역 */
-		@RequestMapping(value="/wishlist")
-		public ModelAndView memberWishGet(ModelAndView mv, String member_id, Integer item_num){
+		@RequestMapping(value="/wishlist") /*  select*/
+		public ModelAndView memberWishG(ModelAndView mv){
+			mv.setViewName("/member/wishlist");
+			return mv;
+		}
+		
+		@RequestMapping(value="/wish") /* insert*/
+		public String memberWishGet(Model model, String member_id, Integer item_num){
+			System.out.println(member_id+","+ item_num);
 			ArrayList<WishVO> wish = memberService.selectWish(member_id);
 			memberService.insertWish(member_id, item_num);
-		    mv.setViewName("/member/wishlist");
-		    mv.addObject("wishlist", wish);
-		    return mv;
+			model.addAttribute("wishlist", wish);
+		    return "redirect:/member/wishlist";
 		}
 		
 		

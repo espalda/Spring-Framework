@@ -91,7 +91,7 @@
 				<a href="<%=request.getContextPath()%>/item/order">
 					<button type="button" class="btn-tree order">ORDER</button>
 				</a>
-				<a href="<%=request.getContextPath()%>/member/wishlist?member_id=${login.id}&item_num=${item.num}">
+				<a href="<%=request.getContextPath()%>/member/wish?member_id=${login.id}&item_num=${item.num}">
 					<button type="button" class="btn-gold d-block">WISH</button>
 				</a>
 				</div>
