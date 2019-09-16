@@ -49,7 +49,7 @@
 		<div>
 			<h1 class="centered">NEW ARRIVAL</h1>
 			<img src="<%=request.getContextPath()%>/resources/img/back-5.jpg">
-			<p>새로나온 신상품을 10 퍼센트로 할인된 가격으로 만나보세요</p>
+			<p>새로나온 신상품을 빠르게 만나보세요</p>
 		</div>
 	
 		<div class="item-2 clearfix">

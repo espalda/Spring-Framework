@@ -32,6 +32,9 @@
 	.option-box label{
 	padding-left: 10px;
 	}
+	.back{
+	background-color: white;
+	}
 </style>
 </head>
 <body>
@@ -42,7 +45,7 @@
 	<input type="hidden" name="member_id" value="${login.id }">
 
 	<div class="container-11">
-		<div class="clearfix mx-auto" style="width:710px;">
+		<div class="clearfix mx-auto back" style="width:710px;">
 			<!-- image -->
 			<section class="float-left">
 				<div class="img-l1 img-magnifier-container" style="width:350px;">
@@ -83,14 +86,17 @@
 						</li>
 					</ul>
 				<a href="<%=request.getContextPath()%>/item/basket">
-				<button class="btn-raw basket">CART</button></a>
+					<button class="btn-raw basket">CART</button>
+				</a>
 				<a href="<%=request.getContextPath()%>/item/order">
-				<button type="button" class="btn-tree order">ORDER</button></a>
+					<button type="button" class="btn-tree order">ORDER</button>
+				</a>
+				<a href="<%=request.getContextPath()%>/member/wishlist?member_id=${login.id}&item_num=${item.num}">
+					<button type="button" class="btn-gold d-block">WISH</button>
+				</a>
 				</div>
 			</section>
 		</div>
-		<mark>함께 구매하시면 좋은 제품</mark>
-		<div class="bottom mx-auto"></div>
 		<div class="bottom mx-auto">${item.contents }</div>
 	</div>
 </form>
@@ -183,10 +189,10 @@
 magnify("myimage", 3);
 
 /* action 경로 2가지 설정 */
-<%-- $('.basket').click(function(){
-	$('#item-form').attr("action", "<%=request.getContextPath()%>/item/basket");
+$('.order').click(function(){
+	$('#item-form').attr("action", "<%=request.getContextPath()%>/item/order");
 	$('#item-form').submit();
-}) --%>
+})
 </script>
 </body>
 </html>

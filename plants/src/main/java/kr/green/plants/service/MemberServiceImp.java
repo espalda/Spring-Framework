@@ -13,6 +13,7 @@ import org.springframework.stereotype.Service;
 import kr.green.plants.dao.MemberDAO;
 import kr.green.plants.vo.MemberVO;
 import kr.green.plants.vo.SellerVO;
+import kr.green.plants.vo.WishVO;
 
 @Service
 public class MemberServiceImp implements MemberService {
@@ -150,6 +151,17 @@ public class MemberServiceImp implements MemberService {
 		@Override
 		public ArrayList<MemberVO> selectMember() {
 			return memberDao.selectMember();
+		}
+
+		@Override
+		public void insertWish(String member_id, Integer item_num) {
+			memberDao.insertWish(member_id, item_num);
+			
+		}
+
+		@Override
+		public ArrayList<WishVO> selectWish(String member_id) {
+			return memberDao.selectWish(member_id);
 		}
 
 	

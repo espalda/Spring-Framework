@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import kr.green.plants.vo.MemberVO;
 import kr.green.plants.vo.SellerVO;
+import kr.green.plants.vo.WishVO;
 
 public interface MemberService {
 
@@ -36,5 +37,9 @@ public interface MemberService {
 	public ArrayList<SellerVO> selectSeller();
 
 	public ArrayList<MemberVO> selectMember();
+
+	public void insertWish(String member_id, Integer item_num);
+
+	public ArrayList<WishVO> selectWish(String member_id);
 
 }

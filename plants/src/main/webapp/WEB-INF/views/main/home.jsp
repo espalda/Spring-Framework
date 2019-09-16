@@ -51,8 +51,8 @@ body, html {
 	<!-- bootstrap -->
 	<div class="hero-image">
 	  <div class="hero-text">
-	    <h1 style="font-size:50px">For your Home</h1>
-	    <p>I'm Yours to protect your own home</p>
+	    <h1 style="font-size:50px">For your Atmosphere</h1>
+	    <p>I'm Yours to protect your breath</p>
 	    <button>click me</button>
 	  </div>
 	</div>

@@ -101,7 +101,9 @@ margin-bottom: 10px;
 				</tr>
 				<tr>
 					<th>옵션</th>
+					
 					<td class="option-box">
+						<mark>* 옵션 선택 필수 (옵션추가금액은 옵션을 추가한 상품의 최종 금액으로 입력해주세요.*</mark><br>
 						<input type="text" placeholder="옵션명" name="option">
 						<input type="text" placeholder="옵션추가금액" name="option_price">
 						<button type="button" class="add">추가</button><br>
@@ -132,7 +134,8 @@ $('.del').click(function(){	/* 파일 값 없애기 */
 });
 
 $('.add').click(function(){
-	var str = '<input type="text" name="option"><input type="text" name="option_price"><br>';
+	var str = '<input type="text" placeholder="옵션명" name="option">'+
+				 '<input type="text" placeholder="옵션추가금액" name="option_price"><br>';
 	$('.option-box').append(str);
 })
 

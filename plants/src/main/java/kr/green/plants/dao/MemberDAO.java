@@ -6,6 +6,7 @@ import org.apache.ibatis.annotations.Param;
 
 import kr.green.plants.vo.MemberVO;
 import kr.green.plants.vo.SellerVO;
+import kr.green.plants.vo.WishVO;
 
 public interface MemberDAO {
 
@@ -24,5 +25,9 @@ public interface MemberDAO {
 	public ArrayList<SellerVO> selectSeller();
 
 	public ArrayList<MemberVO> selectMember();
+
+	public void insertWish(@Param("id")String member_id, @Param("num")Integer item_num);
+
+	public ArrayList<WishVO> selectWish(@Param("id") String member_id);
 
 }

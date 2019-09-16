@@ -8,8 +8,6 @@
 	<div class="container">
 		<h1>SUMMER 30% DISCOUNT COUPON</h1>
 		<p>PROTECT YOUR PRIVATE HOME FROM FINE DUST</p>
-		<mark>상품 쿠폰 받는 곳 구현</mark><br>
-		<button class="btn-gold">쿠폰 받기</button><br>
 		<img src="<%=request.getContextPath()%>/resources/img/item-1.jpg">
 		<p>PROTECT YOUR PRIVATE HOME FROM FINE DUST</p>
 		<mark>함께 구매하세요. 원예용품 식물영양제</mark>

@@ -1,5 +1,7 @@
 package kr.green.plants.controller;
 
+import java.util.ArrayList;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,6 +13,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import kr.green.plants.service.MemberService;
 import kr.green.plants.vo.MemberVO;
+import kr.green.plants.vo.WishVO;
 
 @Controller
 @RequestMapping(value="/member")
@@ -40,10 +43,13 @@ public class MemberController {
 		    return mv;
 		}
 		
-		/* 회원 위시리스트 내역 */
+		/** 회원 위시리스트 내역 */
 		@RequestMapping(value="/wishlist")
-		public ModelAndView openTilesView3(ModelAndView mv){
+		public ModelAndView memberWishGet(ModelAndView mv, String member_id, Integer item_num){
+			ArrayList<WishVO> wish = memberService.selectWish(member_id);
+			memberService.insertWish(member_id, item_num);
 		    mv.setViewName("/member/wishlist");
+		    mv.addObject("wishlist", wish);
 		    return mv;
 		}
 		

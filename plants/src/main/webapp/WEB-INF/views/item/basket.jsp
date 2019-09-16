@@ -60,8 +60,8 @@
 		total += parseInt($(this).find('.item-total').val());
 	});
 	var str = '상품금액 : '+ total +' + 배송비: 0 = '+ total;	/* 10000원 이상 배송비 무료 금액 */
-	var str2 = '상품금액 : '+ total - parseInt(2500) +' + 배송비: 2500 = '+ total;	/* 10000원 이하 배송비 무료 금액 */
-	if(total < 10000){
+	var str2 = '상품금액 : '+ total +' + 배송비: 2500 = '+ (total + parseInt(2500));	/* 10000원 이하 배송비 무료 금액 */
+	if(total < 10000 && total > 0){
 		total += parseInt(2500);
 		str = str2;
 	}
@@ -75,19 +75,27 @@
 		$('.tr').each(function(){
 			if($(this).find('.check').prop('checked')){ /* tr의 값을 하나씩 꺼내서 check 된 값만 더하는 기능 */
 			total += parseInt($(this).find('.item-total').val());
-			}	
+			}
 		});
-		if(total < 10000){
+		var str = '상품금액 : '+ total +' + 배송비: 0 = '+ total;	/* 10000원 이상 배송비 무료 금액 */
+		var str2 = '상품금액 : '+ total +' + 배송비: 2500 = '+ (total + parseInt(2500));	/* 10000원 이하 배송비 무료 금액 */
+		if(total < 10000 && total > 0){
 			total += parseInt(2500);
+			str = str2;
 		}
 		$('.tt').val(total);
+		$('.fin-price').html(str);
 		
 		if($(this).prop("checked")){ /* 주문페이지로 넘길때 조건 */
 			alert("체크");
 			$(this).parents('.tr').find('input[name=basket-check]').val(1);
+			if($('.check').prop('checked')){		/* 체크박스가 전부 체크되었을때 check-all이 체크되는 기능 */
+				$('.check-all').prop("checked", true);	   
+			}
 		}else{
 			alert("체크해제");
 			$(this).parents('.tr').find('input[name=basket-check]').val(0);
+			$('.check-all').prop("checked", false);	/* 체크박스가 전부 체크해제 되었을때 check-all이 체크해제 되는 기능 */
 		}
 	})
 	
@@ -98,11 +106,11 @@
 			total += parseInt($(this).find('.item-total').val());
 		});
 		var str = '상품금액 : '+ total +' + 배송비: 0 = '+ total;	/* 10000원 이상 배송비 무료 금액 */
-		var str2 = '상품금액 : '+ total - parseInt(2500) +' + 배송비: 2500 = '+ total;	/* 10000원 이하 배송비 무료 금액 */
+		var str2 = '상품금액 : '+ total +' + 배송비: 2500 = '+ (total + parseInt(2500));	/* 10000원 이하 배송비 무료 금액 */
 		if($(this).prop("checked")){
 			alert("체크");
 			$('.check').prop("checked", true);
-			if(total < 10000){
+			if(total < 10000 && total > 0){
 				total += parseInt(2500);
 				str = str2;
 			}
