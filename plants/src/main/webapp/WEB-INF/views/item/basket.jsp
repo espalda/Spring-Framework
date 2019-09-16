@@ -41,7 +41,8 @@
 			</c:forEach>
 			<tr>
 				<td colspan="10" class="background-raw text-right">
-					<span class="fin-price"><input type="text" class="tt"></span>
+					<span class="fin-price"></span>
+					<input type="text" class="tt">
 				</td>
 			</tr>
 		</table>
@@ -51,6 +52,22 @@
 	</div>
 </form>
 <script>
+	var str3 = '상품금액 : '+ 0 +' + 배송비: 0 = '+ 0; /* 전체 해제시 금액 */
+
+	/* 장바구니 페이지에 들어왔을때 보여지는 디폴트 금액 */
+	var total = 0;
+	$('.tr').each(function(){
+		total += parseInt($(this).find('.item-total').val());
+	});
+	var str = '상품금액 : '+ total +' + 배송비: 0 = '+ total;	/* 10000원 이상 배송비 무료 금액 */
+	var str2 = '상품금액 : '+ total - parseInt(2500) +' + 배송비: 2500 = '+ total;	/* 10000원 이하 배송비 무료 금액 */
+	if(total < 10000){
+		total += parseInt(2500);
+		str = str2;
+	}
+	$('.tt').val(total);
+	$('.fin-price').html(str);
+
 
 	/* 체크박스에 체크된 값만 계산하는 기능 */
 	$('.check').change(function(){
@@ -74,34 +91,30 @@
 		}
 	})
 	
-	/* 장바구니 페이지에 들어왔을때 보여지는 디폴트 금액 */
-	var total1 = 0;
-	$('.tr').each(function(){
-		total1 += parseInt($(this).find('.item-total').val());
-	});
-	if(total1 < 10000)
-		total1 += parseInt(2500);
-	$('.tt').val(total1);
-
-	
 	/* 전체 체크박스 값을 체크하는 기능 */
 	$('.check-all').change(function(){
 		var total = 0;
 		$('.tr').each(function(){
 			total += parseInt($(this).find('.item-total').val());
 		});
+		var str = '상품금액 : '+ total +' + 배송비: 0 = '+ total;	/* 10000원 이상 배송비 무료 금액 */
+		var str2 = '상품금액 : '+ total - parseInt(2500) +' + 배송비: 2500 = '+ total;	/* 10000원 이하 배송비 무료 금액 */
 		if($(this).prop("checked")){
 			alert("체크");
 			$('.check').prop("checked", true);
-			if(total < 10000)
+			if(total < 10000){
 				total += parseInt(2500);
+				str = str2;
+			}
 			$('.tt').val(total);
 			$('input[name=basket-check]').val(1);
+			$('.fin-price').html(str);
 		}else{
 			alert("체크 해제");
 			$('.check').prop("checked", false);
 			$('.tt').val(0);
 			$('input[name=basket-check]').val(0);
+			$('.fin-price').html(str3);
 		}
 	})
 </script>
