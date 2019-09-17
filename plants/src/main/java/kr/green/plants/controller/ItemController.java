@@ -107,7 +107,8 @@ public class ItemController {
 		
 		/** 주문 페이지 */
 		@RequestMapping(value="/order", method=RequestMethod.GET)
-		public ModelAndView itemOrderGet(ModelAndView mv, HttpServletRequest r, Integer total){
+		public ModelAndView itemOrderGet(ModelAndView mv, HttpServletRequest r, Integer total,
+										ArrayList<ItemVO> itemList, ArrayList<OptionVO> optionList){
 			MemberVO user = (MemberVO)r.getSession().getAttribute("login");
 			ArrayList<OrderVO> order = itemService.selectOrder(user.getId());
 		    mv.setViewName("/item/order");
@@ -115,12 +116,27 @@ public class ItemController {
 		    mv.addObject("total", total);
 		    return mv;
 		}
-		@RequestMapping(value="/order", method=RequestMethod.POST) /* 결제하기 후 db에 저장 x */
-		public String itemOrderPost1(Model model, String id, Integer num, Integer total, Integer[] option_num, Integer[] option_count){
-			 model.addAttribute("id", id);
+		@RequestMapping(value="/order", method=RequestMethod.POST) /* 결제하기 전 페이지 */
+		public String itemOrderPost1(Model model, String id, Integer num, Integer total, 
+									String[] option, Integer[] option_num, Integer[] option_count){
+			//반복문으로 배열을 하나씩 꺼낸다
+			//빈 옵션 VO 객체에 집어넣는다
+			//값이 추가된 옵션 VO 객체를 빈 ArrayList에 add로 추가한다	0번지
+			//다음 번지 값을 VO 객체에 다시 집어넣는다
+			//값이 추가된 옵션 VO 객체를 빈 ArrayList에 add로 추가한다	1번지
+			ArrayList<ItemVO> item = itemService.selectItem2(num);
+			System.out.println("itemOrderPost1 : "+ item);
+			ArrayList<OptionVO> opts = new ArrayList<OptionVO>();
+			OptionVO opt = new OptionVO();
+			for(int i=0; i<option_num.length; i++) {
+				opt.setNum(option_num[i]);
+				opt.setOption_count(option_count[i]);
+				opt.setOption(option[i]);
+				opts.add(opt);
+			}
 			 model.addAttribute("total", total);
-			 model.addAttribute("option_num", option_num);
-			 model.addAttribute("option_count", option_count);
+			 model.addAttribute("itemList", item);
+			 model.addAttribute("orderList", opts);
 			return "redirect:/item/order";
 		}
 		@RequestMapping(value="/paid", method=RequestMethod.POST) /* 결제하기 후 db에 저장 */

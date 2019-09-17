@@ -33,6 +33,8 @@ public interface ItemService {
 
 	public ArrayList<OrderVO> selectOrder(String id);
 
+	public ArrayList<ItemVO> selectItem2(Integer num);
+
 
 
 }

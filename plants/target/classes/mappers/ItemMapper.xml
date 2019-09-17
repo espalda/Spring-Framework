@@ -12,6 +12,10 @@
 	select * from item where valid = 'I'
 	</select>
 	
+	<select id="selectItem2" resultType="kr.green.plants.vo.ItemVO">
+	select * from item where valid = 'I' and num = #{num}
+	</select>
+	
 	<select id="getItem" resultType="kr.green.plants.vo.ItemVO">
 	select * from item where num = #{num}
 	</select>

@@ -98,6 +98,11 @@ public class ItemServiceImp implements ItemService{
 			System.out.println(currtime+"-"+pw);
 		}
 
+		@Override
+		public ArrayList<ItemVO> selectItem2(Integer num) {
+			return itemDao.selectItem2(num);
+		}
+
 		
 
 }

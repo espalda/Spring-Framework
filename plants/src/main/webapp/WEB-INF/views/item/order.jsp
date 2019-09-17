@@ -26,7 +26,7 @@
 </head>
 <body>
 	<div class="container-11">
-		<h2>Order</h2>
+		<h2>주문목록</h2>
 		<table class="table">
 			<tr>
 				<th>주문번호</th>
@@ -37,19 +37,18 @@
 				<th width="10%">배송비</th>
 				<th width="10%">상품금액</th>
 			</tr>
-			<c:forEach var="order" items="${orderList}">
+			<c:forEach var="item" items="${itemList }">
 				<tr>
 					<td>20190624-0000124</td>
-					<td><img src="<%=request.getContextPath()%>/resources/uploadfiles${order.file}" width="50px"></td>
-					<td><a href="<%=request.getContextPath()%>/item/display?=${order.num}">${order.name }</a><br>${order.option }</td>
-					<td>${order.option_count }</td>
-					<td>${order.seller_member_id }</td>
-					<td>${order.delivery_charge }
-					<td>${order.option_price * order.option_count }</td>
+					<td><img src="<%=request.getContextPath()%>/resources/uploadfiles${item.file}" width="50px"></td>
+					<td><a href="<%=request.getContextPath()%>/item/display?=${item.num}"></a>${item.name }<br></td>
+					<td></td>
+					<td>${item.seller_member_id }</td>
+					<td>${item.delivery_charge }</td>
+					<td></td>
 				</tr>
 			</c:forEach>
 		</table>
-	
 	<hr>
 
 	<div class="clearfix">
@@ -79,7 +78,7 @@
 		</div>
 		<div class="border ob-2">
 				<strong>결제금액</strong>
-				<h1>${order.total}</h1>
+				<h1>${total}</h1>
 				<hr>
 				<div>
 					<strong>결제금액</strong>		<label></label>

@@ -35,6 +35,8 @@ public interface ItemDAO {
 
 	public ArrayList<OrderVO> selectOrder(@Param("id") String id);
 
+	public ArrayList<ItemVO> selectItem2(@Param("num") Integer num);
+
 	
 
 
