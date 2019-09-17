@@ -108,14 +108,13 @@
 				</li>
 				<li class="nav-item">
 					<a class="nav-link" href="<%=request.getContextPath()%>/member/profile">MYPAGE</a>
-			</c:if>
-			
 				<li class="nav-item">
 					<a class="nav-link" href="<%=request.getContextPath()%>/item/basket">BASKET</a>
 				</li>
 				<li class="nav-item">
 					<a class="nav-link" href="<%=request.getContextPath()%>/item/order">ORDER</a>
 				</li>
+			</c:if>
 				
 			<c:if test="${login.authority eq 'admin' ||  login.authority eq 'seller'}">
 				<li class="nav-item">
