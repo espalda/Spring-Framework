@@ -46,6 +46,6 @@
 	select * FROM basket
 	join `option` on basket.option_num = `option`.num
 	join  `item` on basket.item_num = item.num
-	where member_id = #{member_id};
+	where member_id = #{id};
 	</select>
 </mapper>

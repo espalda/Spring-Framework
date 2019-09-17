@@ -56,14 +56,13 @@ public class ItemServiceImp implements ItemService{
 		}
 
 		@Override
-		public OptionVO getOption2(int num) {
+		public OptionVO getOption2(Integer num) {
 			return itemDao.getOption2(num);
 		}
 
 		@Override
 		public void insertBasket(OptionVO opt, String member_id, ItemVO ivo) {
 			itemDao.insertBasket(opt, member_id, ivo);
-			
 		}
 
 		@Override
