@@ -35,6 +35,7 @@ public interface ItemService {
 
 	public ArrayList<ItemVO> selectItem2(Integer num);
 
+	public String orderNum();
 
 
 }

@@ -84,18 +84,19 @@ public class ItemServiceImp implements ItemService{
 		}
 		
 		/** 랜덤생성 8자리 번호 */
-		public static void main(String[] args) {
+		public String orderNum() {
 			Calendar calendar = Calendar.getInstance();
 			SimpleDateFormat dateFormat = new SimpleDateFormat("yyyyMMdd");
 			String currtime = dateFormat.format(calendar.getTime());
 
 			String str = "123456789";
-			String pw = "";
+			String rand = "";
 			for(int i=0; i< 8; i++) {
 				int r = (int)(Math.random()*9);
-				pw += str.charAt(r);
+				rand += str.charAt(r);
 			}
-			System.out.println(currtime+"-"+pw);
+			String num = currtime +"-"+ rand;
+			return num;
 		}
 
 		@Override

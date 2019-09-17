@@ -111,35 +111,52 @@ public class ItemController {
 		
 		/** 주문 페이지 - 화면 */
 		@RequestMapping(value="/order", method=RequestMethod.GET)
-		public ModelAndView itemOrderGet(ModelAndView mv, HttpServletRequest r, Integer total,
-										ItemVO itemList, int[] option_num){
+		public ModelAndView itemOrderGet(ModelAndView mv, HttpServletRequest r, Integer total, Integer num, 
+										Integer[] option_num, Integer[] option_count){
+			System.out.println("옵션 num: "+option_num);
+			System.out.println("옵션 count : "+option_count);
 			MemberVO user = (MemberVO)r.getSession().getAttribute("login");
-			for(int t : option_num) {
-				System.out.println(t);
-			}
+			ItemVO item = itemService.getItem(num);
+			//for(int t : option_num) { System.out.println("itemOrderGet t : " + t); }
+			ArrayList<OptionVO> opt = new ArrayList<OptionVO>();
+			for(int i=0; i<option_num.length; i++) {
+				OptionVO ovo = itemService.getOption2(option_num[i]);
+				System.out.println("옵션 VO 1 : "+ ovo);
+				ovo.setOption_count(option_count[i]);
+				opt.add(ovo);
+				
+			}System.out.println("옵션 VO 2 : "+ opt);
+
 		    mv.setViewName("/item/order");
+		    mv.addObject("id", user.getId());
 		    mv.addObject("total", total);
+		    mv.addObject("item", item);
+		    mv.addObject("option", opt);
+		    
 		    return mv;
 		}
 		/** 주문페이지 결제 전 정보 확인 및 입력 */
 		@RequestMapping(value="/order", method=RequestMethod.POST)
 		public String itemOrderPost1(Model model, String id, Integer num, Integer total, 
-									String[] option, Integer[] option_num, Integer[] option_count){
+									Integer[] option_num, Integer[] option_count){
 			
 			ItemVO item = itemService.getItem(num);
-			System.out.println("itemOrderPost1 : "+ item);
 			ArrayList<OptionVO> opts = new ArrayList<OptionVO>();
 			OptionVO opt = new OptionVO();
 			for(int i=0; i<option_num.length; i++) {
 				opt.setNum(option_num[i]);
 				opt.setOption_count(option_count[i]);
-				opt.setOption(option[i]);
 				opts.add(opt);
 			}
+			OrderVO order = new OrderVO();
+			order.setOrder_num(itemService.orderNum());
+			System.out.println(order.getOrder_num());
+			 model.addAttribute("order_num", order);
 			 model.addAttribute("total", total);
-			 model.addAttribute("itemList", item);
+			 model.addAttribute("num", item.getNum());
 			 model.addAttribute("orderList", opts);
 			 model.addAttribute("option_num", option_num);
+			 model.addAttribute("option_count", option_count);
 			return "redirect:/item/order";
 		}
 		

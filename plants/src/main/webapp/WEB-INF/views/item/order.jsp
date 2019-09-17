@@ -29,7 +29,6 @@
 		<h2>주문목록</h2>
 		<table class="table">
 			<tr>
-				<th>주문번호</th>
 				<th width="10%">이미지</th>
 				<th width="35%">상품정보</th>
 				<th width="8%">수량</th>
@@ -37,17 +36,20 @@
 				<th width="10%">배송비</th>
 				<th width="10%">상품금액</th>
 			</tr>
-			<c:forEach var="item" items="${itemList }">
+			<c:forEach var="opt" items="${option }">
 				<tr>
-					<td>20190624-0000124</td>
-					<td><img src="<%=request.getContextPath()%>/resources/uploadfiles${item.file}" width="50px"></td>
-					<td><a href="<%=request.getContextPath()%>/item/display?=${item.num}"></a>${item.name }<br></td>
-					<td></td>
+					<td>
+						<img src="<%=request.getContextPath()%>/resources/uploadfiles${item.file}" width="50px">
+					</td>
+					<td class="item-contents">
+						<a href="<%=request.getContextPath()%>/item/display?=${item.num}"></a>${item.name }<br>${opt.option }
+					</td>
+					<td>${opt.option_count } </td>
 					<td>${item.seller_member_id }</td>
 					<td>${item.delivery_charge }</td>
-					<td></td>
+					<td>${opt.option_price * opt.option_count }</td>
 				</tr>
-			</c:forEach>
+				</c:forEach>
 		</table>
 	<hr>
 

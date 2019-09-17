@@ -50,7 +50,7 @@
 	<input type="hidden" name="id" value="${login.id }">
 
 	<div class="container-11">
-		<div class="clearfix mx-auto back" style="width:710px;">
+		<div class="clearfix mx-auto back" style="width:750px;">
 			<!-- image -->
 			<section class="float-left">
 				<div class="img-l1 img-magnifier-container" style="width:350px;">
@@ -60,7 +60,7 @@
 			
 			<!-- image info -->
 			<section class="float-left">
-				<div class="img-r1">
+				<div class="img-r1" style="width:390px;">
 					<p><mark>클릭시 해당 카테고리 리스트로 돌아가는 기능</mark><br>${item.category }</p>
 					<h4>${item.name }</h4>
 					<hr>
@@ -95,13 +95,13 @@
 					
 				<a href="<%=request.getContextPath()%>/item/basket">
 					<button class="btn-raw basket">CART</button>
-				</a>
+				</a><br>
 				<a href="<%=request.getContextPath()%>/item/order">
 					<button type="submit" class="btn-tree order">ORDER</button>
-				</a>
+				</a><br>
 				<a href="<%=request.getContextPath()%>/member/wish?id=${login.id}&num=${item.num}">
-					<button type="button" class="btn-gold d-block">WISH</button>
-				</a>
+					<button type="button" class="btn-gold">WISH</button>
+				</a><br>
 				</div>
 			</section>
 		</div>
