@@ -61,8 +61,8 @@ public class ItemServiceImp implements ItemService{
 		}
 
 		@Override
-		public void insertBasket(OptionVO opt, String member_id, ItemVO ivo) {
-			itemDao.insertBasket(opt, member_id, ivo);
+		public void insertBasket(OptionVO opt, String id, Integer num) {
+			itemDao.insertBasket(opt, id, num);
 		}
 
 		@Override

@@ -92,14 +92,14 @@ public class ItemController {
 		}
 		/** 장바구니 버튼을 누르면 basketVO에 정보를 DB에 넣는 기능 */
 		@RequestMapping(value="/basket", method=RequestMethod.POST) /* ivo를 num으로 member_id를 id로 변경 */
-		public String itemBasketPost(Model model, String member_id, ItemVO ivo, Integer[] option_count, Integer[] option_num){
+		public String itemBasketPost(Model model, String id, Integer num, Integer[] option_count, Integer[] option_num){
 			OptionVO opt = new OptionVO();
 			for(int i=0; i<option_num.length ; i++) {
 				opt.setNum(option_num[i]);
 				opt.setOption_count(option_count[i]);
-				itemService.insertBasket(opt, member_id, ivo);
+				itemService.insertBasket(opt, id, num);
 			}
-			model.addAttribute("member_id", member_id);
+			model.addAttribute("member_id", id);
 			return "redirect:/item/basket";
 		}
 		

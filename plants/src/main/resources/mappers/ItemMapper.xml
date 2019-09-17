@@ -39,7 +39,7 @@
 	
 	<insert id="insertBasket">
 	insert into basket(item_num, member_id, option_num, option_count)
-	values(#{item.num}, #{member_id}, #{opt.num}, #{opt.option_count})
+					values(#{num}, #{id}, #{opt.num}, #{opt.option_count})
 	</insert>
 	
 	<select id="selectBasket" resultType="kr.green.plants.vo.BasketVO">

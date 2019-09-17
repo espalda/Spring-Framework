@@ -42,7 +42,7 @@
 
 	<!-- input hidden -->
 	<input type="hidden" name="num" value="${item.num }">
-	<input type="hidden" name="member_id" value="${login.id }">
+	<input type="hidden" name="id" value="${login.id }">
 
 	<div class="container-11">
 		<div class="clearfix mx-auto back" style="width:710px;">
