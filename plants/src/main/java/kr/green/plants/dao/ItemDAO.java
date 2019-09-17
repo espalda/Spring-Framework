@@ -7,6 +7,7 @@ import org.apache.ibatis.annotations.Param;
 import kr.green.plants.vo.BasketVO;
 import kr.green.plants.vo.ItemVO;
 import kr.green.plants.vo.OptionVO;
+import kr.green.plants.vo.OrderVO;
 
 public interface ItemDAO {
 
@@ -29,6 +30,10 @@ public interface ItemDAO {
 	public void insertBasket(@Param("opt") OptionVO opt, @Param("id")String id, @Param("num")Integer num);
 
 	public ArrayList<BasketVO> selectBasket(@Param("id") String id);
+
+	public void insertOrder(@Param("order")OrderVO order, @Param("id") String id, @Param("num") Integer num);
+
+	public ArrayList<OrderVO> selectOrder(@Param("id") String id);
 
 	
 

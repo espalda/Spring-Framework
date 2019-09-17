@@ -154,8 +154,8 @@ public class MemberServiceImp implements MemberService {
 		}
 
 		@Override
-		public void insertWish(String member_id, Integer item_num) {
-			memberDao.insertWish(member_id, item_num);
+		public void insertWish(String id, Integer num) {
+			memberDao.insertWish(id, num);
 			
 		}
 

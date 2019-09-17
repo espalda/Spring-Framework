@@ -21,6 +21,7 @@ import kr.green.plants.vo.BasketVO;
 import kr.green.plants.vo.ItemVO;
 import kr.green.plants.vo.MemberVO;
 import kr.green.plants.vo.OptionVO;
+import kr.green.plants.vo.OrderVO;
 
 @Controller
 @RequestMapping(value="/item")
@@ -92,27 +93,46 @@ public class ItemController {
 		}
 		/** 장바구니 버튼을 누르면 basketVO에 정보를 DB에 넣는 기능 */
 		@RequestMapping(value="/basket", method=RequestMethod.POST) /* ivo를 num으로 member_id를 id로 변경 */
-		public String itemBasketPost(Model model, String id, Integer num, Integer[] option_count, Integer[] option_num){
-			OptionVO opt = new OptionVO();
+		public String itemBasketPost(Model model, String id, Integer num, Integer[] option_num, Integer[] option_count){
+			OptionVO opt = new OptionVO(); /** 옵션정보는 상품 하나당 여러개이기 때문에 배열로 집어넣는다 */
 			for(int i=0; i<option_num.length ; i++) {
 				opt.setNum(option_num[i]);
 				opt.setOption_count(option_count[i]);
 				itemService.insertBasket(opt, id, num);
 			}
-			model.addAttribute("member_id", id);
 			return "redirect:/item/basket";
 		}
+		/* 장바구니 상품 삭제 ajax */
 		
 		
 		/** 주문 페이지 */
 		@RequestMapping(value="/order", method=RequestMethod.GET)
-		public ModelAndView itemOrderGet(ModelAndView mv){
+		public ModelAndView itemOrderGet(ModelAndView mv, HttpServletRequest r, Integer total){
+			MemberVO user = (MemberVO)r.getSession().getAttribute("login");
+			ArrayList<OrderVO> order = itemService.selectOrder(user.getId());
 		    mv.setViewName("/item/order");
+		    mv.addObject("orderList", order);
+		    mv.addObject("total", total);
 		    return mv;
 		}
-		@RequestMapping(value="/order", method=RequestMethod.POST)
-		public String itemOrderPost(Model model, String member_id, Integer num){
-		    return "redirect:/item/order";
+		@RequestMapping(value="/order", method=RequestMethod.POST) /* 결제하기 후 db에 저장 x */
+		public String itemOrderPost1(Model model, String id, Integer num, Integer total, Integer[] option_num, Integer[] option_count){
+			 model.addAttribute("id", id);
+			 model.addAttribute("total", total);
+			 model.addAttribute("option_num", option_num);
+			 model.addAttribute("option_count", option_count);
+			return "redirect:/item/order";
+		}
+		@RequestMapping(value="/paid", method=RequestMethod.POST) /* 결제하기 후 db에 저장 */
+		public String itemOrderPost2(Model model, String id, Integer num, Integer total, Integer[] option_num, Integer[] option_count){
+			OrderVO order = new OrderVO(); 				/** 주문 상품은 여러개이기 때문에 배열로 집어 넣는다. */
+			for(int i=0; i<option_num.length ; i++) {
+				order.setOption_num(option_num[i]);
+				order.setOption_count(option_count[i]);
+				itemService.insertOrder(order, id, num);
+			}
+			model.addAttribute("total", total);
+		    return "redirect:/item/display";
 		}
 		
 }

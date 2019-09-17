@@ -37,15 +37,17 @@
 				<th width="10%">배송비</th>
 				<th width="10%">상품금액</th>
 			</tr>
-			<tr>
-				<td>주문번호</td>
-				<td>image</td>
-				<td>test</td>
-				<td>test</td>
-				<td>피클즈</td>
-				<td>2500</td>
-				<td>52900</td>
-			</tr>
+			<c:forEach var="order" items="${orderList}">
+				<tr>
+					<td>20190624-0000124</td>
+					<td><img src="<%=request.getContextPath()%>/resources/uploadfiles${order.file}" width="50px"></td>
+					<td><a href="<%=request.getContextPath()%>/item/display?=${order.num}">${order.name }</a><br>${order.option }</td>
+					<td>${order.option_count }</td>
+					<td>${order.seller_member_id }</td>
+					<td>${order.delivery_charge }
+					<td>${order.option_price * order.option_count }</td>
+				</tr>
+			</c:forEach>
 		</table>
 	
 	<hr>
@@ -77,23 +79,23 @@
 		</div>
 		<div class="border ob-2">
 				<strong>결제금액</strong>
-				<h1>5200원</h1>
+				<h1>${order.total}</h1>
 				<hr>
 				<div>
-					<strong>결제금액</strong>		<label>52000원</label>
+					<strong>결제금액</strong>		<label></label>
 				</div>
 				<div>
-					<strong>배송비</strong>		<label>2500원</label>
+					<strong>배송비</strong>		<label></label>
 				</div>
 				<div>
-					<strong>할인금액</strong>		<label>0원</label>
+					<strong>할인금액</strong>		<label></label>
 				</div>
 				<div>
-					<strong>적립금 사용금액</strong>	<label>0원</label>
+					<strong>적립금 사용금액</strong>	<label></label>
 				</div>
 		</div>
 	
-		
+	
 	</div>
 		<div class="ob-3">
 			<!-- Tab links -->

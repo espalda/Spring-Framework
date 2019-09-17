@@ -26,7 +26,7 @@ public interface MemberDAO {
 
 	public ArrayList<MemberVO> selectMember();
 
-	public void insertWish(@Param("id")String member_id, @Param("num")Integer item_num);
+	public void insertWish(@Param("id")String id, @Param("num")Integer num);
 
 	public ArrayList<WishVO> selectWish(@Param("id") String member_id);
 

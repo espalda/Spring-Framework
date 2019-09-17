@@ -42,7 +42,7 @@
 			<tr>
 				<td colspan="10" class="background-raw text-right">
 					<span class="fin-price"></span>
-					<input type="text" class="tt">
+					<input type="text" name="total">
 				</td>
 			</tr>
 		</table>
@@ -65,7 +65,7 @@
 		total += parseInt(2500);
 		str = str2;
 	}
-	$('.tt').val(total);
+	$('input[name=total]').val(total);
 	$('.fin-price').html(str);
 
 
@@ -83,7 +83,7 @@
 			total += parseInt(2500);
 			str = str2;
 		}
-		$('.tt').val(total);
+		$('input[name=total]').val(total);
 		$('.fin-price').html(str);
 		
 		if($(this).prop("checked")){ /* 주문페이지로 넘길때 조건 */
@@ -113,13 +113,13 @@
 				total += parseInt(2500);
 				str = str2;
 			}
-			$('.tt').val(total);
+			$('input[name=total]').val(total);
 			$('input[name=basket-check]').val(1);
 			$('.fin-price').html(str);
 		}else{
 			alert("체크 해제");
 			$('.check').prop("checked", false);
-			$('.tt').val(0);
+			$('input[name=total]').val(0);
 			$('input[name=basket-check]').val(0);
 			$('.fin-price').html(str3);
 		}

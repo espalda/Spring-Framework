@@ -38,7 +38,7 @@ public interface MemberService {
 
 	public ArrayList<MemberVO> selectMember();
 
-	public void insertWish(String member_id, Integer item_num);
+	public void insertWish(String id, Integer num);
 
 	public ArrayList<WishVO> selectWish(String member_id);
 

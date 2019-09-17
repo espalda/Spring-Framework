@@ -35,6 +35,11 @@
 	.back{
 	background-color: white;
 	}
+	.option-box{
+	border: 1px solid black;
+	margin: 5px 0;
+	}
+	
 </style>
 </head>
 <body>
@@ -67,7 +72,7 @@
 						<li>
 							<label>배송비</label>
 							<span>${item.delivery_charge }원</span>
-							<p><mark>10,000원 이상 구매시 배송비 무료</mark></p>
+							<p>10,000원 이상 구매시 배송비 무료</p>
 						</li>
 						<li>
 							<label>옵션</label>
@@ -83,15 +88,18 @@
 						<li>
 							<span>총 구매가격</span>	
 							<div class="total-price"></div>
+							<input type="hidden" name="total">
 						</li>
 					</ul>
+					
+					
 				<a href="<%=request.getContextPath()%>/item/basket">
 					<button class="btn-raw basket">CART</button>
 				</a>
 				<a href="<%=request.getContextPath()%>/item/order">
-					<button type="button" class="btn-tree order">ORDER</button>
+					<button type="submit" class="btn-tree order">ORDER</button>
 				</a>
-				<a href="<%=request.getContextPath()%>/member/wish?member_id=${login.id}&item_num=${item.num}">
+				<a href="<%=request.getContextPath()%>/member/wish?id=${login.id}&num=${item.num}">
 					<button type="button" class="btn-gold d-block">WISH</button>
 				</a>
 				</div>
@@ -127,7 +135,7 @@
 				var str = '<div class="option-box">'+
 				'<input type="hidden" name="option_price" value="'+test.op.option_price+'">'+
 				'<input type="hidden" name="option_num" value="'+test.op.num+'">'+
-				'<input type="text" name="option" code="'+test.op.num+'" value="'+test.op.option+'">'+
+				'선택 옵션 : <input type="text" name="option" code="'+test.op.num+'" value="'+test.op.option+'">'+
 				'<label>수량</label>'+
 				'<span><input type="number" class="num" min="1" max="99" name="option_count" value="1">'+
 				'<strong class="total"></strong></span></div>';
@@ -148,10 +156,16 @@
 						var cnt = parseInt($(this).find('.num').val());
 						option_total_price += op * cnt;
 					});
-					totally = option_total_price + delivery
+					if(option_total_price < 10000){
+						totally = option_total_price + delivery
+					}else{
+						var delivery = 0;
+						totally = option_total_price + delivery
+					}
 					$('.total-price').html('상품가격 '+ option_total_price+'원 + 배송비 '+ delivery +'원 = '+ totally + '원');
 					$('#total_price').val(totally);
 					$('#option_total_price').val(option_total_price);
+					$('input[name=total]').val(totally);
 					
 					/* item option 총금액 구하기 */
 					/* 옵션에 대한 수량을 클릭했을 때 해당 옵션에 대한 총 금액과 모든 옵션에 대한 총 금액을 변경*/
@@ -171,9 +185,15 @@
 							var cnt = parseInt($(this).find('.num').val());
 							option_total_price += op * cnt;
 							
-						}); 
-						totally = option_total_price + delivery;
+						});
+						if(option_total_price < 10000){
+							totally = option_total_price + delivery
+						}else{
+							var delivery = 0;
+							totally = option_total_price + delivery
+						}
 						$('.total-price').html('상품가격 '+ option_total_price+'원 + 배송비 '+ delivery +'원 = '+ totally +'원');
+						$('input[name=total]').val(totally);
 					})
 				}else{
 					alert('이미 선택된 옵션 입니다.')

@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import kr.green.plants.vo.BasketVO;
 import kr.green.plants.vo.ItemVO;
 import kr.green.plants.vo.OptionVO;
+import kr.green.plants.vo.OrderVO;
 
 public interface ItemService {
 
@@ -27,6 +28,10 @@ public interface ItemService {
 	public void insertBasket(OptionVO opt, String id, Integer num);
 
 	public ArrayList<BasketVO> selectBasket(String id);
+
+	public void insertOrder(OrderVO order, String id, Integer num);
+
+	public ArrayList<OrderVO> selectOrder(String id);
 
 
 

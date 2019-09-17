@@ -62,8 +62,8 @@ public class MemberController {
 			return mv;
 		}
 		@RequestMapping(value="/wish")
-		public String memberWishGet(Model model, String member_id, Integer item_num){
-			memberService.insertWish(member_id, item_num);
+		public String memberWishGet(Model model, String id, Integer num){
+			memberService.insertWish(id, num);
 		    return "redirect:/member/wishlist";
 		}
 		
