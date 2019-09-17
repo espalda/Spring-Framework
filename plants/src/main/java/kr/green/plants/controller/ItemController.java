@@ -40,13 +40,13 @@ public class ItemController {
 		    return mv;
 		}
 		
-		/* 이벤트 상품 */
+		
+		/** 이벤트 상품 - 쿠폰 미구현 */
 		@RequestMapping(value="/event")
 		public ModelAndView itemEvent(ModelAndView mv){
 		    mv.setViewName("/item/event");
 		    return mv;
 		}
-		
 		
 		
 		/* 상품 카테고리별 뿌리기 */
@@ -78,7 +78,6 @@ public class ItemController {
 		    OptionVO op = itemService.getOption2(opt.getNum());
 		    map.put("op", op);
 			return map;
-		
 		}
 
 
@@ -92,7 +91,7 @@ public class ItemController {
 		    return mv;
 		}
 		/** 장바구니 버튼을 누르면 basketVO에 정보를 DB에 넣는 기능 */
-		@RequestMapping(value="/basket", method=RequestMethod.POST)
+		@RequestMapping(value="/basket", method=RequestMethod.POST) /* ivo를 num으로 member_id를 id로 변경 */
 		public String itemBasketPost(Model model, String member_id, ItemVO ivo, Integer[] option_count, Integer[] option_num){
 			OptionVO opt = new OptionVO();
 			for(int i=0; i<option_num.length ; i++) {
@@ -102,22 +101,18 @@ public class ItemController {
 			}
 			model.addAttribute("member_id", member_id);
 			return "redirect:/item/basket";
-		    
-		}
-		/** 장바구니 삭제  */
-		/* 체크박스에 체크된 아이템만 삭제되는 기능 추가 - jquery */
-		@RequestMapping(value="/basket/delete", method=RequestMethod.GET)
-		public String itemBasketDeleteGet(ModelAndView mv){
-			//ArrayList<BasketVO> bas = itemService.deleteBasket();
-		    return "redirect:/item/basket";
 		}
 		
 		
-		/* 주문 페이지 */
-		@RequestMapping(value="/order")
-		public ModelAndView openTilesView7(ModelAndView mv){
+		/** 주문 페이지 */
+		@RequestMapping(value="/order", method=RequestMethod.GET)
+		public ModelAndView itemOrderGet(ModelAndView mv){
 		    mv.setViewName("/item/order");
 		    return mv;
+		}
+		@RequestMapping(value="/order", method=RequestMethod.POST)
+		public String itemOrderPost(Model model, String member_id, Integer num){
+		    return "redirect:/item/order";
 		}
 		
 }
