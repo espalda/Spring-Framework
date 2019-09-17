@@ -3,74 +3,6 @@
 <!DOCTYPE html>
 <html>
 <head>
-<script>
-$(document).ready(function(){
-	/** validate(plug-in)의 양식이 맞으면 true, 다르면 false */
-	$('.modi').click(function(){
-		var test = $('#modify').valid();	
-		if(!test){
-			return false;
-		}
-		alert("회원 정보가 수정되었습니다.");
-		$('#modify').submit();
-	});
-	
-	/** plug-in */
-	$("#modify").validate({
-		rules: {
-		    pw: {
-		        required : true,
-		        minlength : 1,
-		        maxlength : 16,
-		        regex: /^\w*$/
-		    },
-		    pw2: {
-		        required : true,
-		        equalTo : pw
-		    },
-		    phone: {
-		        required : true,
-		        regex: /^(010|011)-\d{4}-\d{4}$/
-		    },
-		    email: {
-		        required : true,
-		        email : true
-		    }
-		},
-	   /* 규칙체크 실패시 출력될 메시지 */
-	   messages : {
-	       pw: {
-	           required : "비밀번호를 필수로 입력하세요.",
-	           minlength : "최소 8 글자 이상이어야 합니다.",
-	           maxlength : "최소 16 글자 이하이어야 합니다.",
-	           regex : "비밀번호는 영문자, 숫자, 특수문자 3가지 조합만 가능합니다."
-	       },
-	       pw2: {
-	           required : "비밀번호 확인을 입력하세요.",
-	           equalTo : "비밀번호가 일치하지 않습니다."
-	       },
-	       phone: {
-	           required : "전화번호를 필수로 입력하세요.",
-	           regex : "전화번호는 숫자로만 입력해주세요."
-	       },
-	       email: {
-	           required : "이메일을 필수로입력하세요.",
-	           email : "메일규칙에 어긋납니다."
-	       }
-		}
-	});
-	
-}) /** document.ready */
-
-$.validator.addMethod(
-	    "regex",
-	    function(value, element, regexp) {
-	        var re = new RegExp(regexp);
-	        return this.optional(element) || re.test(value);
-	    },
-	    "Please check your input."
-	);
-</script>
 <style>
 .modify input{
 text-align: center;
@@ -79,7 +11,6 @@ color: blue;
 </style>
 </head>
 <body>
-
 <div class="container">
   <h2>Member</h2>
   <!-- Nav tabs -->
@@ -164,8 +95,76 @@ color: blue;
 				<p>회원탈퇴시 알림창 문구 및 비밀번호 다시 확인 창 미구현</p>
 			</form>
 		</div>
+	</div>
+</div>
+	
+<script>
+$(document).ready(function(){
+	/** validate(plug-in)의 양식이 맞으면 true, 다르면 false */
+	$('.modi').click(function(){
+		var test = $('#modify').valid();	
+		if(!test){
+			return false;
+		}
+		alert("회원 정보가 수정되었습니다.");
+		$('#modify').submit();
+	});
+	
+	/** plug-in */
+	$("#modify").validate({
+		rules: {
+		    pw: {
+		        required : true,
+		        minlength : 1,
+		        maxlength : 16,
+		        regex: /^\w*$/
+		    },
+		    pw2: {
+		        required : true,
+		        equalTo : pw
+		    },
+		    phone: {
+		        required : true,
+		        regex: /^(010|011)-\d{4}-\d{4}$/
+		    },
+		    email: {
+		        required : true,
+		        email : true
+		    }
+		},
+	   /* 규칙체크 실패시 출력될 메시지 */
+	   messages : {
+	       pw: {
+	           required : "비밀번호를 필수로 입력하세요.",
+	           minlength : "최소 8 글자 이상이어야 합니다.",
+	           maxlength : "최소 16 글자 이하이어야 합니다.",
+	           regex : "비밀번호는 영문자, 숫자, 특수문자 3가지 조합만 가능합니다."
+	       },
+	       pw2: {
+	           required : "비밀번호 확인을 입력하세요.",
+	           equalTo : "비밀번호가 일치하지 않습니다."
+	       },
+	       phone: {
+	           required : "전화번호를 필수로 입력하세요.",
+	           regex : "전화번호는 숫자로만 입력해주세요."
+	       },
+	       email: {
+	           required : "이메일을 필수로입력하세요.",
+	           email : "메일규칙에 어긋납니다."
+	       }
+		}
+	});
+	
+}) /** document.ready */
 
-	</div></div>
-	 </div>
+$.validator.addMethod(
+	    "regex",
+	    function(value, element, regexp) {
+	        var re = new RegExp(regexp);
+	        return this.optional(element) || re.test(value);
+	    },
+	    "Please check your input."
+	);
+</script>
 </body>
 </html>

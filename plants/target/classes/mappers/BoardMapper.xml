@@ -11,6 +11,10 @@
 	select * from board where valid ='I'
 	</select>
 	
+	<select id="selectBoard2" resultType="kr.green.plants.vo.BoardVO">
+	select * from board where valid ='I' and member_id = #{id}
+	</select>
+	
 	<select id="getBoard" resultType="kr.green.plants.vo.BoardVO">
 	select * from board where num = #{num} and valid = 'I'
 	</select>

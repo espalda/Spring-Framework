@@ -18,6 +18,8 @@ public interface BoardDAO {
 
 	public void deleteBoard(@Param("num") Integer num);
 
+	public ArrayList<BoardVO> selectBoard2(@Param("id") String id);
+
 
 
 }

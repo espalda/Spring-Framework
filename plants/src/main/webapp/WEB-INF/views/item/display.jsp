@@ -193,6 +193,8 @@ $('.order').click(function(){
 	$('#item-form').attr("action", "<%=request.getContextPath()%>/item/order");
 	$('#item-form').submit();
 })
+
+
 </script>
 </body>
 </html>

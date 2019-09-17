@@ -26,7 +26,7 @@ public interface ItemService {
 
 	public void insertBasket(OptionVO opt, String member_id, ItemVO ivo);
 
-	public ArrayList<BasketVO> selectBasket(String member_id);
+	public ArrayList<BasketVO> selectBasket(String id);
 
 
 

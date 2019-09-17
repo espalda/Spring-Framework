@@ -67,8 +67,8 @@ public class ItemServiceImp implements ItemService{
 		}
 
 		@Override
-		public ArrayList<BasketVO> selectBasket(String member_id) {
-			return itemDao.selectBasket(member_id);
+		public ArrayList<BasketVO> selectBasket(String id) {
+			return itemDao.selectBasket(id);
 		}
 
 		

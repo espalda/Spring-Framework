@@ -53,6 +53,12 @@ public class BoardServiceImp implements BoardService {
 			boardDao.deleteBoard(num);
 		}
 
+		@Override
+		public ArrayList<BoardVO> selectBoard2(String id) {
+			if(id == null)	return null;
+			return boardDao.selectBoard2(id);
+		}
+
 		
 
 

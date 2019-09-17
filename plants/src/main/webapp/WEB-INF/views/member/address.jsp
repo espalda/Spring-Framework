@@ -10,12 +10,14 @@
 			<div>
 				<table class="table">
 					<tr>
+						<th width="5%"><input type="checkbox"></th>
 						<th width="10%">분류</th>
 						<th width="10%">수령인</th>
 						<th width="20%">휴대전화</th>
 						<th width="60%">주소</th>
 					</tr>
 					<tr>
+						<td><input type="checkbox"></td>
 						<td>기본</td>
 						<td>피클즈</td>
 						<td>000-0000-0000</td>

@@ -84,8 +84,9 @@ public class ItemController {
 
 		/** 장바구니 */
 		@RequestMapping(value="/basket", method=RequestMethod.GET)
-		public ModelAndView itemBasketGet(ModelAndView mv, String member_id){
-			ArrayList<BasketVO> bas = itemService.selectBasket(member_id);
+		public ModelAndView itemBasketGet(ModelAndView mv, HttpServletRequest r){
+			MemberVO user = (MemberVO)r.getSession().getAttribute("login");
+			ArrayList<BasketVO> bas = itemService.selectBasket(user.getId());
 		    mv.setViewName("/item/basket");
 			mv.addObject("basketList", bas);
 		    return mv;

@@ -12,13 +12,15 @@
 		<div>
 			<table class="table">
 				<tr>
+					<th width="5%"><input type="checkbox"></th>
 					<th width="10%">쿠폰번호</th>
 					<th width="25%">쿠폰명</th>
-					<th width="25%">상품</th>
+					<th width="20%">상품</th>
 					<th width="10%">할인금액</th>
 					<th width="25%">사용가능기간</th>
 				</tr>
 				<tr>
+					<td><input type="checkbox"></td>
 					<td>test</td>
 					<td>여름 세일 10% 쿠폰</td>
 					<td>test</td>

@@ -1,12 +1,12 @@
 package kr.green.plants.vo;
 
-public class WishVO {
+public class WishVO extends ItemVO {
 	
-	private Integer num;
+	private int num;
 	private String member_id;
-	private Integer item_num;
+	private int item_num;
 	
-	public Integer getNum() {
+	public int getNum() {
 		return num;
 	}
 	public void setNum(Integer num) {

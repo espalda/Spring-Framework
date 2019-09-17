@@ -20,6 +20,8 @@ public interface BoardService {
 
 	public void updateBoard(BoardVO bvo);
 
+	public ArrayList<BoardVO> selectBoard2(String id);
+
 
 
 
