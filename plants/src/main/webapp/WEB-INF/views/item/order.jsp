@@ -25,8 +25,11 @@
 </style>
 </head>
 <body>
+<form action="<%=request.getContextPath()%>/item/paid" method="post" >
+<input type="hidden" name="id" value=${login.id }>
+<input type="hidden" name="num" value="${item.num }">
 	<div class="container-11">
-		<h2>주문목록</h2>
+		<h2>Order List</h2>
 		<table class="table">
 			<tr>
 				<th width="10%">이미지</th>
@@ -36,20 +39,28 @@
 				<th width="10%">배송비</th>
 				<th width="10%">상품금액</th>
 			</tr>
-			<c:forEach var="opt" items="${option }">
-				<tr>
-					<td>
-						<img src="<%=request.getContextPath()%>/resources/uploadfiles${item.file}" width="50px">
-					</td>
-					<td class="item-contents">
-						<a href="<%=request.getContextPath()%>/item/display?=${item.num}"></a>${item.name }<br>${opt.option }
-					</td>
-					<td>${opt.option_count } </td>
-					<td>${item.seller_member_id }</td>
-					<td>${item.delivery_charge }</td>
-					<td>${opt.option_price * opt.option_count }</td>
-				</tr>
-				</c:forEach>
+			
+			<c:forEach var="opt" items="${optionList }" varStatus="optcnt">
+			<c:forEach var="item" items="${itemList }" varStatus="itemcnt">
+				<c:if test="${optcnt.count eq itemcnt.count}">
+					<input type="hidden" name="option_num" value="${opt.num }">
+					<input type="hidden" name="option_count" value="${opt.option_count }">
+				
+					<tr>
+						<td>
+							<img src="<%=request.getContextPath()%>/resources/uploadfiles${item.file}" width="50px">
+						</td>
+						<td class="item-contents">
+							<a href="<%=request.getContextPath()%>/item/display?=${item.num}"></a>${item.name }<br>${opt.option }
+						</td>
+						<td>${opt.option_count } </td>
+						<td>${item.seller_member_id }</td>
+						<td>${item.delivery_charge }</td>
+						<td>${opt.option_price * opt.option_count }</td>
+					</tr>
+				</c:if>
+			</c:forEach>
+			</c:forEach>
 		</table>
 	<hr>
 
@@ -80,47 +91,57 @@
 		</div>
 		<div class="border ob-2">
 				<strong>결제금액</strong>
-				<h1>${total}</h1>
+				<h1>${total}<input type="hidden" name="total" value=${total }></h1>
 				<hr>
 				<div>
-					<strong>결제금액</strong>		<label></label>
+					<strong>상품금액</strong>
+					<label class="item"></label>
 				</div>
 				<div>
-					<strong>배송비</strong>		<label></label>
+					<strong>배송비</strong>
+					<label class="delivery"></label>
 				</div>
 				<div>
-					<strong>할인금액</strong>		<label></label>
-				</div>
-				<div>
-					<strong>적립금 사용금액</strong>	<label></label>
+					<strong>최종결제금액</strong>
+					<label>${total }원</label>
 				</div>
 		</div>
-	
-	
 	</div>
-		<div class="ob-3">
-			<!-- Tab links -->
-			<div class="tab">
-			  <button class="tablinks" onclick="openCity(event, 'card')">카드결제</button>
-			  <button class="tablinks" onclick="openCity(event, 'bank')">무통장입금</button>
-			  <button class="tablinks" onclick="openCity(event, 'phone')">휴대폰결제</button>
-			</div>
-			
-			<!-- Tab content -->
-			<div id="card" class="tabcontent">
-			  <p>test1</p>
-			</div>
-			
-			<div id="bank" class="tabcontent">
-			  <p>test2</p> 
-			</div>
-			
-			<div id="phone" class="tabcontent">
-			  <p>test3</p>
-			</div>
+	<!-- Tab links -->
+	<div class="ob-3">
+		<div class="tab">
+		  <button type="button" class="tablinks" onclick="openCity(event, 'card')">카드결제</button>
+		  <button type="button" class="tablinks" onclick="openCity(event, 'bank')">무통장입금</button>
+		  <button type="button" class="tablinks" onclick="openCity(event, 'phone')">휴대폰결제</button>
 		</div>
 		
+		<!-- Tab content -->
+		<div id="card" class="tabcontent">
+		  <p>test1</p>
+		</div>
+		<div id="bank" class="tabcontent">
+		  <p>test2</p> 
+		</div>
+		<div id="phone" class="tabcontent">
+		  <p>test3</p>
+		</div>
+	</div>
+		
+		<button class="btn-gold">결제하기</button>
+	</div>
+</form>
 <script>
+/* total 값에 의한 배송비 계산식 */
+var total = parseInt($('input[name=total]').val());
+	if(total < 10000){
+		var delivery = parseInt(2500);
+		$('.item').html(total-delivery+'원');
+		$('.delivery').html(delivery+'원');
+	}else{
+		$('.delivery').html('0원');
+	}
+
+
 /* ob-3 bootstrap-script */
 function openCity(evt, cityName) {
   var i, tabcontent, tablinks;
@@ -136,6 +157,5 @@ function openCity(evt, cityName) {
   evt.currentTarget.className += " active";
 }
 </script>
-</div>
 </body>
 </html>

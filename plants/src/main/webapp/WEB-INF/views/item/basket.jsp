@@ -5,7 +5,8 @@
 <head>
 </head>
 <body>
-<form action="<%=request.getContextPath()%>/item/order" method="post">
+<form action="<%=request.getContextPath()%>/item/basket/send" method="post">\
+<input type="hidden" name="id" value="${login.id }">
 	<div class="container-11">
 		<h2>Basket</h2>
 		<table class="table">
@@ -20,18 +21,21 @@
 			<c:forEach var="bas" items="${basketList }" varStatus="s">
 			<tr class="tr">
 				<td>
-					<input type="hidden" name="basket-check" value="1">
-					<input type="checkbox" class="check" checked>
+					<input type="checkbox" name="check" value="1" checked>
 				</td>
 				<td>
 					<img src="<%=request.getContextPath()%>/resources/uploadfiles${bas.file }" width="50px">
 				</td>
-				<td>${bas.name}<br>${bas.option }</td>
+				<td>${bas.name}<br>${bas.option }
+					<input type="hidden" name="option_num" value="${bas.option_num }">
+					<input type="hidden" name="num" value="${bas.item_num }">
+				</td>
+				
 				<td>
 					<input type="hidden" value="${bas.option_price }"> ${bas.option_price }
 				</td>
 				<td>
-					<input type="hidden" value="${bas.option_count }">${bas.option_count }
+					<input type="hidden" name="option_count" value="${bas.option_count }">${bas.option_count }
 					<input type="hidden" class="item-total" value="${bas.option_price * bas.option_count }">
 				</td>
 				<c:if test="${s.count == 1 }">
@@ -48,12 +52,16 @@
 		</table>
 		<button class="btn-tree">ORDER</button>
 		<a href="<%=request.getContextPath()%>/basket/delete">
-		<button class="btn-tree">DELETE</button></a>
+		<button type="button" class="btn-tree">DELETE</button></a>
 	</div>
 </form>
 <script>
-	var str3 = '상품금액 : '+ 0 +' + 배송비: 0 = '+ 0; /* 전체 해제시 금액 */
+	/* 장바구니 체크 삭제 */
+	
+	/* 장바구니 수량 변경 */
 
+
+	var str3 = '상품금액 : '+ 0 +' + 배송비: 0 = '+ 0; /* 전체 해제시 금액 */
 	/* 장바구니 페이지에 들어왔을때 보여지는 디폴트 금액 */
 	var total = 0;
 	$('.tr').each(function(){
@@ -70,10 +78,10 @@
 
 
 	/* 체크박스에 체크된 값만 계산하는 기능 */
-	$('.check').change(function(){
+	$('input[name=check]').change(function(){
 		var total = 0;
 		$('.tr').each(function(){
-			if($(this).find('.check').prop('checked')){ /* tr의 값을 하나씩 꺼내서 check 된 값만 더하는 기능 */
+			if($(this).find('input[name=check]').prop('checked')){ /* tr의 값을 하나씩 꺼내서 check 된 값만 더하는 기능 */
 			total += parseInt($(this).find('.item-total').val());
 			}
 		});
@@ -88,12 +96,12 @@
 		
 		if($(this).prop("checked")){ /* 주문페이지로 넘길때 조건 */
 			alert("체크");
-			$(this).parents('.tr').find('input[name=basket-check]').val(1);
-			if($('.check').prop('checked')){		/* 체크박스가 전부 체크되었을때 check-all이 체크되는 기능 */  
+			$(this).parents('.tr').find('input[name=check]').val(1);
+			if($('input[name=check]').prop('checked')){		/* 체크박스가 전부 체크되었을때 check-all이 체크되는 기능 */  
 			}
 		}else{
 			alert("체크해제");
-			$(this).parents('.tr').find('input[name=basket-check]').val(0);
+			$(this).parents('.tr').find('input[name=check]').val(0);
 			$('.check-all').prop("checked", false);	/* 체크박스가 전부 체크해제 되었을때 check-all이 체크해제 되는 기능 */
 		}
 	})
@@ -108,19 +116,19 @@
 		var str2 = '상품금액 : '+ total +' + 배송비: 2500 = '+ (total + parseInt(2500));	/* 10000원 이하 배송비 무료 금액 */
 		if($(this).prop("checked")){
 			alert("체크");
-			$('.check').prop("checked", true);
+			$('input[name=check]').prop("checked", true);
 			if(total < 10000 && total > 0){
 				total += parseInt(2500);
 				str = str2;
 			}
 			$('input[name=total]').val(total);
-			$('input[name=basket-check]').val(1);
+			$('input[name=check]').val(1);
 			$('.fin-price').html(str);
 		}else{
 			alert("체크 해제");
-			$('.check').prop("checked", false);
+			$('input[name=check]').prop("checked", false);
 			$('input[name=total]').val(0);
-			$('input[name=basket-check]').val(0);
+			$('input[name=check]').val(0);
 			$('.fin-price').html(str3);
 		}
 	})

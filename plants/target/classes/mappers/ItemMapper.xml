@@ -16,6 +16,10 @@
 	select * from item where valid = 'I' and num = #{num}
 	</select>
 	
+	<select id="selectItemList" resultType="kr.green.plants.vo.ItemVO">
+	select * from item where valid = 'I' and num = #{num}
+	</select>
+	
 	<select id="getItem" resultType="kr.green.plants.vo.ItemVO">
 	select * from item where num = #{num}
 	</select>
@@ -54,8 +58,8 @@
 	</select>
 	
 	<insert id="insertOrder">
-	insert into `order`(member_id, item_num, option_num, option_count)
-	values(#{id}, #{num}, #{order.option_num}, #{order.option_count});
+	insert into `order`(member_id, item_num, order_num, order_price, option_num, option_count)
+	values(#{id}, #{num}, #{order.order_num}, #{total}, #{order.option_num}, #{order.option_count});
 	</insert>
 	
 	<select id="selectOrder" resultType="kr.green.plants.vo.OrderVO">

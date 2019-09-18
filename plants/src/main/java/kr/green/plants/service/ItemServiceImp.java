@@ -74,8 +74,8 @@ public class ItemServiceImp implements ItemService{
 		}
 
 		@Override
-		public void insertOrder(OrderVO order, String id, Integer num) {
-			itemDao.insertOrder(order, id, num);
+		public void insertOrder(OrderVO order, String id, Integer num, Integer total) {
+			itemDao.insertOrder(order, id, num, total);
 		}
 				
 		@Override
@@ -102,6 +102,11 @@ public class ItemServiceImp implements ItemService{
 		@Override
 		public ArrayList<ItemVO> selectItem2(Integer num) {
 			return itemDao.selectItem2(num);
+		}
+
+		@Override
+		public ArrayList<ItemVO> selectItemList(Integer num) {
+			return itemDao.selectItemList(num);
 		}
 
 		

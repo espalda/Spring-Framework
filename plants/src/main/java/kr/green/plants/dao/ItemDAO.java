@@ -31,11 +31,13 @@ public interface ItemDAO {
 
 	public ArrayList<BasketVO> selectBasket(@Param("id") String id);
 
-	public void insertOrder(@Param("order")OrderVO order, @Param("id") String id, @Param("num") Integer num);
+	public void insertOrder(@Param("order")OrderVO order, @Param("id") String id, @Param("num") Integer num, @Param("total") Integer total);
 
 	public ArrayList<OrderVO> selectOrder(@Param("id") String id);
 
 	public ArrayList<ItemVO> selectItem2(@Param("num") Integer num);
+
+	public ArrayList<ItemVO> selectItemList(@Param("num") Integer num);
 
 	
 

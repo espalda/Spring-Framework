@@ -13,6 +13,7 @@ public class OrderVO extends ItemVO{
 	private String option;
 	private String option_price;
 	private String order_num;
+	private int order_price;
 	
 	
 	public int getNum() {
@@ -70,11 +71,17 @@ public class OrderVO extends ItemVO{
 	public void setOrder_num(String order_num) {
 		this.order_num = order_num;
 	}
+	public int getOrder_price() {
+		return order_price;
+	}
+	public void setOrder_price(int order_price) {
+		this.order_price = order_price;
+	}
 	@Override
 	public String toString() {
 		return "OrderVO [num=" + num + ", item_num=" + item_num + ", option_num=" + option_num + ", date=" + date
 				+ ", option_count=" + option_count + ", status=" + status + ", option=" + option + ", option_price="
-				+ option_price + ", order_num=" + order_num + "]";
+				+ option_price + ", order_num=" + order_num + ", order_price=" + order_price + "]";
 	}
 	
 	

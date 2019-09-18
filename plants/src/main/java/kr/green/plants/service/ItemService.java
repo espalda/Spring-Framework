@@ -29,13 +29,15 @@ public interface ItemService {
 
 	public ArrayList<BasketVO> selectBasket(String id);
 
-	public void insertOrder(OrderVO order, String id, Integer num);
+	public void insertOrder(OrderVO order, String id, Integer num, Integer total);
 
 	public ArrayList<OrderVO> selectOrder(String id);
 
 	public ArrayList<ItemVO> selectItem2(Integer num);
 
 	public String orderNum();
+
+	public ArrayList<ItemVO> selectItemList(Integer num);
 
 
 }
