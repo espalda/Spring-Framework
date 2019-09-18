@@ -68,4 +68,14 @@
 	join `option` on option_num = `option`.num
 	where member_id = #{id}
 	</select>
+	
+	<select id="getBasket" resultType="kr.green.plants.vo.BasketVO">
+	select * from basket where num = #{num}
+	</select>
+
+	<update id="updeteBasket">
+	update basket
+	set option_count = #{bas.option_count}
+	where num = #{bas.num}
+	</update>
 </mapper>

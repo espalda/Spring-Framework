@@ -1,5 +1,7 @@
 package kr.green.plants.controller;
 
+import java.io.UnsupportedEncodingException;
+import java.net.URLDecoder;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
@@ -12,6 +14,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -92,6 +95,19 @@ public class ItemController {
 			mv.addObject("basketList", bas);
 		    return mv;
 		}
+		/** 장바구니 수정 */
+		@RequestMapping(value ="/basket/modify")
+		@ResponseBody
+		public Map<Object, Object> basketModify(BasketVO bvo){
+		    Map<Object, Object> map = new HashMap<Object, Object>();
+		    BasketVO bas = itemService.getBasket(bvo.getNum());
+		    bas.setOption_count(bvo.getOption_count());
+		    itemService.updeteBasket(bas);
+		    map.put("bas", bas);
+		    return map;
+		}
+		
+		
 		/** item/display >> basket 장바구니 버튼을 누르면 basketVO에 정보를 DB에 넣는 기능 */
 		@RequestMapping(value="/basket", method=RequestMethod.POST)
 		public String itemBasketPost(Model model, String id, Integer num, Integer[] option_num, Integer[] option_count){

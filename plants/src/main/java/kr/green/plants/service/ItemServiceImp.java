@@ -109,6 +109,16 @@ public class ItemServiceImp implements ItemService{
 			return itemDao.selectItemList(num);
 		}
 
+		@Override
+		public BasketVO updeteBasket(BasketVO bvo) {
+			return itemDao.updeteBasket(bvo);
+		}
+
+		@Override
+		public BasketVO getBasket(Integer num) {
+			return itemDao.getBasket(num);
+		}
+
 		
 
 }

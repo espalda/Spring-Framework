@@ -39,5 +39,9 @@ public interface ItemService {
 
 	public ArrayList<ItemVO> selectItemList(Integer num);
 
+	public BasketVO updeteBasket(BasketVO bvo);
+
+	public BasketVO getBasket(Integer num);
+
 
 }

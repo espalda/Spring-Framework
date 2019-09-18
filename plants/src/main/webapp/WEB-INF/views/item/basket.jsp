@@ -3,6 +3,12 @@
 <!DOCTYPE html>
 <html>
 <head>
+<style>
+	input[type="number"]::-webkit-outer-spin-button,
+	input[type="number"]::-webkit-inner-spin-button {
+	opacity: 1;
+	}
+</style>
 </head>
 <body>
 <form action="<%=request.getContextPath()%>/item/basket/send" method="post">\
@@ -27,19 +33,23 @@
 					<img src="<%=request.getContextPath()%>/resources/uploadfiles${bas.file }" width="50px">
 				</td>
 				<td>${bas.name}<br>${bas.option }
+					<input type="hidden" name="basket_num" value="${bas.num }">
 					<input type="hidden" name="option_num" value="${bas.option_num }">
 					<input type="hidden" name="num" value="${bas.item_num }">
 				</td>
 				
 				<td>
 					<input type="hidden" value="${bas.option_price }"> ${bas.option_price }
+					
 				</td>
 				<td>
-					<input type="hidden" name="option_count" value="${bas.option_count }">${bas.option_count }
+					<input type="number" name="option_count" value="${bas.option_count }" width="50px">
+					<button type="button" class="modify">변경</button>
+					
 					<input type="hidden" class="item-total" value="${bas.option_price * bas.option_count }">
 				</td>
 				<c:if test="${s.count == 1 }">
-				<td rowspan="${basketList.size()}">${bas.seller_member_id }<br>${bas.delivery_charge } 원</td>
+					<td rowspan="${basketList.size()}">${bas.seller_member_id }<br>${bas.delivery_charge } 원</td>
 				</c:if>
 			</tr>
 			</c:forEach>
@@ -51,15 +61,33 @@
 			</tr>
 		</table>
 		<button class="btn-tree">ORDER</button>
-		<a href="<%=request.getContextPath()%>/basket/delete">
-		<button type="button" class="btn-tree">DELETE</button></a>
+
+		<button type="button" class="btn-tree delete">DELETE</button>
 	</div>
 </form>
+
 <script>
-	/* 장바구니 체크 삭제 */
 	
 	/* 장바구니 수량 변경 */
-
+	$('.modify').click(function(){
+		var num = $('input[name=basket_num]').val();
+		var option_count = $('input[name=option_count]').val();
+		$.ajax({
+			async:true,
+			type:'POST',
+			data: {'num':num, 'option_count':option_count},
+			url:"<%=request.getContextPath()%>/item/basket/modify",
+			dataType:"json",
+			//contentType:"application/json; charset=UTF-8",
+			success : function(test){
+				alert("아이템정보");
+				//$('input[name=option_count]').val(test.)
+			},
+			error:function(request,status,error){
+				console.log( request.responseText );
+			}
+		});
+	})/* ajax */
 
 	var str3 = '상품금액 : '+ 0 +' + 배송비: 0 = '+ 0; /* 전체 해제시 금액 */
 	/* 장바구니 페이지에 들어왔을때 보여지는 디폴트 금액 */
