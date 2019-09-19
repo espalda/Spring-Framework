@@ -1,6 +1,8 @@
 package kr.green.plants.controller;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -11,6 +13,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import kr.green.plants.service.BoardService;
@@ -63,7 +66,9 @@ public class MemberController {
 		@RequestMapping(value="/wishlist")
 		public ModelAndView memberWishList(ModelAndView mv, HttpServletRequest r){
 			MemberVO user = (MemberVO)r.getSession().getAttribute("login");
+			System.out.println("위시리스트 아이디 : "+ user.getId());
 			ArrayList<WishVO> wish = memberService.selectWishListId(user.getId());
+			System.out.println("위시리스트 리스트 : "+wish);
 			mv.addObject("wishlist", wish);
 			mv.setViewName("/member/wishlist");
 			return mv;
@@ -72,6 +77,15 @@ public class MemberController {
 		public String memberWishGet(Model model, String id, Integer num){
 			memberService.insertWish(id, num);
 		    return "redirect:/member/wishlist";
+		}
+		/** ajax 위시리스트 상품 삭제 */
+		@RequestMapping(value ="/wish/remove")
+		@ResponseBody
+		public Map<Object, Object> basketRemove(Integer num){
+		    Map<Object, Object> map = new HashMap<Object, Object>();
+		    System.out.println(num);
+		    
+		    return map;
 		}
 		
 		

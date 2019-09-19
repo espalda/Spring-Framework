@@ -16,7 +16,9 @@
 	</select>
 	
 	<select id="selectOptionNum" resultType="kr.green.plants.vo.OptionVO">
-	select * from `option` where num = #{num} and valid = 'I'
+	select * from `option` 
+	join item on item_num = item.num
+	where `option`.num = #{num}
 	</select>
 
 	<select id="selectBasketListId" resultType="kr.green.plants.vo.BasketVO">

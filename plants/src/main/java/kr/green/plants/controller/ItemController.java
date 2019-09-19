@@ -93,21 +93,19 @@ public class ItemController {
 		}
 		/** 상품 상세 화면에서 주문페이지로 넘기는 기능 */
 		@RequestMapping(value="/order", method=RequestMethod.POST)
-		public String itemOrderPost1(Model model, String id, Integer num, Integer total, 
+		public String itemOrderPost1(Model model, String id, Integer total, 
 									Integer[] option_num, Integer[] option_count){
 			//반복문으로 배열을 하나씩 꺼낸다
 			//빈 옵션 VO 객체에 집어넣는다
 			//값이 추가된 옵션 VO 객체를 빈 ArrayList에 add로 추가한다	0번지
 			//다음 번지 값을 VO 객체에 다시 집어넣는다
 			//값이 추가된 옵션 VO 객체를 빈 ArrayList에 add로 추가한다	1번지
-			ItemVO item = itemService.selectItemNum(num);
 			OptionVO opt = new OptionVO();
 			for(int i=0; i<option_num.length; i++) {
 				opt.setNum(option_num[i]);
 				opt.setOption_count(option_count[i]);
 			}
 			 model.addAttribute("total", total);
-			 model.addAttribute("num", item.getNum());
 			 model.addAttribute("orderList", opt);
 			 model.addAttribute("option_num", option_num);
 			 model.addAttribute("option_count", option_count);
@@ -126,7 +124,7 @@ public class ItemController {
 			mv.addObject("basketList", bas);
 		    return mv;
 		}
-		/** 장바구니 수정 */
+		/** ajax 장바구니 수정 */
 		@RequestMapping(value ="/basket/modify")
 		@ResponseBody
 		public Map<Object, Object> basketModify(BasketVO bvo){
@@ -136,7 +134,7 @@ public class ItemController {
 		    itemService.updeteBasket(bas);
 		    return map;
 		}
-		/** 장바구니 상품 삭제 */
+		/** ajax 장바구니 상품 삭제 */
 		@RequestMapping(value ="/basket/remove")
 		@ResponseBody
 		public Map<Object, Object> basketRemove(Integer num){
@@ -146,8 +144,9 @@ public class ItemController {
 		}
 		/** 장바구니에서 주문페이지로 넘어가는 기능 */
 		@RequestMapping(value="/basket/order", method=RequestMethod.POST) 
-		public String itemBasketSendPost(Model model, String id, Integer[] num, Integer total,
+		public String itemBasketSendPost(Model model, HttpServletRequest r, Integer total,
 										Integer[] option_num, Integer[] option_count, Integer[] check){
+			MemberVO user = (MemberVO)r.getSession().getAttribute("login");
 			OptionVO opt = new OptionVO();
 			for(int i=0; i<option_num.length ; i++) {
 				if(check[i] == 1) {
@@ -155,8 +154,7 @@ public class ItemController {
 					opt.setOption_count(option_count[i]);
 				}
 			}
-			model.addAttribute("id", id);
-			model.addAttribute("numList", num);
+			model.addAttribute("id", user.getId());
 			model.addAttribute("total", total);
 			model.addAttribute("option_num", option_num);
 			model.addAttribute("option_count", option_count);
@@ -167,17 +165,9 @@ public class ItemController {
 		/** order */
 		/** 제품 상제 페이지와 장바구니에서 넘어온 주문 페이지 정보 */
 		@RequestMapping(value="/order", method=RequestMethod.GET)
-		public ModelAndView itemOrderGet(ModelAndView mv, HttpServletRequest r, Integer total, Integer num, Integer[] numList, 
+		public ModelAndView itemOrderGet(ModelAndView mv, HttpServletRequest r, Integer total,
 										Integer[] option_num, Integer[] option_count){
 			MemberVO user = (MemberVO)r.getSession().getAttribute("login");
-			
-			ItemVO it = itemService.selectItemNum(num);
-			if(numList != null) {
-				ArrayList<ItemVO> items = new ArrayList<ItemVO>();
-				for(int i=0; i<numList.length; i++) {
-					ItemVO ivo = itemService.selectItemNum(numList[i]);
-					items.add(ivo);
-				}
 				ArrayList<OptionVO> opt = new ArrayList<OptionVO>();
 				for(int i=0; i<option_num.length; i++) {
 					OptionVO ovo = itemService.selectOptionNum(option_num[i]);
@@ -187,23 +177,8 @@ public class ItemController {
 				mv.setViewName("/item/order");
 			    mv.addObject("id", user.getId());
 			    mv.addObject("total", total);
-			    mv.addObject("item", it);
 			    mv.addObject("optionList", opt);
-			    mv.addObject("itemList", items);
-				
-			}else {
-				ArrayList<OptionVO> opt = new ArrayList<OptionVO>();
-				for(int i=0; i<option_num.length; i++) {
-					OptionVO ovo = itemService.selectOptionNum(option_num[i]);
-					ovo.setOption_count(option_count[i]);
-					opt.add(ovo);
-				}
-				mv.setViewName("/item/order2");
-			    mv.addObject("id", user.getId());
-			    mv.addObject("total", total);
-			    mv.addObject("item", it);
-			    mv.addObject("optionList", opt);
-			}
+			
 		    return mv;
 		}
 		

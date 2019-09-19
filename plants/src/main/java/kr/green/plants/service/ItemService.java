@@ -13,9 +13,9 @@ public interface ItemService {
 	
 	public ItemVO selectItemNum(Integer num);
 
-	public ArrayList<OptionVO> selectOptionListNum(Integer num);
+	public ArrayList<OptionVO> selectOptionListNum(Integer num); /* 해당 아이템 넘버가 주어지면 옵션 정보를 가져오는 역할, 매개변수가 상품 넘버 */
 	
-	public OptionVO selectOptionNum(Integer num);	
+	public OptionVO selectOptionNum(Integer num); /* 매개변수가 옵션 넘버 */
 
 	public ArrayList<BasketVO> selectBasketListId(String id);
 	

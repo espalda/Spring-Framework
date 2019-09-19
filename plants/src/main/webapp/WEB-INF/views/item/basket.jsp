@@ -4,26 +4,38 @@
 <html>
 <head>
 <style>
-	input[type="number"]::-webkit-outer-spin-button,
-	input[type="number"]::-webkit-inner-spin-button {
+	input[type=number]::-webkit-outer-spin-button,
+	input[type=number]::-webkit-inner-spin-button {
 	opacity: 1;
+	}
+	input[type=text]{
+	all: unset;
+	}
+	input[name=option_count]{
+	width: 50px;
+	margin-bottom: 5px;
+	}
+	td>a{
+	font-size: 20px;
+	letter-spacing: 2px;
+	margin-bottom: 10px;
 	}
 </style>
 </head>
 <body>
 <form action="<%=request.getContextPath()%>/item/basket/order" method="post">
-<input type="hidden" name="id" value="${login.id }">
 	<div class="container-11">
-		<h2>Basket</h2>
 		<table class="table">
 			<tr>
 				<th width="3%"><input type="checkbox" class="check-all" checked></th>
 				<th width="10%">이미지</th>
-				<th width="35%">상품정보</th>
+				<th width="20%">상품정보</th>
 				<th width="10%">상품금액</th>
-				<th width="8%">수량</th>
+				<th width="15%">수량</th>
 				<th width="10%">판매자명*배송비</th>
 			</tr>
+			
+			<!-- c:foreach -->
 			<c:forEach var="bas" items="${basketList }" varStatus="s">
 			<tr class="tr">
 				<td>
@@ -32,16 +44,16 @@
 				<td>
 					<img src="<%=request.getContextPath()%>/resources/uploadfiles${bas.file }" width="50px">
 				</td>
-				<td>${bas.name}
-				
-				<br>옵션 : ${bas.option }
+				<td>
+					<a href="<%=request.getContextPath()%>/item/display?num=${bas.item_num}">${bas.name}</a>
+					<br>옵션 : ${bas.option }
 					<input type="hidden" name="basket_num" value="${bas.num }">
 					<input type="hidden" name="option_num" value="${bas.option_num }">
 					<input type="hidden" name="num" value="${bas.item_num }">
 				</td>
 				
 				<td>
-					<input type="text" value="${bas.option_price }" style="all: unset;">
+					<input type="text" value="${bas.option_price }">
 					
 				</td>
 				<td>
@@ -56,16 +68,17 @@
 				</c:if>
 			</tr>
 			</c:forEach>
+			
 			<tr>
 				<td colspan="10" class="background-raw text-right">
 					<span class="fin-price"></span>
-					<input type="text" name="total" style="all: unset;" >
+					<input type="hidden" name="total">
 				</td>
 			</tr>
 		</table>
+		
 		<button class="btn-tree">ORDER</button>
-
-		<button type="button" class="btn-tree delete">DELETE</button>
+		
 	</div>
 </form>
 

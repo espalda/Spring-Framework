@@ -21,12 +21,13 @@
 	height: 300px;
 	padding: 10px;
 	}
-	
+
 </style>
 </head>
 <body>
 <form action="<%=request.getContextPath()%>/item/paid" method="post" >
 <input type="hidden" name="id" value="${login.id }">
+<input type="hidden" name="num" value="${item.num }">
 	<div class="container-11">
 		<h2>Order List</h2>
 		<table class="table">
@@ -39,28 +40,26 @@
 				<th width="10%">상품금액</th>
 			</tr>
 			
-			<c:forEach var="opt" items="${optionList }" varStatus="optcnt">
-			<c:forEach var="item" items="${itemList }" varStatus="itemcnt">
-				<c:if test="${optcnt.count eq itemcnt.count}">
-					<input type="hidden" name="num" value="${item.num }">
+			<c:forEach var="opt" items="${optionList }">
+
 					<input type="hidden" name="option_num" value="${opt.num }">
 					<input type="hidden" name="option_count" value="${opt.option_count }">
 				
 					<tr>
 						<td>
-							<img src="<%=request.getContextPath()%>/resources/uploadfiles${item.file}" width="50px">
+							<img src="<%=request.getContextPath()%>/resources/uploadfiles${opt.file}" width="50px">
 						</td>
+						
 						<td class="item-contents">
-							<a href="<%=request.getContextPath()%>/item/display?num=${item.num}">${item.name }</a>
+							<a href="<%=request.getContextPath()%>/item/display?num=${opt.num}">${opt.name }</a>
 							<br>옵션 : ${opt.option }
 						</td>
 						<td>${opt.option_count } </td>
-						<td>${item.seller_member_id }</td>
-						<td>${item.delivery_charge }</td>
+						<td>${opt.seller_member_id }</td>
+						<td>${opt.delivery_charge }</td>
 						<td>${opt.option_price * opt.option_count }</td>
 					</tr>
-				</c:if>
-			</c:forEach>
+
 			</c:forEach>
 		</table>
 	<hr>
@@ -139,6 +138,7 @@ var total = parseInt($('input[name=total]').val());
 		$('.item').html(total-delivery+'원');
 		$('.delivery').html(delivery+'원');
 	}else{
+		var delivery = parseInt(0);
 		$('.item').html(total-delivery+'원');
 		$('.delivery').html('0원');
 	}

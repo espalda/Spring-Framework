@@ -119,8 +119,6 @@
 			url:"<%=request.getContextPath()%>/item/option",
 			dataType:"json",
 			success : function(test){
-				//console.log(test.op.num);
-				//console.log(test.op.option_price);
 				var create = true;
 				$('.addition>.option-box>input').each(function(){
 					//console.log('code:',$(this).attr('code'));

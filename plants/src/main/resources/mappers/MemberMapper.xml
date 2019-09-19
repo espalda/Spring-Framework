@@ -31,7 +31,7 @@
 	
 	<select id="selectWishListId" resultType="kr.green.plants.vo.WishVO">
 	select * from wishlist 
-	join item on item_num = item.num
+	join `item` on item_num = item.num
 	where member_id = #{id}
 	</select>
 	

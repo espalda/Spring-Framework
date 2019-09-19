@@ -1,6 +1,6 @@
 package kr.green.plants.vo;
 
-public class OptionVO {
+public class OptionVO extends ItemVO{
 	
 	private int num;
 	private int option_price;
