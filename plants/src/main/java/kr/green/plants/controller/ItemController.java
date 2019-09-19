@@ -103,10 +103,16 @@ public class ItemController {
 		    BasketVO bas = itemService.getBasket(bvo.getNum());
 		    bas.setOption_count(bvo.getOption_count());
 		    itemService.updeteBasket(bas);
-		    map.put("bas", bas);
 		    return map;
 		}
-		
+		/** 장바구니 상품 삭제 */
+		@RequestMapping(value ="/basket/remove")
+		@ResponseBody
+		public Map<Object, Object> basketRemove(Integer num){
+		    Map<Object, Object> map = new HashMap<Object, Object>();
+		    itemService.deleteBasket(num);
+		    return map;
+		}
 		
 		/** item/display >> basket 장바구니 버튼을 누르면 basketVO에 정보를 DB에 넣는 기능 */
 		@RequestMapping(value="/basket", method=RequestMethod.POST)
@@ -160,11 +166,9 @@ public class ItemController {
 			ItemVO it = itemService.getItem(num);
 			
 			ArrayList<ItemVO> items = new ArrayList<ItemVO>();
-			System.out.println(numList.length);
 			for(int i=0; i<numList.length; i++) {
 				ItemVO ivo = itemService.getItem(numList[i]);
 				items.add(ivo);
-				System.out.println("아이템 : "+ivo);
 			}
 			
 			
@@ -173,7 +177,7 @@ public class ItemController {
 				OptionVO ovo = itemService.getOption2(option_num[i]);
 				ovo.setOption_count(option_count[i]);
 				opt.add(ovo);
-				System.out.println("옵션 : "+ovo);
+
 			}
 		    mv.setViewName("/item/order");
 		    mv.addObject("id", user.getId());

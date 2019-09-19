@@ -45,6 +45,7 @@
 				<td>
 					<input type="number" name="option_count" value="${bas.option_count }" width="50px">
 					<button type="button" class="modify">변경</button>
+					<button type="button" class="remove">삭제</button>
 					
 					<input type="hidden" class="item-total" value="${bas.option_price * bas.option_count }">
 				</td>
@@ -67,27 +68,45 @@
 </form>
 
 <script>
-	
-	/* 장바구니 수량 변경 */
-	$('.modify').click(function(){
-		var num = $('input[name=basket_num]').val();
-		var option_count = $('input[name=option_count]').val();
-		$.ajax({
-			async:true,
-			type:'POST',
-			data: {'num':num, 'option_count':option_count},
-			url:"<%=request.getContextPath()%>/item/basket/modify",
-			dataType:"json",
-			//contentType:"application/json; charset=UTF-8",
-			success : function(test){
-				alert("아이템정보");
-				//$('input[name=option_count]').val(test.)
-			},
-			error:function(request,status,error){
-				console.log( request.responseText );
-			}
-		});
-	})/* ajax */
+/* 장바구니 수량 변경 */
+$('.modify').click(function(){
+	var num = $('input[name=basket_num]').val();
+	var option_count = $('input[name=option_count]').val();
+	$.ajax({
+		async:true,
+		type:'POST',
+		data: {'num':num, 'option_count':option_count},
+		url:"<%=request.getContextPath()%>/item/basket/modify",
+		dataType:"json",
+		//contentType:"application/json; charset=UTF-8",
+		success : function(test){
+			alert('상품 수량이 변경되었습니다.');
+			 location.reload();
+		},
+		error:function(request,status,error){
+			console.log( request.responseText );
+		}
+	});
+})/* ajax */
+
+/* 장바구니 제품 삭제 */
+$('.remove').click(function(){
+	var num = $('input[name=basket_num]').val();
+	$.ajax({
+		async:true,
+		type:'POST',
+		data: {'num': num},
+		url:"<%=request.getContextPath()%>/item/basket/remove",
+		dataType:"json",
+		//contentType:"application/json; charset=UTF-8",
+		success : function(test){
+			location.reload();
+		},
+		error:function(request,status,error){
+			console.log( request.responseText );
+		}
+	});
+})/* ajax */
 
 	var str3 = '상품금액 : '+ 0 +' + 배송비: 0 = '+ 0; /* 전체 해제시 금액 */
 	/* 장바구니 페이지에 들어왔을때 보여지는 디폴트 금액 */

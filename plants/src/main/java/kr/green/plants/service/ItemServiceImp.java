@@ -110,13 +110,19 @@ public class ItemServiceImp implements ItemService{
 		}
 
 		@Override
-		public BasketVO updeteBasket(BasketVO bvo) {
-			return itemDao.updeteBasket(bvo);
+		public void updeteBasket(BasketVO bvo) {
+			itemDao.updeteBasket(bvo);
 		}
 
 		@Override
 		public BasketVO getBasket(Integer num) {
 			return itemDao.getBasket(num);
+		}
+
+		@Override
+		public void deleteBasket(Integer num) {
+			itemDao.deleteBasket(num);
+			
 		}
 
 		

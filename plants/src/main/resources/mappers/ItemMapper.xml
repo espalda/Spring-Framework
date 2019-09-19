@@ -78,4 +78,8 @@
 	set option_count = #{bas.option_count}
 	where num = #{bas.num}
 	</update>
+	
+	<delete id="deleteBasket">
+	delete from basket where num = #{num}
+	</delete>
 </mapper>

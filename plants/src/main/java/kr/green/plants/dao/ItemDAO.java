@@ -39,9 +39,11 @@ public interface ItemDAO {
 
 	public ArrayList<ItemVO> selectItemList(@Param("num") Integer num);
 
-	public BasketVO updeteBasket(@Param("bas") BasketVO bvo);
+	public void updeteBasket(@Param("bas") BasketVO bvo);
 
 	public BasketVO getBasket(@Param("num") Integer num);
+
+	public void deleteBasket(@Param("num") Integer num);
 
 	
 
