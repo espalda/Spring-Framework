@@ -32,6 +32,7 @@ margin-bottom: 10px;
     <mark> option ajax로 정보 가져오기 </mark>
 		<table class="table table-hover">
 			<tr>
+				<th>상품번호</th>
 			 	<th>이미지</th>
 			 	<th>카테고리</th>
 				<th>상품명</th>
@@ -41,7 +42,8 @@ margin-bottom: 10px;
 				<th>옵션</th>
 			</tr>
 			<c:forEach var="item" items="${itemList }">
-				<tr>  
+				<tr>
+					<td>${item.num }</td>
 					<td><img src="<%=request.getContextPath()%>/resources/uploadfiles${item.file}" width="50px;"></td>
 					<td>${item.category }</td>
 					<td>${item.name }</td>
@@ -103,7 +105,7 @@ margin-bottom: 10px;
 					<th>옵션</th>
 					
 					<td class="option-box">
-						<mark>* 옵션 선택 필수 (옵션추가금액은 옵션을 추가한 상품의 최종 금액으로 입력해주세요.*</mark><br>
+						<mark>* 필수 - 옵션추가금액은 옵션을 추가한 상품의 최종 금액으로 입력해주세요.*</mark><br>
 						<input type="text" placeholder="옵션명" name="option">
 						<input type="text" placeholder="옵션추가금액" name="option_price">
 						<button type="button" class="add">추가</button><br>

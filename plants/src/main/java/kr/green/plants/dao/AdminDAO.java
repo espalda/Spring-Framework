@@ -14,7 +14,7 @@ import kr.green.plants.vo.SellerVO;
 
 public interface AdminDAO {
 
-	public ArrayList<SellerVO> selectSellertList();
+	public ArrayList<SellerVO> selectSellerList();
 	
 	public void updateSeller(@Param("seller") SellerVO svo);
 
@@ -31,6 +31,8 @@ public interface AdminDAO {
 	public ArrayList<OrderVO> selectOrderList();
 
 	public ArrayList<BoardVO> selectBoardList();
+
+	public int selectRegisteredItemNum();
 
 
 }

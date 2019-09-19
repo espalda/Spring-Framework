@@ -51,7 +51,7 @@
 							<img src="<%=request.getContextPath()%>/resources/uploadfiles${item.file}" width="50px">
 						</td>
 						<td class="item-contents">
-							<a href="<%=request.getContextPath()%>/item/display?=${item.num}"></a>${item.name }<br>${opt.option }
+							<a href="<%=request.getContextPath()%>/item/display?num=${item.num}"></a>${item.name }<br>옵션 : ${opt.option }
 						</td>
 						<td>${opt.option_count } </td>
 						<td>${item.seller_member_id }</td>

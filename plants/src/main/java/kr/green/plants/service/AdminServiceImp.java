@@ -20,7 +20,7 @@ public class AdminServiceImp implements AdminService{
 
 		@Override
 		public ArrayList<SellerVO> selectSellerList() {
-			return adminDao.selectSellertList();
+			return adminDao.selectSellerList();
 		}
 
 		@Override
@@ -44,8 +44,9 @@ public class AdminServiceImp implements AdminService{
 		}
 		
 		@Override
-		public void insertItem(ItemVO ivo) {
-			adminDao.insertItem(ivo);			
+		public Integer insertItem(ItemVO ivo) {
+			adminDao.insertItem(ivo);		
+			return adminDao.selectRegisteredItemNum();
 		}
 
 		@Override

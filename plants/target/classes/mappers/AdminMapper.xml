@@ -31,8 +31,8 @@
 	</insert>
 	
 	<insert id="insertOption">
-	insert into `option`(item_name, `option`, option_price) 
-		values(#{opt.item_name}, #{opt.option}, #{opt.option_price})
+	insert into `option`(item_num, item_name, `option`, option_price) 
+		values(#{opt.item_num}, #{opt.item_name}, #{opt.option}, #{opt.option_price})
 	</insert>
 	
 	<select id="selectOrderList" resultType="kr.green.plants.vo.OrderVO">
@@ -45,4 +45,7 @@
 	select * from board where valid ='I'
 	</select>
 
+	<select id="selectRegisteredItemNum" resultType="int">
+		SELECT max(num) from `item`;
+	</select>
 </mapper>

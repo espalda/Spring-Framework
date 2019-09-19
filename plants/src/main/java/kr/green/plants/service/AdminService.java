@@ -21,7 +21,7 @@ public interface AdminService {
 
 	public ArrayList<OptionVO> selectOptionList();
 	
-	public void insertItem(ItemVO ivo);
+	public Integer insertItem(ItemVO ivo);
 
 	public void insertOption(OptionVO ovo);
 

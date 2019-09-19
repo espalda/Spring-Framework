@@ -87,15 +87,18 @@ public class AdminController {
 				String file = UploadFileUtils.uploadFile(uploadPath, file2.getOriginalFilename(),file2.getBytes());
 				ivo.setFile(file);
 			}
-			/* 상품 옵션을 배열을 통해서 집어넣는 방법 */
+			
+			int item_num = adminService.insertItem(ivo);
+			/** 상품 옵션을 배열을 통해서 집어넣는 방법 */
 			for(int i=0; i<option.length; i++) {
 				OptionVO ovo = new OptionVO();
 				ovo.setOption(option[i]);
 				ovo.setOption_price(option_price[i]);
+				ovo.setItem_num(item_num);
 				ovo.setItem_name(ivo.getName());
 				adminService.insertOption(ovo);
 			}
-			adminService.insertItem(ivo);
+			
 			return "redirect:/admin/item";
 		}
 		/** 서버에 파일 저장 */
