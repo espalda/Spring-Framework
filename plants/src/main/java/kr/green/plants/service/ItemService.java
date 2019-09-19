@@ -13,9 +13,9 @@ public interface ItemService {
 	
 	public ItemVO selectItemNum(Integer num);
 
-	public ArrayList<OptionVO> getOption(String name); /* 수정 필요 */
+	public ArrayList<OptionVO> selectOptionListNum(Integer num);
 	
-	public OptionVO getOption2(Integer num);
+	public OptionVO selectOptionNum(Integer num);	
 
 	public ArrayList<BasketVO> selectBasketListId(String id);
 	
@@ -32,5 +32,7 @@ public interface ItemService {
 	public ArrayList<OrderVO> selectOrderListId(String id);
 	
 	public void insertOrder(OrderVO order, String id, Integer num, Integer total);
+
+
 
 }

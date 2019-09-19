@@ -31,7 +31,8 @@
 				<th>이미지</th>
 				<th>상품정보</th>
 				<th>수량</th>
-				<th>금액</th>
+				<th>상품금액</th>
+				<th>총주문금액</th>
 				<th>주문상태</th>
 			</tr>
 			<c:forEach var="order" items="${orderList }">
@@ -41,6 +42,7 @@
 				<td><img src="<%=request.getContextPath()%>/resources/uploadfiles${order.file }" width="50px"></td>
 				<td>${order.contents }</td>
 				<td>${order.option_count }</td>
+				<td>${order.option_price }</td>
 				<td>${order.order_price }</td>
 				<td>${order.status }</td>
 			</tr>
@@ -55,23 +57,7 @@
 		  <li class="list-group-item">diamond</li>
 		</ul>
     </div>
-    <!-- * 회원 쿠폰 -->
-    <div id="menu2" class="container tab-pane fade">
-		<table class="table">
-     		<tr>
-     			<th>번호</th>
-     			<th>쿠폰명</th>
-     			<th>할인금액</th>
-     			<th>유효기간</th>
-     		</tr>
-     		<tr>
-     			<td>번호</td>
-     			<td>쿠폰명</td>
-     			<td>할인금액</td>
-     			<td>유효기간</td>
-     		</tr>
-	     </table>
-    </div>
+    
   </div>
 </div>
 

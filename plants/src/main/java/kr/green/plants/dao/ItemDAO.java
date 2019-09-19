@@ -15,9 +15,9 @@ public interface ItemDAO {
 
 	public ItemVO selectItemNum(@Param("num")Integer num);
 
-	public ArrayList<OptionVO> getOption(@Param("name") String name);
+	public ArrayList<OptionVO> selectOptionListNum(@Param("num") Integer num);
 	
-	public OptionVO getOption2(@Param("num") Integer num);
+	public OptionVO selectOptionNum(@Param("num") Integer num);
 	
 	public ArrayList<BasketVO> selectBasketListId(@Param("id") String id);
 	
@@ -32,6 +32,9 @@ public interface ItemDAO {
 	public ArrayList<OrderVO> selectOrderListId(@Param("id") String id);
 	
 	public void insertOrder(@Param("order")OrderVO order, @Param("id") String id, @Param("num") Integer num, @Param("total") Integer total);
+
+
+
 
 	
 

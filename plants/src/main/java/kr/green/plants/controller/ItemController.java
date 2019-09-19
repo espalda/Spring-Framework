@@ -65,7 +65,7 @@ public class ItemController {
 		@RequestMapping(value="/display")
 		public ModelAndView itemDisplay(ModelAndView mv, Integer num){
 			ItemVO ivo = itemService.selectItemNum(num);
-			ArrayList<OptionVO> ovo = itemService.getOption(ivo.getName());
+			ArrayList<OptionVO> ovo = itemService.selectOptionListNum(num);
 		    mv.setViewName("/item/display");
 		    mv.addObject("item", ivo);
 		    mv.addObject("optionList", ovo);
@@ -76,7 +76,7 @@ public class ItemController {
 		@ResponseBody
 		public Map<Object, Object> idFind(OptionVO opt){
 		    Map<Object, Object> map = new HashMap<Object, Object>();
-		    OptionVO op = itemService.getOption2(opt.getNum());
+		    OptionVO op = itemService.selectOptionNum(opt.getNum());
 		    map.put("op", op);
 			return map;
 		}
@@ -165,7 +165,7 @@ public class ItemController {
 				}
 				ArrayList<OptionVO> opt = new ArrayList<OptionVO>();
 				for(int i=0; i<option_num.length; i++) {
-					OptionVO ovo = itemService.getOption2(option_num[i]);
+					OptionVO ovo = itemService.selectOptionNum(option_num[i]);
 					ovo.setOption_count(option_count[i]);
 					opt.add(ovo);
 				}
@@ -179,7 +179,7 @@ public class ItemController {
 			}else {
 				ArrayList<OptionVO> opt = new ArrayList<OptionVO>();
 				for(int i=0; i<option_num.length; i++) {
-					OptionVO ovo = itemService.getOption2(option_num[i]);
+					OptionVO ovo = itemService.selectOptionNum(option_num[i]);
 					ovo.setOption_count(option_count[i]);
 					opt.add(ovo);
 				}

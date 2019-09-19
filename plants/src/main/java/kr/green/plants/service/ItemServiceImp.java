@@ -30,13 +30,14 @@ public class ItemServiceImp implements ItemService{
 		}
 
 		@Override
-		public ArrayList<OptionVO> getOption(String name) {
-			return itemDao.getOption(name);
+		public ArrayList<OptionVO> selectOptionListNum(Integer num) {
+			return itemDao.selectOptionListNum(num);
 		}
+		
 
 		@Override
-		public OptionVO getOption2(Integer num) {
-			return itemDao.getOption2(num);
+		public OptionVO selectOptionNum(Integer num) {
+			return itemDao.selectOptionNum(num);
 		}
 
 		@Override
@@ -90,6 +91,7 @@ public class ItemServiceImp implements ItemService{
 		public void insertOrder(OrderVO order, String id, Integer num, Integer total) {
 			itemDao.insertOrder(order, id, num, total);
 		}
+
 
 		
 

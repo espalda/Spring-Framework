@@ -46,6 +46,6 @@
 	</select>
 
 	<select id="selectRegisteredItemNum" resultType="int">
-		SELECT max(num) from `item`;
+	select max(num) from `item`;
 	</select>
 </mapper>

@@ -40,7 +40,7 @@
 				<th width="10%">상품금액</th>
 			</tr>
 			
-			<c:forEach var="opt" items="${optionList }" varStatus="optcnt">
+			<c:forEach var="opt" items="${optionList }">
 
 					<input type="hidden" name="option_num" value="${opt.num }">
 					<input type="hidden" name="option_count" value="${opt.option_count }">
@@ -49,8 +49,10 @@
 						<td>
 							<img src="<%=request.getContextPath()%>/resources/uploadfiles${item.file}" width="50px">
 						</td>
+						
 						<td class="item-contents">
-							<a href="<%=request.getContextPath()%>/item/display?=${item.num}"></a>${item.name }<br>${opt.option }
+							<a href="<%=request.getContextPath()%>/item/display?num=${item.num}">${item.name }</a>
+							<br>옵션 : ${opt.option }
 						</td>
 						<td>${opt.option_count } </td>
 						<td>${item.seller_member_id }</td>
