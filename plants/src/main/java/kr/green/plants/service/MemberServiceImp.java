@@ -29,8 +29,8 @@ public class MemberServiceImp implements MemberService {
 
 	
 		@Override
-		public MemberVO getMember(String id) {
-			return memberDao.getMember(id);	/** 화면에서 입력받은 정보중 아이디를 통해서 회원 정보 전체를 가져오겠다 */
+		public MemberVO selectMemberId(String id) {
+			return memberDao.selectMemberId(id);	/** 화면에서 입력받은 정보중 아이디를 통해서 회원 정보 전체를 가져오겠다 */
 		}
 	
 		@Override
@@ -45,7 +45,7 @@ public class MemberServiceImp implements MemberService {
 		@Override
 		public MemberVO signin(MemberVO mvo) {
 			if(mvo == null) return null;
-			MemberVO user = memberDao.getMember(mvo.getId());
+			MemberVO user = memberDao.selectMemberId(mvo.getId());
 			if(user == null) return null;	/* 화면에서 넘겨주는 정보와 DB에서 가져오는 정보가 null 이면 return null*/
 			if(!passwordEncoder.matches(mvo.getPw(), user.getPw())) {/** rawPassword 와 encodedPassword 비교 */
 				return null;						
@@ -63,7 +63,7 @@ public class MemberServiceImp implements MemberService {
 
 		@Override
 		public void deleteMember(String id) {
-			MemberVO user = memberDao.getMember(id);
+			MemberVO user = memberDao.selectMemberId(id);
 			if(user == null) return;
 			user.setValid("D");
 			memberDao.updateMember(user);
@@ -107,10 +107,10 @@ public class MemberServiceImp implements MemberService {
 		}
 
 		@Override
-		public void modifyPw(String id, String email, String newPw) {
+		public void updatePw(String id, String email, String newPw) {
 			/** 새로운 인코딩한 비밀번호를 DB에 업데이트 하는 기능 */
 			System.out.println("서비스 새 비밀번호 " + newPw);
-			MemberVO mvo = memberDao.getMember(id);
+			MemberVO mvo = memberDao.selectMemberId(id);
 			if(mvo == null)	return;
 			mvo.setPw(passwordEncoder.encode(newPw));
 			System.out.println(mvo);
@@ -137,22 +137,6 @@ public class MemberServiceImp implements MemberService {
 		    }
 		}
 
-		/** seller 정보 업데이트*/
-		@Override
-		public void updateSeller(SellerVO svo) {
-			memberDao.updateSeller(svo);
-		}
-
-		@Override
-		public ArrayList<SellerVO> selectSeller() {
-			return memberDao.selectSeller();
-		}
-
-		@Override
-		public ArrayList<MemberVO> selectMember() {
-			return memberDao.selectMember();
-		}
-
 		@Override
 		public void insertWish(String id, Integer num) {
 			memberDao.insertWish(id, num);
@@ -160,8 +144,8 @@ public class MemberServiceImp implements MemberService {
 		}
 
 		@Override
-		public ArrayList<WishVO> selectWish(String member_id) {
-			return memberDao.selectWish(member_id);
+		public ArrayList<WishVO> selectWishListId(String member_id) {
+			return memberDao.selectWishListId(member_id);
 		}
 
 	

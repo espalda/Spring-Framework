@@ -18,25 +18,26 @@ public class BoardServiceImp implements BoardService {
 	BoardDAO boardDao;
 
 		@Override
+		public ArrayList<BoardVO> selectBoardListId(String id) {
+			if(id == null)	return null;
+			return boardDao.selectBoardListId(id);
+		}
+		
+		@Override
+		public BoardVO selectBoardNum(Integer num) {
+			if(num == null) return null;
+			return boardDao.selectBoardNum(num);
+			
+		}
+
+		@Override
 		public void insertBoard(BoardVO bvo) {
 			boardDao.insertBoard(bvo);
 		}
-	
-		@Override
-		public ArrayList<BoardVO> selectBoard() {
-			return boardDao.selectBoard();
-		}
-	
-		@Override
-		public BoardVO getBoard(Integer num) {
-			if(num == null) return null;
-			return boardDao.getBoard(num);
-			
-		}
-	
+		
 		@Override
 		public void updateViews(Integer num) {
-			BoardVO board = boardDao.getBoard(num);
+			BoardVO board = boardDao.selectBoardNum(num);
 			int views = board.getViews();
 			board.setViews(views + 1);
 			boardDao.updateBoard(board);
@@ -52,14 +53,5 @@ public class BoardServiceImp implements BoardService {
 		public void deleteBoard(Integer num) {
 			boardDao.deleteBoard(num);
 		}
-
-		@Override
-		public ArrayList<BoardVO> selectBoard2(String id) {
-			if(id == null)	return null;
-			return boardDao.selectBoard2(id);
-		}
-
-		
-
 
 }

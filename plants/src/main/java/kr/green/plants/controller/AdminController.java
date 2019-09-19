@@ -34,14 +34,7 @@ import kr.green.plants.vo.SellerVO;
 public class AdminController {
 	
 	@Autowired
-	MemberService memberService;
-	@Autowired
-	BoardService boardService;
-	@Autowired
-	ItemService itemService;
-	@Autowired
 	AdminService adminService;
-	
 	@Resource
 	private String uploadPath;
 	
@@ -50,7 +43,7 @@ public class AdminController {
 		/** 사업자 정보 */
 		@RequestMapping(value="/seller")
 		public ModelAndView adminSeller(ModelAndView mv){
-			ArrayList<SellerVO> seller = memberService.selectSeller();
+			ArrayList<SellerVO> seller = adminService.selectSellerList();
 		    mv.setViewName("/admin/seller");
 		    mv.addObject("sellerList", seller);
 		    return mv;
@@ -59,19 +52,17 @@ public class AdminController {
 		@RequestMapping(value = "/seller/register")
 		public String adminSellerRegister(Model model, SellerVO svo) {
 			if(svo != null) {
-				memberService.updateSeller(svo);
+				adminService.updateSeller(svo);
 			}
 			return "redirect:/admin/seller";
 			
 		}
 		
-		
-		/* 관리자 회원 권한 */
-		/* 관리자 회원 등급 */
+	
 		/** 관리자 회원 정보 */
 		@RequestMapping(value="/member")
 		public ModelAndView adminMember(ModelAndView mv){
-			ArrayList<MemberVO> member = memberService.selectMember();
+			ArrayList<MemberVO> member = adminService.selectMemberList();
 		    mv.setViewName("/admin/member");
 		    mv.addObject("memberList", member);
 		    return mv;
@@ -82,8 +73,8 @@ public class AdminController {
 		/** 관리자 상품 관리 */
 		@RequestMapping(value="/item")
 		public ModelAndView adminItem(ModelAndView mv){
-			ArrayList<ItemVO> ivo = itemService.selectItem();
-			ArrayList<OptionVO> ovo = itemService.selectOption();
+			ArrayList<ItemVO> ivo = adminService.selectItemList();
+			ArrayList<OptionVO> ovo = adminService.selectOptionList();
 		    mv.setViewName("/admin/item");
 		    mv.addObject("itemList", ivo);
 		    mv.addObject("optionList", ovo);
@@ -102,9 +93,9 @@ public class AdminController {
 				ovo.setOption(option[i]);
 				ovo.setOption_price(option_price[i]);
 				ovo.setItem_name(ivo.getName());
-				itemService.insertOption(ovo);
+				adminService.insertOption(ovo);
 			}
-			itemService.insertItem(ivo);
+			adminService.insertItem(ivo);
 			return "redirect:/admin/item";
 		}
 		/** 서버에 파일 저장 */
@@ -132,7 +123,7 @@ public class AdminController {
 		/** 관리자 게시글 관리 */
 		@RequestMapping(value="/board")
 		public ModelAndView adminBoard(ModelAndView mv){
-			ArrayList<BoardVO> board = boardService.selectBoard();
+			ArrayList<BoardVO> board = adminService.selectBoardList();
 		    mv.setViewName("/admin/board");
 		    mv.addObject("boardList", board);
 		    return mv;

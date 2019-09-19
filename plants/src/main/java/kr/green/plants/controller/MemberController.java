@@ -27,10 +27,8 @@ public class MemberController {
 		
 	@Autowired
 	MemberService memberService;
-	
 	@Autowired
 	BoardService boardService;
-	
 	@Autowired
 	ItemService itemService;
 	
@@ -52,7 +50,7 @@ public class MemberController {
 		@RequestMapping(value="/order")
 		public ModelAndView memberOrderGet(ModelAndView mv, HttpServletRequest r){
 			MemberVO user = (MemberVO)r.getSession().getAttribute("login");
-			ArrayList<OrderVO> order = itemService.selectOrderList(user.getId());
+			ArrayList<OrderVO> order = itemService.selectOrderListId(user.getId());
 			System.out.println("회원 주문 내역 : "+order);
 		    mv.setViewName("/member/order");
 		    mv.addObject("orderList", order);
@@ -65,7 +63,7 @@ public class MemberController {
 		@RequestMapping(value="/wishlist")
 		public ModelAndView memberWishList(ModelAndView mv, HttpServletRequest r){
 			MemberVO user = (MemberVO)r.getSession().getAttribute("login");
-			ArrayList<WishVO> wish = memberService.selectWish(user.getId());
+			ArrayList<WishVO> wish = memberService.selectWishListId(user.getId());
 			mv.addObject("wishlist", wish);
 			mv.setViewName("/member/wishlist");
 			return mv;
@@ -81,7 +79,7 @@ public class MemberController {
 		@RequestMapping(value="/board")
 		public ModelAndView memberboardGet(ModelAndView mv, HttpServletRequest r){
 			MemberVO user = (MemberVO)r.getSession().getAttribute("login");
-			ArrayList<BoardVO> post =boardService.selectBoard2(user.getId());
+			ArrayList<BoardVO> post =boardService.selectBoardListId(user.getId());
 		    mv.setViewName("/member/board");
 		    mv.addObject("boardList", post);
 		    return mv;

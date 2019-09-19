@@ -27,7 +27,6 @@
 <body>
 <form action="<%=request.getContextPath()%>/item/paid" method="post" >
 <input type="hidden" name="id" value="${login.id }">
-<input type="hidden" name="num" value="${item.num }">
 	<div class="container-11">
 		<h2>Order List</h2>
 		<table class="table">
@@ -43,6 +42,7 @@
 			<c:forEach var="opt" items="${optionList }" varStatus="optcnt">
 			<c:forEach var="item" items="${itemList }" varStatus="itemcnt">
 				<c:if test="${optcnt.count eq itemcnt.count}">
+					<input type="hidden" name="num" value="${item.num }">
 					<input type="hidden" name="option_num" value="${opt.num }">
 					<input type="hidden" name="option_count" value="${opt.option_count }">
 				

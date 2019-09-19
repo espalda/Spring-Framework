@@ -18,39 +18,15 @@ public class ItemServiceImp implements ItemService{
 
 	@Autowired
 	ItemDAO itemDao;
-
-		@Override
-		public void insertItem(ItemVO ivo) {
-			itemDao.insertItem(ivo);
-		}
 	
-		@Override
-		public ArrayList<ItemVO> selectItem() {
-			return itemDao.selectItem();
-		}
-
-		@Override
-		public ItemVO getItem(Integer num) {
-			return itemDao.getItem(num);
-		}
-
 		@Override
 		public ArrayList<ItemVO> selectNewItem() {
 			return itemDao.selectNewItem();
 		}
-
+	
 		@Override
-		public void insertOption(OptionVO ovo) {
-			if(ovo == null) {
-				return;
-			}
-			itemDao.insertItemOption(ovo);
-			
-		}
-
-		@Override
-		public ArrayList<OptionVO> selectOption() {
-			return itemDao.selectOption();
+		public ItemVO selectItemNum(Integer num) {
+			return itemDao.selectItemNum(num);
 		}
 
 		@Override
@@ -64,23 +40,29 @@ public class ItemServiceImp implements ItemService{
 		}
 
 		@Override
+		public ArrayList<BasketVO> selectBasketListId(String id) {
+			return itemDao.selectBasketListId(id);
+		}
+
+		@Override
+		public BasketVO selectBasketNum(Integer num) {
+			return itemDao.selectBasketNum(num);
+		}
+
+		@Override
 		public void insertBasket(OptionVO opt, String id, Integer num) {
 			itemDao.insertBasket(opt, id, num);
 		}
 
 		@Override
-		public ArrayList<BasketVO> selectBasket(String id) {
-			return itemDao.selectBasket(id);
+		public void updeteBasket(BasketVO bvo) {
+			itemDao.updeteBasket(bvo);
 		}
 
 		@Override
-		public void insertOrder(OrderVO order, String id, Integer num, Integer total) {
-			itemDao.insertOrder(order, id, num, total);
-		}
-				
-		@Override
-		public ArrayList<OrderVO> selectOrder(String id) {
-			return itemDao.selectOrder(id);
+		public void deleteBasket(Integer num) {
+			itemDao.deleteBasket(num);
+			
 		}
 		
 		/** 랜덤생성 8자리 번호 */
@@ -98,36 +80,15 @@ public class ItemServiceImp implements ItemService{
 			String num = currtime +"-"+ rand;
 			return num;
 		}
-
+		
 		@Override
-		public ArrayList<ItemVO> selectItem2(Integer num) {
-			return itemDao.selectItem2(num);
+		public ArrayList<OrderVO> selectOrderListId(String id) {
+			return itemDao.selectOrderListId(id);
 		}
-
+		
 		@Override
-		public ArrayList<ItemVO> selectItemList(Integer num) {
-			return itemDao.selectItemList(num);
-		}
-
-		@Override
-		public void updeteBasket(BasketVO bvo) {
-			itemDao.updeteBasket(bvo);
-		}
-
-		@Override
-		public BasketVO getBasket(Integer num) {
-			return itemDao.getBasket(num);
-		}
-
-		@Override
-		public void deleteBasket(Integer num) {
-			itemDao.deleteBasket(num);
-			
-		}
-
-		@Override
-		public ArrayList<OrderVO> selectOrderList(String id) {
-			return itemDao.selectOrderList(id);
+		public void insertOrder(OrderVO order, String id, Integer num, Integer total) {
+			itemDao.insertOrder(order, id, num, total);
 		}
 
 		

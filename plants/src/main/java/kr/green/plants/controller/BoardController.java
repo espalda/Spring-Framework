@@ -26,6 +26,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
+import kr.green.plants.service.AdminService;
 import kr.green.plants.service.BoardService;
 import kr.green.plants.utils.UploadFileUtils;
 import kr.green.plants.vo.BoardVO;
@@ -36,6 +37,8 @@ public class BoardController {
 	
 	@Autowired
 	BoardService boardService;
+	@Autowired
+	AdminService adminService;
 	@Resource
 	private String uploadPath;
 
@@ -45,7 +48,7 @@ public class BoardController {
 		/** 게시글 리스트 */
 		@RequestMapping(value="/list")
 		public ModelAndView boardListGet(ModelAndView mv){
-			ArrayList<BoardVO> board = boardService.selectBoard();
+			ArrayList<BoardVO> board = adminService.selectBoardList();
 		    mv.setViewName("/board/list");
 		    mv.addObject("boardList", board);
 		    return mv;
@@ -56,7 +59,7 @@ public class BoardController {
 		@RequestMapping(value="/display", method=RequestMethod.GET)
 		public ModelAndView boardDisplayGet(ModelAndView mv, Integer num){
 			boardService.updateViews(num);
-			BoardVO bvo = boardService.getBoard(num);
+			BoardVO bvo = boardService.selectBoardNum(num);
 		    mv.setViewName("/board/display");
 		    mv.addObject("board", bvo);
 		    return mv;
@@ -117,7 +120,7 @@ public class BoardController {
 		/** 게시글 수정 */
 		@RequestMapping(value="/modify", method=RequestMethod.GET)	/* 기존에 내용 불러오기 */
 		public ModelAndView boardModifyGet(ModelAndView mv, Model model, Integer num){
-			BoardVO bvo = boardService.getBoard(num);
+			BoardVO bvo = boardService.selectBoardNum(num);
 		    model.addAttribute("board", bvo);
 		    mv.setViewName("/board/modify");
 		    return mv;
@@ -134,7 +137,7 @@ public class BoardController {
 				if(bvo.getFile().length() == 0) {
 					bvo.setFile("");
 			       }else {
-				    BoardVO tmp = boardService.getBoard(bvo.getNum());
+				    BoardVO tmp = boardService.selectBoardNum(bvo.getNum());
 					bvo.setFile(tmp.getFile());
 				   }
 			}

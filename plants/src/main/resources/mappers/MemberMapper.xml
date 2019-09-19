@@ -7,7 +7,7 @@
 	values (#{member.id}, #{member.pw}, #{member.name}, #{member.phone}, #{member.email})
 	</insert>
 	
-	<select id="getMember" resultType="kr.green.plants.vo.MemberVO">
+	<select id="selectMemberId" resultType="kr.green.plants.vo.MemberVO">
 	select * from member where id = #{id} and valid='I'
 	</select>
 	
@@ -29,23 +29,11 @@
 	insert into wishlist(member_id, item_num) values(#{id}, #{num})
 	</insert>
 	
-	<select id="selectWish" resultType="kr.green.plants.vo.WishVO">
+	<select id="selectWishListId" resultType="kr.green.plants.vo.WishVO">
 	select * from wishlist 
 	join item on item_num = item.num
 	where member_id = #{id}
 	</select>
 	
-		<!-- Seller mapper -->
-	<insert id="updateSeller">
-	insert into seller(member_id ,num, `name`, address, phone, email)
-	values (#{seller.member_id}, #{seller.num}, #{seller.name}, #{seller.address}, #{seller.phone}, #{seller.email})
-	</insert>
-	
-	<select id="selectSeller" resultType="kr.green.plants.vo.SellerVO">
-	select * from seller where valid='I'
-	</select>
-	
-	<select id="selectMember" resultType="kr.green.plants.vo.MemberVO">
-	select * from member
-	</select>
+		
 </mapper>

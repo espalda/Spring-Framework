@@ -2,39 +2,13 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="kr.green.plants.dao.ItemDAO">
-	<insert id="insertItem">
-	insert into item(seller_member_id, `name`, category, price, `count`, contents, `file`)
-	values(#{item.seller_member_id}, #{item.name}, #{item.category}, #{item.price},
-			#{item.count}, #{item.contents}, #{item.file})
-	</insert>
-	
-	<select id="selectItem" resultType="kr.green.plants.vo.ItemVO">
-	select * from item where valid = 'I'
-	</select>
-	
-	<select id="selectItem2" resultType="kr.green.plants.vo.ItemVO">
-	select * from item where valid = 'I' and num = #{num}
-	</select>
-	
-	<select id="selectItemList" resultType="kr.green.plants.vo.ItemVO">
-	select * from item where valid = 'I' and num = #{num}
-	</select>
-	
-	<select id="getItem" resultType="kr.green.plants.vo.ItemVO">
-	select * from item where num = #{num}
-	</select>
 	
 	<select id="selectNewItem" resultType="kr.green.plants.vo.ItemVO">
 	select * from plants.item order by num desc limit 0, 3;
 	</select>
 	
-	<insert id="insertItemOption">
-	insert into `option`(item_name, `option`, option_price) 
-		values(#{opt.item_name}, #{opt.option}, #{opt.option_price})
-	</insert>
-	
-	<select id="selectOption" resultType="kr.green.plants.vo.OptionVO">
-	select * from `option` where valid = 'I'
+	<select id="selectItemNum" resultType="kr.green.plants.vo.ItemVO">
+	select * from item where valid = 'I' and num = #{num}
 	</select>
 	
 	<select id="getOption" resultType="kr.green.plants.vo.OptionVO">
@@ -44,34 +18,22 @@
 	<select id="getOption2" resultType="kr.green.plants.vo.OptionVO">
 	select * from `option` where num = #{num} and valid = 'I'
 	</select>
-	
-	<insert id="insertBasket">
-	insert into basket(item_num, member_id, option_num, option_count)
-					values(#{num}, #{id}, #{opt.num}, #{opt.option_count})
-	</insert>
-	
-	<select id="selectBasket" resultType="kr.green.plants.vo.BasketVO">
+
+	<select id="selectBasketListId" resultType="kr.green.plants.vo.BasketVO">
 	select * FROM basket
 	join `option` on basket.option_num = `option`.num
 	join item on basket.item_num = item.num
 	where member_id = #{id};
 	</select>
 	
-	<insert id="insertOrder">
-	insert into `order`(member_id, item_num, order_num, order_price, option_num, option_count)
-					values(#{id}, #{num}, #{order.order_num}, #{total}, #{order.option_num}, #{order.option_count});
-	</insert>
-	
-	<select id="selectOrderList" resultType="kr.green.plants.vo.OrderVO">
-	select * from `order`
-	join item on item_num = item.num
-	join `option` on option_num = `option`.num
-	where member_id = #{id}
-	</select>
-	
-	<select id="getBasket" resultType="kr.green.plants.vo.BasketVO">
+	<select id="selectBasketNum" resultType="kr.green.plants.vo.BasketVO">
 	select * from basket where num = #{num}
 	</select>
+	
+	<insert id="insertBasket">
+	insert into basket(item_num, member_id, option_num, option_count)
+					values(#{num}, #{id}, #{opt.num}, #{opt.option_count})
+	</insert>
 
 	<update id="updeteBasket">
 	update basket
@@ -82,4 +44,17 @@
 	<delete id="deleteBasket">
 	delete from basket where num = #{num}
 	</delete>
+	
+	<insert id="insertOrder">
+	insert into `order`(member_id, item_num, order_num, order_price, option_num, option_count)
+					values(#{id}, #{num}, #{order.order_num}, #{total}, #{order.option_num}, #{order.option_count});
+	</insert>
+	
+	<select id="selectOrderListId" resultType="kr.green.plants.vo.OrderVO">
+	select * from `order`
+	join item on item_num = item.num
+	join `option` on option_num = `option`.num
+	where member_id = #{id}
+	</select>
+	
 </mapper>

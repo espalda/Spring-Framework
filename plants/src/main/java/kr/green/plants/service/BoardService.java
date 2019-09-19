@@ -8,24 +8,16 @@ import kr.green.plants.vo.BoardVO;
 
 public interface BoardService {
 
+	public ArrayList<BoardVO> selectBoardListId(String id);
+	
+	public BoardVO selectBoardNum(Integer num);
+	
 	public void insertBoard(BoardVO bvo);
-
-	public ArrayList<BoardVO> selectBoard();
-
-	public BoardVO getBoard(Integer num);
-
+	
 	public void updateViews(Integer num);
-
-	public void deleteBoard(Integer num);
-
+	
 	public void updateBoard(BoardVO bvo);
 
-	public ArrayList<BoardVO> selectBoard2(String id);
-
-
-
-
-
-
+	public void deleteBoard(Integer num);
 
 }

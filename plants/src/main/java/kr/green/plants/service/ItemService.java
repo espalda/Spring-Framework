@@ -9,42 +9,28 @@ import kr.green.plants.vo.OrderVO;
 
 public interface ItemService {
 
-	public void insertItem(ItemVO ivo);
-
-	public ArrayList<ItemVO> selectItem();
-
-	public ItemVO getItem(Integer num);
-
 	public ArrayList<ItemVO> selectNewItem();
+	
+	public ItemVO selectItemNum(Integer num);
 
-	public void insertOption(OptionVO ovo);
-
-	public ArrayList<OptionVO> selectOption();
-
-	public ArrayList<OptionVO> getOption(String name);
-
+	public ArrayList<OptionVO> getOption(String name); /* 수정 필요 */
+	
 	public OptionVO getOption2(Integer num);
 
+	public ArrayList<BasketVO> selectBasketListId(String id);
+	
+	public BasketVO selectBasketNum(Integer num);
+	
 	public void insertBasket(OptionVO opt, String id, Integer num);
-
-	public ArrayList<BasketVO> selectBasket(String id);
-
-	public void insertOrder(OrderVO order, String id, Integer num, Integer total);
-
-	public ArrayList<OrderVO> selectOrder(String id);
-
-	public ArrayList<ItemVO> selectItem2(Integer num);
-
-	public String orderNum();
-
-	public ArrayList<ItemVO> selectItemList(Integer num);
-
+	
 	public void updeteBasket(BasketVO bvo);
-
-	public BasketVO getBasket(Integer num);
-
+	
 	public void deleteBasket(Integer num);
-
-	public ArrayList<OrderVO> selectOrderList(String id);
+	
+	public String orderNum();
+	
+	public ArrayList<OrderVO> selectOrderListId(String id);
+	
+	public void insertOrder(OrderVO order, String id, Integer num, Integer total);
 
 }

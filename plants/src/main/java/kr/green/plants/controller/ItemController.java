@@ -1,7 +1,5 @@
 package kr.green.plants.controller;
 
-import java.io.UnsupportedEncodingException;
-import java.net.URLDecoder;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
@@ -11,15 +9,14 @@ import javax.servlet.http.HttpServletRequest;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.userdetails.User;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import kr.green.plants.service.AdminService;
 import kr.green.plants.service.ItemService;
 import kr.green.plants.vo.BasketVO;
 import kr.green.plants.vo.ItemVO;
@@ -33,10 +30,10 @@ public class ItemController {
 	
 	@Autowired
 	ItemService itemService;
-	
-	private static final Logger logger = LoggerFactory.getLogger(ItemController.class);
+	@Autowired
+	AdminService adminService;
 		
-		/** 새상품 */
+		/** 새상품 - 최신순 아이템 3가지 화면에 뿌려주는 기능 */
 		@RequestMapping(value="/new")
 		public ModelAndView itemNew(ModelAndView mv){
 			ArrayList<ItemVO> ivo = itemService.selectNewItem();
@@ -46,7 +43,7 @@ public class ItemController {
 		}
 		
 		
-		/** 이벤트 상품 - 쿠폰 미구현 */
+		/** 이벤트 상품 */
 		@RequestMapping(value="/event")
 		public ModelAndView itemEvent(ModelAndView mv){
 		    mv.setViewName("/item/event");
@@ -59,16 +56,15 @@ public class ItemController {
 		@RequestMapping(value="/list")
 		public ModelAndView itemList(ModelAndView mv, Model model){
 		    mv.setViewName("/item/list");
-		    ArrayList<ItemVO> ivo = itemService.selectItem();
+		    ArrayList<ItemVO> ivo = adminService.selectItemList();
 		    model.addAttribute("itemList", ivo);
 		    return mv;
 		}
 		
-		
 		/** 제품 상세 화면 */
 		@RequestMapping(value="/display")
 		public ModelAndView itemDisplay(ModelAndView mv, Integer num){
-			ItemVO ivo = itemService.getItem(num);
+			ItemVO ivo = itemService.selectItemNum(num);
 			ArrayList<OptionVO> ovo = itemService.getOption(ivo.getName());
 		    mv.setViewName("/item/display");
 		    mv.addObject("item", ivo);
@@ -90,7 +86,7 @@ public class ItemController {
 		@RequestMapping(value="/basket", method=RequestMethod.GET)
 		public ModelAndView itemBasketGet(ModelAndView mv, HttpServletRequest r){
 			MemberVO user = (MemberVO)r.getSession().getAttribute("login");
-			ArrayList<BasketVO> bas = itemService.selectBasket(user.getId());
+			ArrayList<BasketVO> bas = itemService.selectBasketListId(user.getId());
 		    mv.setViewName("/item/basket");
 			mv.addObject("basketList", bas);
 		    return mv;
@@ -100,7 +96,7 @@ public class ItemController {
 		@ResponseBody
 		public Map<Object, Object> basketModify(BasketVO bvo){
 		    Map<Object, Object> map = new HashMap<Object, Object>();
-		    BasketVO bas = itemService.getBasket(bvo.getNum());
+		    BasketVO bas = itemService.selectBasketNum(bvo.getNum());
 		    bas.setOption_count(bvo.getOption_count());
 		    itemService.updeteBasket(bas);
 		    return map;
@@ -129,12 +125,9 @@ public class ItemController {
 		@RequestMapping(value="/basket/send", method=RequestMethod.POST) 
 		public String itemBasketSendPost(Model model, String id, Integer[] num, Integer total,
 										Integer[] option_num, Integer[] option_count, Integer[] check){
-			for(int tmp : num) {
-				System.out.println("장바구니에서 아이템 넘버가 잘 넘어오나 확인 : "+tmp);
-			}
-			System.out.println("장바구니에서 아이템 넘버" +num);
 			
 			OptionVO opt = new OptionVO();
+			
 			for(int i=0; i<option_num.length ; i++) {
 				if(check[i] == 1) {
 					opt.setNum(option_num[i]);
@@ -163,11 +156,11 @@ public class ItemController {
 										Integer[] option_num, Integer[] option_count){
 			MemberVO user = (MemberVO)r.getSession().getAttribute("login");
 			
-			ItemVO it = itemService.getItem(num);
+			ItemVO it = itemService.selectItemNum(num);
 			if(numList != null) {
 				ArrayList<ItemVO> items = new ArrayList<ItemVO>();
 				for(int i=0; i<numList.length; i++) {
-					ItemVO ivo = itemService.getItem(numList[i]);
+					ItemVO ivo = itemService.selectItemNum(numList[i]);
 					items.add(ivo);
 				}
 				ArrayList<OptionVO> opt = new ArrayList<OptionVO>();
@@ -207,7 +200,7 @@ public class ItemController {
 			//값이 추가된 옵션 VO 객체를 빈 ArrayList에 add로 추가한다	0번지
 			//다음 번지 값을 VO 객체에 다시 집어넣는다
 			//값이 추가된 옵션 VO 객체를 빈 ArrayList에 add로 추가한다	1번지
-			ItemVO item = itemService.getItem(num);
+			ItemVO item = itemService.selectItemNum(num);
 			OptionVO opt = new OptionVO();
 			for(int i=0; i<option_num.length; i++) {
 				opt.setNum(option_num[i]);

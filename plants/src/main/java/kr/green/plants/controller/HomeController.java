@@ -19,8 +19,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
-
-import kr.green.plants.service.BoardService;
 import kr.green.plants.service.MemberService;
 import kr.green.plants.vo.MemberVO;
 
@@ -56,7 +54,7 @@ public class HomeController {
 		@RequestMapping(value ="/checkId")
 		@ResponseBody
 		public boolean idCheck(@RequestBody String id){
-			if(memberService.getMember(id) != null) return true;
+			if(memberService.selectMemberId(id) != null) return true;
 		    return false;
 		}
 		
@@ -155,7 +153,7 @@ public class HomeController {
 				String newPw = memberService.createPw();
 				System.out.println("새 비밀번호 " + newPw);
 				/* 새로운 임시 비밀번호를 DB에 저장 */
-				memberService.modifyPw(find.getId(),find.getEmail(),newPw);
+				memberService.updatePw(find.getId(),find.getEmail(),newPw);
 				/* 이메일 발송 */
 				String title = "* " + m.getId() + "님의 변경된 비밀번호입니다 *";
 				String contents = "변경된 비밀번호는 \n" + newPw + "\n 입니다.";
@@ -170,7 +168,7 @@ public class HomeController {
 			String newPw = memberService.createPw();
 			/* 새로운 임시 비밀번호를 DB에 저장 */
 			System.out.println("새 비밀번호 " + newPw);
-			memberService.modifyPw(id,email,newPw);
+			memberService.updatePw(id,email,newPw);
 			/* 이메일 발송 */
 			String title = "* " + id + "님의 변경된 비밀번호입니다 *";
 			String contents = "변경된 비밀번호는 n"+newPw+"n 입니다.";
