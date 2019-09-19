@@ -164,7 +164,9 @@ color: #cc0000;
 				<button type="button" class="btn-tree pop">SIGN UP</button>
 			</div>
 			<div class="sb">
-				<input type="checkbox">
+				<input type="checkbox" id="myCheck" onclick="myFunction()">
+
+				<p id="text" style="display:none">개인정보 수집에 동의하셨습니다.</p>
 				본인은 만 14세 이상이며, <a href="#">[이용약관 동의]</a> 와 <a href="#">[개인정보 수집 및 이용 동의]</a> 에 확인 하였으며, 동의합니다.
 			</div>
 			<div class="sb">
@@ -172,5 +174,20 @@ color: #cc0000;
 			</div>
 		</div>
 	</form>
+<script>
+function myFunction() {
+	  // Get the checkbox
+	  var checkBox = document.getElementById("myCheck");
+	  // Get the output text
+	  var text = document.getElementById("text");
+
+	  // If the checkbox is checked, display the output text
+	  if (checkBox.checked == true){
+	    text.style.display = "block";
+	  } else {
+	    text.style.display = "none";
+	  }
+	}
+</script>
 </body>
 </html>
