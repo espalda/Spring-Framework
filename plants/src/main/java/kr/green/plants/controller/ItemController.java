@@ -61,9 +61,9 @@ public class ItemController {
 		    return mv;
 		}
 		
-		/** 제품 상세 화면 */
-		@RequestMapping(value="/display")
-		public ModelAndView itemDisplay(ModelAndView mv, Integer num){
+		/** 상품 상세 화면 */
+		@RequestMapping(value="/display", method=RequestMethod.GET)
+		public ModelAndView itemDisplayGet(ModelAndView mv, Integer num){
 			ItemVO ivo = itemService.selectItemNum(num);
 			ArrayList<OptionVO> ovo = itemService.selectOptionListNum(num);
 		    mv.setViewName("/item/display");
@@ -80,6 +80,41 @@ public class ItemController {
 		    map.put("op", op);
 			return map;
 		}
+		/** 상품 상세 화면에서 장바구니로 넘기는 기능 */
+		@RequestMapping(value="/basket", method=RequestMethod.POST)
+		public String itemBasketPost(Model model, String id, Integer num, Integer[] option_num, Integer[] option_count){
+			OptionVO opt = new OptionVO(); /** 옵션정보는 상품 하나당 여러개이기 때문에 배열로 집어넣는다 */
+			for(int i=0; i<option_num.length ; i++) {
+				opt.setNum(option_num[i]);
+				opt.setOption_count(option_count[i]);
+				itemService.insertBasket(opt, id, num);
+			}
+			return "redirect:/item/basket";
+		}
+		/** 상품 상세 화면에서 주문페이지로 넘기는 기능 */
+		@RequestMapping(value="/order", method=RequestMethod.POST)
+		public String itemOrderPost1(Model model, String id, Integer num, Integer total, 
+									Integer[] option_num, Integer[] option_count){
+			//반복문으로 배열을 하나씩 꺼낸다
+			//빈 옵션 VO 객체에 집어넣는다
+			//값이 추가된 옵션 VO 객체를 빈 ArrayList에 add로 추가한다	0번지
+			//다음 번지 값을 VO 객체에 다시 집어넣는다
+			//값이 추가된 옵션 VO 객체를 빈 ArrayList에 add로 추가한다	1번지
+			ItemVO item = itemService.selectItemNum(num);
+			OptionVO opt = new OptionVO();
+			for(int i=0; i<option_num.length; i++) {
+				opt.setNum(option_num[i]);
+				opt.setOption_count(option_count[i]);
+			}
+			 model.addAttribute("total", total);
+			 model.addAttribute("num", item.getNum());
+			 model.addAttribute("orderList", opt);
+			 model.addAttribute("option_num", option_num);
+			 model.addAttribute("option_count", option_count);
+			return "redirect:/item/order";
+		}
+		
+		
 
 
 		/** 장바구니 */
@@ -109,25 +144,11 @@ public class ItemController {
 		    itemService.deleteBasket(num);
 		    return map;
 		}
-		
-		/** item/display >> basket 장바구니 버튼을 누르면 basketVO에 정보를 DB에 넣는 기능 */
-		@RequestMapping(value="/basket", method=RequestMethod.POST)
-		public String itemBasketPost(Model model, String id, Integer num, Integer[] option_num, Integer[] option_count){
-			OptionVO opt = new OptionVO(); /** 옵션정보는 상품 하나당 여러개이기 때문에 배열로 집어넣는다 */
-			for(int i=0; i<option_num.length ; i++) {
-				opt.setNum(option_num[i]);
-				opt.setOption_count(option_count[i]);
-				itemService.insertBasket(opt, id, num);
-			}
-			return "redirect:/item/basket";
-		}
-		/** basket >> order */
-		@RequestMapping(value="/basket/send", method=RequestMethod.POST) 
+		/** 장바구니에서 주문페이지로 넘어가는 기능 */
+		@RequestMapping(value="/basket/order", method=RequestMethod.POST) 
 		public String itemBasketSendPost(Model model, String id, Integer[] num, Integer total,
 										Integer[] option_num, Integer[] option_count, Integer[] check){
-			
 			OptionVO opt = new OptionVO();
-			
 			for(int i=0; i<option_num.length ; i++) {
 				if(check[i] == 1) {
 					opt.setNum(option_num[i]);
@@ -140,17 +161,11 @@ public class ItemController {
 			model.addAttribute("option_num", option_num);
 			model.addAttribute("option_count", option_count);
 			return "redirect:/item/order";
-			
 		}
 		
-		
-		
-		
-		
-		
-		
-		
-		/** 주문 화면 - item/display && basket >> order 화면*/
+
+		/** order */
+		/** 제품 상제 페이지와 장바구니에서 넘어온 주문 페이지 정보 */
 		@RequestMapping(value="/order", method=RequestMethod.GET)
 		public ModelAndView itemOrderGet(ModelAndView mv, HttpServletRequest r, Integer total, Integer num, Integer[] numList, 
 										Integer[] option_num, Integer[] option_count){
@@ -190,28 +205,6 @@ public class ItemController {
 			    mv.addObject("optionList", opt);
 			}
 		    return mv;
-		}
-		/** 결제 전 주문페이지 정보 확인 및 입력 & 상품 상세 페이지에서 정보를 넘겨줌 */
-		@RequestMapping(value="/order", method=RequestMethod.POST)
-		public String itemOrderPost1(Model model, String id, Integer num, Integer total, 
-									Integer[] option_num, Integer[] option_count){
-			//반복문으로 배열을 하나씩 꺼낸다
-			//빈 옵션 VO 객체에 집어넣는다
-			//값이 추가된 옵션 VO 객체를 빈 ArrayList에 add로 추가한다	0번지
-			//다음 번지 값을 VO 객체에 다시 집어넣는다
-			//값이 추가된 옵션 VO 객체를 빈 ArrayList에 add로 추가한다	1번지
-			ItemVO item = itemService.selectItemNum(num);
-			OptionVO opt = new OptionVO();
-			for(int i=0; i<option_num.length; i++) {
-				opt.setNum(option_num[i]);
-				opt.setOption_count(option_count[i]);
-			}
-			 model.addAttribute("total", total);
-			 model.addAttribute("num", item.getNum());
-			 model.addAttribute("orderList", opt);
-			 model.addAttribute("option_num", option_num);
-			 model.addAttribute("option_count", option_count);
-			return "redirect:/item/order";
 		}
 		
 		

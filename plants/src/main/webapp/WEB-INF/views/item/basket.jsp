@@ -11,7 +11,7 @@
 </style>
 </head>
 <body>
-<form action="<%=request.getContextPath()%>/item/basket/send" method="post">\
+<form action="<%=request.getContextPath()%>/item/basket/order" method="post">
 <input type="hidden" name="id" value="${login.id }">
 	<div class="container-11">
 		<h2>Basket</h2>
@@ -32,14 +32,16 @@
 				<td>
 					<img src="<%=request.getContextPath()%>/resources/uploadfiles${bas.file }" width="50px">
 				</td>
-				<td>${bas.name}<br>${bas.option }
+				<td>${bas.name}
+				
+				<br>옵션 : ${bas.option }
 					<input type="hidden" name="basket_num" value="${bas.num }">
 					<input type="hidden" name="option_num" value="${bas.option_num }">
 					<input type="hidden" name="num" value="${bas.item_num }">
 				</td>
 				
 				<td>
-					<input type="hidden" value="${bas.option_price }"> ${bas.option_price }
+					<input type="text" value="${bas.option_price }" style="all: unset;">
 					
 				</td>
 				<td>
@@ -57,7 +59,7 @@
 			<tr>
 				<td colspan="10" class="background-raw text-right">
 					<span class="fin-price"></span>
-					<input type="text" name="total">
+					<input type="text" name="total" style="all: unset;" >
 				</td>
 			</tr>
 		</table>

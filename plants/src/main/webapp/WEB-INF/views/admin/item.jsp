@@ -29,7 +29,6 @@ margin-bottom: 10px;
   <div class="tab-content">
     <div id="home" class="container tab-pane active">
     <!-- 상품 정보 -->
-    <mark> option ajax로 정보 가져오기 </mark>
 		<table class="table table-hover">
 			<tr>
 				<th>상품번호</th>

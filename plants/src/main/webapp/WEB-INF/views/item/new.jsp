@@ -34,20 +34,13 @@
 	float: left;
 	padding: 10px;
 	}
-.centered {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  padding: 5px; 
-  background-color: white;
-}
+
 </style>
 </head>
 <body class="text-center">
 	<div class="container">
 		<div>
-			<h1 class="centered">NEW ARRIVAL</h1>
+			<h1></h1>
 			<img src="<%=request.getContextPath()%>/resources/img/back-5.jpg">
 			<p>새로나온 신상품을 빠르게 만나보세요</p>
 		</div>

@@ -138,6 +138,7 @@ var total = parseInt($('input[name=total]').val());
 		$('.item').html(total-delivery+'원');
 		$('.delivery').html(delivery+'원');
 	}else{
+		$('.item').html(total-delivery+'원');
 		$('.delivery').html('0원');
 	}
 

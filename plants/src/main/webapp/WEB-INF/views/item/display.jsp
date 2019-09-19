@@ -92,16 +92,13 @@
 						</li>
 					</ul>
 					
+					<button class="btn-raw basket">CART</button><br>
 					
-				<a href="<%=request.getContextPath()%>/item/basket">
-					<button class="btn-raw basket">CART</button>
-				</a><br>
-				<a href="<%=request.getContextPath()%>/item/order">
-					<button type="submit" class="btn-tree order">ORDER</button>
-				</a><br>
-				<a href="<%=request.getContextPath()%>/member/wish?id=${login.id}&num=${item.num}">
-					<button type="button" class="btn-gold">WISH</button>
-				</a><br>
+					<button type="submit" class="btn-tree order">ORDER</button><br>
+
+					<a href="<%=request.getContextPath()%>/member/wish?id=${login.id}&num=${item.num}">
+						<button type="button" class="btn-gold">WISH</button>
+					</a><br>
 				</div>
 			</section>
 		</div>
