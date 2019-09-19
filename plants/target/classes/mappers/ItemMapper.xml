@@ -59,7 +59,7 @@
 	
 	<insert id="insertOrder">
 	insert into `order`(member_id, item_num, order_num, order_price, option_num, option_count)
-	values(#{id}, #{num}, #{order.order_num}, #{total}, #{order.option_num}, #{order.option_count});
+					values(#{id}, #{num}, #{order.order_num}, #{total}, #{order.option_num}, #{order.option_count});
 	</insert>
 	
 	<select id="selectOrder" resultType="kr.green.plants.vo.OrderVO">

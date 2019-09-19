@@ -157,34 +157,45 @@ public class ItemController {
 		
 		
 		
-		/** 주문 페이지 - 화면 item/display && basket >> order 화면*/
+		/** 주문 화면 - item/display && basket >> order 화면*/
 		@RequestMapping(value="/order", method=RequestMethod.GET)
 		public ModelAndView itemOrderGet(ModelAndView mv, HttpServletRequest r, Integer total, Integer num, Integer[] numList, 
 										Integer[] option_num, Integer[] option_count){
 			MemberVO user = (MemberVO)r.getSession().getAttribute("login");
 			
 			ItemVO it = itemService.getItem(num);
-			
-			ArrayList<ItemVO> items = new ArrayList<ItemVO>();
-			for(int i=0; i<numList.length; i++) {
-				ItemVO ivo = itemService.getItem(numList[i]);
-				items.add(ivo);
+			if(numList != null) {
+				ArrayList<ItemVO> items = new ArrayList<ItemVO>();
+				for(int i=0; i<numList.length; i++) {
+					ItemVO ivo = itemService.getItem(numList[i]);
+					items.add(ivo);
+				}
+				ArrayList<OptionVO> opt = new ArrayList<OptionVO>();
+				for(int i=0; i<option_num.length; i++) {
+					OptionVO ovo = itemService.getOption2(option_num[i]);
+					ovo.setOption_count(option_count[i]);
+					opt.add(ovo);
+				}
+				mv.setViewName("/item/order");
+			    mv.addObject("id", user.getId());
+			    mv.addObject("total", total);
+			    mv.addObject("item", it);
+			    mv.addObject("optionList", opt);
+			    mv.addObject("itemList", items);
+				
+			}else {
+				ArrayList<OptionVO> opt = new ArrayList<OptionVO>();
+				for(int i=0; i<option_num.length; i++) {
+					OptionVO ovo = itemService.getOption2(option_num[i]);
+					ovo.setOption_count(option_count[i]);
+					opt.add(ovo);
+				}
+				mv.setViewName("/item/order2");
+			    mv.addObject("id", user.getId());
+			    mv.addObject("total", total);
+			    mv.addObject("item", it);
+			    mv.addObject("optionList", opt);
 			}
-			
-			
-			ArrayList<OptionVO> opt = new ArrayList<OptionVO>();
-			for(int i=0; i<option_num.length; i++) {
-				OptionVO ovo = itemService.getOption2(option_num[i]);
-				ovo.setOption_count(option_count[i]);
-				opt.add(ovo);
-
-			}
-		    mv.setViewName("/item/order");
-		    mv.addObject("id", user.getId());
-		    mv.addObject("total", total);
-		    mv.addObject("item", it);
-		    mv.addObject("optionList", opt);
-		    mv.addObject("itemList", items);
 		    return mv;
 		}
 		/** 결제 전 주문페이지 정보 확인 및 입력 & 상품 상세 페이지에서 정보를 넘겨줌 */
@@ -209,6 +220,9 @@ public class ItemController {
 			 model.addAttribute("option_count", option_count);
 			return "redirect:/item/order";
 		}
+		
+		
+		
 		/** 결제 후 주문페이지 DB 저장 */
 		@RequestMapping(value="/paid", method=RequestMethod.GET)
 		public ModelAndView itemPaidGet(ModelAndView mv, String order_num, Integer total){

@@ -41,8 +41,7 @@
 			</tr>
 			
 			<c:forEach var="opt" items="${optionList }" varStatus="optcnt">
-			<c:forEach var="item" items="${itemList }" varStatus="itemcnt">
-				<c:if test="${optcnt.count eq itemcnt.count}">
+
 					<input type="hidden" name="option_num" value="${opt.num }">
 					<input type="hidden" name="option_count" value="${opt.option_count }">
 				
@@ -58,8 +57,7 @@
 						<td>${item.delivery_charge }</td>
 						<td>${opt.option_price * opt.option_count }</td>
 					</tr>
-				</c:if>
-			</c:forEach>
+
 			</c:forEach>
 		</table>
 	<hr>
