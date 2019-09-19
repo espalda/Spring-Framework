@@ -45,5 +45,6 @@ public interface ItemService {
 
 	public void deleteBasket(Integer num);
 
+	public ArrayList<OrderVO> selectOrderList(String id);
 
 }

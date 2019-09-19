@@ -23,26 +23,28 @@
   <!-- Tab panes -->
   <div class="tab-content">
     <div id="home" class="container tab-pane active">
-    <!-- * 회원 정보 -->
+    <!-- * 주문조회 -->
 		<table class="table table-hover">
 			<tr>
-				<th>번호</th>
-				<th>아이디</th>
-				<th>이름</th>
-				<th>전화</th>
-				<th>주소</th>
-				<th>이메일</th>
-				<th>등급</th>
+				<th>주문번호</th>
+				<th>주문아이디</th>
+				<th>이미지</th>
+				<th>상품정보</th>
+				<th>수량</th>
+				<th>금액</th>
+				<th>주문상태</th>
 			</tr>
+			<c:forEach var="order" items="${orderList }">
 			<tr>
-				<td>번호</td>
-				<td>아이디</td>
-				<td>이름</td>
-				<td>전화</td>
-				<td>주소</td>
-				<td>이메일</td>
-				<td>등급</td>
+				<td>${order.order_num }</td>
+				<td>${order.member_id }</td>
+				<td><img src="<%=request.getContextPath()%>/resources/uploadfiles${order.file }" width="50px"></td>
+				<td>${order.contents }</td>
+				<td>${order.option_count }</td>
+				<td>${order.order_price }</td>
+				<td>${order.status }</td>
 			</tr>
+			</c:forEach>
 		</table>
     </div>
     <!-- * 회원 등급 -->

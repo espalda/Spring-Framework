@@ -18,14 +18,16 @@
 					<th width="10%">금액</th>
 					<th width="17%">주문상태</th>
 				</tr>
+				<c:forEach var="order" items="${orderList }">
 				<tr>
-					<td>20190624-0000124</td>
-					<td>image</td>
-					<td>test</td>
-					<td>test</td>
-					<td>52900</td>
-					<td>test</td>
+					<td>${order.order_num }</td>
+					<td><img src="<%=request.getContextPath()%>/resources/uploadfiles${order.file }" width="50px"></td>
+					<td>${order.contents }</td>
+					<td>${order.option_count }</td>
+					<td>${order.order_price }</td>
+					<td>${order.status }</td>
 				</tr>
+				</c:forEach>
 			</table>
 		</div>
 	</div>

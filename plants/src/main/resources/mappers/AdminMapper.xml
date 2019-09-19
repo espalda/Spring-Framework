@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kr.green.plants.dao.AdminDAO">
+	<insert id="insertItem">
+	insert into item(seller_member_id, `name`, category, price, `count`, contents, `file`)
+	values(#{item.seller_member_id}, #{item.name}, #{item.category}, #{item.price},
+			#{item.count}, #{item.contents}, #{item.file})
+	</insert>
+	
+	<select id="selectItem" resultType="kr.green.plants.vo.ItemVO">
+	select * from item where valid = 'I'
+	</select>
+
+	<select id="selectOption" resultType="kr.green.plants.vo.OptionVO">
+	select * from `option` where valid = 'I'
+	</select>
+	
+	<select id="getOption" resultType="kr.green.plants.vo.OptionVO">
+	select * from `option` where item_name = #{name} and valid = 'I'
+	</select>
+	
+	<select id="selectOrderList" resultType="kr.green.plants.vo.OrderVO">
+	select * from `order`
+	join item on item_num = item.num
+	join `option` on option_num = `option`.num
+	</select>
+
+</mapper>

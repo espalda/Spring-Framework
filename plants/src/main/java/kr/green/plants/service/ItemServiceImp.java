@@ -125,6 +125,11 @@ public class ItemServiceImp implements ItemService{
 			
 		}
 
+		@Override
+		public ArrayList<OrderVO> selectOrderList(String id) {
+			return itemDao.selectOrderList(id);
+		}
+
 		
 
 }

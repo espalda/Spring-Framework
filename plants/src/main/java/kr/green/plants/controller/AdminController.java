@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
+import kr.green.plants.service.AdminService;
 import kr.green.plants.service.BoardService;
 import kr.green.plants.service.ItemService;
 import kr.green.plants.service.MemberService;
@@ -25,6 +26,7 @@ import kr.green.plants.vo.BoardVO;
 import kr.green.plants.vo.ItemVO;
 import kr.green.plants.vo.MemberVO;
 import kr.green.plants.vo.OptionVO;
+import kr.green.plants.vo.OrderVO;
 import kr.green.plants.vo.SellerVO;
 
 @Controller
@@ -37,6 +39,9 @@ public class AdminController {
 	BoardService boardService;
 	@Autowired
 	ItemService itemService;
+	@Autowired
+	AdminService adminService;
+	
 	@Resource
 	private String uploadPath;
 	
@@ -114,10 +119,12 @@ public class AdminController {
 		
 		
 		
-		
+		/** 관리자 주문페이지 관리 */
 		@RequestMapping(value="/order")
 		public ModelAndView adminOrder(ModelAndView mv){
+			ArrayList<OrderVO> order = adminService.selectOrderList();
 		    mv.setViewName("/admin/order");
+		    mv.addObject("orderList", order);
 		    return mv;
 		}
 		

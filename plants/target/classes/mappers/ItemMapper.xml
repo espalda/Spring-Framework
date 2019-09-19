@@ -62,7 +62,7 @@
 					values(#{id}, #{num}, #{order.order_num}, #{total}, #{order.option_num}, #{order.option_count});
 	</insert>
 	
-	<select id="selectOrder" resultType="kr.green.plants.vo.OrderVO">
+	<select id="selectOrderList" resultType="kr.green.plants.vo.OrderVO">
 	select * from `order`
 	join item on item_num = item.num
 	join `option` on option_num = `option`.num

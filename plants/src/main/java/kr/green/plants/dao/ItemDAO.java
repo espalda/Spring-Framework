@@ -45,6 +45,8 @@ public interface ItemDAO {
 
 	public void deleteBasket(@Param("num") Integer num);
 
+	public ArrayList<OrderVO> selectOrderList(@Param("id") String id);
+
 	
 
 

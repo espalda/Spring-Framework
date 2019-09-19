@@ -14,9 +14,11 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import kr.green.plants.service.BoardService;
+import kr.green.plants.service.ItemService;
 import kr.green.plants.service.MemberService;
 import kr.green.plants.vo.BoardVO;
 import kr.green.plants.vo.MemberVO;
+import kr.green.plants.vo.OrderVO;
 import kr.green.plants.vo.WishVO;
 
 @Controller
@@ -28,6 +30,9 @@ public class MemberController {
 	
 	@Autowired
 	BoardService boardService;
+	
+	@Autowired
+	ItemService itemService;
 	
 	private static final Logger logger = LoggerFactory.getLogger(MemberController.class);
 		
@@ -43,10 +48,14 @@ public class MemberController {
 		   return "redirect:/member/profile";
 		}
 		
-		/* 회원 주문 내역 */
+		/** 회원 주문 내역 */
 		@RequestMapping(value="/order")
-		public ModelAndView memberOrderGet(ModelAndView mv){
+		public ModelAndView memberOrderGet(ModelAndView mv, HttpServletRequest r){
+			MemberVO user = (MemberVO)r.getSession().getAttribute("login");
+			ArrayList<OrderVO> order = itemService.selectOrderList(user.getId());
+			System.out.println("회원 주문 내역 : "+order);
 		    mv.setViewName("/member/order");
+		    mv.addObject("orderList", order);
 		    return mv;
 		}
 		
