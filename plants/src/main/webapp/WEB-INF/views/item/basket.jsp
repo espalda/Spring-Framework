@@ -25,6 +25,7 @@
 <body>
 <form action="<%=request.getContextPath()%>/item/basket/order" method="post">
 	<div class="container-11">
+	<h4>장바구니</h4>
 		<table class="table">
 			<tr>
 				<th width="3%"><input type="checkbox" class="check-all" checked></th>

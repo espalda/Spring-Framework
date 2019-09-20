@@ -196,20 +196,23 @@ public class ItemController {
 		/** 결제 후 주문페이지 DB 저장 */
 		@RequestMapping(value="/paid", method=RequestMethod.GET)
 		public ModelAndView itemPaidGet(ModelAndView mv, String order_num, Integer total){
+			ArrayList<OrderVO> order = itemService.selectOrderPaid(order_num);
 			mv.setViewName("/item/paid");
 			mv.addObject("order_num", order_num);
 			mv.addObject("total", total);
 			return mv;
 		}
 		@RequestMapping(value="/paid", method=RequestMethod.POST)
-		public String itemPaidPost(Model model, String id, Integer num, Integer total, 
+		public String itemPaidPost(Model model, String id, Integer total, 
 									Integer[] option_num, Integer[] option_count){
 			OrderVO order = new OrderVO();
 			order.setOrder_num(itemService.orderNum());
 			for(int i=0; i<option_num.length ; i++) {
+				OptionVO ovo = itemService.selectOptionNum(option_num[i]);
+				order.setItem_num(ovo.getItem_num());
 				order.setOption_num(option_num[i]);
 				order.setOption_count(option_count[i]);
-				itemService.insertOrder(order, id, num, total);
+				itemService.insertOrder(order, id, total);
 			}
 			 model.addAttribute("order_num", order.getOrder_num());
 			 model.addAttribute("total", total);

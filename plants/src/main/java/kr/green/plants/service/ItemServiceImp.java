@@ -89,8 +89,8 @@ public class ItemServiceImp implements ItemService{
 		}
 		
 		@Override
-		public void insertOrder(OrderVO order, String id, Integer num, Integer total) {
-			itemDao.insertOrder(order, id, num, total);
+		public void insertOrder(OrderVO order, String id, Integer total) {
+			itemDao.insertOrder(order, id, total);
 		}
 
 		@Override
@@ -101,6 +101,11 @@ public class ItemServiceImp implements ItemService{
 		@Override
 		public int selectItemCount(Criteria cri, String valid) {
 			return itemDao.selectItemCount(cri, valid);
+		}
+
+		@Override
+		public ArrayList<OrderVO> selectOrderPaid(String order_num) {
+			return itemDao.selectOrderPaid(order_num);
 		}
 
 

@@ -27,7 +27,7 @@
 <body>
 <form action="<%=request.getContextPath()%>/item/paid" method="post" >
 <input type="hidden" name="id" value="${login.id }">
-<input type="hidden" name="num" value="${item.num }">
+
 	<div class="container-11">
 		<h2>Order List</h2>
 		<table class="table">

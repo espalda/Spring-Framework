@@ -32,11 +32,13 @@ public interface ItemService {
 	
 	public ArrayList<OrderVO> selectOrderListId(String id);
 	
-	public void insertOrder(OrderVO order, String id, Integer num, Integer total);
+	public void insertOrder(OrderVO order, String id, Integer total);
 
 	public ArrayList<ItemVO> selectItemList(Criteria cri, String valid);
 
 	public int selectItemCount(Criteria cri, String valid);
+
+	public ArrayList<OrderVO> selectOrderPaid(String order_num);
 
 
 

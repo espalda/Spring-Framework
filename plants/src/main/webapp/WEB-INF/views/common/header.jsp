@@ -27,9 +27,6 @@
 	.shop-1{
 	position: relative;
 	}
-	.navigation{
-		font-weight: normal !important;
-	}
 /* ---------------------------- navigation-1 */
 	.nav-1{
 	border-bottom: 0px;
@@ -56,11 +53,13 @@
 	background-color: white;
 	color: #123132;
 	margin: 0 auto;
+	font-family: 'Consolas,monaco,monospace';
+	font-size: 16px;
 	}
 	
 	.nav-2 a{
 	color: #123132;
-	font-size: 22.4px;
+	font-size: 16px;
 	}
 	
 /* ---------------------------- dropbox-shop */
@@ -73,7 +72,7 @@
 	padding: 12px;
 	font-size: 12px;
 	border-top: 1px solid #b97f6d;
-	font-family: Consolas,monaco,monospace;
+	font-family: 'Consolas,monaco,monospace';
 	letter-spacing: 1px;
 	text-align: left;
 	}
@@ -142,16 +141,16 @@
 				<a class="menu-img" href="#"><img alt="" src="<%=request.getContextPath()%>/"></a>
 			</li>
 			<li class="nav-item">
-				<a class="nav-link" href="<%=request.getContextPath()%>/">home</a>
+				<a class="nav-link" href="<%=request.getContextPath()%>/">HOME</a>
 			</li>
 			<li class="nav-item">
-				<a class="nav-link" href="<%=request.getContextPath()%>/item/new">new</a>
+				<a class="nav-link" href="<%=request.getContextPath()%>/item/new">NEW</a>
 			</li>
 			
 			<!-- dropbox-tab -->
 			<li class="nav-link">
 				<div class="shop-1 clearfix">
-					<a>product <i class="fas fa-caret-down"></i></a>
+					<a>PRODUCT</a>
 					<ul class="shop-list">
 						<li><a class="nav-link" href="<%=request.getContextPath()%>/item/list">Succulents</a></li>
 						<li><a class="nav-link" href="<%=request.getContextPath()%>/item/list">Cactus</a></li>
@@ -162,10 +161,10 @@
 				</div>
 			</li>	
 			<li class="nav-item">
-			  <a class="nav-link" href="<%=request.getContextPath()%>/item/event">event</a>
+			  <a class="nav-link" href="<%=request.getContextPath()%>/item/event">EVENT</a>
 			</li> 
 			<li class="nav-item">
-			  <a class="nav-link" href="<%=request.getContextPath()%>/board/list">board</a>
+			  <a class="nav-link" href="<%=request.getContextPath()%>/board/list">BOARD</a>
 			</li>
 		</ul>
 	</div>

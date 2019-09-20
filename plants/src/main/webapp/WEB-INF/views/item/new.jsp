@@ -34,28 +34,26 @@
 	float: left;
 	padding: 10px;
 	}
-
 </style>
 </head>
 <body class="text-center">
 	<div class="container">
 		<div>
-			<h1></h1>
 			<img src="<%=request.getContextPath()%>/resources/img/back-5.jpg">
-			<h3>새로나온 신상품을 빠르게 만나보세요</h3>
+			<h4>새로나온 신상품을 빠르게 만나보세요</h4>
 		</div>
 	
 		<div class="item-2 clearfix">
 			<c:forEach var="item" items="${itemNewList }">
-			<div class="item-list">
-			<a href="<%=request.getContextPath()%>/item/display?num=${item.num}">
-			<div class="img">
-				<img class="scale" src="<%=request.getContextPath()%>/resources/uploadfiles${item.file}" width="300px" height="auto">
-			</div>
-			<h1>${item.name }</h1>
-			<h2>${item.price }</h2>
-			</a>
-			</div>
+				<div class="item-list">
+					<a href="<%=request.getContextPath()%>/item/display?num=${item.num}">
+						<div class="img">
+							<img class="scale" src="<%=request.getContextPath()%>/resources/uploadfiles${item.file}" width="300px" height="auto">
+						</div>
+						<h2>${item.name }</h2>
+						<h3>${item.price }</h3>
+					</a>
+				</div>
 			</c:forEach>
 		</div>
 		

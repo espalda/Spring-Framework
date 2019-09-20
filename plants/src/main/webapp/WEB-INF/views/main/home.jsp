@@ -4,7 +4,6 @@
 <html>
 <head>
 <style>
-
 /* ------------------bootstrap-image tag */
 .hero-image {
   background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("resources/img/garlic-4.jpg");
@@ -41,6 +40,11 @@
   background-color: #555;
   color: white;
 }
+
+h1{
+font-family: 'UhBeeDongKyung';
+font-size: 100px;
+}
 </style>
 </head>
 <body>
@@ -53,6 +57,8 @@
 	  </div>
 	</div>
 	<h2>Best</h2>
-	<mark>판매 갯수가 높은 아이템 best3</mark>
+	<mark>판매 갯수가 높은 아이템 best3<br>
+			주문시 주소록 저장, 수량 삭제
+	</mark>
 </body>
 </html>
