@@ -20,6 +20,8 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote-bs4.js"></script>
 
 <!-- * css 연결 -->
-<link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/colors.css">
 <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/main.css">
 <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/animation.css">
+
+<!-- * font 연결 -->
+<link rel="stylesheet" href="//cdn.jsdelivr.net/font-iropke-batang/1.2/font-iropke-batang.css">

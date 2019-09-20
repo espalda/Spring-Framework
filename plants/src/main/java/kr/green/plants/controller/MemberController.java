@@ -11,6 +11,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -54,21 +55,17 @@ public class MemberController {
 		public ModelAndView memberOrderGet(ModelAndView mv, HttpServletRequest r){
 			MemberVO user = (MemberVO)r.getSession().getAttribute("login");
 			ArrayList<OrderVO> order = itemService.selectOrderListId(user.getId());
-			System.out.println("회원 주문 내역 : "+order);
 		    mv.setViewName("/member/order");
 		    mv.addObject("orderList", order);
 		    return mv;
 		}
 		
 		
-		/* 옵션정보, 선택 수량 담기 미구현 */
 		/** 회원 위시리스트 내역 */
 		@RequestMapping(value="/wishlist")
 		public ModelAndView memberWishList(ModelAndView mv, HttpServletRequest r){
 			MemberVO user = (MemberVO)r.getSession().getAttribute("login");
-			System.out.println("위시리스트 아이디 : "+ user.getId());
 			ArrayList<WishVO> wish = memberService.selectWishListId(user.getId());
-			System.out.println("위시리스트 리스트 : "+wish);
 			mv.addObject("wishlist", wish);
 			mv.setViewName("/member/wishlist");
 			return mv;
@@ -81,10 +78,9 @@ public class MemberController {
 		/** ajax 위시리스트 상품 삭제 */
 		@RequestMapping(value ="/wish/remove")
 		@ResponseBody
-		public Map<Object, Object> basketRemove(Integer num){
+		public Map<Object, Object> WishRemove(@RequestBody Integer num){
 		    Map<Object, Object> map = new HashMap<Object, Object>();
-		    System.out.println(num);
-		    
+		    memberService.deleteWish(num);
 		    return map;
 		}
 		

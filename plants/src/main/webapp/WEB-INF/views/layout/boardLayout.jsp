@@ -3,6 +3,12 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
  
 <html>
+<style>
+.volume {
+font-size: 16px;
+font-family: 'Iropke Batang';
+}
+</style>
 <head>
 <title>plants</title>
 <jsp:include page="/WEB-INF/views/include/path.jsp"></jsp:include>

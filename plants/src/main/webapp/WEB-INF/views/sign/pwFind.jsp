@@ -3,12 +3,45 @@
 <!DOCTYPE html>
 <html>
 <head>
+<style>
+.sb{
+padding: 15px 15px 0 15px;
+}
+.ss{
+margin-bottom: 10px;
+}
+</style>
+</head>
+<body>
+	<form action="<%=request.getContextPath()%>/password/send" id="pwFind">
+		<div class="container text-center">
+		<h2>비밀번호 찾기</h2>
+			<div class="ss">
+				<input type="text" class="input" placeholder="아이디" name="id">
+			</div>
+				
+			<div class="ss">
+				<input type="text" class="input" placeholder="이름" name="name">
+			</div>
+
+			<div class="ss">
+				<input type="email" class="input" placeholder="이메일" name="email" id="email">
+			</div>
+			<div class="sb">
+				<button type="button" class="btn-raw find">비밀번호 찾기</button>
+			</div>
+			<div class="sb">
+				<i class="fas fa-caret-right"></i><a href="<%=request.getContextPath()%>/idFind">아이디 찾기</a>
+			</div>
+			
+			<div class="sb ctn">
+			</div>
+		</div>
+	</form>
 <script>
-$(document).ready(function(){
 	/** id 입력창에 마우스 커서가 자동 포커스 기능 */
-	 $(document).ready(function(){
-		$('input[name=id]').focus();
-	})
+	$('input[name=id]').focus();
+
 	/** 비밀번호 찾기 기능 */
 	$('.find').click(function(){
 		var id = $('input[name=id]').val();
@@ -34,41 +67,6 @@ $(document).ready(function(){
 			}
 		});
 	});
-})
 </script>
-<style>
-.sb{
-padding: 15px 15px 0 15px;
-}
-</style>
-</head>
-<body>
-	<form action="<%=request.getContextPath()%>/password/send" id="pwFind">
-		<div class="container text-center">
-		<h2>Find Password</h2>
-			<div>
-				<input type="text" class="input" placeholder="아이디" name="id">
-			</div>
-				
-			<div>
-				<input type="text" class="input" placeholder="이름" name="name">
-			</div>
-
-			<div>
-				<input type="email" class="input" placeholder="이메일" name="email" id="email">
-			</div>
-				
-			<div class="sb">
-				<a href="<%=request.getContextPath()%>/idFind">Find ID</a>
-			</div>
-			<div class="sb">
-				<button type="button" class="btn-raw find">FIND PASSWORD</button>
-			</div>
-			
-			<div class="sb ctn">
-				입력하신 이메일로 비밀번호가 전송되었습니다.
-			</div>
-		</div>
-	</form>
 </body>
 </html>

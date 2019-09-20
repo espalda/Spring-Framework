@@ -20,10 +20,8 @@ public class MemberServiceImp implements MemberService {
 	
 	@Autowired
 	MemberDAO memberDao;
-
 	@Autowired
 	BCryptPasswordEncoder passwordEncoder;
-	
 	@Autowired
 	private JavaMailSender mailSender;
 
@@ -146,6 +144,11 @@ public class MemberServiceImp implements MemberService {
 		@Override
 		public ArrayList<WishVO> selectWishListId(String member_id) {
 			return memberDao.selectWishListId(member_id);
+		}
+
+		@Override
+		public void deleteWish(Integer num) {
+			memberDao.deleteWish(num);
 		}
 
 	

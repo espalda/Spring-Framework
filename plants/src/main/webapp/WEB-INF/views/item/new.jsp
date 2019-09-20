@@ -42,7 +42,7 @@
 		<div>
 			<h1></h1>
 			<img src="<%=request.getContextPath()%>/resources/img/back-5.jpg">
-			<p>새로나온 신상품을 빠르게 만나보세요</p>
+			<h3>새로나온 신상품을 빠르게 만나보세요</h3>
 		</div>
 	
 		<div class="item-2 clearfix">

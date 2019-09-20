@@ -16,7 +16,7 @@ border: 1px solid black;
 <body class="text-center">
 	<div class="container">
 		<div class="paid">
-		<h6>피클즈의 제품을 주문해주셔서 감사합니다.</h6>
+		<h2>피클즈의 제품을 주문해주셔서 감사합니다.</h2>
 		<p>주문번호 : ${order_num }</p>
 		<p>최종결제금액 : ${total }</p>
 		<mark>주문내역확인은 마이페이지의 주문/배송조회에서 확인하실 수 있습니다.</mark>

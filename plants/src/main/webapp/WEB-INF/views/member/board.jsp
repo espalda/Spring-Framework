@@ -11,17 +11,15 @@
 		<div>
 			<table class="table">
 				<tr>
-					<th width="5%"><input type="checkbox"></th>
-					<th width="10%">분류</th>
-					<th width="40%">제목</th>
-					<th width="10%">작성자</th>
-					<th width="15%">작성일</th>
+					<th>분류</th>
+					<th>제목</th>
+					<th>작성자</th>
+					<th>작성일</th>
 				</tr>
 				<c:forEach var="post" items="${boardList }">
 				<tr>
-					<td><input type="checkbox"></td>
 					<td>${post.category }</td>
-					<td>${post.title }</td>
+					<td><a href="<%=request.getContextPath()%>/board/display?num=${post.num}">${post.title }</a></td>
 					<td>${post.member_id }</td>
 					<td>${post.registered }</td>
 				</tr>

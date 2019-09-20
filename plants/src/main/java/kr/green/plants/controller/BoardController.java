@@ -26,8 +26,11 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
+import kr.green.plants.pagination.Criteria;
+import kr.green.plants.pagination.PageMaker;
 import kr.green.plants.service.AdminService;
 import kr.green.plants.service.BoardService;
+import kr.green.plants.service.PageMakerService;
 import kr.green.plants.utils.UploadFileUtils;
 import kr.green.plants.vo.BoardVO;
 
@@ -39,6 +42,8 @@ public class BoardController {
 	BoardService boardService;
 	@Autowired
 	AdminService adminService;
+	@Autowired
+	PageMakerService pageMakerService;
 	@Resource
 	private String uploadPath;
 
@@ -47,10 +52,16 @@ public class BoardController {
 		/* isWriter 구현 + 페이지네이션 */
 		/** 게시글 리스트 */
 		@RequestMapping(value="/list")
-		public ModelAndView boardListGet(ModelAndView mv){
-			ArrayList<BoardVO> board = adminService.selectBoardList();
+		public ModelAndView boardListGet(ModelAndView mv, Criteria cri){
+			String valid = "I";
+			int displayPageNum = 3;
+			cri.setPerPageNum(7);
+			ArrayList<BoardVO> list = boardService.selectBoardList(cri,valid);
+			int totalCount = boardService.selectBoardCount(cri,valid);
+			PageMaker pm = pageMakerService.getPageMaker(displayPageNum, cri, totalCount);
 		    mv.setViewName("/board/list");
-		    mv.addObject("boardList", board);
+		    mv.addObject("boardList", list);
+		    mv.addObject("pageMaker", pm);
 		    return mv;
 		}
 		

@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import javax.servlet.http.HttpServletRequest;
 
+import kr.green.plants.pagination.Criteria;
 import kr.green.plants.vo.BoardVO;
 
 public interface BoardService {
@@ -19,5 +20,9 @@ public interface BoardService {
 	public void updateBoard(BoardVO bvo);
 
 	public void deleteBoard(Integer num);
+
+	public int selectBoardCount(Criteria cri, String valid);
+
+	public ArrayList<BoardVO> selectBoardList(Criteria cri, String valid);
 
 }

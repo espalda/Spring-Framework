@@ -2,16 +2,9 @@ package kr.green.plants.vo;
 
 public class WishVO extends ItemVO {
 	
-	private int num;
 	private String member_id;
 	private int item_num;
 	
-	public int getNum() {
-		return num;
-	}
-	public void setNum(Integer num) {
-		this.num = num;
-	}
 	public String getMember_id() {
 		return member_id;
 	}
@@ -26,9 +19,7 @@ public class WishVO extends ItemVO {
 	}
 	@Override
 	public String toString() {
-		return "WishVO [num=" + num + ", member_id=" + member_id + ", item_num=" + item_num + "]";
-	}
-	
-	
+		return "WishVO [" + super.toString() + ", member_id=" + member_id + ", item_num=" + item_num + "]";
+	}	
 
 }

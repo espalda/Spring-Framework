@@ -26,6 +26,10 @@
 		word-spacing: 2px;
 		text-align: center;
 		}
+		.footer{
+		font-weight: normal !important;
+		font-family: Consolas,monaco,monospace !important;
+		}
 	</style>
 </head>
 <body>

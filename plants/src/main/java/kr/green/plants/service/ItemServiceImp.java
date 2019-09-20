@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import kr.green.plants.dao.ItemDAO;
+import kr.green.plants.pagination.Criteria;
 import kr.green.plants.vo.BasketVO;
 import kr.green.plants.vo.ItemVO;
 import kr.green.plants.vo.OptionVO;
@@ -90,6 +91,16 @@ public class ItemServiceImp implements ItemService{
 		@Override
 		public void insertOrder(OrderVO order, String id, Integer num, Integer total) {
 			itemDao.insertOrder(order, id, num, total);
+		}
+
+		@Override
+		public ArrayList<ItemVO> selectItemList(Criteria cri, String valid) {
+			return itemDao.selectItemList(cri, valid);
+		}
+
+		@Override
+		public int selectItemCount(Criteria cri, String valid) {
+			return itemDao.selectItemCount(cri, valid);
 		}
 
 

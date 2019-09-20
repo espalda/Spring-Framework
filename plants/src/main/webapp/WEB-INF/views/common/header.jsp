@@ -7,8 +7,7 @@
 <style>
 	body{
 	background-color: #ededed;
-	}
-		
+	}	
 	.shop-1 a{
 	width: 150px;
 	text-decoration: none;
@@ -28,13 +27,16 @@
 	.shop-1{
 	position: relative;
 	}
-
+	.navigation{
+		font-weight: normal !important;
+	}
 /* ---------------------------- navigation-1 */
 	.nav-1{
 	border-bottom: 0px;
 	background-color:#ededed;
 	font-size: 11px;
 	height: 25px;
+	font-family: Consolas,monaco,monospace !important;
 	}
 	
 	.nav-1 a{
@@ -58,7 +60,7 @@
 	
 	.nav-2 a{
 	color: #123132;
-	font-size: 15px;
+	font-size: 22.4px;
 	}
 	
 /* ---------------------------- dropbox-shop */
@@ -72,6 +74,7 @@
 	font-size: 12px;
 	border-top: 1px solid #b97f6d;
 	font-family: Consolas,monaco,monospace;
+	letter-spacing: 1px;
 	text-align: left;
 	}
 
@@ -84,13 +87,13 @@
 	padding: 12px;
 	font-size: 12px;
 	border-top: 1px solid #b97f6d;
-	font-family: Consolas,monaco,monospace;
 	text-align: left;
 	}
 	
 </style>
 </head>
 <body>
+<div class="navigation">
 	<div class="nav-1">
 		<ul class="nav justify-content-end" >
 			<c:if test="${login eq null }">
@@ -139,16 +142,16 @@
 				<a class="menu-img" href="#"><img alt="" src="<%=request.getContextPath()%>/"></a>
 			</li>
 			<li class="nav-item">
-				<a class="nav-link" href="<%=request.getContextPath()%>/">HOME</a>
+				<a class="nav-link" href="<%=request.getContextPath()%>/">home</a>
 			</li>
 			<li class="nav-item">
-				<a class="nav-link" href="<%=request.getContextPath()%>/item/new">NEW</a>
+				<a class="nav-link" href="<%=request.getContextPath()%>/item/new">new</a>
 			</li>
 			
 			<!-- dropbox-tab -->
 			<li class="nav-link">
 				<div class="shop-1 clearfix">
-					<a>PRODUCT</a>
+					<a>product <i class="fas fa-caret-down"></i></a>
 					<ul class="shop-list">
 						<li><a class="nav-link" href="<%=request.getContextPath()%>/item/list">Succulents</a></li>
 						<li><a class="nav-link" href="<%=request.getContextPath()%>/item/list">Cactus</a></li>
@@ -159,14 +162,14 @@
 				</div>
 			</li>	
 			<li class="nav-item">
-			  <a class="nav-link" href="<%=request.getContextPath()%>/item/event">EVENT</a>
+			  <a class="nav-link" href="<%=request.getContextPath()%>/item/event">event</a>
 			</li> 
 			<li class="nav-item">
-			  <a class="nav-link" href="<%=request.getContextPath()%>/board/list">BOARD</a>
+			  <a class="nav-link" href="<%=request.getContextPath()%>/board/list">board</a>
 			</li>
 		</ul>
 	</div>
-
+</div>
 
 
 <script>

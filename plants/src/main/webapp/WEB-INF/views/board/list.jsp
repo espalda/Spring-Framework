@@ -7,13 +7,15 @@
 </style>
 </head>
 <body>
+<form action="<%=request.getContextPath()%>/board/list" method="post">
 	<span>카테고리</span>
-		<select>
-			<option>공지</option>
-			<option>건의</option>
-			<option>질문</option>
-			<option>교환</option>
-			<option>환불</option>
+		<select name="type">
+			<option>전체</option>
+			<option value="공지" <c:if test="${pageMaker.criteria.type eq '공지'}">selected</c:if> >공지</option>
+			<option value="건의" <c:if test="${pageMaker.criteria.type eq '건의'}">selected</c:if> >건의</option>
+			<option value="질문" <c:if test="${pageMaker.criteria.type eq '질문'}">selected</c:if> >질문</option>
+			<option value="교환" <c:if test="${pageMaker.criteria.type eq '교환'}">selected</c:if> >교환</option>
+			<option value="환불" <c:if test="${pageMaker.criteria.type eq '환불'}">selected</c:if> >환불</option>
 		</select>
 					
 		<table class="table">
@@ -40,9 +42,32 @@
 		   	<td colspan="5">게시글이 존재하지 않습니다</td>
 		  	</tr>
 			</c:if>
-				
 		</table>
+		<a href="<%=request.getContextPath()%>/board/register"><button class="btn-raw float-right">게시글 작성</button></a>
+</form>
 		
-		<a href="<%=request.getContextPath()%>/board/register"><button class="btn-raw float-right">WRITE</button></a>
+		
+		<!-- pagination code -->
+		<div class="pagination">
+			<c:if test="${pageMaker.prev}">
+				<a href="<%=request.getContextPath()%>/board/list?page=${pageMaker.startPage-1}&type=${pageMaker.criteria.type}"><i class="fas fa-backward"></i></a>
+		 	</c:if>
+		 	<c:forEach begin="${pageMaker.startPage }" end="${pageMaker.endPage}" var="index">
+				<c:if test="${pageMaker.criteria.page == index}">
+					<a class="active" href="<%=request.getContextPath()%>/board/list?page=${index}&type=${pageMaker.criteria.type}">${index}</a>
+				</c:if>
+				<c:if test="${pageMaker.criteria.page != index}">	
+					<a href="<%=request.getContextPath()%>/board/list?page=${index}&type=${pageMaker.criteria.type}">${index}</a>
+				</c:if>
+			</c:forEach>
+			<c:if test="${pageMaker.next}">
+				<a href="<%=request.getContextPath()%>/board/list?page=${pageMaker.endPage+1}&type=${pageMaker.criteria.type}"><i class="fas fa-forward"></i></a>
+			</c:if>
+		</div> <!-- pagination -->
+<script>
+	$('select[name=type]').change(function(){
+		location.href='<%=request.getContextPath()%>/board/list?type='+$(this).val();
+	})
+</script>
 </body>
 </html>

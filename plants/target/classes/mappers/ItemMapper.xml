@@ -59,4 +59,26 @@
 	where member_id = #{id}
 	</select>
 	
+	<select id="selectItemList" resultType="kr.green.plants.vo.ItemVO">
+	select * from item where
+    <choose>
+    	<when test='valid.equals("I") || valid.equals("D")'>
+    	valid = #{valid}
+    	</when>
+    	<otherwise>valid = 'I' or valid = 'D'</otherwise>
+    </choose>
+    order by num desc
+    limit ${cri.pageStart}, ${cri.perPageNum}
+	</select>
+	
+	<select id="selectItemCount" resultType="int">
+	select count(*) from item where
+    <choose>
+    	<when test='valid.equals("I") || valid.equals("D")'>
+    	valid = #{valid}
+    	</when>
+    	<otherwise>valid = 'I' or valid = 'D'</otherwise>
+    </choose>
+    
+	</select>
 </mapper>

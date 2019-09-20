@@ -24,4 +24,6 @@ public interface MemberDAO {
 
 	public ArrayList<WishVO> selectWishListId(@Param("id") String member_id);
 
+	public void deleteWish(@Param("num") Integer num);
+
 }

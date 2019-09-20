@@ -6,12 +6,6 @@
 <style>
 
 /* ------------------bootstrap-image tag */
-body, html {
-  height: 100%;
-  margin: 0;
-  font-family: Arial, Helvetica, sans-serif;
-}
-
 .hero-image {
   background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("resources/img/garlic-4.jpg");
   height: 50%;
@@ -19,6 +13,8 @@ body, html {
   background-repeat: no-repeat;
   background-size: cover;
   position: relative;
+  font-family: Consolas,monaco,monospace !important;
+  font-size: 11px;
 }
 
 .hero-text {

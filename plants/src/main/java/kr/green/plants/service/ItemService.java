@@ -2,6 +2,7 @@ package kr.green.plants.service;
 
 import java.util.ArrayList;
 
+import kr.green.plants.pagination.Criteria;
 import kr.green.plants.vo.BasketVO;
 import kr.green.plants.vo.ItemVO;
 import kr.green.plants.vo.OptionVO;
@@ -32,6 +33,10 @@ public interface ItemService {
 	public ArrayList<OrderVO> selectOrderListId(String id);
 	
 	public void insertOrder(OrderVO order, String id, Integer num, Integer total);
+
+	public ArrayList<ItemVO> selectItemList(Criteria cri, String valid);
+
+	public int selectItemCount(Criteria cri, String valid);
 
 
 

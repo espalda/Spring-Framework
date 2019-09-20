@@ -77,7 +77,7 @@
 			</tr>
 		</table>
 		
-		<button class="btn-tree">ORDER</button>
+		<button class="btn-tree">주문하기</button>
 		
 	</div>
 </form>
@@ -85,8 +85,8 @@
 <script>
 /* 장바구니 수량 변경 */
 $('.modify').click(function(){
-	var num = $('input[name=basket_num]').val();
-	var option_count = $('input[name=option_count]').val();
+	var num = $(this).parents('tr').find('input[name=basket_num]').val();
+	var option_count = $(this).parents('tr').find('input[name=option_count]').val();
 	$.ajax({
 		async:true,
 		type:'POST',
@@ -106,7 +106,7 @@ $('.modify').click(function(){
 
 /* 장바구니 제품 삭제 */
 $('.remove').click(function(){
-	var num = $('input[name=basket_num]').val();
+	var num = $(this).parents('tr').find('input[name=basket_num]').val();
 	$.ajax({
 		async:true,
 		type:'POST',

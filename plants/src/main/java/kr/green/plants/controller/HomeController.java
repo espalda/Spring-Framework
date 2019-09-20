@@ -54,6 +54,7 @@ public class HomeController {
 		@RequestMapping(value ="/checkId")
 		@ResponseBody
 		public boolean idCheck(@RequestBody String id){
+			System.out.println(id);
 			if(memberService.selectMemberId(id) != null) return true;
 		    return false;
 		}

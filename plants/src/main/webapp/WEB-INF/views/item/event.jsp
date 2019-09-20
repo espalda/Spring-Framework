@@ -6,10 +6,8 @@
 </head>
 <body class="text-center">
 	<div class="container">
-		<h1>SUMMER 30% DISCOUNT COUPON</h1>
-		<p>PROTECT YOUR PRIVATE HOME FROM FINE DUST</p>
-		<img src="<%=request.getContextPath()%>/resources/img/item-1.jpg">
-		<p>PROTECT YOUR PRIVATE HOME FROM FINE DUST</p>
+		<h1>가을 정원 텃발을 가꾸어 보세요</h1>
+		<p>미세먼지로 부터 집안의 공기를 보호해요.</p>
 		<mark>함께 구매하세요. 원예용품 식물영양제</mark>
 	</div>
 </body>

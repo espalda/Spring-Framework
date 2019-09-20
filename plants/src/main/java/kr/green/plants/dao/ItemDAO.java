@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import org.apache.ibatis.annotations.Param;
 
+import kr.green.plants.pagination.Criteria;
 import kr.green.plants.vo.BasketVO;
 import kr.green.plants.vo.ItemVO;
 import kr.green.plants.vo.OptionVO;
@@ -31,7 +32,11 @@ public interface ItemDAO {
 
 	public ArrayList<OrderVO> selectOrderListId(@Param("id") String id);
 	
-	public void insertOrder(@Param("order")OrderVO order, @Param("id") String id, @Param("num") Integer num, @Param("total") Integer total);
+	public void insertOrder(@Param("order") OrderVO order, @Param("id") String id, @Param("num") Integer num, @Param("total") Integer total);
+
+	public ArrayList<ItemVO> selectItemList(@Param("cri")Criteria cri, @Param("valid") String valid);
+
+	public int selectItemCount(@Param("cri")Criteria cri, @Param("valid")String valid);
 
 
 

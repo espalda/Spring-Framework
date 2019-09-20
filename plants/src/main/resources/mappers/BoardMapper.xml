@@ -28,4 +28,62 @@
 	<update id="deleteBoard">
 	update board set valid = 'D' where num = #{num}
 	</update>
+  
+  <select id="selectBoardList" resultType="kr.green.plants.vo.BoardVO">
+    select * from board where
+    <choose>
+    	<when test='valid.equals("I") || valid.equals("D")'>
+    	valid = #{valid}
+    	</when>
+    	<otherwise>valid = 'I' or valid = 'D'</otherwise>
+    </choose>
+    <choose>
+    	<when test="cri.type == '공지'">
+    		and category like '공지'
+    	</when>
+    	<when test="cri.type == '건의'">
+    		and category like '건의'
+    	</when>
+    	<when test="cri.type == '질문'">
+    		and category like '질문'
+    	</when>
+    	<when test="cri.type == '교환'">
+    		and category like '교환'
+    	</when>
+    	<when test="cri.type == '환불'">
+    		and category like '환불'
+    	</when>
+    </choose>
+    order by num desc
+    limit ${cri.pageStart}, ${cri.perPageNum}
+  </select>
+  
+  
+  <select id="selectBoardCount" resultType="int">
+    select count(*) from board where
+    <choose>
+    	<when test='valid.equals("I") || valid.equals("D")'>
+    	valid = #{valid}
+    	</when>
+    	<otherwise>valid = 'I' or valid = 'D'</otherwise>
+    </choose>
+    <choose>
+			<when test="cri.type == '공지'">
+    		and category like '공지'
+    	</when>
+    	<when test="cri.type == '건의'">
+    		and category like '건의'
+    	</when>
+    	<when test="cri.type == '질문'">
+    		and category like '질문'
+    	</when>
+    	<when test="cri.type == '교환'">
+    		and category like '교환'
+    	</when>
+    	<when test="cri.type == '환불'">
+    		and category like '환불'
+    	</when>
+    </choose>
+  </select>
+	
 </mapper>

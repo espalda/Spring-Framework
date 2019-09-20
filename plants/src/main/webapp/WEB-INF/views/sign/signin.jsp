@@ -4,6 +4,34 @@
 <!DOCTYPE html>
 <html>
 <head>
+<style>
+	#signin label{
+	color: #b30000;
+	}
+</style>
+</head>
+<body>
+	<form action="<%=request.getContextPath()%>/signin" method="post" id="signin">
+		<div class="container text-center">
+		<p>로그인</p>
+			<div>
+				<input type="text" class="input" placeholder="아이디" name="id">
+			</div>
+				<label id="id-error" for="id"></label>
+
+			<div>
+				<input type="password" class="input" placeholder="비밀번호" name="pw">
+			</div>
+				<label id="pw-error" for="pw"></label>
+	
+				<button class="btn-tree d-block">로그인</button>
+				<br>
+				<i class="fas fa-caret-right"></i><a class="text-center" href="<%=request.getContextPath()%>/signup">회원가입을 하시려면 여기를 클릭하세요.</a><br>
+				<i class="fas fa-caret-right"></i><a href="<%=request.getContextPath()%>/idFind">아이디 찾기</a><br>
+				<i class="fas fa-caret-right"></i><a href="<%=request.getContextPath()%>/pwFind">비밀번호 찾기</a><br>
+				
+		</div>
+	</form>
 <script>
 	$(document).ready(function(){
 		/** 입력창에 마우스 커서가 자동으로 포커스 되는 기능 구현 */
@@ -50,40 +78,5 @@
 	    "Please check your input."
 	);
 </script>
-
-<style>
-	#signin label{
-	color: #b30000;
-	}
-</style>
-
-</head>
-<body>
-	<form action="<%=request.getContextPath()%>/signin" method="post" id="signin">
-		<div class="container text-center">
-		<mark>로그인</mark>
-			<div>
-				<input type="text" class="input" placeholder="아이디" name="id">
-			</div>
-				<label id="id-error" for="id"></label>
-
-			<div>
-				<input type="password" class="input" placeholder="비밀번호" name="pw">
-			</div>
-				<label id="pw-error" for="pw"></label>
-				
-				
-				
-			<div>
-				<a href="<%=request.getContextPath()%>/idFind">Find ID</a>
-				
-				<a href="<%=request.getContextPath()%>/pwFind">PASSWORD</a>
-			</div>
-			
-				<button class="btn-tree d-block">SIGN IN</button>
-				<br>
-				<a class="text-center" href="<%=request.getContextPath()%>/signup">회원가입을 하시려면 여기를 클릭하세요.</a>
-		</div>
-	</form>
 </body>
 </html>

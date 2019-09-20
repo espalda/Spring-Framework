@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import kr.green.plants.dao.BoardDAO;
+import kr.green.plants.pagination.Criteria;
 import kr.green.plants.vo.BoardVO;
 
 @Service
@@ -52,6 +53,16 @@ public class BoardServiceImp implements BoardService {
 		@Override
 		public void deleteBoard(Integer num) {
 			boardDao.deleteBoard(num);
+		}
+
+		@Override
+		public int selectBoardCount(Criteria cri, String valid) {
+			return boardDao.selectBoardCount(cri,valid);
+		}
+
+		@Override
+		public ArrayList<BoardVO> selectBoardList(Criteria cri, String valid) {
+			return boardDao.selectBoardList(cri, valid);
 		}
 
 }

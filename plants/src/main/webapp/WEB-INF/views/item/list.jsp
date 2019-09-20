@@ -28,10 +28,10 @@
 			<img src="<%=request.getContextPath()%>/resources/img/back-6.jpg" width="100%">
 		</section>
 		
-		<select name="category">
-			<option value="등록순">등록순</option>
-			<option value="가격순">가격순</option>
-			<option value="인기순">인기순</option>
+		<select name="type">
+			<option value="등록순" <c:if test="${pageMaker.criteria.type eq '등록순'}">selected</c:if> >등록순</option>
+			<option value="가격순" <c:if test="${pageMaker.criteria.type eq '가격순'}">selected</c:if> >가격순</option>
+			<option value="인기순" <c:if test="${pageMaker.criteria.type eq '인기순'}">selected</c:if> >인기순</option>
 		</select>
 		
 		<section class="text-center">
@@ -49,7 +49,28 @@
 			</c:forEach>
 			</div>
 		</section>
-		
 	</div>
+	<!-- pagination code -->
+		<div class="pagination">
+			<c:if test="${pageMaker.prev}">
+				<a href="<%=request.getContextPath()%>/item/list?page=${pageMaker.startPage-1}"><i class="fas fa-backward"></i></a>
+		 	</c:if>
+		 	<c:forEach begin="${pageMaker.startPage }" end="${pageMaker.endPage}" var="index">
+				<c:if test="${pageMaker.criteria.page == index}">
+					<a class="active" href="<%=request.getContextPath()%>/item/list?page=${index}">${index}</a>
+				</c:if>
+				<c:if test="${pageMaker.criteria.page != index}">
+					<a href="<%=request.getContextPath()%>/item/list?page=${index}">${index}</a>
+				</c:if>
+			</c:forEach>
+			<c:if test="${pageMaker.next}">
+				<a href="<%=request.getContextPath()%>/item/list?page=${pageMaker.endPage+1}"><i class="fas fa-forward"></i></a>
+			</c:if>
+		</div> <!-- pagination -->
+<script>
+<%-- 	$('select[name=type]').change(function(){
+		location.href='<%=request.getContextPath()%>/item/list?type='+$(this).val();
+	}) --%>
+</script>
 </body>
 </html>

@@ -18,9 +18,13 @@ public interface MemberService {
 
 	public void deleteMember(String id);
 
-	public void insertWish(String id, Integer num);
 
 	public ArrayList<WishVO> selectWishListId(String member_id);
+
+	public void insertWish(String id, Integer num);
+
+	public void deleteWish(Integer num);
+	
 	
 	/** id, pw 찾기 관련 서비스 */
 
@@ -35,6 +39,7 @@ public interface MemberService {
 	public void updatePw(String id, String email, String newPw);
 
 	public void sendMail(String email, String title, String contents);
+
 
 
 }

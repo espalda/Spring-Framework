@@ -16,8 +16,12 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import kr.green.plants.pagination.Criteria;
+import kr.green.plants.pagination.PageMaker;
 import kr.green.plants.service.AdminService;
+import kr.green.plants.service.BoardService;
 import kr.green.plants.service.ItemService;
+import kr.green.plants.service.PageMakerService;
 import kr.green.plants.vo.BasketVO;
 import kr.green.plants.vo.ItemVO;
 import kr.green.plants.vo.MemberVO;
@@ -30,8 +34,9 @@ public class ItemController {
 	
 	@Autowired
 	ItemService itemService;
+
 	@Autowired
-	AdminService adminService;
+	PageMakerService pageMakerService;
 		
 		/** 새상품 - 최신순 아이템 3가지 화면에 뿌려주는 기능 */
 		@RequestMapping(value="/new")
@@ -50,14 +55,18 @@ public class ItemController {
 		    return mv;
 		}
 		
-		
-		/* 상품 카테고리별 뿌리기 */
 		/** 상품 리스트 */
 		@RequestMapping(value="/list")
-		public ModelAndView itemList(ModelAndView mv, Model model){
+		public ModelAndView itemList(ModelAndView mv, Criteria cri){
+			String valid = "I";
+			int displayPageNum = 3;
+			cri.setPerPageNum(6);
+		    ArrayList<ItemVO> ivo = itemService.selectItemList(cri, valid);
+		    int totalCount = itemService.selectItemCount(cri, valid);
+			PageMaker pm = pageMakerService.getPageMaker(displayPageNum, cri, totalCount);
 		    mv.setViewName("/item/list");
-		    ArrayList<ItemVO> ivo = adminService.selectItemList();
-		    model.addAttribute("itemList", ivo);
+		    mv.addObject("itemList", ivo);
+		    mv.addObject("pageMaker", pm);
 		    return mv;
 		}
 		

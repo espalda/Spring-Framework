@@ -5,6 +5,6 @@ import kr.green.plants.pagination.PageMaker;
 
 public interface PageMakerService {
 
-	PageMaker getPageMaker(int DisplayPageNum, Criteria cri, int totalCount);
+	PageMaker getPageMaker(int displayPageNum, Criteria cri, int totalCount);
 
 }

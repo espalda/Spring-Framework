@@ -25,15 +25,21 @@
 	select * from member where id = #{id} and name = #{name} and email = #{email}
 	</select>
 	
-	<insert id="insertWish">
-	insert into wishlist(member_id, item_num) values(#{id}, #{num})
-	</insert>
+
 	
 	<select id="selectWishListId" resultType="kr.green.plants.vo.WishVO">
 	select * from wishlist 
 	join `item` on item_num = item.num
 	where member_id = #{id}
 	</select>
+	
+	<insert id="insertWish">
+	insert into wishlist(member_id, item_num) values(#{id}, #{num})
+	</insert>
+	
+	<delete id="deleteWish">
+	delete from wishlist where num = #{num}
+	</delete>
 	
 		
 </mapper>

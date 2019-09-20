@@ -3,17 +3,40 @@
 <!DOCTYPE html>
 <html>
 <head>
+<style>
+.sb{
+padding: 15px 15px 0 15px;
+}
+.ss{
+margin-bottom: 10px;
+}
+</style>
+</head>
+<body>
+	<form action="" id="idFind">
+		<div class="container text-center">
+		<h2>아이디 찾기</h2>
+			<div class="ss">
+				<input type="text" class="input" placeholder="이름" name="name" id="name">
+			</div>
+
+			<div class="ss">
+				<input type="email" class="input" placeholder="이메일" name="email" id="email">
+			</div>
+			<div class="sb">
+				<button type="button" class="btn-raw find">아이디 찾기</button>
+			</div>
+			<div class="sb ctn">
+			</div>
+			<div class="sb">
+				<i class="fas fa-caret-right"></i><a href="<%=request.getContextPath()%>/pwFind">비밀번호 찾기</a>
+			</div>
+		</div>
+	</form>
 <script>
-$(document).ready(function(){
 	/** id 입력창에 마우스 커서가 자동 포커스 기능 */
-	 $(document).ready(function(){
-		$('input[name=id]').focus();
-	})
+	$('input[name="name"]').focus();
 	
-	/* find 버튼을 클릭했을때 html 태그가 실행되게 하는 코드 */
-	$('.ctn')click(function(){
-	
-	})
 	/** 아이디 찾기 기능 */
 	$('.find').click(function(){
 		var name = $('input[name=name]').val();
@@ -34,43 +57,10 @@ $(document).ready(function(){
 			},
 			error:function(request,status,error){
 				console.log( request.responseText );
-				$('.ctn').html("존재 ㄴㄴ 아이디");
+				$('.ctn').html("입력하신 정보를 다시한번 확인해 주세요.");
 			}
 		});
 	});
-})	/** document.ready */
-</script>
-<style>
-.sb{
-padding: 15px 15px 0 15px;
-}
-</style>
-</head>
-<body>
-	<form action="" id="idFind">
-		<div class="container text-center">
-		<h2>Find Id</h2>
-			<div>
-				<input type="text" class="input" placeholder="이름" name="name" id="name">
-			</div>
-
-			<div>
-				<input type="email" class="input" placeholder="이메일" name="email" id="email">
-			</div>
-			
-			<div class="sb">
-				<a href="<%=request.getContextPath()%>/pwFind">Find PASSWORD</a>
-			</div>
-			
-			<div class="sb">
-				<button type="button" class="btn-raw find">FIND ID</button>
-			</div>
-		
-			<div class="sb ctn">
-				가입 시 입력하신 아이디는 ${member.id} 입니다.
-			</div>
-		</div>
-	</form>
-			
+</script>	
 </body>
 </html>

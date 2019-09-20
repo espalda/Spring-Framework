@@ -23,10 +23,11 @@
 				<tr>
 					<td>
 						<img src="<%=request.getContextPath()%>/resources/uploadfiles${wish.file}" width="50px">
-						<input type="text" name="num" value="${wish.num }">
+						<input type="hidden" name="num" value="${wish.num }">
 					</td>
 					<td>
-						<a href="<%=request.getContextPath()%>/item/display?num=${wish.item_num}">${wish.name } 아이템 페이지 바로가기 </a></td>
+						<p> *페이지 바로가기* </p>
+						<a href="<%=request.getContextPath()%>/item/display?num=${wish.item_num}">${wish.name } </a></td>
 					<td>${wish.seller_member_id }</td>
 					<td>${wish.delivery_charge }</td>
 					<td>${wish.price }</td>
@@ -42,15 +43,16 @@
 <script>
 /* 위시리스트 제품 삭제 */
 $('.remove').click(function(){
-	var num = $('input[name=num]').val();
+	var num = $(this).parents('tr').find('input[name=num]').val();
 	$.ajax({
 		async:true,
 		type:'POST',
-		data: {'num': num},
+		data: num,
 		url:"<%=request.getContextPath()%>/member/wish/remove",
 		dataType:"json",
-		//contentType:"application/json; charset=UTF-8",
+		contentType:"application/json; charset=UTF-8",
 		success : function(test){
+			location.reload();
 		},
 		error:function(request,status,error){
 			console.log( request.responseText );
