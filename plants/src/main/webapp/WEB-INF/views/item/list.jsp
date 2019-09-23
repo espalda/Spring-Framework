@@ -14,18 +14,27 @@
 	}
 	.centered {
 	font-size: 60px;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+	position: absolute;
+	top: 50%;
+	left: 50%;
+ 	transform: translate(-50%, -50%);
+	font-family: 'UhBeeSeulvely';
+	font-size: 50px;
+	color: white;
 }
 </style>
 </head>
 <body>
 	<div class="container">
 		<section style="position:relative;">
+		<c:if test="${cri.type eq 'Succulents'}">
 			<h1 class="centered">Succulents</h1>
 			<img src="<%=request.getContextPath()%>/resources/img/back-6.jpg" width="100%">
+		</c:if>
+		<c:if test="${cri.type eq 'Cactus'}">
+			<h1 class="centered">Cactus</h1>
+			<img src="<%=request.getContextPath()%>/resources/img/back-6.jpg" width="100%">
+		</c:if>
 		</section>
 		
 		<section class="text-center">

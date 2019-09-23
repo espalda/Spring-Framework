@@ -65,8 +65,10 @@ color: #cc0000;
 	</form>
 <script>
 /** 체크박스를 클릭해야만 회원가입이 진행되는 코드 생성 */
-$('#myCheck').click(function(){
-	
+$('pop').change(function(){
+	$('#myCheck').prop('checked', false)
+		return false;
+		alert('약관에 동의에 체크가 필요합니다.');
 })
 
 /** 체크박스 관련 자바 스크립트 */
