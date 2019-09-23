@@ -4,6 +4,9 @@
 <html>
 <head>
 <style>
+body{
+text-align: center;
+}
 /* ------------------bootstrap-image tag */
 .hero-image {
   background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("resources/img/garlic-4.jpg");
@@ -45,6 +48,19 @@ h1{
 font-family: 'UhBeeDongKyung';
 font-size: 100px;
 }
+	
+	.img {
+	width: 300px;
+	height: 300px;
+	overflow:hidden }   /* 부모를 벗어나지 않고 내부 이미지만 확대 */
+	.item-2{
+	width: 960px;
+	margin: 0 auto;
+	}
+	.item-list{
+	float: left;
+	padding: 10px;
+	}
 </style>
 </head>
 <body>
@@ -56,13 +72,25 @@ font-size: 100px;
 	    <button>click me</button>
 	  </div>
 	</div>
-	<h2>Best</h2>
-	<mark>판매 갯수가 높은 아이템 best3<br>
+	<h2><mark>피클즈의 인기 상품을 소개합니다</mark></h2>
+	
+		<div class="item-2 clearfix">
+			<c:forEach var="best" items="${bestList }">
+				<div class="item-list">
+					<a href="<%=request.getContextPath()%>/item/display?num=${best.item_num}">
+						<div class="img">
+							<img class="scale" src="<%=request.getContextPath()%>/resources/uploadfiles${best.file}" width="300px" height="auto">
+						</div>
+						<h2>${best.name }</h2>
+						<h3>${best.price }</h3>
+					</a>
+				</div>
+			</c:forEach>
+		</div>
+		
+	<mark>
 			주문시 주소록 저장, 수량 삭제<br>
 			장바구니 주문시 리스트에서 삭제<br>
-			삭제 delete를 valid로 변경하기<br>
-			cri.search 검색 기능<br>
-			등록순, 인기순, 최신순으로 정렬 기능 <br>
 	</mark>
 </body>
 </html>

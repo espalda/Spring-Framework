@@ -58,6 +58,7 @@ public class ItemServiceImp implements ItemService{
 
 		@Override
 		public void updeteBasket(BasketVO bvo) {
+			System.out.println("장바구니 업데이트 서비스 : "+bvo);
 			itemDao.updeteBasket(bvo);
 		}
 
@@ -92,8 +93,7 @@ public class ItemServiceImp implements ItemService{
 		public void insertOrder(OrderVO order, String id, Integer total) {
 			OptionVO ovo = itemDao.selectOptionNum(order.getOption_num());
 			System.out.println("재고수량 : "+ovo.getOption_count());
-			System.out.println("주문"
-					+ "수량 : "+order.getOrder_count());
+			System.out.println("주문수량 : "+order.getOrder_count());
 			ovo.setOption_count(ovo.getOption_count()-order.getOrder_count());
 			itemDao.updateOption(ovo);
 			itemDao.insertOrder(order, id, total);
@@ -112,6 +112,12 @@ public class ItemServiceImp implements ItemService{
 		@Override
 		public ArrayList<OrderVO> selectOrderPaid(String order_num) {
 			return itemDao.selectOrderPaid(order_num);
+		}
+
+		@Override
+		public ArrayList<OptionVO> selectBestItemList() {
+			// TODO Auto-generated method stub
+			return itemDao.selectBestItemList();
 		}
 
 

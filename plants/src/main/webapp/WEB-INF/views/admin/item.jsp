@@ -11,7 +11,6 @@ margin-bottom: 10px;
 </head>
 <body>
 <div class="container">
-  <h2>Item</h2>
   <!-- Nav tabs -->
   <ul class="nav nav-tabs" role="tablist">
     <li class="nav-item">

@@ -40,6 +40,8 @@ public interface ItemService {
 
 	public ArrayList<OrderVO> selectOrderPaid(String order_num);
 
+	public ArrayList<OptionVO> selectBestItemList();
+
 
 
 }

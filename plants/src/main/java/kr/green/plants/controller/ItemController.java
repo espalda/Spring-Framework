@@ -37,7 +37,7 @@ public class ItemController {
 	@Autowired
 	PageMakerService pageMakerService;
 		
-		/** 새상품 - 최신순 아이템 3가지 화면에 뿌려주는 기능 */
+		/** [new] 새상품 - 최신순 아이템 3가지 화면에 뿌려주는 기능 */
 		@RequestMapping(value="/new")
 		public ModelAndView itemNew(ModelAndView mv){
 			ArrayList<ItemVO> ivo = itemService.selectNewItem();
@@ -123,7 +123,7 @@ public class ItemController {
 		
 
 
-		/** 장바구니 */
+		/** [basket] 장바구니 */
 		@RequestMapping(value="/basket", method=RequestMethod.GET)
 		public ModelAndView itemBasketGet(ModelAndView mv, HttpServletRequest r){
 			MemberVO user = (MemberVO)r.getSession().getAttribute("login");
@@ -147,22 +147,28 @@ public class ItemController {
 		@ResponseBody
 		public Map<Object, Object> basketRemove(Integer num){
 		    Map<Object, Object> map = new HashMap<Object, Object>();
-		    itemService.deleteBasket(num);
+		    BasketVO bas = itemService.selectBasketNum(num);
+		    bas.setValid("D");
+		    itemService.updeteBasket(bas);
 		    return map;
 		}
 		/** 장바구니에서 주문페이지로 넘어가는 기능 */
 		@RequestMapping(value="/basket/order", method=RequestMethod.POST) 
-		public String itemBasketSendPost(Model model, HttpServletRequest r, Integer total,
+		public String itemBasketSendPost(Model model, HttpServletRequest r, Integer total, Integer[] basket_num,
 										Integer[] option_num, Integer[] option_count, Integer[] check){
+			
 			MemberVO user = (MemberVO)r.getSession().getAttribute("login");
+			BasketVO bas = new BasketVO();
 			OptionVO opt = new OptionVO();
 			for(int i=0; i<option_num.length ; i++) {
 				if(check[i] == 1) {
 					opt.setNum(option_num[i]);
 					opt.setOption_count(option_count[i]);
+					bas.setNum(basket_num[i]);
 				}
 			}
 			model.addAttribute("id", user.getId());
+			model.addAttribute("basket_num", basket_num);
 			model.addAttribute("total", total);
 			model.addAttribute("option_num", option_num);
 			model.addAttribute("option_count", option_count);
@@ -170,23 +176,31 @@ public class ItemController {
 		}
 		
 
-		/** order */
+		
+		
+		/** [order] */
 		/** 제품 상제 페이지와 장바구니에서 넘어온 주문 페이지 정보 */
 		@RequestMapping(value="/order", method=RequestMethod.GET)
-		public ModelAndView itemOrderGet(ModelAndView mv, HttpServletRequest r, Integer total,
+		public ModelAndView itemOrderGet(ModelAndView mv, HttpServletRequest r, Integer total, Integer[] basket_num,
 										Integer[] option_num, Integer[] option_count){
-			MemberVO user = (MemberVO)r.getSession().getAttribute("login");
-				ArrayList<OptionVO> opt = new ArrayList<OptionVO>();
-				for(int i=0; i<option_num.length; i++) {
-					OptionVO ovo = itemService.selectOptionNum(option_num[i]);
-					ovo.setOption_count(option_count[i]);
-					opt.add(ovo);
-				}
-				mv.setViewName("/item/order");
-			    mv.addObject("id", user.getId());
-			    mv.addObject("total", total);
-			    mv.addObject("optionList", opt);
 			
+			MemberVO user = (MemberVO)r.getSession().getAttribute("login");
+			ArrayList<BasketVO> bas = new ArrayList<BasketVO>();
+			ArrayList<OptionVO> opt = new ArrayList<OptionVO>();
+			for(int i=0; i<option_num.length; i++) {
+				OptionVO ovo = itemService.selectOptionNum(option_num[i]);
+				ovo.setOption_count(option_count[i]);
+				opt.add(ovo);
+				
+				BasketVO bvo = new BasketVO();
+				bvo.setNum(basket_num[i]);
+				bas.add(bvo);
+			}
+			mv.setViewName("/item/order");
+		    mv.addObject("id", user.getId());
+		    mv.addObject("total", total);
+		    mv.addObject("optionList", opt);
+		    mv.addObject("basket", bas);
 		    return mv;
 		}
 		
@@ -202,7 +216,7 @@ public class ItemController {
 			return mv;
 		}
 		@RequestMapping(value="/paid", method=RequestMethod.POST)
-		public String itemPaidPost(Model model, String id, Integer total, 
+		public String itemPaidPost(Model model, String id, Integer total, Integer[] basket_num,
 									Integer[] option_num, Integer[] option_count){
 			OrderVO order = new OrderVO();
 			order.setOrder_num(itemService.orderNum());
@@ -212,6 +226,10 @@ public class ItemController {
 				order.setOption_num(option_num[i]);
 				order.setOrder_count(option_count[i]);
 				itemService.insertOrder(order, id, total);
+				
+				BasketVO bas = itemService.selectBasketNum(basket_num[i]);
+				bas.setValid("주문완료");
+				itemService.updeteBasket(bas);
 			}
 			 model.addAttribute("order_num", order.getOrder_num());
 			 model.addAttribute("total", total);

@@ -28,12 +28,6 @@
 			<img src="<%=request.getContextPath()%>/resources/img/back-6.jpg" width="100%">
 		</section>
 		
-		<select name="type">
-			<option value="등록순" <c:if test="${pageMaker.criteria.type eq '등록순'}">selected</c:if> >등록순</option>
-			<option value="가격순" <c:if test="${pageMaker.criteria.type eq '가격순'}">selected</c:if> >가격순</option>
-			<option value="인기순" <c:if test="${pageMaker.criteria.type eq '인기순'}">selected</c:if> >인기순</option>
-		</select>
-		
 		<section class="text-center">
 			<div class="item-2 clearfix">
 			<c:forEach var="item" items="${itemList }">

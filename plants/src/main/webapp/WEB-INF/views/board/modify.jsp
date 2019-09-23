@@ -45,9 +45,9 @@
 				</table>
 			</div>
 			<div class="float-right">
-				<button class="btn-tree">MODIFY</button>
-				<a href="<%=request.getContextPath()%>/board/delete?num=${board.num}"><button class="btn-raw">DELETE</button></a>
-				<a href="<%=request.getContextPath()%>/board/list"><button class="btn-gray">LIST</button></a>
+				<button class="btn-tree">수정</button>
+				<a href="<%=request.getContextPath()%>/board/delete?num=${board.num}"><button class="btn-raw">삭제</button></a>
+				<a href="<%=request.getContextPath()%>/board/list"><button class="btn-gray">목록</button></a>
 			</div>
 	</form>
 

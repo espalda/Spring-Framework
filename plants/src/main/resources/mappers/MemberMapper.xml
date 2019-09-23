@@ -8,7 +8,7 @@
 	</insert>
 	
 	<select id="selectMemberId" resultType="kr.green.plants.vo.MemberVO">
-	select * from member where id = #{id} and valid='I'
+	select * from member where id = #{id} and valid = 'I'
 	</select>
 	
 	<update id="updateMember">
@@ -28,18 +28,19 @@
 
 	
 	<select id="selectWishListId" resultType="kr.green.plants.vo.WishVO">
-	select * from wishlist 
+	select * from wish
 	join `item` on item_num = item.num
-	where member_id = #{id}
+	where member_id = #{id} and wish.valid = 'I'
 	</select>
 	
 	<insert id="insertWish">
-	insert into wishlist(member_id, item_num) values(#{id}, #{num})
+	insert into wish(member_id, item_num) values(#{id}, #{num})
 	</insert>
 	
-	<delete id="deleteWish">
-	delete from wishlist where num = #{num}
-	</delete>
+	<update id="updateWish">
+	update wish set wish.valid = 'D'
+	 where num = #{num}
+	</update>
 	
 		
 </mapper>

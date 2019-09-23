@@ -4,7 +4,7 @@
 <mapper namespace="kr.green.plants.dao.ItemDAO">
 	
 	<select id="selectNewItem" resultType="kr.green.plants.vo.ItemVO">
-	select * from plants.item order by num desc limit 0, 3;
+	select * from item order by num desc limit 0, 3;
 	</select>
 	
 	<select id="selectItemNum" resultType="kr.green.plants.vo.ItemVO">
@@ -25,7 +25,7 @@
 	select * FROM basket
 	join `option` on basket.option_num = `option`.num
 	join item on basket.item_num = item.num
-	where member_id = #{id};
+	where member_id = #{id} and basket.valid = 'I';
 	</select>
 	
 	<select id="selectBasketNum" resultType="kr.green.plants.vo.BasketVO">
@@ -39,13 +39,9 @@
 
 	<update id="updeteBasket">
 	update basket
-	set option_count = #{bas.option_count}
+	set option_count = #{bas.option_count}, valid = #{bas.valid}
 	where num = #{bas.num}
 	</update>
-	
-	<delete id="deleteBasket">
-	delete from basket where num = #{num}
-	</delete>
 	
 	<insert id="insertOrder">
 	insert into `order`(member_id, item_num, order_num, order_price, option_num, order_count)
@@ -104,4 +100,10 @@
 	set option_count = #{opt.option_count}
 	where num = #{opt.num}
 	</update>
+	
+	<select id="selectBestItemList" resultType="kr.green.plants.vo.OptionVO">
+	select * from `option` 
+	join item on item_num = item.num
+   order by option_count asc limit 0, 3;
+	</select>
 </mapper>

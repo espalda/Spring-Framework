@@ -23,8 +23,8 @@ public interface MemberService {
 
 	public void insertWish(String id, Integer num);
 
-	public void deleteWish(Integer num);
-	
+
+	public void updateWish(Integer num);
 	
 	/** id, pw 찾기 관련 서비스 */
 
@@ -39,6 +39,7 @@ public interface MemberService {
 	public void updatePw(String id, String email, String newPw);
 
 	public void sendMail(String email, String title, String contents);
+
 
 
 

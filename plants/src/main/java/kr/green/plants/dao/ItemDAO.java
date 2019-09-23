@@ -14,7 +14,7 @@ public interface ItemDAO {
 	
 	public ArrayList<ItemVO> selectNewItem();
 
-	public ItemVO selectItemNum(@Param("num")Integer num);
+	public ItemVO selectItemNum(@Param("num") Integer num);
 
 	public ArrayList<OptionVO> selectOptionListNum(@Param("num") Integer num);
 	
@@ -24,7 +24,7 @@ public interface ItemDAO {
 	
 	public BasketVO selectBasketNum(@Param("num") Integer num);
 	
-	public void insertBasket(@Param("opt") OptionVO opt, @Param("id")String id, @Param("num")Integer num);
+	public void insertBasket(@Param("opt") OptionVO opt, @Param("id") String id, @Param("num") Integer num);
 	
 	public void updeteBasket(@Param("bas") BasketVO bvo);
 	
@@ -34,13 +34,15 @@ public interface ItemDAO {
 	
 	public void insertOrder(@Param("order") OrderVO order, @Param("id") String id, @Param("total") Integer total);
 
-	public ArrayList<ItemVO> selectItemList(@Param("cri")Criteria cri, @Param("valid") String valid);
+	public ArrayList<ItemVO> selectItemList(@Param("cri") Criteria cri, @Param("valid") String valid);
 
-	public int selectItemCount(@Param("cri")Criteria cri, @Param("valid")String valid);
+	public int selectItemCount(@Param("cri") Criteria cri, @Param("valid") String valid);
 
 	public ArrayList<OrderVO> selectOrderPaid(@Param("num") String order_num);
 
 	public void updateOption(@Param("opt") OptionVO opt);
+
+	public ArrayList<OptionVO> selectBestItemList();
 
 
 

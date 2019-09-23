@@ -9,6 +9,7 @@ public class BasketVO extends ItemVO{
 	private String member_id;
 	private int option_price;
 	private String option;
+	private String valid;
 	
 	public int getNum() {
 		return num;
@@ -51,6 +52,12 @@ public class BasketVO extends ItemVO{
 	}
 	public void setOption(String option) {
 		this.option = option;
+	}
+	public String getValid() {
+		return valid;
+	}
+	public void setValid(String valid) {
+		this.valid = valid;
 	}
 	@Override
 	public String toString() {

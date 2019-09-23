@@ -80,7 +80,7 @@ public class MemberController {
 		@ResponseBody
 		public Map<Object, Object> WishRemove(@RequestBody Integer num){
 		    Map<Object, Object> map = new HashMap<Object, Object>();
-		    memberService.deleteWish(num);
+		    memberService.updateWish(num);
 		    return map;
 		}
 		

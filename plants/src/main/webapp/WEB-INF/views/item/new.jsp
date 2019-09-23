@@ -38,10 +38,8 @@
 </head>
 <body class="text-center">
 	<div class="container">
-		<div>
-			<img src="<%=request.getContextPath()%>/resources/img/back-5.jpg">
-			<h4>새로나온 신상품을 빠르게 만나보세요</h4>
-		</div>
+		<img src="<%=request.getContextPath()%>/resources/img/back-5.jpg">
+		<h4>새로나온 신상품을 빠르게 만나보세요</h4>
 	
 		<div class="item-2 clearfix">
 			<c:forEach var="item" items="${itemNewList }">

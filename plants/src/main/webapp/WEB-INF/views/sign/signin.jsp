@@ -13,7 +13,7 @@
 <body>
 	<form action="<%=request.getContextPath()%>/signin" method="post" id="signin">
 		<div class="container text-center">
-		<p>로그인</p>
+		<h2>로그인</h2>
 			<div>
 				<input type="text" class="input" placeholder="아이디" name="id">
 			</div>

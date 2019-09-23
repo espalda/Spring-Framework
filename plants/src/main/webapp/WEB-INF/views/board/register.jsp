@@ -41,8 +41,8 @@
 			</div>
 			
 			<div class="float-right">
-				<button class="btn-tree">REGISTER</button>
-				<a href="<%=request.getContextPath()%>/board/list"><button class="btn-gray">LIST</button></a>
+				<button class="btn-tree">등록</button>
+				<a href="<%=request.getContextPath()%>/board/list"><button class="btn-gray">목록</button></a>
 			</div>
 	</form>
 <script>

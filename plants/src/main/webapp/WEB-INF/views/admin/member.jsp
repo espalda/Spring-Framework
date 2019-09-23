@@ -6,7 +6,6 @@
 </head>
 <body>
 <div class="container">
-  <h2>Member</h2>
   <!-- Nav tabs -->
   <ul class="nav nav-tabs" role="tablist">
     <li class="nav-item">

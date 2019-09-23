@@ -146,9 +146,11 @@ public class MemberServiceImp implements MemberService {
 			return memberDao.selectWishListId(member_id);
 		}
 
+
 		@Override
-		public void deleteWish(Integer num) {
-			memberDao.deleteWish(num);
+		public void updateWish(Integer num) {
+			memberDao.updateWish(num);
+			
 		}
 
 	

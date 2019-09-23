@@ -27,7 +27,6 @@
 <body>
 <form action="<%=request.getContextPath()%>/item/paid" method="post" >
 <input type="hidden" name="id" value="${login.id }">
-
 	<div class="container-11">
 		<h2>Order List</h2>
 		<table class="table">
@@ -41,7 +40,6 @@
 			</tr>
 			
 			<c:forEach var="opt" items="${optionList }">
-
 					<input type="hidden" name="option_num" value="${opt.num }">
 					<input type="hidden" name="option_count" value="${opt.option_count }">
 				
@@ -59,7 +57,9 @@
 						<td>${opt.delivery_charge }</td>
 						<td>${opt.option_price * opt.option_count }</td>
 					</tr>
-
+			</c:forEach>
+			<c:forEach var="bas" items="${basket }">
+				<input type="hidden" name="basket_num" value="${bas.num }">
 			</c:forEach>
 		</table>
 	<hr>

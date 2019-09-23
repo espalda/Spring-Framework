@@ -2,6 +2,7 @@ package kr.green.plants.controller;
 
 import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -10,7 +11,6 @@ import javax.servlet.http.HttpServletRequest;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -19,14 +19,20 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
+
+import kr.green.plants.service.ItemService;
 import kr.green.plants.service.MemberService;
+import kr.green.plants.vo.ItemVO;
 import kr.green.plants.vo.MemberVO;
+import kr.green.plants.vo.OptionVO;
 
 @Controller
 public class HomeController {
 	
 	@Autowired
 	MemberService memberService;
+	@Autowired
+	ItemService itemService;
 	@Autowired
 	BCryptPasswordEncoder passwordEncoder;
 	
@@ -35,8 +41,9 @@ public class HomeController {
 		/** 메인 홈 화면 */
 		@RequestMapping(value="/")
 		public ModelAndView main(ModelAndView mv){
-			
+			ArrayList<OptionVO> best = itemService.selectBestItemList();
 		    mv.setViewName("/main/home");
+		    mv.addObject("bestList", best);
 		    return mv;
 		}
 		

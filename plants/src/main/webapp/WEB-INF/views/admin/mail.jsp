@@ -16,8 +16,6 @@ border: 1px solid #b97f6d;
 </head>
 <body>
 	<div class="container">
-		<h2>Mail</h2>
-		<p>FOR SPECIAL REQUESTS ORDERS</p>
 			<table>
 				<tr>
 					<td>reciever</td>

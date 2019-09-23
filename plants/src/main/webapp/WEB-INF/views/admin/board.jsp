@@ -6,7 +6,6 @@
 </head>
 <body>
 	<div class="container">
-	<h2>Board</h2>
 		<!-- Nav tabs -->
 		<ul class="nav nav-tabs">
 		  <li class="nav-item">

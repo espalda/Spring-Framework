@@ -15,9 +15,8 @@ color: #cc0000;
 <body>
 	<form action="<%=request.getContextPath()%>/signup" method="post" id="signup">
 		<div class="container text-center">
-		<p>회원가입</p>
-			<mark> pickles 에 오신것을 환영합니다.<br>
-			지금 회원 가입하신 후 다양한 서비스를 만나보세요.</mark>
+			<h3> pickles 에 오신것을 환영합니다.<br>
+			지금 회원 가입하신 후 다양한 서비스를 만나보세요.</h3>
 				<div>
 					<input type="text" class="input" placeholder="아이디" name="id">
 				</div>

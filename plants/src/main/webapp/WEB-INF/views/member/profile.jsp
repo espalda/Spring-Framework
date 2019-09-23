@@ -12,11 +12,10 @@ color: blue;
 </head>
 <body>
 <div class="container">
-  <h2>Member</h2>
   <!-- Nav tabs -->
   <ul class="nav nav-tabs" role="tablist">
     <li class="nav-item">
-      <a class="nav-link active" data-toggle="tab" href="#home">프로필</a>
+      <a class="nav-link active" data-toggle="tab" href="#home">회원 정보</a>
     </li>
     <li class="nav-item">
       <a class="nav-link" data-toggle="tab" href="#menu1">회원 수정</a>
@@ -28,7 +27,6 @@ color: blue;
     <div id="home" class="container tab-pane active"><br>
     <!-- * 회원 정보 -->
 		<div class="text-center">
-			<h2>Profile</h2>
 			<div>
 				<table class="table table-borderless text-center">
 					<tr>
@@ -52,7 +50,6 @@ color: blue;
     <!-- * 회원 등급 -->
     <div id="menu1" class="container tab-pane fade"><br>
     	<form action="<%=request.getContextPath()%>/member/profile" method="post" id="modify">
-		<h2>modify</h2>
 			<div class="modify">
 				<div>
 					<span>아이디</span>
