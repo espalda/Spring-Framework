@@ -90,6 +90,12 @@ public class ItemServiceImp implements ItemService{
 		
 		@Override
 		public void insertOrder(OrderVO order, String id, Integer total) {
+			OptionVO ovo = itemDao.selectOptionNum(order.getOption_num());
+			System.out.println("재고수량 : "+ovo.getOption_count());
+			System.out.println("주문"
+					+ "수량 : "+order.getOrder_count());
+			ovo.setOption_count(ovo.getOption_count()-order.getOrder_count());
+			itemDao.updateOption(ovo);
 			itemDao.insertOrder(order, id, total);
 		}
 

@@ -48,8 +48,8 @@
 	</delete>
 	
 	<insert id="insertOrder">
-	insert into `order`(member_id, item_num, order_num, order_price, option_num, option_count)
-					values(#{id}, #{order.item_num}, #{order.order_num}, #{total}, #{order.option_num}, #{order.option_count});
+	insert into `order`(member_id, item_num, order_num, order_price, option_num, order_count)
+					values(#{id}, #{order.item_num}, #{order.order_num}, #{total}, #{order.option_num}, #{order.order_count});
 	</insert>
 	
 	<select id="selectOrderListId" resultType="kr.green.plants.vo.OrderVO">
@@ -62,27 +62,46 @@
 	<select id="selectItemList" resultType="kr.green.plants.vo.ItemVO">
 	select * from item where
     <choose>
-    	<when test='valid.equals("I") || valid.equals("D")'>
-    	valid = #{valid}
-    	</when>
+    	<when test='valid.equals("I") || valid.equals("D")'>valid = #{valid}</when>
     	<otherwise>valid = 'I' or valid = 'D'</otherwise>
+    </choose>
+    <choose>
+    	<when test='cri.type.equals("Succulents")'>and category = 'Succulents'</when>
+    	<when test='cri.type.equals("Cactus")'>and category = 'Cactus'</when>
+    	<when test='cri.type.equals("Plant")'>and category = 'Plant'</when>
+    	<when test='cri.type.equals("Hanging plant")'>and category = 'Hanging plant'</when>
+    	<when test='cri.type.equals("Goods")'>and category = 'Goods'</when>
     </choose>
     order by num desc
     limit ${cri.pageStart}, ${cri.perPageNum}
 	</select>
 	
+	
+	
 	<select id="selectItemCount" resultType="int">
 	select count(*) from item where
-    <choose>
-    	<when test='valid.equals("I") || valid.equals("D")'>
-    	valid = #{valid}
-    	</when>
-    	<otherwise>valid = 'I' or valid = 'D'</otherwise>
-    </choose>
+	    <choose>
+	    	<when test='valid.equals("I") || valid.equals("D")'>
+	    	valid = #{valid}
+	    	</when>
+	    	<otherwise>valid = 'I' or valid = 'D'</otherwise>
+	    </choose>
+	    <choose>
+	    	<when test='cri.type.equals("Succulents")'>and category = 'Succulents'</when>
+	    	<when test='cri.type.equals("Cactus")'>and category = 'Cactus'</when>
+	    	<when test='cri.type.equals("Plant")'>and category = 'Plant'</when>
+	    	<when test='cri.type.equals("Hanging plant")'>and category = 'Hanging plant'</when>
+	    	<when test='cri.type.equals("Goods")'>and category = 'Goods'</when>
+	    </choose>
     </select>
     
     <select id="selectOrderPaid" resultType="kr.green.plants.vo.OrderVO">
     select * from order where order_num = #{num}
     </select>
-
+	
+	<update id="updateOption">
+	update `option`
+	set option_count = #{opt.option_count}
+	where num = #{opt.num}
+	</update>
 </mapper>

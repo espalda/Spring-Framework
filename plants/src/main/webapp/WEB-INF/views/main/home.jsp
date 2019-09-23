@@ -58,7 +58,11 @@ font-size: 100px;
 	</div>
 	<h2>Best</h2>
 	<mark>판매 갯수가 높은 아이템 best3<br>
-			주문시 주소록 저장, 수량 삭제
+			주문시 주소록 저장, 수량 삭제<br>
+			장바구니 주문시 리스트에서 삭제<br>
+			삭제 delete를 valid로 변경하기<br>
+			cri.search 검색 기능<br>
+			등록순, 인기순, 최신순으로 정렬 기능 <br>
 	</mark>
 </body>
 </html>

@@ -25,7 +25,7 @@
 					<td>${order.contents }
 						<br>${order.option }
 					</td>
-					<td>${order.option_count }</td>
+					<td>${order.order_count }</td>
 					<td>${order.order_price }</td>
 					<td>${order.status }</td>
 				</tr>

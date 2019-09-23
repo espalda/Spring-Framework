@@ -8,7 +8,7 @@ public class OrderVO extends ItemVO{
 	private int item_num;
 	private int option_num;
 	private Date date;
-	private int option_count;
+	private int order_count;
 	private String status;
 	private String option;
 	private String option_price;
@@ -41,11 +41,11 @@ public class OrderVO extends ItemVO{
 	public void setDate(Date date) {
 		this.date = date;
 	}
-	public int getOption_count() {
-		return option_count;
+	public int getOrder_count() {
+		return order_count;
 	}
-	public void setOption_count(int option_count) {
-		this.option_count = option_count;
+	public void setOrder_count(int order_count) {
+		this.order_count = order_count;
 	}
 	public String getStatus() {
 		return status;
@@ -53,7 +53,6 @@ public class OrderVO extends ItemVO{
 	public void setStatus(String status) {
 		this.status = status;
 	}
-	
 	public String getOption() {
 		return option;
 	}
@@ -87,11 +86,10 @@ public class OrderVO extends ItemVO{
 	@Override
 	public String toString() {
 		return "OrderVO [num=" + num + ", item_num=" + item_num + ", option_num=" + option_num + ", date=" + date
-				+ ", option_count=" + option_count + ", status=" + status + ", option=" + option + ", option_price="
+				+ ", order_count=" + order_count + ", status=" + status + ", option=" + option + ", option_price="
 				+ option_price + ", order_num=" + order_num + ", order_price=" + order_price + ", member_id="
 				+ member_id + "]";
 	}
-	
 	
 	
 	

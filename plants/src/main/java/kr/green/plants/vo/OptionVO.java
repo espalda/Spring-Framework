@@ -8,7 +8,7 @@ public class OptionVO extends ItemVO{
 	private String valid;
 	private int item_num;
 	private String item_name;
-	private int option_count;	
+	private int option_count;
 
 	
 	public int getNum() {

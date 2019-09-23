@@ -40,6 +40,8 @@ public interface ItemDAO {
 
 	public ArrayList<OrderVO> selectOrderPaid(@Param("num") String order_num);
 
+	public void updateOption(@Param("opt") OptionVO opt);
+
 
 
 

@@ -152,11 +152,11 @@
 				<div class="shop-1 clearfix">
 					<a>PRODUCT</a>
 					<ul class="shop-list">
-						<li><a class="nav-link" href="<%=request.getContextPath()%>/item/list">Succulents</a></li>
-						<li><a class="nav-link" href="<%=request.getContextPath()%>/item/list">Cactus</a></li>
-						<li><a class="nav-link" href="<%=request.getContextPath()%>/item/list">Plant</a></li>
-						<li><a class="nav-link" href="<%=request.getContextPath()%>/item/list">Hanging plant</a></li>
-						<li><a class="nav-link" href="<%=request.getContextPath()%>/item/list">Goods</a></li>
+						<li><a class="nav-link" href="<%=request.getContextPath()%>/item/list?type=Succulents">Succulents</a></li>
+						<li><a class="nav-link" href="<%=request.getContextPath()%>/item/list?type=Cactus">Cactus</a></li>
+						<li><a class="nav-link" href="<%=request.getContextPath()%>/item/list?type=Plant">Plant</a></li>
+						<li><a class="nav-link" href="<%=request.getContextPath()%>/item/list?type=Hanging plant">Hanging plant</a></li>
+						<li><a class="nav-link" href="<%=request.getContextPath()%>/item/list?type=Goods">Goods</a></li>
 					</ul>
 				</div>
 			</li>	

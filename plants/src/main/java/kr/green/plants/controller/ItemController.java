@@ -34,7 +34,6 @@ public class ItemController {
 	
 	@Autowired
 	ItemService itemService;
-
 	@Autowired
 	PageMakerService pageMakerService;
 		
@@ -196,7 +195,7 @@ public class ItemController {
 		/** 결제 후 주문페이지 DB 저장 */
 		@RequestMapping(value="/paid", method=RequestMethod.GET)
 		public ModelAndView itemPaidGet(ModelAndView mv, String order_num, Integer total){
-			ArrayList<OrderVO> order = itemService.selectOrderPaid(order_num);
+			//ArrayList<OrderVO> order = itemService.selectOrderPaid(order_num);
 			mv.setViewName("/item/paid");
 			mv.addObject("order_num", order_num);
 			mv.addObject("total", total);
@@ -211,7 +210,7 @@ public class ItemController {
 				OptionVO ovo = itemService.selectOptionNum(option_num[i]);
 				order.setItem_num(ovo.getItem_num());
 				order.setOption_num(option_num[i]);
-				order.setOption_count(option_count[i]);
+				order.setOrder_count(option_count[i]);
 				itemService.insertOrder(order, id, total);
 			}
 			 model.addAttribute("order_num", order.getOrder_num());

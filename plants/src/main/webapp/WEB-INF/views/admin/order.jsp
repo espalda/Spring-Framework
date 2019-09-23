@@ -41,7 +41,7 @@
 				<td>${order.member_id }</td>
 				<td><img src="<%=request.getContextPath()%>/resources/uploadfiles${order.file }" width="50px"></td>
 				<td>${order.contents }</td>
-				<td>${order.option_count }</td>
+				<td>${order.order_count }</td>
 				<td>${order.option_price }</td>
 				<td>${order.order_price }</td>
 				<td>${order.status }</td>

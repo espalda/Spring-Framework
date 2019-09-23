@@ -53,24 +53,20 @@
 	<!-- pagination code -->
 		<div class="pagination">
 			<c:if test="${pageMaker.prev}">
-				<a href="<%=request.getContextPath()%>/item/list?page=${pageMaker.startPage-1}"><i class="fas fa-backward"></i></a>
+				<a href="<%=request.getContextPath()%>/item/list?page=${pageMaker.startPage-1}&type=${pageMaker.criteria.type}"><i class="fas fa-backward"></i></a>
 		 	</c:if>
 		 	<c:forEach begin="${pageMaker.startPage }" end="${pageMaker.endPage}" var="index">
 				<c:if test="${pageMaker.criteria.page == index}">
-					<a class="active" href="<%=request.getContextPath()%>/item/list?page=${index}">${index}</a>
+					<a class="active" href="<%=request.getContextPath()%>/item/list?page=${index}&type=${pageMaker.criteria.type}">${index}</a>
 				</c:if>
 				<c:if test="${pageMaker.criteria.page != index}">
-					<a href="<%=request.getContextPath()%>/item/list?page=${index}">${index}</a>
+					<a href="<%=request.getContextPath()%>/item/list?page=${index}&type=${pageMaker.criteria.type}">${index}</a>
 				</c:if>
 			</c:forEach>
 			<c:if test="${pageMaker.next}">
-				<a href="<%=request.getContextPath()%>/item/list?page=${pageMaker.endPage+1}"><i class="fas fa-forward"></i></a>
+				<a href="<%=request.getContextPath()%>/item/list?page=${pageMaker.endPage+1}&type=${pageMaker.criteria.type}"><i class="fas fa-forward"></i></a>
 			</c:if>
-		</div> <!-- pagination -->
-<script>
-<%-- 	$('select[name=type]').change(function(){
-		location.href='<%=request.getContextPath()%>/item/list?type='+$(this).val();
-	}) --%>
-</script>
+		</div>
+		
 </body>
 </html>
