@@ -39,7 +39,11 @@
 	border: 1px solid black;
 	margin: 5px 0;
 	}
-	
+	.img-r1{
+	 width: 390px;
+	 height: auto;
+	 background: white;
+	}
 </style>
 </head>
 <body>
@@ -53,15 +57,15 @@
 		<div class="clearfix mx-auto back" style="width:750px;">
 			<!-- image -->
 			<section class="float-left">
-				<div class="img-l1 img-magnifier-container" style="width:350px;">
-					<img id="myimage" src="<%=request.getContextPath()%>/resources/uploadfiles${item.file}" width="350px" height="auto">
+				<div class="img-l1" style="width:350px;">
+					<img src="<%=request.getContextPath()%>/resources/uploadfiles${item.file}" width="350px" height="auto">
 				</div>
 			</section>
 			
 			<!-- image info -->
 			<section class="float-left">
-				<div class="img-r1" style="width:390px;">
-					<p><mark>클릭시 해당 카테고리 리스트로 돌아가는 기능</mark><br>${item.category }</p>
+				<div class="img-r1">
+					<p><a href="<%=request.getContextPath()%>/item/list?type=${item.category }">${item.category }</a></p>
 					<h4>${item.name }</h4>
 					<hr>
 					<ul>
@@ -94,7 +98,7 @@
 					
 					<button class="btn-raw basket">CART</button><br>
 					
-					<button type="submit" class="btn-tree order">ORDER</button><br>
+					<button type="submit" class="btn-sm order">ORDER</button><br>
 
 					<a href="<%=request.getContextPath()%>/member/wish?id=${login.id}&num=${item.num}">
 						<button type="button" class="btn-gold">WISH</button>

@@ -45,22 +45,25 @@ text-align: center;
 }
 
 h1{
-font-family: 'UhBeeDongKyung';
+font-family: 'UhBeeSeulvely';
 font-size: 100px;
 }
 	
-	.img {
-	width: 300px;
-	height: 300px;
-	overflow:hidden }   /* 부모를 벗어나지 않고 내부 이미지만 확대 */
-	.item-2{
-	width: 960px;
-	margin: 0 auto;
-	}
-	.item-list{
-	float: left;
-	padding: 10px;
-	}
+.img {
+width: 300px;
+height: 300px;
+overflow: hidden;
+}   /* 부모를 벗어나지 않고 내부 이미지만 확대 */
+
+.item-2{
+width: 960px;
+margin: 0 auto;
+}
+
+.item-list{
+float: left;
+padding: 10px;
+}
 </style>
 </head>
 <body>
@@ -71,8 +74,12 @@ font-size: 100px;
 	    <p>I'm Yours to protect your breath</p>
 	    <button>click me</button>
 	  </div>
-	</div>
-	<h2><mark>피클즈의 인기 상품을 소개합니다</mark></h2>
+	</div><!-- bootstrap -->
+	
+	<!-- main -->
+	<br>
+	<h2>베스트 아이템</h2>
+	 <h4> 인기 상품들을 만나보세요</h4>
 	
 		<div class="item-2 clearfix">
 			<c:forEach var="best" items="${bestList }">
@@ -87,10 +94,5 @@ font-size: 100px;
 				</div>
 			</c:forEach>
 		</div>
-		
-	<mark>
-			주문시 주소록 저장, 수량 삭제<br>
-			장바구니 주문시 리스트에서 삭제<br>
-	</mark>
 </body>
 </html>

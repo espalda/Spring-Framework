@@ -59,7 +59,7 @@
 					</tr>
 			</c:forEach>
 			<c:forEach var="bas" items="${basket }">
-				<input type="hidden" name="basket_num" value="${bas.num }">
+				<input type="hidden" name="basket_num" value="${bas }">
 			</c:forEach>
 		</table>
 	<hr>

@@ -63,9 +63,13 @@ public class HomeController {
 		@ResponseBody
 		public boolean idCheck(@RequestBody String id){
 			System.out.println(id);
-			if(memberService.selectMemberId(id) != null) return true;
-		    return false;
+			if(memberService.selectMemberId(id) == null) {
+				return true; /** 가입 가능 아이디 */
+			}
+			return false; /** 가입 불가 아이디 */
 		}
+		
+		
 		
 		/** 로그인 */
 		@RequestMapping(value="/signin", method=RequestMethod.GET)

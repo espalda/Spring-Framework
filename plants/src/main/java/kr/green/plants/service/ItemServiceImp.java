@@ -58,7 +58,6 @@ public class ItemServiceImp implements ItemService{
 
 		@Override
 		public void updeteBasket(BasketVO bvo) {
-			System.out.println("장바구니 업데이트 서비스 : "+bvo);
 			itemDao.updeteBasket(bvo);
 		}
 

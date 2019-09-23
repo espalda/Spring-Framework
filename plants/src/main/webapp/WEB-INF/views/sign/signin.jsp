@@ -13,6 +13,7 @@
 <body>
 	<form action="<%=request.getContextPath()%>/signin" method="post" id="signin">
 		<div class="container text-center">
+		<br>
 		<h2>로그인</h2>
 			<div>
 				<input type="text" class="input" placeholder="아이디" name="id">
@@ -26,10 +27,9 @@
 	
 				<button class="btn-tree d-block">로그인</button>
 				<br>
-				<i class="fas fa-caret-right"></i><a class="text-center" href="<%=request.getContextPath()%>/signup">회원가입을 하시려면 여기를 클릭하세요.</a><br>
-				<i class="fas fa-caret-right"></i><a href="<%=request.getContextPath()%>/idFind">아이디 찾기</a><br>
-				<i class="fas fa-caret-right"></i><a href="<%=request.getContextPath()%>/pwFind">비밀번호 찾기</a><br>
-				
+				<a href="<%=request.getContextPath()%>/signup"><i class="fas fa-caret-right"></i>회원가입을 하시려면 여기를 클릭하세요.</a><br>
+				<a href="<%=request.getContextPath()%>/idFind"><i class="fas fa-caret-right"></i>아이디 찾기</a><br>
+				<a href="<%=request.getContextPath()%>/pwFind"><i class="fas fa-caret-right"></i>비밀번호 찾기</a><br>
 		</div>
 	</form>
 <script>

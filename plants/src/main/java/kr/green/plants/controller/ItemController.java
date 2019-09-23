@@ -177,24 +177,30 @@ public class ItemController {
 		
 
 		
-		
 		/** [order] */
 		/** 제품 상제 페이지와 장바구니에서 넘어온 주문 페이지 정보 */
 		@RequestMapping(value="/order", method=RequestMethod.GET)
 		public ModelAndView itemOrderGet(ModelAndView mv, HttpServletRequest r, Integer total, Integer[] basket_num,
 										Integer[] option_num, Integer[] option_count){
-			
 			MemberVO user = (MemberVO)r.getSession().getAttribute("login");
 			ArrayList<BasketVO> bas = new ArrayList<BasketVO>();
 			ArrayList<OptionVO> opt = new ArrayList<OptionVO>();
-			for(int i=0; i<option_num.length; i++) {
-				OptionVO ovo = itemService.selectOptionNum(option_num[i]);
-				ovo.setOption_count(option_count[i]);
-				opt.add(ovo);
-				
-				BasketVO bvo = new BasketVO();
-				bvo.setNum(basket_num[i]);
-				bas.add(bvo);
+			if(basket_num != null) {
+				for(int i=0; i<option_num.length; i++) {
+					OptionVO ovo = itemService.selectOptionNum(option_num[i]);
+					ovo.setOption_count(option_count[i]);
+					opt.add(ovo);
+					
+					BasketVO bvo = new BasketVO();
+					bvo.setNum(basket_num[i]);
+					bas.add(bvo);
+					}	
+			}else {
+				for(int i=0; i<option_num.length; i++) {
+					OptionVO ovo = itemService.selectOptionNum(option_num[i]);
+					ovo.setOption_count(option_count[i]);
+					opt.add(ovo);
+				}
 			}
 			mv.setViewName("/item/order");
 		    mv.addObject("id", user.getId());
@@ -220,16 +226,26 @@ public class ItemController {
 									Integer[] option_num, Integer[] option_count){
 			OrderVO order = new OrderVO();
 			order.setOrder_num(itemService.orderNum());
-			for(int i=0; i<option_num.length ; i++) {
-				OptionVO ovo = itemService.selectOptionNum(option_num[i]);
-				order.setItem_num(ovo.getItem_num());
-				order.setOption_num(option_num[i]);
-				order.setOrder_count(option_count[i]);
-				itemService.insertOrder(order, id, total);
-				
-				BasketVO bas = itemService.selectBasketNum(basket_num[i]);
-				bas.setValid("주문완료");
-				itemService.updeteBasket(bas);
+			if(basket_num != null) {
+				for(int i=0; i<option_num.length ; i++) {
+					OptionVO ovo = itemService.selectOptionNum(option_num[i]);
+					order.setItem_num(ovo.getItem_num());
+					order.setOption_num(option_num[i]);
+					order.setOrder_count(option_count[i]);
+					itemService.insertOrder(order, id, total);
+					
+					BasketVO bas = itemService.selectBasketNum(basket_num[i]);
+					bas.setValid("주문완료");
+					itemService.updeteBasket(bas);
+				}
+			}else {
+				for(int i=0; i<option_num.length ; i++) {
+					OptionVO ovo = itemService.selectOptionNum(option_num[i]);
+					order.setItem_num(ovo.getItem_num());
+					order.setOption_num(option_num[i]);
+					order.setOrder_count(option_count[i]);
+					itemService.insertOrder(order, id, total);
+				}
 			}
 			 model.addAttribute("order_num", order.getOrder_num());
 			 model.addAttribute("total", total);
