@@ -8,7 +8,7 @@
 	<div class="text-center">
 
 	<!-- member-coupon -->
-		<h2>Coupon</h2>
+		<h2>쿠폰</h2>
 		<div>
 			<table class="table">
 				<tr>

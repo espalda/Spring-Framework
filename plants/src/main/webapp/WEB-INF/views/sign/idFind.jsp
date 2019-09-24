@@ -4,9 +4,6 @@
 <html>
 <head>
 <style>
-.sb{
-padding: 15px 15px 0 15px;
-}
 .ss{
 margin-bottom: 10px;
 }
@@ -14,7 +11,7 @@ margin-bottom: 10px;
 </head>
 <body>
 	<form action="" id="idFind">
-		<div class="container text-center">
+		<div class="container text-center"><br>
 		<h2>아이디 찾기</h2>
 			<div class="ss">
 				<input type="text" class="input" placeholder="이름" name="name" id="name">
@@ -24,7 +21,7 @@ margin-bottom: 10px;
 				<input type="email" class="input" placeholder="이메일" name="email" id="email">
 			</div>
 			<div class="sb">
-				<button type="button" class="btn-raw find">아이디 찾기</button>
+				<button type="button" class="butt my-2 find">아이디 찾기</button>
 			</div>
 			<div class="sb ctn">
 			</div>

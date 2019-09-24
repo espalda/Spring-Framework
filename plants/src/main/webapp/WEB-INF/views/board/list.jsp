@@ -43,12 +43,13 @@
 		  	</tr>
 			</c:if>
 		</table>
-		<a href="<%=request.getContextPath()%>/board/register"><button class="btn-raw float-right">게시글 작성</button></a>
+		<a href="<%=request.getContextPath()%>/board/register">
+		<button type="button" class="btn-raw float-right">게시글 작성</button></a>
 </form>
 		
 		
 		<!-- pagination code -->
-		<div class="pagination">
+		<div class="pagination" style="justify-content: center;">
 			<c:if test="${pageMaker.prev}">
 				<a href="<%=request.getContextPath()%>/board/list?page=${pageMaker.startPage-1}&type=${pageMaker.criteria.type}"><i class="fas fa-backward"></i></a>
 		 	</c:if>

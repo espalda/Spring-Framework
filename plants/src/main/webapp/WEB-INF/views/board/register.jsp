@@ -6,7 +6,6 @@
 </head>
 <body>
 	<form action="<%=request.getContextPath()%>/board/register" method="post" enctype="multipart/form-data">
-		<p>게시글 작성</p>
 			<div>
 			 <input type="hidden" name="member_id" value="${login.id }" readonly>
 				<table class="table table-borderless">

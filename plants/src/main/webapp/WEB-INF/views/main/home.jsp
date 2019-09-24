@@ -45,7 +45,7 @@ text-align: center;
 }
 
 h1{
-font-family: 'UhBeeSeulvely';
+font-family: 'Mansalva', cursive;
 font-size: 100px;
 }
 	

@@ -19,7 +19,7 @@
 						<a href="<%=request.getContextPath()%>/member/board" 		class="mm-1">BOARD</a>
 					   <a href="<%=request.getContextPath()%>/member/address" 	class="mm-1">ADDRESS</a>
 				  	</div>
-  					<div class="mrbx float-left">
+  					<div class="mrbx float-right">
 	  					<tiles:insertAttribute name="body"/>
  		 			</div>
 				</div>

@@ -7,7 +7,6 @@
 label{
 width: 50px;
 }
-
 textarea, input, input:hover, input.active{
 outline: none;
 border: 1px solid #b97f6d;
@@ -15,22 +14,21 @@ border: 1px solid #b97f6d;
 </style>
 </head>
 <body>
-	<div class="container">
-			<table>
-				<tr>
-					<td>reciever</td>
-					<td><input type="text" size="40"></td>
-				</tr>
-				<tr>
-					<td>title</td>
-					<td><input type="text" size="40"></td>
-				</tr>
-				<tr>
-					<td>contents</td>
-					<td><textarea rows="5" cols="78"></textarea></td>
-				</tr>
-			</table>
-			<button class="btn-raw">S E N D</button>
-	</div>
+<h2>메일 보내기</h2>
+	<table>
+		<tr>
+			<td>reciever</td>
+			<td><input type="text" size="40"></td>
+		</tr>
+		<tr>
+			<td>title</td>
+			<td><input type="text" size="40"></td>
+		</tr>
+		<tr>
+			<td>contents</td>
+			<td><textarea rows="5" cols="78"></textarea></td>
+		</tr>
+	</table>
+	<button class="btn-raw">보내기</button>
 </body>
 </html>

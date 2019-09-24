@@ -15,8 +15,8 @@
 	width: 50px;
 	}
 	.bottom{
-	width: 700px;
-	height: 100px;
+	width: 750px;
+	background-color: white;
 	}
 	li p{
 	padding-left: 55px;
@@ -36,13 +36,21 @@
 	background-color: white;
 	}
 	.option-box{
-	border: 1px solid black;
 	margin: 5px 0;
 	}
+	
 	.img-r1{
 	 width: 390px;
 	 height: auto;
 	 background: white;
+	}
+	input[name=option]{
+	all: unset;
+	width: 120px;
+	}
+	button{
+	margin-right: 10px;
+	margin-bottom: 50px;
 	}
 </style>
 </head>
@@ -89,28 +97,61 @@
 						</li>
 						<li class="addition">
 						</li>
-						<li>
-							<span>총 구매가격</span>	
+						<li><br>
+							<h4>총 구매가격</h4>	
 							<div class="total-price"></div>
 							<input type="hidden" name="total">
 						</li>
 					</ul>
 					
-					<button class="btn-raw basket">CART</button><br>
-					
-					<button type="submit" class="btn-sm order">ORDER</button><br>
+					<button class="butt basket">장바구니</button>
+					<button type="submit" class="butt order">주 문</button>
 
 					<a href="<%=request.getContextPath()%>/member/wish?id=${login.id}&num=${item.num}">
-						<button type="button" class="btn-gold">WISH</button>
+						<button type="button" class="butt">위시리스트</button>
 					</a><br>
 				</div>
 			</section>
 		</div>
-		<div class="bottom mx-auto">${item.contents }</div>
+		<div class="bottom mx-auto text-center"><h4>${item.contents }</h4><br></div>
 	</div>
 </form>
 
 <script>
+$('#opt-select').change(function(){
+	if($(this).val() == '--- 옵션 선택 ---'){
+		location.reload();
+		return false;
+	}
+})
+$('#item-form').submit(function(){
+	var option = $('#opt-select').val();
+	if(option == '--- 옵션 선택 ---'){
+		location.reload();
+		alert('옵션을 선택하세요.');
+		return false;
+	}
+})
+$('.butt').click(function(){
+	
+	var id = $('input[name=id]').val()
+	if(id == ''){
+		location.href  = '/plants/signin';
+		return false;
+	}
+})
+/* action 경로 2가지 설정 */
+
+$('.order').click(function(){
+	var id = $('input[name=id]').val()
+	if(id == ''){
+		location.href  = '/plants/signin';
+		return false;
+	}
+	$('#item-form').attr("action", "<%=request.getContextPath()%>/item/order");
+	$('#item-form').submit();
+})
+
 /* ajax로 옵션 테이블 정보를 불러오는 기능 */
 	$('#opt-select').change(function(){
 		var num = $(this).val();
@@ -134,7 +175,7 @@
 				var str = '<div class="option-box">'+
 				'<input type="hidden" name="option_price" value="'+test.op.option_price+'">'+
 				'<input type="hidden" name="option_num" value="'+test.op.num+'">'+
-				'선택 옵션 : <input type="text" name="option" code="'+test.op.num+'" value="'+test.op.option+'">'+
+				'<i class="fas fa-caret-right"></i>옵션 : <input type="text" name="option" code="'+test.op.num+'" value="'+test.op.option+'">'+
 				'<label>수량</label>'+
 				'<span><input type="number" class="num" min="1" max="99" name="option_count" value="1">'+
 				'<strong class="total"></strong></span></div>';
@@ -203,17 +244,7 @@
 			}
 		}); /* ajax */
 	}); /* opt-select */
-
-/* magnify image function */
-magnify("myimage", 3);
-
-/* action 경로 2가지 설정 */
-$('.order').click(function(){
-	$('#item-form').attr("action", "<%=request.getContextPath()%>/item/order");
-	$('#item-form').submit();
-})
-
-
+	
 </script>
 </body>
 </html>

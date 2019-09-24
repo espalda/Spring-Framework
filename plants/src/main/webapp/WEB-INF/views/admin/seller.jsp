@@ -3,8 +3,18 @@
 <!DOCTYPE html>
 <html>
 <head>
+<style>
+.table-borderless th{
+width: 100px;
+}
+.input, .input:hover, .input:focus{
+margin: 0;
+}
+
+</style>
 </head>
 <body>
+<h2>판매자 관리</h2>
 	<div class="container">
 	  <!-- Nav tabs -->
 	  <ul class="nav nav-tabs" role="tablist">
@@ -14,15 +24,11 @@
 	    <li class="nav-item">
 	      <a class="nav-link" data-toggle="tab" href="#menu1">판매자 등록</a>
 	    </li>
-	    <li class="nav-item">
-	      <a class="nav-link" data-toggle="tab" href="#menu2">판매자 수정</a>
-	    </li>
 	  </ul>
 	
 	<!-- 판매자 정보 화면 -->
 	<div class="tab-content">
 		<div id="home" class="container tab-pane active">
-		<mark>사업자번호 중복 검사</mark>
 			<table class="table table-hover">
 	   		<tr>
 	   			<th>사업자번호</th>
@@ -51,32 +57,27 @@
 				<table class="table table-borderless">
 					<tr>
 						<th>사업자번호</th>
-						<td><input type="text" name="num"></td>
+						<td><input type="text" class="input" name="num"></td>
 					</tr>
 					<tr>
 						<th>판매자이름</th>
-						<td><input type="text" name="name"></td>
+						<td><input type="text" class="input" name="name"></td>
 					</tr>
 					<tr>
 						<th>연락처</th>
-						<td><input type="text" name="phone"></td>
+						<td><input type="text" class="input" name="phone"></td>
 					</tr>
 					<tr>
 						<th>주소</th>
-						<td><input type="text" name="address"></td>
+						<td><input type="text" class="input" name="address"></td>
 					</tr>
 					<tr>
 						<th>이메일</th>
-						<td><input type="text" name="email">${seller.email }</td>
+						<td><input type="text" class="input" name="email">${seller.email }</td>
 					</tr>
 				</table>
-				<button class="btn-tree">판매자 등록</button>
+				<button class="butt">판매자 등록</button>
 			</form>					
-	    </div>
-	    
-	    <!-- 판매자 수정 화면 -->
-	    <div id="menu2" class="container tab-pane fade">
-	    	<mark>판매자 수정 페이지 화면 구현 중 </mark>
 	    </div>
 	  </div>
 	</div>

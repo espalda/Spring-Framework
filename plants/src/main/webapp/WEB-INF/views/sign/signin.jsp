@@ -25,7 +25,7 @@
 			</div>
 				<label id="pw-error" for="pw"></label>
 	
-				<button class="btn-tree d-block">로그인</button>
+				<button class="butt my-2">로그인</button>
 				<br>
 				<a href="<%=request.getContextPath()%>/signup"><i class="fas fa-caret-right"></i>회원가입을 하시려면 여기를 클릭하세요.</a><br>
 				<a href="<%=request.getContextPath()%>/idFind"><i class="fas fa-caret-right"></i>아이디 찾기</a><br>

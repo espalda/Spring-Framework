@@ -50,7 +50,7 @@ color: #cc0000;
 					<label id="email-error" for="email"></label>
 					
 			<div class="sb">
-				<button type="button" class="btn-tree pop">가입완료</button>
+				<button type="button" class="butt pop">가입완료</button>
 			</div>
 			<div class="sb">
 				<input type="checkbox" id="myCheck" onclick="myFunction()">

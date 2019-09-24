@@ -3,6 +3,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+
 <style>
 	.item-2{
 	width: 1120px;
@@ -12,15 +13,20 @@
 	float: left;
 	padding: 10px;
 	}
-	.centered {
+	.centered{
 	font-size: 60px;
 	position: absolute;
 	top: 50%;
 	left: 50%;
  	transform: translate(-50%, -50%);
-	font-family: 'UhBeeSeulvely';
-	font-size: 50px;
 	color: white;
+}
+h1{
+font-family: 'Mansalva', cursive;
+font-size: 100px;
+}
+.pagination{
+
 }
 </style>
 </head>
@@ -29,11 +35,23 @@
 		<section style="position:relative;">
 		<c:if test="${cri.type eq 'Succulents'}">
 			<h1 class="centered">Succulents</h1>
-			<img src="<%=request.getContextPath()%>/resources/img/back-6.jpg" width="100%">
+			<img src="<%=request.getContextPath()%>/resources/img/itembg-1.jpg" width="100%">
 		</c:if>
 		<c:if test="${cri.type eq 'Cactus'}">
 			<h1 class="centered">Cactus</h1>
-			<img src="<%=request.getContextPath()%>/resources/img/back-6.jpg" width="100%">
+			<img src="<%=request.getContextPath()%>/resources/img/itembg-9.jpg" width="100%">
+		</c:if>
+		<c:if test="${cri.type eq 'Plant'}">
+			<h1 class="centered">Plant</h1>
+			<img src="<%=request.getContextPath()%>/resources/img/itembg-6.jpg" width="100%">
+		</c:if>
+		<c:if test="${cri.type eq 'Hanging plant'}">
+			<h1 class="centered">Hanging plant</h1>
+			<img src="<%=request.getContextPath()%>/resources/img/itembg-2.jpg" width="100%">
+		</c:if>
+		<c:if test="${cri.type eq 'Goods'}">
+			<h1 class="centered">Goods</h1>
+			<img src="<%=request.getContextPath()%>/resources/img/itembg-5.jpg" width="100%">
 		</c:if>
 		</section>
 		
@@ -54,7 +72,7 @@
 		</section>
 	</div>
 	<!-- pagination code -->
-		<div class="pagination">
+		<div class="pagination" style="justify-content: center;">
 			<c:if test="${pageMaker.prev}">
 				<a href="<%=request.getContextPath()%>/item/list?page=${pageMaker.startPage-1}&type=${pageMaker.criteria.type}"><i class="fas fa-backward"></i></a>
 		 	</c:if>
@@ -70,6 +88,5 @@
 				<a href="<%=request.getContextPath()%>/item/list?page=${pageMaker.endPage+1}&type=${pageMaker.criteria.type}"><i class="fas fa-forward"></i></a>
 			</c:if>
 		</div>
-		
 </body>
 </html>

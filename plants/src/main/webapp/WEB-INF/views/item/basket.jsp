@@ -20,20 +20,27 @@
 	letter-spacing: 2px;
 	margin-bottom: 10px;
 	}
+	.contain{
+	background-image: url("<%=request.getContextPath()%>/resources/img/bg-basket.jpg");
+	}
+	.fin-price{
+	font-family: 'GyeonggiBatang';
+	font-size: 22.4px;
+	}
 </style>
 </head>
 <body>
 <form action="<%=request.getContextPath()%>/item/basket/order" method="post">
-	<div class="container-11">
-	<h4>장바구니</h4>
+	<div class="contain clearfix">
+	<h2>장바구니</h2>
 		<table class="table">
 			<tr>
-				<th width="3%"><input type="checkbox" class="check-all" checked></th>
+				<th width="5%"><input type="checkbox" class="check-all" checked></th>
 				<th width="10%">이미지</th>
-				<th width="20%">상품정보</th>
+				<th width="30%">상품정보</th>
 				<th width="10%">상품금액</th>
-				<th width="15%">수량</th>
-				<th width="10%">판매자명*배송비</th>
+				<th width="17%">수량</th>
+				<th width="8%">판매자명*배송비</th>
 			</tr>
 			
 			<!-- c:foreach -->
@@ -46,21 +53,20 @@
 					<img src="<%=request.getContextPath()%>/resources/uploadfiles${bas.file }" width="50px">
 				</td>
 				<td>
-					<a href="<%=request.getContextPath()%>/item/display?num=${bas.item_num}">${bas.name}</a>
-					<br>옵션 : ${bas.option }
+					<a href="<%=request.getContextPath()%>/item/display?num=${bas.item_num}"><h4>${bas.name}</h4></a>
+					<i class="fas fa-caret-right"></i>옵션 : ${bas.option }
 					<input type="hidden" name="basket_num" value="${bas.num }">
 					<input type="hidden" name="option_num" value="${bas.option_num }">
 					<input type="hidden" name="num" value="${bas.item_num }">
 				</td>
 				
 				<td>
-					<input type="text" value="${bas.option_price }">
-					
+					<input type="hidden" value="${bas.option_price }">${bas.option_price }원
 				</td>
 				<td>
 					<input type="number" name="option_count" value="${bas.option_count }" width="50px">
-					<button type="button" class="modify">변경</button>
-					<button type="button" class="remove">삭제</button>
+					<button type="button" class="btn-sm modify">변경</button>
+					<button type="button" class="btn-sm remove">삭제</button>
 					
 					<input type="hidden" class="item-total" value="${bas.option_price * bas.option_count }">
 				</td>
@@ -69,16 +75,15 @@
 				</c:if>
 			</tr>
 			</c:forEach>
-			
 			<tr>
 				<td colspan="10" class="background-raw text-right">
-					<span class="fin-price"></span>
+				<span class="fin-price"></span>
 					<input type="hidden" name="total">
 				</td>
 			</tr>
 		</table>
 		
-		<button class="btn-tree">주문하기</button>
+		<button class="butt float-right">주 문</button>
 		
 	</div>
 </form>
@@ -124,14 +129,14 @@ $('.remove').click(function(){
 	});
 })/* ajax */
 
-	var str3 = '상품금액 : '+ 0 +' + 배송비: 0 = '+ 0; /* 전체 해제시 금액 */
+	var str3 = '상품금액 : '+ 0 +' + 배송비 : 0 = '+ 0; /* 전체 해제시 금액 */
 	/* 장바구니 페이지에 들어왔을때 보여지는 디폴트 금액 */
 	var total = 0;
 	$('.tr').each(function(){
 		total += parseInt($(this).find('.item-total').val());
 	});
-	var str = '상품금액 : '+ total +' + 배송비: 0 = '+ total;	/* 10000원 이상 배송비 무료 금액 */
-	var str2 = '상품금액 : '+ total +' + 배송비: 2500 = '+ (total + parseInt(2500));	/* 10000원 이하 배송비 무료 금액 */
+	var str = '상품금액 : '+ total +' + 배송비 : 0 = '+ total;	/* 10000원 이상 배송비 무료 금액 */
+	var str2 = '상품금액 : '+ total +' + 배송비 : 2500 = '+ (total + parseInt(2500));	/* 10000원 이하 배송비 무료 금액 */
 	if(total < 10000 && total > 0){
 		total += parseInt(2500);
 		str = str2;
@@ -148,8 +153,8 @@ $('.remove').click(function(){
 			total += parseInt($(this).find('.item-total').val());
 			}
 		});
-		var str = '상품금액 : '+ total +' + 배송비: 0 = '+ total;	/* 10000원 이상 배송비 무료 금액 */
-		var str2 = '상품금액 : '+ total +' + 배송비: 2500 = '+ (total + parseInt(2500));	/* 10000원 이하 배송비 무료 금액 */
+		var str = '상품금액 : '+ total +' + 배송비 : 0 = '+ total;	/* 10000원 이상 배송비 무료 금액 */
+		var str2 = '상품금액 : '+ total +' + 배송비 : 2500 = '+ (total + parseInt(2500));	/* 10000원 이하 배송비 무료 금액 */
 		if(total < 10000 && total > 0){
 			total += parseInt(2500);
 			str = str2;
@@ -175,8 +180,8 @@ $('.remove').click(function(){
 		$('.tr').each(function(){
 			total += parseInt($(this).find('.item-total').val());
 		});
-		var str = '상품금액 : '+ total +' + 배송비: 0 = '+ total;	/* 10000원 이상 배송비 무료 금액 */
-		var str2 = '상품금액 : '+ total +' + 배송비: 2500 = '+ (total + parseInt(2500));	/* 10000원 이하 배송비 무료 금액 */
+		var str = '상품금액 : '+ total +' + 배송비 : 0 = '+ total;	/* 10000원 이상 배송비 무료 금액 */
+		var str2 = '상품금액 : '+ total +' + 배송비 : 2500 = '+ (total + parseInt(2500));	/* 10000원 이하 배송비 무료 금액 */
 		if($(this).prop("checked")){
 			alert("체크");
 			$('input[name=check]').prop("checked", true);

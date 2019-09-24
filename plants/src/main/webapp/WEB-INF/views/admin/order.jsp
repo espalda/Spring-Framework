@@ -5,24 +5,7 @@
 <head>
 </head>
 <body>
-<div class="container">
-  <!-- Nav tabs -->
-  <ul class="nav nav-tabs" role="tablist">
-    <li class="nav-item">
-      <a class="nav-link active" data-toggle="tab" href="#home">주문 조회</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" data-toggle="tab" href="#menu1">주문 현황</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" data-toggle="tab" href="#menu2">배송 현황</a>
-    </li>
-  </ul>
-
-  <!-- Tab panes -->
-  <div class="tab-content">
-    <div id="home" class="container tab-pane active">
-    <!-- * 주문조회 -->
+<h2>주문 관리</h2>
 		<table class="table table-hover">
 			<tr>
 				<th>주문번호</th>
@@ -47,18 +30,5 @@
 			</tr>
 			</c:forEach>
 		</table>
-    </div>
-    <!-- * 회원 등급 -->
-    <div id="menu1" class="container tab-pane fade">
-		<ul class="list-group list-group-horizontal">
-		  <li class="list-group-item">welcome</li>
-		  <li class="list-group-item">gold</li>
-		  <li class="list-group-item">diamond</li>
-		</ul>
-    </div>
-    
-  </div>
-</div>
-
 </body>
 </html>

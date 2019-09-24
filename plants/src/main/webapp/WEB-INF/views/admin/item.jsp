@@ -6,11 +6,17 @@
 <style>
 .option-box input{
 margin-bottom: 10px;
+width: 100px;
 }
+.table-borderless th{
+width: 100px;
+}
+.table-borderless td{
+width: 300px;
 </style>
 </head>
 <body>
-<div class="container">
+<h2>상품 관리</h2>
   <!-- Nav tabs -->
   <ul class="nav nav-tabs" role="tablist">
     <li class="nav-item">
@@ -18,9 +24,6 @@ margin-bottom: 10px;
     </li>
     <li class="nav-item">
       <a class="nav-link" data-toggle="tab" href="#menu1">상품 등록</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" data-toggle="tab" href="#menu2">상품 수정</a>
     </li>
   </ul>
 
@@ -30,14 +33,14 @@ margin-bottom: 10px;
     <!-- 상품 정보 -->
 		<table class="table table-hover">
 			<tr>
-				<th>상품번호</th>
-			 	<th>이미지</th>
-			 	<th>카테고리</th>
-				<th>상품명</th>
-				<th>가격</th>
-				<th>수량</th>
-				<th>상품설명</th>
-				<th>옵션</th>
+				<th width="10%">상품번호</th>
+			 	<th width="10%">이미지</th>
+			 	<th width="10%">카테고리</th>
+				<th width="10%">상품명</th>
+				<th width="5%">가격</th>
+				<th width="5%">수량</th>
+				<th width="20%">상품설명</th>
+				<th width="10%">옵션</th>
 			</tr>
 			<c:forEach var="item" items="${itemList }">
 				<tr>
@@ -46,7 +49,7 @@ margin-bottom: 10px;
 					<td>${item.category }</td>
 					<td>${item.name }</td>
 					<td>${item.price }</td>
-					<td>${item.count }</td>
+					<td>${option.option_count }<mark>수정</mark></td>
 					<td>${item.contents }</td>
 					<td >
 						<select class="option">
@@ -63,7 +66,6 @@ margin-bottom: 10px;
 				</tr> 
 			</c:forEach>
 		</table>
-		
     </div>
     
     <!-- 상품 등록 --> 
@@ -120,12 +122,6 @@ margin-bottom: 10px;
 			<button class="btn-tree">상품 등록</button>
 		</form>
     </div>
-    
-   <!-- tab2 내용 -->
-	<div id="menu2" class="container tab-pane fade">
-			<mark>상품 수정 구현 later</mark>
-	</div>	<!-- tab2 end -->
-	
   </div> <!-- Tab panes end -->
 </div>	<!-- container end -->
 <script>

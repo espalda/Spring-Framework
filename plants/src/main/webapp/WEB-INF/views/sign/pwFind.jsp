@@ -4,9 +4,6 @@
 <html>
 <head>
 <style>
-.sb{
-padding: 15px 15px 0 15px;
-}
 .ss{
 margin-bottom: 10px;
 }
@@ -28,7 +25,7 @@ margin-bottom: 10px;
 				<input type="email" class="input" placeholder="이메일" name="email" id="email">
 			</div>
 			<div class="sb">
-				<button type="button" class="btn-raw find">비밀번호 찾기</button>
+				<button type="button" class="butt my-2 find">비밀번호 찾기</button>
 			</div>
 			<div class="sb">
 				<i class="fas fa-caret-right"></i><a href="<%=request.getContextPath()%>/idFind">아이디 찾기</a>

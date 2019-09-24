@@ -4,97 +4,62 @@
 <html>
 <head>
 <style>
-.modify input{
-text-align: center;
-color: blue;
+input{
+all:unset;
+}
+th{
+width: 150px;
+background-color: #ededed;
 }
 </style>
 </head>
 <body>
-<div class="container">
-  <!-- Nav tabs -->
-  <ul class="nav nav-tabs" role="tablist">
-    <li class="nav-item">
-      <a class="nav-link active" data-toggle="tab" href="#home">회원 정보</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" data-toggle="tab" href="#menu1">회원 수정</a>
-    </li>
-  </ul>
-
-  <!-- Tab panes -->
-  <div class="tab-content">
-    <div id="home" class="container tab-pane active"><br>
-    <!-- * 회원 정보 -->
-		<div class="text-center">
-			<div>
-				<table class="table table-borderless text-center">
-					<tr>
-						<td>${login.id} 님 환영합니다.</td>
-					</tr>
-					<tr>
-						<td>회원님의 등급은 [💗${login.grade }💗] 입니다.</td>
-					</tr>
-					<tr>
-						<td>적립금 : ${login.point }</td>
-					</tr>
-					<tr>
-						<td>보유 쿠폰 : count</td>
-					</tr>
-				</table>
-			</div>
-		
-    </div>
-    </div>
-    
-    <!-- * 회원 등급 -->
-    <div id="menu1" class="container tab-pane fade"><br>
-    	<form action="<%=request.getContextPath()%>/member/profile" method="post" id="modify">
-			<div class="modify">
-				<div>
-					<span>아이디</span>
-					<input type="text" placeholder="아이디" name="id" value="${login.id }" readonly>
-				</div>
-				
-				<div>
-					<span>이름</span>
-					<input type="text" placeholder="이름" name="name" value="${login.name }" readonly>
-				</div>
-				
-				<div>
-					<span>바밀번호</span>
-					<input type="password" placeholder="비밀번호" name="pw" id="pw">
-				</div>
-					<label id="pw-error" for="pw"></label>
-					
-				<div>
-					<span>비밀번호 확인</span>
-					<input type="password" placeholder="비밀번호 확인" name="pw2">
-				</div>
-					<label id="pw2-error" for="pw2"></label>
-					
-				<div>
-					<span>휴대폰</span>
-					<input type="text" placeholder="휴대폰" name="phone" value="${login.phone }">
-				</div>
-					<label id="phone-error" for="phone"></label>
-					
-				<div>
-					<span>이메일</span>
-					<input type="email" placeholder="이메일" name="email" value="${login.email }">
-				</div>
-					<label id="email-error" for="email"></label>
-			</div>
-	
-				<button type="button" class="btn-tree modi">UPDATE</button>
-				<a href="<%=request.getContextPath()%>/member/delete?id=${login.id}">
-				<button type="button" class="btn-gray delete">WITHDRAW</button></a>
-				<p>회원탈퇴시 알림창 문구 및 비밀번호 다시 확인 창 미구현</p>
-			</form>
-		</div>
+<form action="<%=request.getContextPath()%>/member/profile" method="post" id="modify">
+<div class="container modify">
+<h2>회원 정보</h2>
+    <table class="table table-borderless">
+    	<tr>
+    		<th>아이디</th>
+    		<td><input type="text" placeholder="아이디" name="id" value="${login.id }" readonly></td>
+    	</tr>
+    	<tr>
+    		<th>등급</th>
+    		<td><input type="text" placeholder="등급" name="grade" value="${login.grade }" readonly></td>
+    	</tr>
+    	<tr>
+    		<th>이름</th>
+    		<td><input type="text" placeholder="이름" name="name" value="${login.name }" readonly></td>
+    	</tr>
+    	<tr>
+    		<th>비밀번호</th>
+    		<td><input type="password" placeholder="비밀번호" name="pw" id="pw"><br>
+    			 <label id="pw-error" for="pw"></label>
+    		</td>
+    	</tr>
+    	<tr>
+    		<th>비밀번호 확인</th>
+    		<td><input type="password" placeholder="비밀번호 확인" name="pw2"><br>
+    			 <label id="pw2-error" for="pw2"></label>
+    		</td>
+    	</tr>
+    	<tr>
+    		<th>휴대폰</th>
+    		<td><input type="text" placeholder="휴대폰" name="phone" value="${login.phone }"><br>
+    			 <label id="phone-error" for="phone"></label>
+    		</td>
+    	</tr>
+    	<tr>
+    		<th>이메일</th>
+    		<td><input type="email" placeholder="이메일" name="email" value="${login.email }"><br>
+    			 <label id="email-error" for="email"></label>
+    		</td>
+    	</tr>
+    </table>
+			<button type="button" class="butt modi">수정</button>
+			<a href="<%=request.getContextPath()%>/member/delete?id=${login.id}">
+			<button type="button" class="butt delete">탈퇴</button></a>
 	</div>
-</div>
-	
+</form>
 <script>
 $(document).ready(function(){
 	/** validate(plug-in)의 양식이 맞으면 true, 다르면 false */

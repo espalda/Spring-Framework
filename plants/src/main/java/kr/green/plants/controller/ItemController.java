@@ -66,6 +66,7 @@ public class ItemController {
 		    mv.setViewName("/item/list");
 		    mv.addObject("itemList", ivo);
 		    mv.addObject("pageMaker", pm);
+		    mv.addObject("cri", cri);
 		    return mv;
 		}
 		
