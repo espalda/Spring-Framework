@@ -4,15 +4,31 @@
 <html>
 <head>
 <style>
-.option-box input{
-margin-bottom: 10px;
-width: 100px;
+.option-box input, input:focus{
+border:none;
+outline: none;
+width: 200px;
+margin: 0 auto;
+padding: 10px;
+background-color: #ededed;
+font-size: 22.4px;
+font-family: 'GyeonggiBatang';
+border-radius: 5px;
+}
+	
+.input::placeholder {
+color: #123132;
+text-align: center;
 }
 .table-borderless th{
 width: 100px;
 }
-.table-borderless td{
-width: 300px;
+.input, .input:hover, .input:focus{
+margin: 0;
+}
+i span{
+font-family: 'Iropke Batang' !important;
+}
 </style>
 </head>
 <body>
@@ -33,12 +49,11 @@ width: 300px;
     <!-- 상품 정보 -->
 		<table class="table table-hover">
 			<tr>
-				<th width="10%">상품번호</th>
+				<th width="8%">상품번호</th>
 			 	<th width="10%">이미지</th>
 			 	<th width="10%">카테고리</th>
 				<th width="10%">상품명</th>
 				<th width="5%">가격</th>
-				<th width="5%">수량</th>
 				<th width="20%">상품설명</th>
 				<th width="10%">옵션</th>
 			</tr>
@@ -49,15 +64,14 @@ width: 300px;
 					<td>${item.category }</td>
 					<td>${item.name }</td>
 					<td>${item.price }</td>
-					<td>${option.option_count }<mark>수정</mark></td>
 					<td>${item.contents }</td>
-					<td >
+					<td>
 						<select class="option">
 						<c:forEach var="option" items="${optionList }">
-							<c:if test="${item.name eq option.item_name}">
-								<option>${option.option }</option>
+							<c:if test="${item.num eq option.item_num}">
+								<option>${option.option } 재고 : ${option.option_count }</option>
 							</c:if>
-							<c:if test="${option.item_name eq null}">
+							<c:if test="${option.item_num eq null}">
 								<option>없음</option>
 							</c:if>
 						</c:forEach>
@@ -87,41 +101,41 @@ width: 300px;
 				</tr>
 				<tr>
 					<th>상품명</th>
-					<td><input type="text" name="name"></td>
+					<td><input type="text" name="name" class="input"></td>
 				</tr>
 				<tr>
 					<th>가격</th>
-					<td><input type="text" name="price"></td>
+					<td><input type="text" name="price" class="input"></td>
 				</tr>
 				<tr>
 					<th>수량</th>
-					<td><input type="text" name="count"></td>
+					<td><input type="text" name="count" class="input"></td>
 				</tr>
 				<tr>
 					<th>상품설명</th>
-					<td><textarea cols="100" rows="5" name="contents"></textarea></td>
+					<td><textarea cols="50" rows="5" name="contents" class="input"></textarea></td>
 				</tr>
 				<tr>
 					<th>옵션</th>
 					
 					<td class="option-box">
-						<mark>* 필수 - 옵션추가금액은 옵션을 추가한 상품의 최종 금액으로 입력해주세요.*</mark><br>
+					<div class="opt m-2">
 						<input type="text" placeholder="옵션명" name="option">
-						<input type="text" placeholder="옵션추가금액" name="option_price">
-						<button type="button" class="add">추가</button><br>
+						<input type="text" placeholder="옵션금액" name="option_price">
+						<button type="button" class="btn-sm add">추가</button><br>
+					</div>
 					</td>
 				</tr>
 				<tr>
 					<th>이미지</th>
-					<td><input type="file" name="file2"><i class="fas fa-trash-alt del">삭제</i>
+					<td><input type="file" name="file2"><i class="fas fa-trash-alt del"><span class="btn-sm ml-2">삭제</span></i>
 					</td>
 				</tr>		
 					
 			</table>
 
-			<button class="btn-tree">상품 등록</button>
+			<button class="butt">상품 등록</button>
 		</form>
-    </div>
   </div> <!-- Tab panes end -->
 </div>	<!-- container end -->
 <script>
@@ -130,8 +144,8 @@ $('.del').click(function(){	/* 파일 값 없애기 */
 });
 
 $('.add').click(function(){
-	var str = '<input type="text" placeholder="옵션명" name="option">'+
-				 '<input type="text" placeholder="옵션추가금액" name="option_price"><br>';
+	var str = '<div class="opt m-2"><input type="text" placeholder="옵션명" name="option"> '+
+				 '<input type="text" placeholder="옵션금액" name="option_price"><br></div>';
 	$('.option-box').append(str);
 })
 

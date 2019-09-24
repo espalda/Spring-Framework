@@ -28,7 +28,9 @@
 	.table th{
 	border:none;
 	}
-	
+	select{
+	font-size: 11px;
+	}
 
 /*-----------------------------------------------------------------*/
 /* 1. layout
@@ -193,6 +195,10 @@
 	.input::placeholder {
 	color: #123132;
 	text-align: center;
+	}
+	textarea, .input:hover, .input.active{
+	outline: none;
+	border: 1px solid #b97f6d;
 	}
 	
 /*-----------------------------------------------------------------*/

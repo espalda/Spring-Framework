@@ -3,30 +3,21 @@
 <!DOCTYPE html>
 <html>
 <head>
-<style>
-label{
-width: 50px;
-}
-textarea, input, input:hover, input.active{
-outline: none;
-border: 1px solid #b97f6d;
-}
-</style>
 </head>
 <body>
 <h2>메일 보내기</h2>
 	<table>
 		<tr>
-			<td>reciever</td>
-			<td><input type="text" size="40"></td>
+			<td>받는사람</td>
+			<td><input type="text" class="input"></td>
 		</tr>
 		<tr>
-			<td>title</td>
-			<td><input type="text" size="40"></td>
+			<td>제목</td>
+			<td><input type="text" class="input"></td>
 		</tr>
 		<tr>
-			<td>contents</td>
-			<td><textarea rows="5" cols="78"></textarea></td>
+			<td>내용</td>
+			<td><textarea rows="5" class="input"></textarea></td>
 		</tr>
 	</table>
 	<button class="btn-raw">보내기</button>

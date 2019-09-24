@@ -11,7 +11,6 @@
 	.shop-1 a{
 	width: 150px;
 	text-decoration: none;
-	font-size: 12px;
 	}
 			
 	.shop-list{
@@ -20,7 +19,7 @@
 	border: 1px solid #b97f6d;
 	border-top: none;
 	left: -30px;
-	top: 30px;
+	top: 35px;
 	z-index: 999;
   	}
 	
@@ -53,13 +52,12 @@
 	background-color: white;
 	color: #123132;
 	margin: 0 auto;
-	font-family: 'Bitter';
-	font-size: 15px;
+	font-family: 'Titillium Web', sans-serif;
 	}
 	
 	.nav-2 a{
 	color: #123132;
-	font-size: 16px;
+	font-size: 18px;
 	}
 	
 /* ---------------------------- dropbox-shop */
@@ -69,11 +67,10 @@
 	background-color: #ededed;
 	text-decoration: none;
 	display: block;
-	padding: 12px;
-	font-size: 11px;
+	padding: 10px;
+	font-size: 13px;
 	border-top: 1px solid #b97f6d;
-	font-family: 'Consolas,monaco,monospace';
-	letter-spacing: 1px;
+	font-family: 'Titillium Web', sans-serif;
 	text-align: left;
 	}
 
@@ -83,8 +80,8 @@
 	background-color: #123132;
 	text-decoration: none;
 	display: block;
-	padding: 12px;
-	font-size: 11px;
+	padding: 10px;
+	font-size: 13px;
 	border-top: 1px solid #b97f6d;
 	text-align: left;
 	}

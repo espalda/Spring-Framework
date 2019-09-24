@@ -28,3 +28,5 @@
 <link rel="stylesheet" href="//fonts.googleapis.com/earlyaccess/nanumgothic.css" type="text/css">
 <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Bitter'>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Mansalva&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium+Web&display=swap">
+
