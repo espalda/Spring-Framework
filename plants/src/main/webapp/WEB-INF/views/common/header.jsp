@@ -146,7 +146,7 @@
 			
 			<!-- dropbox-tab -->
 			<li class="nav-link">
-				<div class="shop-1 clearfix">
+				<div class="shop-1 clearfix" style="cursor:pointer;">
 					<a>product<i class="fas fa-caret-down ml-2"></i></a>
 					<ul class="shop-list">
 						<li><a class="nav-link" href="<%=request.getContextPath()%>/item/list?type=Succulents">Succulents</a></li>

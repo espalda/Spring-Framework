@@ -44,6 +44,8 @@ public interface ItemDAO {
 
 	public ArrayList<OptionVO> selectBestItemList();
 
+	public ArrayList<ItemVO> selectItemGoods();
+
 
 
 

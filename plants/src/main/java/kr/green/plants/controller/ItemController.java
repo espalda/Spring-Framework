@@ -47,10 +47,12 @@ public class ItemController {
 		}
 		
 		
-		/** 이벤트 상품 */
+		/** [event] 이벤트 상품 */
 		@RequestMapping(value="/event")
 		public ModelAndView itemEvent(ModelAndView mv){
+			ArrayList<ItemVO> event = itemService.selectItemGoods();
 		    mv.setViewName("/item/event");
+		    mv.addObject("eventList", event);
 		    return mv;
 		}
 		
@@ -216,12 +218,12 @@ public class ItemController {
 		/** 결제 후 주문페이지 DB 저장 */
 		@RequestMapping(value="/paid", method=RequestMethod.GET)
 		public ModelAndView itemPaidGet(ModelAndView mv, String order_num, Integer total){
-			//ArrayList<OrderVO> order = itemService.selectOrderPaid(order_num);
 			mv.setViewName("/item/paid");
 			mv.addObject("order_num", order_num);
 			mv.addObject("total", total);
 			return mv;
 		}
+		
 		@RequestMapping(value="/paid", method=RequestMethod.POST)
 		public String itemPaidPost(Model model, String id, Integer total, Integer[] basket_num,
 									Integer[] option_num, Integer[] option_count){
@@ -251,7 +253,5 @@ public class ItemController {
 			 model.addAttribute("order_num", order.getOrder_num());
 			 model.addAttribute("total", total);
 		    return "redirect:/item/paid";
-		}
-		
-		
+		}		
 }

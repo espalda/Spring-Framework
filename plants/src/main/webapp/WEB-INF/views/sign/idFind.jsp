@@ -11,7 +11,8 @@ margin-bottom: 10px;
 </head>
 <body>
 	<form action="" id="idFind">
-		<div class="container text-center"><br>
+		<div class="container text-center">
+		<br>
 		<h2>아이디 찾기</h2>
 			<div class="ss">
 				<input type="text" class="input" placeholder="이름" name="name" id="name">

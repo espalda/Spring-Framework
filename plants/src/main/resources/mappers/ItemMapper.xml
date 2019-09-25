@@ -106,4 +106,10 @@
 	join item on item_num = item.num
    order by option_count asc limit 0, 3;
 	</select>
+	
+	<select id="selectItemGoods" resultType="kr.green.plants.vo.ItemVO">
+	select * from item where valid = 'I' and category = 'Goods'
+	order by num desc
+	limit 0,3
+	</select>
 </mapper>

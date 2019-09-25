@@ -24,8 +24,8 @@ public class AdminServiceImp implements AdminService{
 		}
 
 		@Override
-		public void updateSeller(SellerVO svo) {
-			adminDao.updateSeller(svo);	
+		public void insertSeller(SellerVO svo) {
+			adminDao.insertSeller(svo);	
 		}
 		
 		@Override

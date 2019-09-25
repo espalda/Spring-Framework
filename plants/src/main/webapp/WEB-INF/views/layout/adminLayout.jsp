@@ -18,7 +18,6 @@
 					   <a href="<%=request.getContextPath()%>/admin/item"		class="am-1">ITEM</a>
 					   <a href="<%=request.getContextPath()%>/admin/order" 	class="am-1">ORDER</a>
 						<a href="<%=request.getContextPath()%>/admin/board" 	class="am-1">BOARD</a>
-					   <a href="<%=request.getContextPath()%>/admin/mail" 	class="am-1">MAIL</a>
 				  	</div>
   					<div class="mrbx float-right">
 	  					<tiles:insertAttribute name="body"/>

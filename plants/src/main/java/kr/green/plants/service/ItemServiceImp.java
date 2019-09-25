@@ -119,6 +119,11 @@ public class ItemServiceImp implements ItemService{
 			return itemDao.selectBestItemList();
 		}
 
+		@Override
+		public ArrayList<ItemVO> selectItemGoods() {
+			return itemDao.selectItemGoods();
+		}
+
 
 		
 

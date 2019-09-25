@@ -12,6 +12,7 @@ margin-bottom: 10px;
 <body>
 	<form action="<%=request.getContextPath()%>/password/send" id="pwFind">
 		<div class="container text-center">
+		<br>
 		<h2>비밀번호 찾기</h2>
 			<div class="ss">
 				<input type="text" class="input" placeholder="아이디" name="id">

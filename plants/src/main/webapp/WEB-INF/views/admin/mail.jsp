@@ -3,23 +3,32 @@
 <!DOCTYPE html>
 <html>
 <head>
+<style>
+th{
+width: 100px;
+}
+</style>
 </head>
 <body>
 <h2>메일 보내기</h2>
-	<table>
-		<tr>
-			<td>받는사람</td>
-			<td><input type="text" class="input"></td>
-		</tr>
-		<tr>
-			<td>제목</td>
-			<td><input type="text" class="input"></td>
-		</tr>
-		<tr>
-			<td>내용</td>
-			<td><textarea rows="5" class="input"></textarea></td>
-		</tr>
-	</table>
-	<button class="btn-raw">보내기</button>
+	 <form action="<%= request.getContextPath()%>/mail/mailSending"><br>
+			<div class="text-center">
+				<table>
+					<tr>
+						<th>받는 사람</th>
+						<td><input type="text" size="40" name="tomail" class="input"></td>
+					</tr>
+					<tr>
+						<th>제목</th>
+						<td><input type="text" size="40" name="title" class="input"></td>
+					</tr>
+					<tr>
+						<th>내용</th>
+						<td><textarea rows="5" cols="50" name="contents" class="input"></textarea></td>
+					</tr>
+				</table>
+				<button class="butt my-2">보내기</button>
+		</div>
+	</form>
 </body>
 </html>

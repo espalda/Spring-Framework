@@ -46,7 +46,7 @@
 				<div class="item-list">
 					<a href="<%=request.getContextPath()%>/item/display?num=${item.num}">
 						<div class="img">
-							<img class="scale" src="<%=request.getContextPath()%>/resources/uploadfiles${item.file}" width="300px" height="auto">
+							<img class="scale" src="<%=request.getContextPath()%>/resources/uploadfiles${item.file}" width="300px" height="300px">
 						</div>
 						<h2>${item.name }</h2>
 						<h3>${item.price }</h3>

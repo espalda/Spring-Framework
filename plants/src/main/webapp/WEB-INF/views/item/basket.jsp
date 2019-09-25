@@ -16,17 +16,18 @@
 	margin-bottom: 5px;
 	}
 	td>a{
-	font-size: 20px;
 	letter-spacing: 2px;
 	margin-bottom: 10px;
-	}
-	.contain{
-	background-image: url("<%=request.getContextPath()%>/resources/img/bg-basket.jpg");
 	}
 	.fin-price{
 	font-family: 'GyeonggiBatang';
 	font-size: 22.4px;
 	}
+	.contain{
+	background-image: url("<%=request.getContextPath()%>/resources/img/bg-basket.jpg");
+	}
+
+	
 </style>
 </head>
 <body>

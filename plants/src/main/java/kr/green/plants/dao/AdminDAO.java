@@ -16,7 +16,7 @@ public interface AdminDAO {
 
 	public ArrayList<SellerVO> selectSellerList();
 	
-	public void updateSeller(@Param("seller") SellerVO svo);
+	public void insertSeller(@Param("seller") SellerVO svo);
 
 	public ArrayList<MemberVO> selectMemberList();
 

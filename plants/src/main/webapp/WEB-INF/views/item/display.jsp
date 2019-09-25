@@ -105,7 +105,7 @@
 					</ul>
 					
 					<button class="butt basket">장바구니</button>
-					<button type="submit" class="butt order">주 문</button>
+					<button type="button" class="butt order">주 문</button>
 
 					<a href="<%=request.getContextPath()%>/member/wish?id=${login.id}&num=${item.num}">
 						<button type="button" class="butt">위시리스트</button>
@@ -124,14 +124,17 @@ $('#opt-select').change(function(){
 		return false;
 	}
 })
-$('#item-form').submit(function(){
+/* $('.order').click(function(){
 	var option = $('#opt-select').val();
 	if(option == '--- 옵션 선택 ---'){
-		location.reload();
+		//location.reload();
+		console.log('test')
 		alert('옵션을 선택하세요.');
 		return false;
+	}else{
+		$('#item-form').submit();
 	}
-})
+}) */
 $('.butt').click(function(){
 	
 	var id = $('input[name=id]').val()
@@ -143,6 +146,13 @@ $('.butt').click(function(){
 /* action 경로 2가지 설정 */
 
 $('.order').click(function(){
+	var option = $('#opt-select').val();
+	if(option == '--- 옵션 선택 ---'){
+		//location.reload();
+		console.log('test')
+		alert('옵션을 선택하세요.');
+		return false;
+	}
 	var id = $('input[name=id]').val()
 	if(id == ''){
 		location.href  = '/plants/signin';

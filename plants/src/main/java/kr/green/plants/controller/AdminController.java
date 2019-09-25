@@ -52,7 +52,7 @@ public class AdminController {
 		@RequestMapping(value = "/seller/register")
 		public String adminSellerRegister(Model model, SellerVO svo) {
 			if(svo != null) {
-				adminService.updateSeller(svo);
+				adminService.insertSeller(svo);
 			}
 			return "redirect:/admin/seller";
 			
@@ -82,7 +82,8 @@ public class AdminController {
 		}
 		/** 관리자 상품 등록 */
 		@RequestMapping(value="/item/register")
-		public String adminItemRegister(Model model, ItemVO ivo, MultipartFile file2, String[] option, Integer[]option_price) throws IOException, Exception {
+		public String adminItemRegister(Model model, ItemVO ivo, MultipartFile file2, String[] option, Integer[]option_price, Integer[]option_count)
+				throws IOException, Exception {
 			if(file2.getOriginalFilename().length() != 0) {
 				String file = UploadFileUtils.uploadFile(uploadPath, file2.getOriginalFilename(),file2.getBytes());
 				ivo.setFile(file);
@@ -94,6 +95,7 @@ public class AdminController {
 				OptionVO ovo = new OptionVO();
 				ovo.setOption(option[i]);
 				ovo.setOption_price(option_price[i]);
+				ovo.setOption_count(option_count[i]);
 				ovo.setItem_num(item_num);
 				ovo.setItem_name(ivo.getName());
 				adminService.insertOption(ovo);

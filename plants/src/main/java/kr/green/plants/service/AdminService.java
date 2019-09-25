@@ -15,7 +15,7 @@ public interface AdminService {
 	
 	public ArrayList<MemberVO> selectMemberList();
 
-	public void updateSeller(SellerVO svo);
+	public void insertSeller(SellerVO svo);
 
 	public ArrayList<ItemVO> selectItemList();
 

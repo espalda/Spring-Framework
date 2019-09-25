@@ -7,11 +7,11 @@
 .option-box input, input:focus{
 border:none;
 outline: none;
-width: 200px;
+width: 100px;
 margin: 0 auto;
-padding: 10px;
+padding: 5px;
 background-color: #ededed;
-font-size: 22.4px;
+font-size: 21px;
 font-family: 'GyeonggiBatang';
 border-radius: 5px;
 }
@@ -94,7 +94,7 @@ font-family: 'Iropke Batang' !important;
 							<option value="Succulents">Succulents</option>
 							<option value="Cactus">Cactus</option>
 							<option value="Plant">Plant</option>
-							<option value="Hanging Plant">Hanging Plant</option>
+							<option value="Hanging plant">Hanging Plant</option>
 							<option value="Goods">Goods</option>
 						</select>
 					</td>
@@ -108,10 +108,6 @@ font-family: 'Iropke Batang' !important;
 					<td><input type="text" name="price" class="input"></td>
 				</tr>
 				<tr>
-					<th>수량</th>
-					<td><input type="text" name="count" class="input"></td>
-				</tr>
-				<tr>
 					<th>상품설명</th>
 					<td><textarea cols="50" rows="5" name="contents" class="input"></textarea></td>
 				</tr>
@@ -119,9 +115,10 @@ font-family: 'Iropke Batang' !important;
 					<th>옵션</th>
 					
 					<td class="option-box">
-					<div class="opt m-2">
+					<div class="opt my-2">
 						<input type="text" placeholder="옵션명" name="option">
 						<input type="text" placeholder="옵션금액" name="option_price">
+						<input type="text" placeholder="옵션수량" name="option_count">
 						<button type="button" class="btn-sm add">추가</button><br>
 					</div>
 					</td>
@@ -144,8 +141,9 @@ $('.del').click(function(){	/* 파일 값 없애기 */
 });
 
 $('.add').click(function(){
-	var str = '<div class="opt m-2"><input type="text" placeholder="옵션명" name="option"> '+
-				 '<input type="text" placeholder="옵션금액" name="option_price"><br></div>';
+	var str = '<div class="opt my-2"><input type="text" placeholder="옵션명" name="option"> '+
+				 '<input type="text" placeholder="옵션금액" name="option_price"> '+
+				 '<input type="text" placeholder="옵션수량" name="option_count"></div>';
 	$('.option-box').append(str);
 })
 

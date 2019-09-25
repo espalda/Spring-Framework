@@ -29,8 +29,8 @@
 			</tr>
 	</table>
 	<div class="float-right">
-		<a href="<%=request.getContextPath()%>/board/modify?num=${board.num}"><button class="btn-tree">수정</button></a>
-		<a href="<%=request.getContextPath()%>/board/delete?num=${board.num}"><button class="btn-raw">삭제</button></a>
+		<a href="<%=request.getContextPath()%>/board/modify?num=${board.num}"><button class="butt">수정</button></a>
+		<a href="<%=request.getContextPath()%>/board/delete?num=${board.num}"><button class="butt">삭제</button></a>
 		<a href="<%=request.getContextPath()%>/board/list"><button class="btn-gray">목록</button></a>
 	</div>
 </body>

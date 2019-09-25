@@ -42,6 +42,8 @@ public interface ItemService {
 
 	public ArrayList<OptionVO> selectBestItemList();
 
+	public ArrayList<ItemVO> selectItemGoods();
+
 
 
 }

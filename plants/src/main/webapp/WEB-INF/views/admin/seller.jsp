@@ -73,7 +73,7 @@ margin: 0;
 					</tr>
 					<tr>
 						<th>이메일</th>
-						<td><input type="text" class="input" name="email">${seller.email }</td>
+						<td><input type="text" class="input" name="email"></td>
 					</tr>
 				</table>
 				<button class="butt">판매자 등록</button>

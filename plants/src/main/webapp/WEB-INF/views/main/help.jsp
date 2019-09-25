@@ -4,74 +4,76 @@
 <html>
 <head>
 <style>
-.container{
-width: 600px;
-	background-image: url("<%=request.getContextPath()%>/resources/img/back-2.jpg");
+.help{
+width: 500px;
+margin: 0 auto;
 }
 th{
 width: 100px;
 }
 h4{
+margin: 0;
 display: inline-block;
-margin-right: 50px;
+}
+.nav-pills .nav-link.active, .nav-pills .show>.nav-link{
+background-color: #123132;
+color: white;
 }
 </style>
 </head>
 <body>
-<div class="container">
-  <h2>Toggleable Pills</h2>
-  <br>
+<div class="help mx-auto"><br>
   <!-- Nav pills -->
   <ul class="nav nav-pills" role="tablist">
     <li class="nav-item">
-      <a class="nav-link active" data-toggle="pill" href="#home">Home</a>
+      <a class="nav-link active" data-toggle="pill" href="#home"><h4>자주 묻는 질문</h4></a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" data-toggle="pill" href="#menu1">Menu 1</a>
+      <a class="nav-link" data-toggle="pill" href="#menu1"><h4>교환 환불 문의</h4></a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" data-toggle="pill" href="#menu2">Menu 2</a>
+      <a class="nav-link" data-toggle="pill" href="#menu2"><h4>문의 메일</h4></a>
     </li>
   </ul>
 
   <!-- Tab panes -->
   <div class="tab-content">
+	 <!-- * 자주 묻는 질문 -->
     <div id="home" class="container tab-pane active"><br>
-      <h3>HOME</h3>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+      <p>질문1 : </p>
     </div>
+    
+    <!-- * 교환 환불 문의 -->
     <div id="menu1" class="container tab-pane fade"><br>
-      <h3>Menu 1</h3>
-      <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+      <p>게시판의 교환 카테고리에 아래 교환 양식을 적어주시면 처리해드리겠습니다.</p>
+      <p>교환, 환불 양식</p>
     </div>
+    
+    <!-- * 메일 보내기 -->
     <div id="menu2" class="container tab-pane fade"><br>
-      <h3>Menu 2</h3>
-      <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</p>
+	      <form action="<%= request.getContextPath()%>/mail/mailSending"><br>
+			<div class="text-center">
+				<table>
+					<tr>
+						<th>받는 사람</th>
+						<td><input type="text" size="40" name="tomail" value="espalda@naver.com" class="input"></td>
+					</tr>
+					<tr>
+						<th>제목</th>
+						<td><input type="text" size="40" name="title" class="input"></td>
+					</tr>
+					<tr>
+						<th>내용</th>
+						<td><textarea rows="5" cols="50" name="contents" class="input"></textarea></td>
+					</tr>
+				</table>
+				<button class="butt my-2">보내기</button>
+			</div>
+		</form>
     </div>
-  </div>
+  </div><!-- Tab panes -->
 </div>
 
-	<form action="<%= request.getContextPath()%>/mail/mailSending"><br>
-		<div class="container text-center">
-			<h4>자주 묻는 질문</h4>
-			<h4>교환 환불 문의</h4>
-			<h4>문의 메일</h4>
-			<table>
-				<tr>
-					<th>받는 사람</th>
-					<td><input type="text" size="40" name="tomail" value="espalda@naver.com" class="input"></td>
-				</tr>
-				<tr>
-					<th>제목</th>
-					<td><input type="text" size="40" name="title" class="input"></td>
-				</tr>
-				<tr>
-					<th>내용</th>
-					<td><textarea rows="5" cols="50" name="contents" class="input"></textarea></td>
-				</tr>
-			</table>
-			<button class="butt my-2">보내기</button>
-		</div>
-	</form>
+	
 </body>
 </html>

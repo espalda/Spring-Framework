@@ -7,7 +7,7 @@
 	select * from seller where valid='I'
 	</select>
 	
-	<insert id="updateSeller">
+	<insert id="insertSeller">
 	insert into seller(member_id ,num, `name`, address, phone, email)
 	values (#{seller.member_id}, #{seller.num}, #{seller.name}, #{seller.address}, #{seller.phone}, #{seller.email})
 	</insert>
@@ -25,14 +25,14 @@
 	</select>
 	
 	<insert id="insertItem">
-	insert into item(seller_member_id, `name`, category, price, `count`, contents, `file`)
+	insert into item(seller_member_id, `name`, category, price, contents, `file`)
 	values(#{item.seller_member_id}, #{item.name}, #{item.category}, #{item.price},
-			#{item.count}, #{item.contents}, #{item.file})
+		 #{item.contents}, #{item.file})
 	</insert>
 	
 	<insert id="insertOption">
-	insert into `option`(item_num, item_name, `option`, option_price) 
-		values(#{opt.item_num}, #{opt.item_name}, #{opt.option}, #{opt.option_price})
+	insert into `option`(item_num, item_name, `option`, option_price, option_count) 
+		values(#{opt.item_num}, #{opt.item_name}, #{opt.option}, #{opt.option_price}, #{opt.option_count})
 	</insert>
 	
 	<select id="selectOrderList" resultType="kr.green.plants.vo.OrderVO">

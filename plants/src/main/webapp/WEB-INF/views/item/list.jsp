@@ -20,14 +20,11 @@
 	left: 50%;
  	transform: translate(-50%, -50%);
 	color: white;
-}
-h1{
-font-family: 'Mansalva', cursive;
-font-size: 100px;
-}
-.pagination{
-
-}
+	}
+	h1{
+	font-family: 'Mansalva', cursive;
+	font-size: 100px;
+	}
 </style>
 </head>
 <body>
@@ -61,7 +58,7 @@ font-size: 100px;
 			<div class="item-list">
 				<a href="<%=request.getContextPath()%>/item/display?num=${item.num}">
 				<div class="img">
-					<img class="scale" src="<%=request.getContextPath()%>/resources/uploadfiles${item.file}" width="350px" height="auto">
+					<img class="scale" src="<%=request.getContextPath()%>/resources/uploadfiles${item.file}" width="350px" height="350px">
 				</div>
 				<h2>${item.name }</h2>
 				<h3>${item.price }</h3>
