@@ -91,7 +91,7 @@ public class BoardVO {
 
 
 	public String getRegistered() {
-		SimpleDateFormat f = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		SimpleDateFormat f = new SimpleDateFormat("yyyy-MM-dd");
 		
 		return f.format(registered);
 	}
@@ -100,8 +100,7 @@ public class BoardVO {
 	}
 	
 	public void setRegistered(String registered) {
-		SimpleDateFormat transFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-		
+		SimpleDateFormat transFormat = new SimpleDateFormat("yyyy-MM-dd");
 		try {
 			this.registered = transFormat.parse(registered);
 		}catch (ParseException e) {

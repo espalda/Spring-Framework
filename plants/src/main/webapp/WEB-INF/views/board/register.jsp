@@ -11,7 +11,6 @@
 				<table class="table table-borderless">
 					<tr>
 						<th width="15%">
-							<span>카테고리</span>
 							<select name="category">
 								<option>선택</option>
 								<option value="공지">공지</option>
@@ -23,7 +22,7 @@
 						</th>
 						<th colspan="2">
 							<span>제목</span>
-							<input type="text" size="100" name="title">
+							<input type="text" size="70" name="title">
 						</th>
 					</tr>
 					<tr>
@@ -33,15 +32,15 @@
 					</tr>
 					<tr>
 						<td colspan="2">
-							<input type="file" name="file2"><i class="fas fa-trash-alt del">삭제</i>
+							<input type="file" name="file2"><i class="fas fa-trash-alt del"><span class="btn-sm">삭제</span></i>
 						</td>
 					</tr>
 				</table>
 			</div>
 			
 			<div class="float-right">
-				<button class="btn-tree">등록</button>
-				<a href="<%=request.getContextPath()%>/board/list"><button class="btn-gray">목록</button></a>
+				<button class="butt">등록</button>
+				<a href="<%=request.getContextPath()%>/board/list"><button class="butt">목록</button></a>
 			</div>
 	</form>
 <script>

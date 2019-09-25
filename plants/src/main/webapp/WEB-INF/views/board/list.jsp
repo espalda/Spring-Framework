@@ -4,6 +4,9 @@
 <html>
 <head>
 <style>
+.table{
+background-color: white;
+}
 </style>
 </head>
 <body>
@@ -18,10 +21,10 @@
 			<option value="환불" <c:if test="${pageMaker.criteria.type eq '환불'}">selected</c:if> >환불</option>
 		</select>
 					
-		<table class="table">
+		<table class="table table-hover">
 			<tr>
-				<th width="5%">번호</th>
-				<th width="55%">제목</th>
+				<th width="10%">번호</th>
+				<th width="50%">제목</th>
 				<th width="10%">작성자</th>
 				<th width="20%">작성일</th>
 				<th width="10%">조회수</th>

@@ -5,15 +5,19 @@
 <head>
 <title>plants</title>
 <jsp:include page="/WEB-INF/views/include/path.jsp"></jsp:include>
+<style>
+.board{
+width: 700px;
+margin: 0 auto;
+}
+</style>
 </head>
 <body>
 	<tiles:insertAttribute name="header"/>
 		<div class="gray">
-			<div class="white"> 
-				<div class="volume clearfix">
+			<div class="board clearfix">
        		<tiles:insertAttribute name="body" />
-       	</div>
-       </div>                                
+       	</div>                                
       </div>
 	<tiles:insertAttribute name="footer" />
 </body>

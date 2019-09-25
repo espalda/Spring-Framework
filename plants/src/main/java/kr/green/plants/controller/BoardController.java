@@ -139,19 +139,24 @@ public class BoardController {
 		/** 게시글 수정 + 첨부파일 수정 */
 		@RequestMapping(value="/modify", method=RequestMethod.POST)
 		public String boardModifyPost(Model model, BoardVO bvo, MultipartFile file2)throws IOException, Exception{
+			System.out.println(bvo);
 			if(file2.getOriginalFilename().length() != 0) {
 				String file = UploadFileUtils.uploadFile(uploadPath, file2.getOriginalFilename(), file2.getBytes());
+				System.out.println("boardModifyPost file : "+file);
 				bvo.setFile(file);	/* 파일명을 서버에 전송 */
+				System.out.println("boardModifyPost if : "+bvo);
 			}
-			/* 첨부파일에 추가한 파일이 없는 경우 */
-			else {
+			/** 첨부파일에 추가한 파일이 없는 경우 */
+		/*	else {
 				if(bvo.getFile().length() == 0) {
 					bvo.setFile("");
+					System.out.println("boardModifyPost else if : "+bvo);
 			       }else {
 				    BoardVO tmp = boardService.selectBoardNum(bvo.getNum());
 					bvo.setFile(tmp.getFile());
+					System.out.println("boardModifyPost else else : "+tmp);
 				   }
-			}
+			} */
 			boardService.updateBoard(bvo);
 			model.addAttribute("num", bvo.getNum());
 		    return "redirect:/board/list";

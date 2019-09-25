@@ -3,16 +3,20 @@
 <!DOCTYPE html>
 <html>
 <head>
+<style>
+.table input{
+font-family: 'nanumgothic';
+font-size: 13px;
+}
+</style>
 </head>
 <body>
 	<form action="<%=request.getContextPath()%>/board/modify" method="post" enctype="multipart/form-data">
 	<input type="hidden" name="num" value="${board.num}">
-		<p>${board.category}</p>
 			<div>
 				<table class="table table-borderless">
 					<tr>
 						<th width="15%">
-							<span>카테고리</span>
 							<select name="category">
 								<option>공지</option>
 								<option>건의</option>
@@ -23,7 +27,7 @@
 						</th>
 						<th colspan="2">
 							<label>제목</label>
-							<input type="text" size="100" name="title" value="${board.title}">
+							<input type="text" size="70" name="title" value="${board.title}">
 						</th>
 					</tr>
 					<tr>
@@ -36,18 +40,17 @@
 							<label>첨부파일 :</label>
 							<c:if test="${board.fileName ne '' }">
 								<a href="<%=request.getContextPath()%>/board/download?fileName=${board.file}" id="file-link">${board.fileName }</a>
-								<input type="hidden" name="file" value="${board.file }"><i class="fas fa-times del">삭제</i>	<!-- 기존 첨부파일 삭제 -->
+								<input type="hidden" name="file" value="${board.file }"><i class="fas fa-times del"><span class="btn-sm">삭제</span></i>	<!-- 기존 첨부파일 삭제 -->
 							</c:if>
-							<c:if test="${board.fileName eq '' }">없음</c:if>
 							<input type="file" name="file2">
 						</td>
 					</tr>
 				</table>
 			</div>
 			<div class="float-right">
-				<button class="btn-tree">수정</button>
-				<a href="<%=request.getContextPath()%>/board/delete?num=${board.num}"><button class="btn-raw">삭제</button></a>
-				<a href="<%=request.getContextPath()%>/board/list"><button class="btn-gray">목록</button></a>
+				<button class="butt">수정</button>
+				<a href="<%=request.getContextPath()%>/board/delete?num=${board.num}"><button class="butt">삭제</button></a>
+				<a href="<%=request.getContextPath()%>/board/list"><button class="butt">목록</button></a>
 			</div>
 	</form>
 
