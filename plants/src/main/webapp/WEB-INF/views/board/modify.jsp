@@ -18,11 +18,11 @@ font-size: 13px;
 					<tr>
 						<th width="15%">
 							<select name="category">
-								<option>공지</option>
-								<option>건의</option>
-								<option>질문</option>
-								<option>교환</option>
-								<option>환불</option>
+								<option value="공지">공지</option>
+								<option value="건의">건의</option>
+								<option value="질문">질문</option>
+								<option value="교환">교환</option>
+								<option value="환불">환불</option>
 							</select>
 						</th>
 						<th colspan="2">

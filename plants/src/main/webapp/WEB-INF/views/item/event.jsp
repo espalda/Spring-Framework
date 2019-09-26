@@ -22,9 +22,9 @@ padding: 10px;
 </style>
 </head>
 <body class=" text-center">
-<div class="container">
-		<p>미세먼지로 부터 집안의 공기를 보호해요.</p>
-		<mark>함께 구매하세요. 원예용품 식물영양제</mark>
+<div class="container"><br>
+
+		<h4>함께 구매하면 좋은 원예 도구</h4>
 	</div>
 	
 			<div class="item-2 clearfix">

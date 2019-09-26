@@ -79,7 +79,7 @@ $(document).ready(function(){
 		        required : true,
 		        minlength : 1,
 		        maxlength : 16,
-		        regex: /^\w*$/
+		        regex: /(?=.*\d{1,50})(?=.*[~`!@#$%\^&*()-+=]{1,50})(?=.*[a-zA-Z]{2,50}).{8,50}$/
 		    },
 		    pw2: {
 		        required : true,

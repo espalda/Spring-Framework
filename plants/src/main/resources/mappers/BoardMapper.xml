@@ -21,6 +21,7 @@
 	set title = #{board.title},
 		 contents = #{board.contents},
 		 views = #{board.views},
+		 category = #{board.category},
 		 file = #{board.file}
 	where num = #{board.num}
 	</update>

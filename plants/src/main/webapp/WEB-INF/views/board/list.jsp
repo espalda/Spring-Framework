@@ -11,8 +11,9 @@ background-color: white;
 </head>
 <body>
 <form action="<%=request.getContextPath()%>/board/list" method="post">
+<h2>게시판</h2>
 	<span>카테고리</span>
-		<select name="type">
+		<select name="type" class="mb-2">
 			<option>전체</option>
 			<option value="공지" <c:if test="${pageMaker.criteria.type eq '공지'}">selected</c:if> >공지</option>
 			<option value="건의" <c:if test="${pageMaker.criteria.type eq '건의'}">selected</c:if> >건의</option>

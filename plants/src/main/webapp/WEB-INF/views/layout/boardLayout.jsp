@@ -8,7 +8,7 @@
 <style>
 .board{
 width: 700px;
-margin: 0 auto;
+margin: 15px auto;
 }
 </style>
 </head>
