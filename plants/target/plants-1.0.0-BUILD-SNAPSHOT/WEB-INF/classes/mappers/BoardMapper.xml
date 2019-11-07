@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kr.green.plants.dao.BoardDAO">
+
+	<select id="selectBoardListId" resultType="kr.green.plants.vo.BoardVO">
+	select * from board where valid ='I' and member_id = #{id}
+	</select>
+	
+	<select id="selectBoardNum" resultType="kr.green.plants.vo.BoardVO">
+	select * from board where num = #{num} and valid = 'I'
+	</select>
+	
+	<insert id="insertBoard">
+	insert into board(member_id, category, title, contents, file)
+	values  (#{board.member_id}, #{board.category}, #{board.title}, #{board.contents}, #{board.file} ) 
+	</insert>
+	
+	<update id="updateBoard">
+	update board 
+	set title = #{board.title},
+		 contents = #{board.contents},
+		 views = #{board.views},
+		 category = #{board.category},
+		 file = #{board.file}
+	where num = #{board.num}
+	</update>
+	
+	<update id="deleteBoard">
+	update board set valid = 'D' where num = #{num}
+	</update>
+  
+  <select id="selectBoardList" resultType="kr.green.plants.vo.BoardVO">
+    select * from board where
+    <choose>
+    	<when test='valid.equals("I") || valid.equals("D")'>
+    	valid = #{valid}
+    	</when>
+    	<otherwise>valid = 'I' or valid = 'D'</otherwise>
+    </choose>
+    <choose>
+    	<when test="cri.type == '공지'">
+    		and category like '공지'
+    	</when>
+    	<when test="cri.type == '건의'">
+    		and category like '건의'
+    	</when>
+    	<when test="cri.type == '질문'">
+    		and category like '질문'
+    	</when>
+    	<when test="cri.type == '교환'">
+    		and category like '교환'
+    	</when>
+    	<when test="cri.type == '환불'">
+    		and category like '환불'
+    	</when>
+    </choose>
+    order by num desc
+    limit ${cri.pageStart}, ${cri.perPageNum}
+  </select>
+  
+  
+  <select id="selectBoardCount" resultType="int">
+    select count(*) from board where
+    <choose>
+    	<when test='valid.equals("I") || valid.equals("D")'>
+    	valid = #{valid}
+    	</when>
+    	<otherwise>valid = 'I' or valid = 'D'</otherwise>
+    </choose>
+    <choose>
+			<when test="cri.type == '공지'">
+    		and category like '공지'
+    	</when>
+    	<when test="cri.type == '건의'">
+    		and category like '건의'
+    	</when>
+    	<when test="cri.type == '질문'">
+    		and category like '질문'
+    	</when>
+    	<when test="cri.type == '교환'">
+    		and category like '교환'
+    	</when>
+    	<when test="cri.type == '환불'">
+    		and category like '환불'
+    	</when>
+    </choose>
+  </select>
+	
+</mapper>

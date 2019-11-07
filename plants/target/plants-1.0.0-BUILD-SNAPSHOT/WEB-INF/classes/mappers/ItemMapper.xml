@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kr.green.plants.dao.ItemDAO">
+	
+	<select id="selectNewItem" resultType="kr.green.plants.vo.ItemVO">
+	select * from item order by num desc limit 0, 3;
+	</select>
+	
+	<select id="selectItemNum" resultType="kr.green.plants.vo.ItemVO">
+	select * from item where valid = 'I' and num = #{num}
+	</select>
+	
+	<select id="selectOptionListNum" resultType="kr.green.plants.vo.OptionVO">
+	select * from `option` where item_num = #{num} and valid = 'I'
+	</select>
+	
+	<select id="selectOptionNum" resultType="kr.green.plants.vo.OptionVO">
+	select * from `option` 
+	join item on item_num = item.num
+	where `option`.num = #{num}
+	</select>
+
+	<select id="selectBasketListId" resultType="kr.green.plants.vo.BasketVO">
+	select * FROM basket
+	join `option` on basket.option_num = `option`.num
+	join item on basket.item_num = item.num
+	where member_id = #{id} and basket.valid = 'I';
+	</select>
+	
+	<select id="selectBasketNum" resultType="kr.green.plants.vo.BasketVO">
+	select * from basket where num = #{num}
+	</select>
+	
+	<insert id="insertBasket">
+	insert into basket(item_num, member_id, option_num, option_count)
+					values(#{num}, #{id}, #{opt.num}, #{opt.option_count})
+	</insert>
+
+	<update id="updeteBasket">
+	update basket
+	set option_count = #{bas.option_count}, valid = #{bas.valid}
+	where num = #{bas.num}
+	</update>
+	
+	<insert id="insertOrder">
+	insert into `order`(member_id, item_num, order_num, order_price, option_num, order_count)
+					values(#{id}, #{order.item_num}, #{order.order_num}, #{total}, #{order.option_num}, #{order.order_count});
+	</insert>
+	
+	<select id="selectOrderListId" resultType="kr.green.plants.vo.OrderVO">
+	select * from `order`
+	join item on item_num = item.num
+	join `option` on option_num = `option`.num
+	where member_id = #{id}
+	</select>
+	
+	<select id="selectItemList" resultType="kr.green.plants.vo.ItemVO">
+	select * from item where
+    <choose>
+    	<when test='valid.equals("I") || valid.equals("D")'>valid = #{valid}</when>
+    	<otherwise>valid = 'I' or valid = 'D'</otherwise>
+    </choose>
+    <choose>
+    	<when test='cri.type.equals("Succulents")'>and category = 'Succulents'</when>
+    	<when test='cri.type.equals("Cactus")'>and category = 'Cactus'</when>
+    	<when test='cri.type.equals("Plant")'>and category = 'Plant'</when>
+    	<when test='cri.type.equals("Hanging plant")'>and category = 'Hanging plant'</when>
+    	<when test='cri.type.equals("Goods")'>and category = 'Goods'</when>
+    </choose>
+    order by num desc
+    limit ${cri.pageStart}, ${cri.perPageNum}
+	</select>
+	
+	
+	
+	<select id="selectItemCount" resultType="int">
+	select count(*) from item where
+	    <choose>
+	    	<when test='valid.equals("I") || valid.equals("D")'>
+	    	valid = #{valid}
+	    	</when>
+	    	<otherwise>valid = 'I' or valid = 'D'</otherwise>
+	    </choose>
+	    <choose>
+	    	<when test='cri.type.equals("Succulents")'>and category = 'Succulents'</when>
+	    	<when test='cri.type.equals("Cactus")'>and category = 'Cactus'</when>
+	    	<when test='cri.type.equals("Plant")'>and category = 'Plant'</when>
+	    	<when test='cri.type.equals("Hanging plant")'>and category = 'Hanging plant'</when>
+	    	<when test='cri.type.equals("Goods")'>and category = 'Goods'</when>
+	    </choose>
+    </select>
+    
+    <select id="selectOrderPaid" resultType="kr.green.plants.vo.OrderVO">
+    select * from order where order_num = #{num}
+    </select>
+	
+	<update id="updateOption">
+	update `option`
+	set option_count = #{opt.option_count}
+	where num = #{opt.num}
+	</update>
+	
+	<select id="selectBestItemList" resultType="kr.green.plants.vo.OptionVO">
+	select * from `option` 
+	join item on item_num = item.num
+   order by option_count asc limit 0, 3;
+	</select>
+	
+	<select id="selectItemGoods" resultType="kr.green.plants.vo.ItemVO">
+	select * from item where valid = 'I' and category = 'Goods'
+	order by num desc
+	limit 0,3
+	</select>
+</mapper>
