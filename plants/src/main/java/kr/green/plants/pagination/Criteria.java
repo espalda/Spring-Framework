@@ -3,14 +3,15 @@ package kr.green.plants.pagination;
 public class Criteria {
 	private int page; /* 현재 페이지 */
 	private int perPageNum;	/* 한 페이지 당 컨텐츠 갯수 */
-	private String search;
-	private String type;
+	private String search;	 /* 검색 */
+	private String type;	/* 검색 카테고리 */
 	
-	/* Criteria 생성자 : 현재 페이지를 1페이지로, 한 페이지에 10개의 컨텐츠 */
+	/* Criteria 생성자
+	 * 현재 페이지를 1 페이지로, 한 페이지 당 컨텐츠 갯수 10개 */
 	public Criteria() {
 		this.page = 1;
 		this.perPageNum = 10;
-		this.search = "";	/* 생성자 지정을 하지 않으면 null값이 들어가므로 생성자 설정 필수 */
+		this.search = "";	/* 생성자 지정을 하지 않으면 null 값이 들어가므로 생성자 설정 필수 */
 		this.type = "0";
 	}
 	
@@ -18,7 +19,7 @@ public class Criteria {
 		return page;
 	}
 	public void setPage(int page) {
-		//현재 페이지 번호를 음수로 설정하려 할 때
+		/* 현재 페이지 번호를 음수로 설정하려 할 때 1로 초기화 */
 		if(page <= 0) {
 			this.page = 1;
 		}

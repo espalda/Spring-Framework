@@ -49,7 +49,8 @@ public class BoardController {
 
 	private static final Logger logger = LoggerFactory.getLogger(BoardController.class);
 	
-		/* isWriter 구현 + 페이지네이션 */
+		/* isWriter 구현 */
+		/* Pagination */
 		/** 게시글 리스트 */
 		@RequestMapping(value="/list")
 		public ModelAndView boardListGet(ModelAndView mv, Criteria cri){
@@ -69,7 +70,7 @@ public class BoardController {
 		/** 게시글 상세 + 조회수 증가 */
 		@RequestMapping(value="/display", method=RequestMethod.GET)
 		public ModelAndView boardDisplayGet(ModelAndView mv, Integer num){
-			boardService.updateViews(num);
+			boardService.updateViews(num);	/** 함수 기능 */
 			BoardVO bvo = boardService.selectBoardNum(num);
 		    mv.setViewName("/board/display");
 		    mv.addObject("board", bvo);
@@ -127,7 +128,7 @@ public class BoardController {
 		    return entity;
 		}
 
-		
+		/* 게시글 작성자만 수정할수 있게 하는 기능 */
 		/** 게시글 수정 */
 		@RequestMapping(value="/modify", method=RequestMethod.GET)	/* 기존에 내용 불러오기 */
 		public ModelAndView boardModifyGet(ModelAndView mv, Model model, Integer num){
@@ -162,7 +163,7 @@ public class BoardController {
 		    return "redirect:/board/list";
 		}
 		
-		
+		/* 게시글 작성자만 삭제할 수 있는 기능 */
 		/** 게시글 삭제 */
 		@RequestMapping(value="/delete", method=RequestMethod.GET)
 		public ModelAndView boardDeleteGet(ModelAndView mv, Integer num){
