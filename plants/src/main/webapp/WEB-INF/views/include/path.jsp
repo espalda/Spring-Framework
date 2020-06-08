@@ -25,7 +25,7 @@
 
 <!-- * font 연결 -->
 <link rel="stylesheet" href="//cdn.jsdelivr.net/font-iropke-batang/1.2/font-iropke-batang.css">
-<link rel="stylesheet" href="//fonts.googleapis.com/earlyaccess/nanumgothic.css" type="text/css">
+<link rel="stylesheet" href="//fonts.googleapis.com/earlyaccess/nanumgothic.css">
 <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Bitter'>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Mansalva&display=swap">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium+Web&display=swap">
