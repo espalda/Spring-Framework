@@ -5,7 +5,7 @@
 <html>
 <head>
 <title>스프링</title>
-<jsp:include page="/WEB-INF/views/layouts/path/include.jsp"></jsp:include>
+<jsp:include page="/WEB-INF/views/path/include.jsp"></jsp:include>
 </head>
 <body>
     <tiles:insertAttribute name="header"/>
