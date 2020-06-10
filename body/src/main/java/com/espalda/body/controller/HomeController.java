@@ -17,7 +17,7 @@ public class HomeController {
 	/** 메인 홈 화면 */
 	@RequestMapping(value="/")
 	public ModelAndView main(ModelAndView mv){
-	    mv.setViewName("/main/home");
+	    mv.setViewName("/pages/main/home");
 	    return mv;
 	}
 	

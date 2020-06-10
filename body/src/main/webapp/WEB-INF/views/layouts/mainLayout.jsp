@@ -7,10 +7,14 @@
 <title>스프링</title>
 <jsp:include page="/WEB-INF/views/layouts/path/include.jsp"></jsp:include>
 <style>
-.content{
-width: 80%;
+.content {
+width: 1130px;
+height: 80%;
+border: 1px solid black;
+margin: 0 auto;
 }
 </style>
+
 </head>
 <body>
     <tiles:insertAttribute name="header"/>
