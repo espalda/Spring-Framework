@@ -5,14 +5,14 @@
 <head>
 <style>
 @font-face { font-family: 'TmonMonsori'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_two@1.0/TmonMonsori.woff') format('woff'); font-weight: normal; font-style: normal; }
-h1 {
+.foot-detail h1 {
 font-family: 'TmonMonsori';
 }
 .foot-info {
 border: 1px solid black;
 width: 100%;
 height: 40px;
-padding: 5px 160px;
+padding: 5px 190px;
 }
 .foot-info li {
 padding: 5px;
@@ -51,26 +51,39 @@ height: 200px;
 .foot-detail i {
 padding-right: 5px;
 }
+.qna-left {
+float: left;
+}
+.qna-left div {
+border: 1px solid #ddd;
+padding: 5px;
+margin: 5px 0;
+text-align: center;
+}
+.qna-right {
+width: 350px;
+height: 130px;
+float: right;
+}
 </style>
 </head>
 <body>
 	<div class="foot-info">
 		<ul>
-			<li>회사소개</li>
+			<li><a href="#">회사소개</a></li>
 			<li>|</li>
-			<li>이용약관</li>
+			<li><a href="#">이용약관</a></li>
 			<li>|</li>
-			<li>쇼핑몰 이용안내</li>
+			<li><a href="#">쇼핑몰 이용안내</a></li>
 			<li>|</li>
-			<li>개인정보취급방침</li>
+			<li><a href="#">개인정보취급방침</a></li>
 			<li>|</li>
-			<li>고객센터</li>
+			<li><a href="#">고객센터</a></li>
 		</ul>
 	</div>
 	<div class="foot-detail">
 		<div class="foot-phone">
-		
-			<div><b>고객만족센터</b></div>
+			<b>고객만족센터</b>
 			<hr>
 			<h1>043-123-4568</h1>
 			<div><b>평일</b> 오전 9:00 - 오후 17:00</div>
@@ -78,20 +91,24 @@ padding-right: 5px;
 			<div><b>휴무</b> 토/일/공휴일</div>
 		</div>
 		<div class="foot-addr">
-			<div><b>회사정보안내</b></div>
+			<b>회사정보안내</b>
 			<hr>
-			<div><i class="fas fa-building"></i><b>회사명</b><br>(주)에브리바디</div>
-			<div><i class="fas fa-map-marker-alt"></i><b>주소</b><br>충청북도 청주시 흥덕구 어디로 어디어디 어디어디호</div>
-			<div><i class="fas fa-phone-square-alt"></i><b>사업자번호</b><br>000-00-00000</div>
+			<div><i class="fas fa-building"></i><b>회사명</b> (주)에브리바디</div>
+			<div><i class="fas fa-map-marker-alt"></i><b>주소</b> 충청북도 청주시 흥덕구 어디로 어디어디 어디어디호</div>
+			<div><i class="fas fa-phone-square-alt"></i><b>사업자번호</b> 000-00-00000</div>
 		</div>
 		<div class="foot-qna">
-			<div><b>자주묻는질문</b></div>
+			<b>자주묻는질문</b>
 			<hr>
-			<div>배송조회</div>
-			<div>반품&교환</div>
-			<div>자주묻는질문</div>
-			<div>고객만족센터</div>
-			<div>회원등급안내</div>
+			<div class="qna-left">
+				<div><a href="#">배송조회</a></div>
+				<div><a href="#">자주묻는질문</a></div>
+				<div><a href="#">고객만족센터</a></div>
+				<div><a href="#">회원등급안내</a></div>
+			</div>
+			<div class="qna-right">
+				<h1>반품 및 교환 안내</h1>
+			</div>
 		</div>
 	</div>
 

@@ -1,17 +1,20 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<c:set var="contextPath" value="<%= request.getContextPath()%>"></c:set>  
 
 <!DOCTYPE html>
 <html>
 <head>
+<script>
+    //alert("${contextPath}");
+</script>
 <style>
 * {
+box-sizing: border-box;
 text-decoration: none;
 font-family: "Nanum Gothic";
 font-size: 12px;
 color: #555;
-box-sizing: border-box;
-
 }
 a, a:hover, a:visited {
 text-decoration: none;
@@ -27,13 +30,12 @@ list-style:none;
 li {
 float: left;
 }
-.header {
+.header-to {
 border: 1px solid black;
 width: 100%;
 height: 40px;
 padding: 5px 100px;
 }
-
 .head-left {
 float: left;
 position: relative;
@@ -48,12 +50,10 @@ color: red;
 .head-right {
 float: right;
 position: relative;
-
 }
 .head-right li {
 padding: 5px;
 }
-
 .head-search {
 float: right;
 border-radius: 5px;
@@ -71,10 +71,38 @@ padding-left: 5px;
 font-size: 15px;
 line-height: 22px;
 }
+.header-md {
+border: 1px solid black;
+width: 100%;
+height: 180px;
+padding: 5px 100px;
+}
+.header-btm {
+border: 1px solid black;
+width: 100%;
+height: 40px;
+padding: 5px 0;
+}
+.header-btm div {
+width: 600px;
+height: 30px;
+margin: 0 auto;
+}
+.logo{
+margin: 0 auto;
+width: 341px;
+}
+.header-btm li {
+padding: 0 20px;
+font-weight: bold;
+line-height: 10px;
+}
+
 </style>
+
 </head>
 <body>
-	<div class="header">
+	<div class="header-to">
 		<div class="head-left">
 			<ul>
 				<li><i class="far fa-heart"></i><a href="#">즐겨찾기</a></li>
@@ -98,6 +126,26 @@ line-height: 22px;
 				<li>|</li>
 				<li><a href="#" title="나의메뉴">나의메뉴<i class="fas fa-angle-down"></i></a></li>
 			</ul>
+		</div>
+	</div>
+	<div class="header-md">
+	<!-- D:\github\Spring-Framework\body\src\main\webapp\img\main-logo.png -->
+		<%-- <a class="logo" href="<c:url value="/img/main-logo.png"/>"></a> --%>
+		<div class="logo">
+			<img src="<c:url value='/resources/img/main-logo.png' />" />
+		</div>
+	</div>
+	<div class="header-btm">
+		<div>
+		<ul>
+			<li><a href="#" title="">FEATURED</a></li>
+			<li><a href="#" title="">BABY</a></li>
+			<li><a href="#" title="">STUDENT</a></li>
+			<li><a href="#" title="">ADULT</a></li>
+			<li><a href="#" title="">FAMILY</a></li>
+			<li><a href="#" title="">SALE</a></li>
+			<li><a href="#" title="">EVENT</a></li>
+		</ul>
 		</div>
 	</div>
 </body>
