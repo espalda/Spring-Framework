@@ -9,16 +9,34 @@
 <style>
 .content {
 width: 1130px;
-height: 80%;
+height: 100%;
 border: 1px solid black;
 margin: 0 auto;
+}
+.dot2 {
+position: absolute;
+z-index: 2;
+height: 10px;
+width: 10px;
+margin: 0 2px;
+background-color: #bbb;
+border-radius: 20px;
+display: inline-block;
+transition: background-color 0.6s ease;
+cursor: pointer;
 }
 </style>
 
 </head>
 <body>
     <tiles:insertAttribute name="header"/>
-    <div class="content">        
+    <div>
+	    <div class="dot2"></div>
+	    <div class="dot2"></div>
+	    <div class="dot2"></div>
+    </div>
+    <div class="content">
+            
         <tiles:insertAttribute name="body" />
     </div>                                                  
     <tiles:insertAttribute name="footer" />

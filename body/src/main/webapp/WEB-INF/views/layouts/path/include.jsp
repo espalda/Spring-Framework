@@ -13,3 +13,6 @@
 
 <!-- font -->
 <link rel="stylesheet" href="//fonts.googleapis.com/earlyaccess/nanumgothic.css">
+
+<!-- css -->
+<link rel="stylesheet" href="/body/resources/css/common.css">
