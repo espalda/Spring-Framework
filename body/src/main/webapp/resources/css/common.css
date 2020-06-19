@@ -12,9 +12,13 @@ text-decoration: none;
 color: #555;
 }
 a:active {
-color: #96a5b7;
+color: #555;
 }
 ul, ol{
 padding-left:0px;
 list-style:none;
+}
+.img-sm {
+	width: 10px;
+	color: #ddd;
 }

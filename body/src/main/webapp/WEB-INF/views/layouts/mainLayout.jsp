@@ -13,30 +13,24 @@ height: 100%;
 border: 1px solid black;
 margin: 0 auto;
 }
-.dot2 {
-position: absolute;
-z-index: 2;
-height: 10px;
-width: 10px;
-margin: 0 2px;
-background-color: #bbb;
-border-radius: 20px;
-display: inline-block;
-transition: background-color 0.6s ease;
-cursor: pointer;
+.swiper {
+width: 1700px;
+height: 500px;
+border: 1px solid #eee;
+margin: 0 auto;
+}
+.swiper img {
+z-index: 0;
 }
 </style>
 
 </head>
 <body>
     <tiles:insertAttribute name="header"/>
-    <div>
-	    <div class="dot2"></div>
-	    <div class="dot2"></div>
-	    <div class="dot2"></div>
+    <div class="swiper">
+    	<img src="<c:url value='/resources/img/main-img2.png' />" width="100%" height="100%;">
     </div>
     <div class="content">
-            
         <tiles:insertAttribute name="body" />
     </div>                                                  
     <tiles:insertAttribute name="footer" />

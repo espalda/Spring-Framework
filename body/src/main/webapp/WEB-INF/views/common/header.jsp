@@ -12,102 +12,118 @@
 li {
 float: left;
 }
-.header-to {
-border: 1px solid black;
+/* header-01 --------- */
+.header-01 {
 width: 100%;
 height: 40px;
 padding: 5px 100px;
+background: #d0d3dc;
 }
-.head-left {
-float: left;
-position: relative;
-}
-.head-left li {
-padding: 5px;
-}
-.head-left i {
-padding-right: 5px;
-color: red;
-}
-.head-right {
+.h1-right {
 float: right;
 position: relative;
 }
-.head-right li {
+.h1-right li {
 padding: 5px;
 }
-.head-search {
+.h1-search {
 float: right;
+}
+.h1-search input {
+all: unset;
+position: relative;
 border-radius: 5px;
-width: 165px;
+width: 130px;
 height: 30px;
-padding: 5px;
+padding: 4px;
+background: #eee;
+padding-left: 10px;
+height: 20px;
+}
+.h1-search input:hover {
 background: #ddd;
 }
-.head-search input {
-position: relative;
-all: unset;
-padding-left: 5px;
-}
-.head-search i {
+.h1-search i {
 font-size: 15px;
 line-height: 22px;
 }
-.header-md {
-border: 1px solid black;
+/* header-02 --------- */
+.header-02 {
 width: 100%;
 height: 180px;
 padding: 5px 100px;
 }
-.header-btm {
-border: 1px solid black;
+.h2-logo{
+margin: 0 auto;
+}
+/* header-03 --------- */
+.header-03 {
 width: 100%;
 height: 40px;
 padding: 5px 0;
 }
-.header-btm div {
+.header-03 .h3-menu {
 width: 600px;
 height: 30px;
 margin: 0 auto;
 }
-.logo{
-margin: 0 auto;
-}
-.header-btm li {
+.header-03 li {
 padding: 0 20px;
 font-weight: bold;
 line-height: 10px;
 }
-.sub-menu {
+.h3-menu {
 margin: 0 auto;
 padding: 10px;
 }
-.show {
+.h3-hover {
 position: absolute;
-z-index: 2;
-top: 40px;
-left: 82.5%;
-border: 1px solid black;
-width: 80px;
-height: 150px;
+left: 34%;
+margin-top: 5px;
+border: 1px solid #eee;
+width: 585px;
+height: 240px;
+background: white;
+z-index: 10;
+padding: 20px 10px;
+}
+.h3-hover-box {
+float: left;
+border: 1px solid #ddd;
+width: 200px;
+height: 200px;
+margin: 0 10px;
+}
+.h3-hover-list {
+float: left;
+border: 1px solid #ddd;
+height: 200px;
+width: 100px;
+margin: 0 10px;
+}
+.h3-hover-list li {
+	width: 100px;
+	padding: 20px;
+	text-align: center;
+	cursor: pointer;
+}
+.h3-hover-list .img-sm {
+	float: right;
+}
+.h3-hover-list li:hover {
+	background: #eee;
+  	transition: 0.8s;
 }
 </style>
 
 </head>
 <body>
-	<div class="header-to">
-		<div class="head-left">
-			<ul>
-				<li><i class="far fa-heart"></i><a href="#" id="favorite">즐겨찾기</a></li>
-				<li><i class="far fa-bookmark"></i><a href="#">바로가기</a></li>
-			</ul>
-		</div>
-		
-		<div class="head-search">
+	<div class="header-01">
+		<div class="h1-search">
 			<input type="text">
 			<span><i class="fas fa-search"></i></span>
 		</div>
-		<div class="head-right">
+		<div class="h1-right">
 			<ul>
 				<li><a href="#" title="로그인"><b>로그인</b></a></li>
 				<li>|</li>
@@ -117,21 +133,21 @@ height: 150px;
 				<li>|</li>
 				<li><a href="#" title="관심상품">관심상품</a></li>
 				<li>|</li>
-				<li><a href="#" title="나의메뉴">나의메뉴<i class="fas fa-angle-down"></i></a></li>
+				<li><a href="#" title="나의메뉴">나의메뉴<img src="https://img.icons8.com/small/16/000000/expand-arrow.png"/ class="img-sm"></a></li>
+				<li>|</li>
 			</ul>
 		</div>
 	</div>
-	<div class="show">
-	</div>
-	<div class="header-md">
-	<!-- D:\github\Spring-Framework\body\src\main\webapp\img\main-logo.png -->
-		<%-- <a class="logo" href="<c:url value="/img/main-logo.png"/>"></a> --%>
-		<div class="logo" style="width: 170px;">
-			<img src="<c:url value='/resources/img/logo-test.png' />" style="width: 170px;"/>
+	
+	
+	<div class="header-02">
+		<div class="h2-logo" style="width: 170px;">
+			<a href="/body"><img src="<c:url value='/resources/img/logo-test.png' />" style="width: 170px;"/></a>
 		</div>
 	</div>
-	<div class="header-btm">
-		<div class="sub-menu">
+	
+	<div class="header-03">
+		<div class="h3-menu">
 		<ul>
 			<li><a href="#" title="">FEATURED</a></li>
 			<li><a href="#" title="">BABY</a></li>
@@ -142,33 +158,30 @@ height: 150px;
 			<li><a href="#" title="">EVENT</a></li>
 		</ul>
 		</div>
+		
+		<div class="h3-hover" style="display: none;">
+			<div class="h3-hover-list">
+				<ul>
+					<li>바디로션<img src="https://img.icons8.com/small/16/000000/more-than.png" class="img-sm"></li>
+					<li>바디워시<img src="https://img.icons8.com/small/16/000000/more-than.png" class="img-sm"></li>
+					<li>바디세트<img src="https://img.icons8.com/small/16/000000/more-than.png" class="img-sm"></li>
+					<li>컨디셔너<img src="https://img.icons8.com/small/16/000000/more-than.png" class="img-sm"></li>
+				</ul>
+			</div>
+			<div class="h3-hover-box">
+				<img>
+			</div>
+			<div class="h3-hover-box">
+				<img>
+			</div>
+		</div>
+		
 	</div>
 <script>
-$('#favorite').on('click', function(e) { 
-	var bookmarkURL = window.location.href; 
-	var bookmarkTitle = document.title;
-	var triggerDefault = false; 
-	if (window.sidebar && window.sidebar.addPanel) { 
-		// Firefox version < 23 
-		window.sidebar.addPanel(bookmarkTitle, bookmarkURL, ''); 
-	} else if ((window.sidebar && (navigator.userAgent.toLowerCase().indexOf('firefox') > -1)) || (window.opera && window.print)) { 
-		// Firefox version >= 23 and Opera Hotlist 
-		var $this = $(this); 
-		$this.attr('href', bookmarkURL); 
-		$this.attr('title', bookmarkTitle); 
-		$this.attr('rel', 'sidebar'); 
-		$this.off(e); 
-		triggerDefault = true; 
-	} else if (window.external && ('AddFavorite' in window.external)) { 
-		// IE Favorite 
-		window.external.AddFavorite(bookmarkURL, bookmarkTitle); 
-	} else { 
-		// WebKit - Safari/Chrome 
-		alert((navigator.userAgent.toLowerCase().indexOf('mac') != -1 ? 'Cmd' : 'Ctrl') + '+D 키를 눌러 즐겨찾기에 등록하실 수 있습니다.'); 
-	}
-	return triggerDefault; 
-
-});
+$('.h3-menu').hover(function(){
+	$('.h3-hover').css('display', 'block');
+	//$('.h3-hover').attr('style', 'display:block');
+})
 </script>
 </body>
 </html>
