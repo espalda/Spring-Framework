@@ -42,10 +42,34 @@ height: 20px;
 }
 .h1-search input:hover {
 background: #ddd;
+transition: 0.8s;
 }
 .h1-search i {
 font-size: 15px;
 line-height: 22px;
+}
+.h1-hover-list {
+position: absolute;
+border: 1px solid #ddd;
+width: 100px;
+padding: 3px;
+background: #fff;
+left: 81.2%;
+top: 39px;
+}
+.h1-hover-list li {
+width: 90px;
+padding: 5px;
+margin: 1px;
+text-align: center;
+cursor: pointer;
+border-bottom: 1px solid #fff;
+}
+.h1-hover-list li:hover {
+background: #eee;
+border-bottom: 1px solid #555;
+box-sizing: border-box;
+transition: 0.8s;
 }
 /* header-02 --------- */
 .header-02 {
@@ -60,7 +84,6 @@ margin: 0 auto;
 .header-03 {
 width: 100%;
 height: 40px;
-padding: 5px 0;
 }
 .header-03 .h3-menu {
 width: 600px;
@@ -68,24 +91,24 @@ height: 30px;
 margin: 0 auto;
 }
 .header-03 li {
-padding: 0 20px;
+padding: 0 15px;
 font-weight: bold;
 line-height: 10px;
 }
 .h3-menu {
 margin: 0 auto;
-padding: 10px;
+padding: 20px;
 }
 .h3-hover {
 position: absolute;
 left: 34%;
-margin-top: 5px;
 border: 1px solid #eee;
 width: 585px;
 height: 240px;
 background: white;
 z-index: 10;
 padding: 20px 10px;
+transition: 0.9s;
 }
 .h3-hover-box {
 float: left;
@@ -114,6 +137,7 @@ margin: 0 10px;
 	background: #eee;
   	transition: 0.8s;
 }
+
 </style>
 
 </head>
@@ -133,10 +157,18 @@ margin: 0 10px;
 				<li>|</li>
 				<li><a href="#" title="관심상품">관심상품</a></li>
 				<li>|</li>
-				<li><a href="#" title="나의메뉴">나의메뉴<img src="https://img.icons8.com/small/16/000000/expand-arrow.png"/ class="img-sm"></a></li>
+				<li><a href="#" title="나의메뉴">나의메뉴 <img src="https://img.icons8.com/small/16/000000/expand-arrow.png" class="img-sm"></a></li>
 				<li>|</li>
 			</ul>
 		</div>
+	</div>
+	<div class="h1-hover-list">
+		<ul>
+			<li>나의메뉴</li>
+			<li>나의메뉴</li>
+			<li>나의메뉴</li>
+			<li>나의메뉴</li>
+		</ul>
 	</div>
 	
 	
@@ -178,8 +210,12 @@ margin: 0 10px;
 		
 	</div>
 <script>
-$('.h3-menu').hover(function(){
-	$('.h3-hover').css('display', 'block');
+$('.h3-menu, .h3-hover').mouseover(function(){
+	$('.h3-hover').css('display','block'); 
+	//$('.h3-hover').attr('style', 'display:block');
+})
+$('.h3-menu, .h3-hover').mouseout(function(){
+	$('.h3-hover').css('display', 'none');
 	//$('.h3-hover').attr('style', 'display:block');
 })
 </script>
