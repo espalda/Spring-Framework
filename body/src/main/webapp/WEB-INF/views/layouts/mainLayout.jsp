@@ -4,7 +4,7 @@
 
 <html>
 <head>
-<title>스프링</title>
+<title>everybody</title>
 <jsp:include page="/WEB-INF/views/layouts/path/include.jsp"></jsp:include>
 <style>
 .content {

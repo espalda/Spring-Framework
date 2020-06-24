@@ -7,7 +7,6 @@
 .foot-detail h1 {
 }
 .foot-info {
-border: 1px solid black;
 width: 100%;
 height: 40px;
 padding: 5px 190px;
@@ -16,7 +15,7 @@ padding: 5px 190px;
 padding: 5px;
 }
 .foot-detail{
-border: 1px solid black;
+border: 1px solid #ddd;
 width: 80%;
 height: 200px;
 margin: 0 auto;
@@ -27,21 +26,20 @@ margin: 10px 0;
 }
 .foot-phone {
 float: left;
-border: 1px solid black;
 padding: 10px;
 width: 30%;
 height: 200px;
+border-right: 1px solid #ddd;
 }
 .foot-addr {
 float: left;
-border: 1px solid black;
 padding: 10px;
 width: 30%;
 height: 200px;
+border-right: 1px solid #ddd;
 }
 .foot-qna {
 float: left;
-border: 1px solid black;
 padding: 10px;
 width: 40%;
 height: 200px;

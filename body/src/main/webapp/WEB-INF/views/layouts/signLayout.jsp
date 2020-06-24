@@ -7,8 +7,11 @@
 <title>everybody</title>
 <jsp:include page="/WEB-INF/views/layouts/path/include.jsp"></jsp:include>
 <style>
-.content{
-width: 80%;
+.content {
+width: 1130px;
+height: 100%;
+border: 1px solid black;
+margin: 0 auto;
 }
 </style>
 </head>

@@ -149,9 +149,9 @@ margin: 0 10px;
 		</div>
 		<div class="h1-right">
 			<ul>
-				<li><a href="#" title="로그인"><b>로그인</b></a></li>
+				<li><a href="<c:url value="/pages/sign/sign_in" />" title="로그인"><b>로그인</b></a></li>
 				<li>|</li>
-				<li><a href="#" title="회원가입">회원가입</a></li>
+				<li><a href="<c:url value="/pages/sign/sign_up" />" title="회원가입">회원가입</a></li>
 				<li>|</li>
 				<li><a href="#" title="장바구니">장바구니</a></li>
 				<li>|</li>
@@ -167,7 +167,7 @@ margin: 0 10px;
 			<li>나의메뉴</li>
 			<li>나의메뉴</li>
 			<li>나의메뉴</li>
-			<li>나의메뉴</li>
+			<li><a href="<c:url value='/pages/board/board_list' />" >커뮤니티</a></li>
 		</ul>
 	</div>
 	

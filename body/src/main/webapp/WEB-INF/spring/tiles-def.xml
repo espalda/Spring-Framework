@@ -19,6 +19,22 @@
         <put-attribute name="menu" value="" />        
         <put-attribute name="footer" value="/WEB-INF/views/common/footer.jsp" />
     </definition>
+    
+    <!-- 3번 레이아웃 -->    
+    <definition name=".item" template="/WEB-INF/views/layouts/itemLayout.jsp">
+        <put-attribute name="title" value="" />
+        <put-attribute name="header" value="/WEB-INF/views/common/header.jsp" />
+        <put-attribute name="menu" value="" />        
+        <put-attribute name="footer" value="/WEB-INF/views/common/footer.jsp" />
+    </definition>
+    
+    <!-- 4번 레이아웃 -->    
+    <definition name=".board" template="/WEB-INF/views/layouts/boardLayout.jsp">
+        <put-attribute name="title" value="" />
+        <put-attribute name="header" value="/WEB-INF/views/common/header.jsp" />
+        <put-attribute name="menu" value="" />        
+        <put-attribute name="footer" value="/WEB-INF/views/common/footer.jsp" />
+    </definition>
  
     <!-- all 레이아웃-->
     <definition name=".root" template="/WEB-INF/views/layouts/baseLayout.jsp">
@@ -28,14 +44,24 @@
         <put-attribute name="footer" value="/WEB-INF/views/common/footer.jsp" />
     </definition>
     
-    <!-- 1번 -->    
+    <!-- 1번 -->
     <definition name="/pages/main/*" extends=".main">
       <put-attribute name="body" value="/WEB-INF/views/pages/main/{1}.jsp" />
     </definition>
-    
+        
     <!-- 2번 -->
     <definition name="/pages/sign/*" extends=".sign">
       <put-attribute name="body" value="/WEB-INF/views/pages/sign/{1}.jsp" />
+    </definition>
+    
+    <!-- 3번 -->
+    <definition name="/pages/item/*" extends=".item">
+      <put-attribute name="body" value="/WEB-INF/views/pages/item/{1}.jsp" />
+    </definition>
+    
+    <!-- 4번 -->
+    <definition name="/pages/board/*" extends=".board">
+      <put-attribute name="body" value="/WEB-INF/views/pages/board/{1}.jsp" />
     </definition>
  
     <!-- all -->
