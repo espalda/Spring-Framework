@@ -16,31 +16,31 @@ text-align: center;
 font-size: 15px;
 
 }
-.sign-01 input[type="text"] {
+.sign-01 input[type=text], input[type=password]  {
 all: unset;
 width: 300px;
 height: 50px;
 border-bottom: 1px solid black;
 }
-.sign-01 input[type="button"] {
+.sign-01 input[type=button] {
 width: 400px;
 height: 50px;
 border: 1px solid black;
 margin: 30px;
 font-size: 20px;
 }
-.sign-01 input[type="checkbox"] {
+.sign-01 input[type=checkbox] {
 vertical-align: middle;
 margin-right: 5px;
 }
 </style>
 
 <div class="sign-01">
-	<h1>LOGIN</h1>
+	<h1>SIGN-IN</h1>
 	<label class="test">e-mail</label>
-	<input type="text" id="email" placeholder="e-mail"><br>
+	<input type="text" id="email" placeholder="please, enter your e-mail"><br>
 	<label class="test">password</label>
-	<input type="text" id="pw" placeholder="password"><br>
+	<input type="password" id="pw" placeholder="please, enter your password"><br>
 	<input type="button" value="login">
 	<input type="checkbox" id="save_id"><label for="save_id">아이디 저장</label>
 	
