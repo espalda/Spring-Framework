@@ -16,10 +16,12 @@ text-align: center;
 font-size: 15px;
 
 }
-.sign-01 input[type=text]  {
+.sign-01 input[type=text] {
 all: unset;
 width: 300px;
 height: 50px;
+text-align: center;
+font-weight: bold;
 border-bottom: 1px solid black;
 }
 .sign-01 input[type=button] {
@@ -49,7 +51,7 @@ text-align: center;
 	<input type="text" id="name" placeholder="please, enter your name"><br>
 	<label class="test">email</label>
 	<input type="text" id="email" name="email" placeholder="please, enter"><span> @ </span>
-	<input type="text" id="email" name="email" placeholder="your email">
+	<input type="text" id="email2" name="email" placeholder="your email">
 	<select id="kind_addr">
 		<option value="">직접입력</option>
 		<option value="naver.com">네이버</option>
@@ -65,3 +67,16 @@ text-align: center;
 	<span>|</span>
 	<a href="<c:url value="/pages/sign/sign_up" />"><span>회원가입</span></a>
 </div>
+
+<script>
+	$('#kind_addr').change(function(){
+		var email = $(this).val();
+		$('#email2').val(email);
+		if( $('#email2').val() == ''){
+			$('#email2').attr('readonly', false);
+		}
+		if( $('#email2').val() != '' ) {
+			$('#email2').attr('readonly', true);
+		}
+	})
+</script>
