@@ -153,9 +153,9 @@ margin: 0 10px;
 				<li>|</li>
 				<li><a href="<c:url value="/pages/sign/sign_up" />" title="회원가입">회원가입</a></li>
 				<li>|</li>
-				<li><a href="<c:url value="/pages/main/basket" />" title="장바구니">장바구니</a></li>
+				<li><a href="#ex1" rel="장바구니"></a></li>
 				<li>|</li>
-				<li><a href="<c:url value="/pages/main/wish_list" />" title="관심상품">관심상품</a></li>
+				<li><a href="<c:url value="/test/it_wish" />" title="관심상품">관심상품</a></li>
 				<li>|</li>
 				<li><a href="<c:url value="/pages/member/mb_main" />" title="나의메뉴">나의메뉴 <img src="https://img.icons8.com/small/16/000000/expand-arrow.png" class="img-sm"></a></li>
 				<li>|</li>
@@ -194,7 +194,7 @@ margin: 0 10px;
 		<div class="h3-hover" style="display: none;">
 			<div class="h3-hover-list">
 				<ul>
-					<li><a href="<c:url value="/pages/item/item_list" />" title="">바디로션<img src="https://img.icons8.com/small/16/000000/more-than.png" class="img-sm"></a></li>
+					<li><a href="<c:url value="/pages/item/it_list" />" title="">바디로션<img src="https://img.icons8.com/small/16/000000/more-than.png" class="img-sm"></a></li>
 					<li>바디워시<img src="https://img.icons8.com/small/16/000000/more-than.png" class="img-sm"></li>
 					<li>바디세트<img src="https://img.icons8.com/small/16/000000/more-than.png" class="img-sm"></li>
 					<li>컨디셔너<img src="https://img.icons8.com/small/16/000000/more-than.png" class="img-sm"></li>

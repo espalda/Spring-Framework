@@ -36,7 +36,7 @@ margin-right: 5px;
 </style>
 
 <div class="sign-01">
-	<h1>SIGN-IN</h1>
+	<h1 class="text-center">로그인</h1>
 	<label class="test">e-mail</label>
 	<input type="text" id="email" placeholder="please, enter your e-mail"><br>
 	<label class="test">password</label>

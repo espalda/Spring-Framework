@@ -24,7 +24,7 @@ height: 30px;
 padding: 20px;
 }
 </style>
-<h1>SIGN-UP</h1>
+<h1 class="text-center">회원가입</h1>
 <h3>약관동의</h3>
 <table class="table table-bordered table-01" style="width: 565px; float: left; margin-right: -1px;">
 	<tr>

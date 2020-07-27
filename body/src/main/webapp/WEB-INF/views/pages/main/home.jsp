@@ -3,12 +3,9 @@
 <style>
 .main-01 {
 width: 100%;
-height: 700px;
-}
-.main-01 {
-width: 100%;
 height: 500px;
 border: 1px solid black;
+cursor: pointer;
 }
 .m1-1 {
 float: left;
@@ -37,3 +34,9 @@ border: 1px solid black;
 	<div class="m3-2"></div>
 	<div class="m3-3"></div>
 </div>
+
+<script>
+$('.main-01').click(function(){
+	$(location).attr('href', '<c:url value="/pages/item/it_detail" />');
+})
+</script>

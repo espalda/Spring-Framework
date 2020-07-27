@@ -45,7 +45,7 @@ text-align: center;
 </style>
 
 <div class="sign-01">
-	<h1>FIND PASSWORD</h1>
+	<h1>비밀번호 찾기</h1>
 	<p>가입시 입력하신 메일로 임시 비밀번호가 발송됩니다.</p>
 	<label class="test">name</label>
 	<input type="text" id="name" placeholder="please, enter your name"><br>

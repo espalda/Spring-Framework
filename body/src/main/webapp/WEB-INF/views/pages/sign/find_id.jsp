@@ -46,7 +46,7 @@ margin-right: 5px;
 </style>
 
 <div class="sign-01">
-	<h1>FIND E-MAIL</h1>
+	<h1>이메일 찾기</h1>
 	<label class="test">name</label>
 	<input type="text" id="name" placeholder="please, enter your name"><br>
 	<label class="test">phone</label>

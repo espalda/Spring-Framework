@@ -35,6 +35,20 @@
         <put-attribute name="menu" value="" />        
         <put-attribute name="footer" value="/WEB-INF/views/common/footer.jsp" />
     </definition>
+    
+    <definition name=".member" template="/WEB-INF/views/layouts/memberLayout.jsp">
+        <put-attribute name="title" value="" />
+        <put-attribute name="header" value="/WEB-INF/views/common/header.jsp" />
+        <put-attribute name="menu" value="" />        
+        <put-attribute name="footer" value="/WEB-INF/views/common/footer.jsp" />
+    </definition>
+    
+    <definition name=".admin" template="/WEB-INF/views/layouts/adminLayout.jsp">
+        <put-attribute name="title" value="" />
+        <put-attribute name="header" value="/WEB-INF/views/common/header.jsp" />
+        <put-attribute name="menu" value="" />        
+        <put-attribute name="footer" value="/WEB-INF/views/common/footer.jsp" />
+    </definition>
  
     <!-- all 레이아웃-->
     <definition name=".root" template="/WEB-INF/views/layouts/baseLayout.jsp">
@@ -62,6 +76,16 @@
     <!-- 4번 -->
     <definition name="/pages/board/*" extends=".board">
       <put-attribute name="body" value="/WEB-INF/views/pages/board/{1}.jsp" />
+    </definition>
+    
+    <!-- 5번 -->
+    <definition name="/pages/member/*" extends=".member">
+      <put-attribute name="body" value="/WEB-INF/views/pages/member/{1}.jsp" />
+    </definition>
+    
+    <!-- 6번 -->
+    <definition name="/pages/admin/*" extends=".admin">
+      <put-attribute name="body" value="/WEB-INF/views/pages/admin/{1}.jsp" />
     </definition>
  
     <!-- all -->

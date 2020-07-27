@@ -1,4 +1,10 @@
 @charset "UTF-8";
+@font-face { font-family: 'MapoFlowerIsland'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/MapoFlowerIslandA.woff') format('woff'); font-weight: normal; font-style: normal; }
+@font-face { font-family: 'JSArirangPPURI-Regular'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/JSArirangPPURI-RegularA1.woff') format('woff'); font-weight: normal; font-style: normal; }
+h1 {
+font-family: 'MapoFlowerIsland';
+letter-spacing: 5px;
+}
 * {
 box-sizing: border-box;
 text-decoration: none;
@@ -21,4 +27,19 @@ list-style:none;
 .img-sm {
 	width: 10px;
 	color: #ddd;
+}
+.btn-1 {
+border: 1px solid #777;
+border-radius: 5px;
+width: 80px;
+padding: 5px;
+cursor: pointer;
+background: #E6ECF2;
+}
+.btn-2 {
+border: 1px solid #777;
+border-radius: 5px;
+width: 80px;
+padding: 5px;
+cursor: pointer;
 }

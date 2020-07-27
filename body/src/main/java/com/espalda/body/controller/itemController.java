@@ -14,12 +14,30 @@ public class itemController {
 	
 	private static final Logger logger = LoggerFactory.getLogger(itemController.class);
 
-	/** 메인 홈 화면 */
-	@RequestMapping(value="/pages/item/item_list")
-	public ModelAndView main(ModelAndView mv){
-	    mv.setViewName("/pages/item/item_list");
+	/** 상품 리스트 */
+	@RequestMapping(value="/pages/item/it_list")
+	public ModelAndView it_list(ModelAndView mv){
+	    mv.setViewName("/pages/item/it_list");
 	    return mv;
 	}
 	
+	/** 상품 상세 */
+	@RequestMapping(value="/pages/item/it_detail")
+	public ModelAndView it_detail(ModelAndView mv){
+		mv.setViewName("/pages/item/it_detail");
+		return mv;
+	}
 	
+	/** 장바구니 */
+	@RequestMapping(value="/test/basket")
+	public ModelAndView basket(ModelAndView mv){
+		mv.setViewName("/pages/item/basket");
+		return mv;
+	}
+	/** 위시리스트 */
+	@RequestMapping(value="/test/it_wish")
+	public ModelAndView wish(ModelAndView mv){
+		mv.setViewName("/pages/item/it_wish");
+		return mv;
+	}
 }
