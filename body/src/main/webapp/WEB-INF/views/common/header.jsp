@@ -153,7 +153,7 @@ margin: 0 10px;
 				<li>|</li>
 				<li><a href="<c:url value="/pages/sign/sign_up" />" title="회원가입">회원가입</a></li>
 				<li>|</li>
-				<li><a href="#ex1" rel="장바구니"></a></li>
+				<li><a href="#">장바구니</a></li>
 				<li>|</li>
 				<li><a href="<c:url value="/test/it_wish" />" title="관심상품">관심상품</a></li>
 				<li>|</li>
@@ -162,6 +162,7 @@ margin: 0 10px;
 			</ul>
 		</div>
 	</div>
+	<jsp:include page="/WEB-INF/views/common/basket-md.jsp"></jsp:include>
 	<div class="h1-hover-list">
 		<ul>
 			<li>나의메뉴</li>
@@ -170,8 +171,6 @@ margin: 0 10px;
 			<li><a href="<c:url value='/pages/board/board_list' />" >커뮤니티</a></li>
 		</ul>
 	</div>
-	
-	
 	<div class="header-02">
 		<div class="h2-logo" style="width: 170px;">
 			<a href="<c:url value="/" />"><img src="<c:url value='/resources/img/logo-test.png' />" style="width: 170px;"/></a>
@@ -181,12 +180,12 @@ margin: 0 10px;
 	<div class="header-03">
 		<div class="h3-menu">
 		<ul>
-			<li>FEATURED</a></li>
-			<li><a href="#" title="">BABY</a></li>
-			<li><a href="#" title="">STUDENT</a></li>
-			<li><a href="#" title="">ADULT</a></li>
-			<li><a href="#" title="">FAMILY</a></li>
-			<li><a href="#" title="">SALE</a></li>
+			<li><a href="#" title="">Featured</a></li>
+			<li><a href="#" title="">Lotion</a></li>
+			<li><a href="#" title="">Wash</a></li>
+			<li><a href="#" title="">Soap</a></li>
+			<li><a href="#" title="">Mist</a></li>
+			<li><a href="#" title="">Scrup</a></li>
 			<li><a href="#" title="">EVENT</a></li>
 		</ul>
 		</div>
@@ -207,7 +206,6 @@ margin: 0 10px;
 				<img>
 			</div>
 		</div>
-		
 	</div>
 <script>
 $('.h3-menu, .h3-hover').mouseover(function(){
