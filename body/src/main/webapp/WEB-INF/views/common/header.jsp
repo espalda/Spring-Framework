@@ -186,7 +186,7 @@ margin: 0 10px;
 			<li><a href="#" title="">Soap</a></li>
 			<li><a href="#" title="">Mist</a></li>
 			<li><a href="#" title="">Scrup</a></li>
-			<li><a href="#" title="">EVENT</a></li>
+			<li><a href="#" title="">Event</a></li>
 		</ul>
 		</div>
 		
