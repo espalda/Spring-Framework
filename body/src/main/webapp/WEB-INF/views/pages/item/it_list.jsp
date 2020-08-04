@@ -23,6 +23,7 @@ height: 50px;
 }
 </style>
 <body>
+<img src="#" width="1130px" height="300px">
 <div class="item-info">
 	<div class="item-img"></div>
 	<div class="item-des"></div>

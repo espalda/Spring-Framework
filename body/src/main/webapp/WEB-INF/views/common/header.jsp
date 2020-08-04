@@ -16,7 +16,7 @@ float: left;
 .header-01 {
 width: 100%;
 height: 40px;
-padding: 5px 100px;
+padding: 0 100px;
 background: #d0d3dc;
 }
 .h1-right {
@@ -24,10 +24,13 @@ float: right;
 position: relative;
 }
 .h1-right li {
-padding: 5px;
+padding: 0 5px;
+height: 40px;
+line-height: 38px;
 }
 .h1-search {
 float: right;
+margin-top: 5px;
 }
 .h1-search input {
 all: unset;
@@ -153,17 +156,17 @@ margin: 0 10px;
 				<li>|</li>
 				<li><a href="<c:url value="/pages/sign/sign_up" />" title="회원가입">회원가입</a></li>
 				<li>|</li>
-				<li><a href="#">장바구니</a></li>
+				<li><a href="#" id="basket">장바구니</a></li>
 				<li>|</li>
 				<li><a href="<c:url value="/test/it_wish" />" title="관심상품">관심상품</a></li>
 				<li>|</li>
-				<li><a href="<c:url value="/pages/member/mb_main" />" title="나의메뉴">나의메뉴 <img src="https://img.icons8.com/small/16/000000/expand-arrow.png" class="img-sm"></a></li>
+				<li id="mymenu"><a href="<c:url value="/pages/member/mb_main" />" title="나의메뉴">나의메뉴 <img src="https://img.icons8.com/small/16/000000/expand-arrow.png" class="img-sm"></a></li>
 				<li>|</li>
 			</ul>
 		</div>
 	</div>
 	<jsp:include page="/WEB-INF/views/common/basket-md.jsp"></jsp:include>
-	<div class="h1-hover-list">
+	<div class="h1-hover-list" style="display: none;">
 		<ul>
 			<li>나의메뉴</li>
 			<li>나의메뉴</li>
@@ -215,6 +218,13 @@ $('.h3-menu, .h3-hover').mouseover(function(){
 $('.h3-menu, .h3-hover').mouseout(function(){
 	$('.h3-hover').css('display', 'none');
 	//$('.h3-hover').attr('style', 'display:block');
+})
+
+$('#basket').click(function(){
+	$('.basket-item').toggle();
+})
+$('#mymenu, .h1-hover-list').hover(function(){
+	$('.h1-hover-list').toggle();
 })
 </script>
 </body>

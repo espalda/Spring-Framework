@@ -26,7 +26,7 @@ margin-left: 18px;
 }
 </style>
 
-<div class="basket-item">
+<div class="basket-item" style="display: none;">
 <h1>장바구니</h1> 
 <div>담은 상품이 없습니다.</div>
 <div class="box"></div>

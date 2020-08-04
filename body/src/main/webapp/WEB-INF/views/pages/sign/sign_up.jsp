@@ -23,6 +23,21 @@ height: 30px;
 .table-03 th {
 padding: 20px;
 }
+.table-03 input {
+all: unset;
+width: 150px;
+height: 25px;
+padding-left: 10px;
+letter-spacing: 5px; 
+border-bottom: 1px solid #D2D2D2;
+}
+.table-03 select {
+all: unset;
+width: 50px;
+height: 25px;
+text-align-last:center;
+border: 1px solid #D2D2D2;
+line-height: 25px;
 </style>
 <h1 class="text-center">회원가입</h1>
 <h3>약관동의</h3>
@@ -101,9 +116,9 @@ padding: 20px;
 <tr>
 	<th>주소</th>
 	<td>
-		<input type="text"><input type="button" value="우편번호"><br>
-		<input type="text"><span>기본주소</span><br>
-		<input type="text"><span>상세주소</span>
+		<input type="text"><div class="btn-1" style="display: inline-block;">주소</div><br>
+		<input type="text" style="width: 300px;"><span>기본주소</span><br>
+		<input type="text" style="width: 300px;"><span>상세주소</span>
 	</td>
 </tr>
 

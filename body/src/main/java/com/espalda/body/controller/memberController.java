@@ -12,5 +12,9 @@ public class memberController {
 	    mv.setViewName("/pages/member/mb_main");
 	    return mv;
 	}
-	
+	@RequestMapping(value="/pages/member/mb_order")
+	public ModelAndView mb_order(ModelAndView mv){
+	    mv.setViewName("/pages/member/mb_order");
+	    return mv;
+	}
 }
