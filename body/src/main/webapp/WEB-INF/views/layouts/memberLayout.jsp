@@ -25,10 +25,14 @@ border: 1px solid black;
 background: #fff;
 margin: 5px;
 letter-spacing: 5px;
-font-size: 15px;
 cursor: pointer;
 text-align: center;
 line-height: 48px;
+}
+.mb-menu a {
+display: inline-block;
+width: 130px;
+height: 50px;
 }
 </style>
 </head>
@@ -37,11 +41,11 @@ line-height: 48px;
     <div class="content">
 		<div class="mb-menu">
 			<ul>
-				<li>나의 정보</li>
+				<li><a href='<c:url value="/pages/member/mb_main" />'>나의 정보</a></li>
 				<li><a href='<c:url value="/pages/member/mb_order" />'>주문 목록</a></li>
-				<li>배송 현황</li>
-				<li>문의 내용</li>
-				<li>관심 상품</li>
+				<li><a href='<c:url value="/pages/member/mb_deliver" />'>배송 현황</a></li>
+				<li><a href='<c:url value="/pages/member/mb_board" />'>문의 내용</a></li>
+				<li><a href='#'>관심 상품</a></li>
 			</ul>
 		</div>     
         <tiles:insertAttribute name="body" />

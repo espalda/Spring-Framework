@@ -4,7 +4,7 @@
 </style>
 <table class="table table-bordered mb-02">
 <tr>
-	<td>최근 6개월 간의 주문 이력이 보여집니다. datepicker 필요</td>
+	<td>최근 6개월 간의 주문 이력이 보여집니다. <button>datepicker</button></td>
 </tr>
 <tr>
 	<td>등 급 : n 등급<button>혜택보기</button></td>

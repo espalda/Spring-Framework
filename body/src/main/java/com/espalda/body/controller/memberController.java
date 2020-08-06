@@ -17,4 +17,14 @@ public class memberController {
 	    mv.setViewName("/pages/member/mb_order");
 	    return mv;
 	}
+	@RequestMapping(value="/pages/member/mb_deliver")
+	public ModelAndView mb_deliver(ModelAndView mv){
+	    mv.setViewName("/pages/member/mb_deliver");
+	    return mv;
+	}
+	@RequestMapping(value="/pages/member/mb_board")
+	public ModelAndView mb_board(ModelAndView mv){
+	    mv.setViewName("/pages/member/mb_board");
+	    return mv;
+	}
 }
