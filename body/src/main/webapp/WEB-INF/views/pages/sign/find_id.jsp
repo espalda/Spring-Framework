@@ -4,11 +4,11 @@
 .sign-01 {
 margin: 0 auto;
 width: 500px;
-padding: 30px;
 }
 .sign-01 h1 {
 padding: 10px;
 font-size: 30px;
+text-align: center;
 }
 .test {
 width: 100px;

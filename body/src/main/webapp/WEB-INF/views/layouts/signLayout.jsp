@@ -8,16 +8,16 @@
 <jsp:include page="/WEB-INF/views/layouts/path/include.jsp"></jsp:include>
 <style>
 .content {
+padding-top: 30px;
 width: 1130px;
 height: 100%;
-border: 1px solid black;
 margin: 0 auto;
 }
 </style>
 </head>
 <body>
     <tiles:insertAttribute name="header"/>
-    <div class="content">        
+    <div class="content"> 
         <tiles:insertAttribute name="body" />
     </div>                                                  
     <tiles:insertAttribute name="footer" />

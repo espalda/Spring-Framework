@@ -70,7 +70,7 @@ line-height: 25px;
 	</tr>
 </table>
 <hr>
-<h3>정보입력</h3>
+<h3>약관동의 > 정보입력</h3>
 <table class="table table-bordered table-03">
 <tr>
 	<th width="15%">이메일<i>*</i></th>

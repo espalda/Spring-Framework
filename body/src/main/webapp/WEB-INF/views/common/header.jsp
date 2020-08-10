@@ -12,7 +12,7 @@
 li {
 float: left;
 }
-/* header-01 --------- */
+/* ----- header-01 ----- */
 .header-01 {
 width: 100%;
 height: 40px;
@@ -74,7 +74,7 @@ border-bottom: 1px solid #555;
 box-sizing: border-box;
 transition: 0.8s;
 }
-/* header-02 --------- */
+/* ----- header-02 ----- */
 .header-02 {
 width: 100%;
 height: 180px;
@@ -83,24 +83,31 @@ padding: 5px 100px;
 .h2-logo{
 margin: 0 auto;
 }
-/* header-03 --------- */
+/* ----- header-03 ----- */
 .header-03 {
 width: 100%;
 height: 40px;
 }
-.header-03 .h3-menu {
-width: 600px;
-height: 30px;
-margin: 0 auto;
-}
-.header-03 li {
-padding: 0 15px;
-font-weight: bold;
-line-height: 10px;
-}
 .h3-menu {
+width: 560px;
+height: 40px;
 margin: 0 auto;
-padding: 20px;
+}
+.h3-menu li {
+width: 80px;
+height: 40px;
+text-align: center;
+font-weight: bold;
+line-height: 38px;
+}
+.h3-menu li:hover {
+background: #eee;
+transition: 0.5s;
+}
+.h3-menu a {
+display: inline-block;
+width: 80px;
+height: 40px;
 }
 .h3-hover {
 position: absolute;
@@ -129,12 +136,15 @@ margin: 0 10px;
 }
 .h3-hover-list li {
 	width: 100px;
-	padding: 20px;
+	height: 50px;
+	line-height: 48px;
 	text-align: center;
 	cursor: pointer;
 }
-.h3-hover-list .img-sm {
-	float: right;
+.h3-hover-list a {
+	display: inline-block;
+	width: 100px;
+	height: 50px;
 }
 .h3-hover-list li:hover {
 	background: #eee;

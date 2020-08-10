@@ -4,7 +4,7 @@
 .sign-01 {
 margin: 0 auto;
 width: 500px;
-padding: 30px;
+padding: 30px
 }
 .sign-01 h1 {
 padding: 10px;

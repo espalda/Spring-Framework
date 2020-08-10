@@ -4,11 +4,11 @@
 .sign-01 {
 margin: 0 auto;
 width: 500px;
-padding: 30px;
 }
 .sign-01 h1 {
 padding: 10px;
 font-size: 30px;
+text-align: center;
 }
 .test {
 width: 100px;
@@ -20,6 +20,7 @@ font-size: 15px;
 all: unset;
 width: 300px;
 height: 50px;
+padding-left: 10px;
 border-bottom: 1px solid black;
 }
 .sign-01 input[type=button] {
@@ -36,12 +37,13 @@ margin-right: 5px;
 </style>
 
 <div class="sign-01">
-	<h1 class="text-center">로그인</h1>
+	<h1>로그인</h1>
 	<label class="test">e-mail</label>
 	<input type="text" id="email" placeholder="please, enter your e-mail"><br>
 	<label class="test">password</label>
 	<input type="password" id="pw" placeholder="please, enter your password"><br>
-	<input type="button" value="login">
+	<input type="button" value="login"><br>
+	
 	<input type="checkbox" id="save_id"><label for="save_id">아이디 저장</label>
 	
 	<hr>

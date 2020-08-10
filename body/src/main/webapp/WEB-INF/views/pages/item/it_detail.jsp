@@ -83,13 +83,13 @@ margin: 55px;
 <div class="it-top">
 	<div class="it_img">
 		<div class="it_img1"></div>
-		<ol class="sum">
+		<ul class="sum">
 			<li></li>
 			<li></li>
 			<li></li>
 			<li></li>
 			<li></li>
-		</ol>
+		</ul>
 	</div>
 	<div class="it_detail">
 	<h1 class="text-center">mermaid bodylotion</h1>
@@ -114,22 +114,22 @@ margin: 55px;
 		<tr>
 			<td>용량</td>
 			<td>
-				<ol>
+				<ul>
 					<li>150ml</li>
 					<li>300ml</li>
 					<li>900ml</li>
-				</ol>
+				</ul>
 			</td>
 		</tr>
 		<tr>
 			<td>타입</td>
 			<td>
-				<ol>
+				<ul>
 					<li>blue</li>
 					<li>green</li>
 					<li>red</li>
 					<li>orange</li>
-				</ol>
+				</ul>
 			</td>
 		</tr>
 		<tr>
