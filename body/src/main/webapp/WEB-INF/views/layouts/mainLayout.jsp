@@ -14,7 +14,7 @@ border: 1px solid black;
 margin: 0 auto;
 }
 .swiper {
-width: 1700px;
+width: 100%;
 height: 500px;
 border: 1px solid #eee;
 margin: 0 auto;

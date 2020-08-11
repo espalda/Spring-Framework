@@ -4,6 +4,7 @@
 <html>
 <head>
 <style>
+/* -- footer css --*/
 .foot-detail h1 {
 }
 .foot-info {

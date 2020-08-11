@@ -14,9 +14,9 @@
     
     <!-- 2번 레이아웃 -->    
     <definition name=".sign" template="/WEB-INF/views/layouts/signLayout.jsp">
-        <put-attribute name="title" value="" />
+        <put-attribute name="css" value="/WEB-INF/views/pages/sign/sign_style.jsp" />
         <put-attribute name="header" value="/WEB-INF/views/common/header.jsp" />
-        <put-attribute name="menu" value="" />        
+        <put-attribute name="menu" value="" />   
         <put-attribute name="footer" value="/WEB-INF/views/common/footer.jsp" />
     </definition>
     

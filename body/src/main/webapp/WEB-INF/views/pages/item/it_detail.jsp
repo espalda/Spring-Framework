@@ -166,6 +166,7 @@ margin: 55px;
 		<li>상품후기</li>
 		<li>상품문의</li>
 	</ul>
+	<img alt="" src="#" width="100%" height="100%" style="display: block;">
 </div>
 
 <div class="des-01">

@@ -5,10 +5,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-<script>
-    //alert("${contextPath}");
-</script>
 <style>
+/* -- header.jsp css -- */
 li {
 float: left;
 }
@@ -89,13 +87,14 @@ width: 100%;
 height: 40px;
 }
 .h3-menu {
-width: 560px;
+width: 700px;
 height: 40px;
 margin: 0 auto;
 }
 .h3-menu li {
-width: 80px;
+width: 100px;
 height: 40px;
+padding: 0 10px;
 text-align: center;
 font-weight: bold;
 line-height: 38px;
@@ -103,15 +102,18 @@ line-height: 38px;
 .h3-menu li:hover {
 background: #eee;
 transition: 0.5s;
+border-radius:30%;
 }
 .h3-menu a {
 display: inline-block;
 width: 80px;
 height: 40px;
+font-size: 13px;
+letter-spacing: 2px;
 }
 .h3-hover {
 position: absolute;
-left: 34%;
+left: 30%;
 border: 1px solid #eee;
 width: 585px;
 height: 240px;
@@ -150,7 +152,6 @@ margin: 0 10px;
 	background: #eee;
   	transition: 0.8s;
 }
-
 </style>
 
 </head>

@@ -32,12 +32,12 @@ letter-spacing: 5px;
 border-bottom: 1px solid #D2D2D2;
 }
 .table-03 select {
-all: unset;
 width: 50px;
 height: 25px;
 text-align-last:center;
 border: 1px solid #D2D2D2;
 line-height: 25px;
+}
 </style>
 <h1 class="text-center">회원가입</h1>
 <h3>약관동의</h3>

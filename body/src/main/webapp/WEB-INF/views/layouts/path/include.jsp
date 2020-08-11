@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!-- fabicon -->
-<link rel="icon" type="image/png"  href="<c:url value='/resources/img/icons8-foundation-makeup-16.png' />">
+<link rel="icon" type="image/png"  href="<%=request.getContextPath()%>/resources/img/icons8-foundation-makeup-16.png">
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
 
