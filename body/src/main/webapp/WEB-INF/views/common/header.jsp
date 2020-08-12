@@ -102,7 +102,6 @@ line-height: 38px;
 .h3-menu li:hover {
 background: #eee;
 transition: 0.5s;
-border-radius:30%;
 }
 .h3-menu a {
 display: inline-block;

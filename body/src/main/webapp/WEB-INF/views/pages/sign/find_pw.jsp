@@ -13,5 +13,5 @@
 	<hr>
 	<a href="<%=request.getContextPath()%>/pages/sign/find_id" ><span>이메일 찾기</span></a>
 	<span>|</span>
-	<a href="<c:url value="/pages/sign/sign_up" />"><span>회원가입</span></a>
+	<a href="<c:url value="/pages/sign/sign_up" />"><span><img src="https://img.icons8.com/small/16/000000/add-user-group-woman-woman.png"/>회원가입</span></a>
 </div>

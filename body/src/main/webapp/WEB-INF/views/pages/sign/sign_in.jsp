@@ -17,5 +17,5 @@
 	<span>|</span>
 	<a href="<c:url value="/pages/sign/find_pw" />"><span>비밀번호 찾기</span></a>
 	<span>|</span>
-	<a href="<c:url value="/pages/sign/sign_up" />"><span>회원가입</span></a>
+	<a href="<c:url value="/pages/sign/sign_up" />"><span><img src="https://img.icons8.com/small/16/000000/add-user-group-woman-woman.png"/>회원가입</span></a>
 </div>

@@ -19,6 +19,9 @@ color: #555;
 a:active {
 color: #555;
 }
+label {
+margin-bottom: 0;
+}
 ul {
 padding-left:0px;
 list-style:none;

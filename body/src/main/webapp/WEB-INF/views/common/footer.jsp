@@ -104,7 +104,6 @@ float: right;
 				<div><a href="#">회원등급안내</a></div>
 			</div>
 			<div class="qna-right">
-				<h1>반품 및 교환 안내</h1>
 			</div>
 		</div>
 	</div>
