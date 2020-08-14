@@ -4,9 +4,9 @@
 <div class="sign-01">
 	<h1>회원가입</h1>
 	<div class="chk">
-		<input type="checkbox" id="chk-all"/><label for="chk-all">모두 동의합니다.</label><br/><hr/>
-		<input type="checkbox" id="chk1"/><label for="chk1">서비스이용약관</label><button role="chk-desc">[상세보기]</button><br/>
-		<input type="checkbox" id="chk2"/><label for="chk2">개인정보 취급방침 및 이용안내</label><button role="chk-desc">[상세보기]</button>
+		<input type="checkbox" id="chk-all" data-chk="term"/><label for="chk-all">모두 동의합니다.</label><br/><hr/>
+		<input type="checkbox" id="chk1" data-chk="term"/><label for="chk1">서비스이용약관</label><button role="chk-desc">[상세보기]</button><br/>
+		<input type="checkbox" id="chk2" data-chk="term"/><label for="chk2">개인정보 취급방침 및 이용안내</label><button role="chk-desc">[상세보기]</button>
 	</div>
 	
 	<label class="desc">name</label>
@@ -32,9 +32,9 @@
 	<span role="-">-</span>
 	<input type="text" id="phone2" name="phone"><br/>
 	
-	<p style="text-align: center; margin-top: 30px;">선택 입력</p>
+	<p style="text-align: center; margin-top: 30px;">아래는 선택사항입니다.</p>
 	<label class="desc">birthday</label>
-	<input type="text"><br/>
+	<input type="text" value="datepicker"><br/>
 	
 	<label class="desc">address</label>
 	<input type="text" name="addr" style="width: 184px;"><button id="search_addr">주소검색</button><br/>

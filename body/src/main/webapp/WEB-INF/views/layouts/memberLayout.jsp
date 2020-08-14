@@ -8,31 +8,37 @@
 <jsp:include page="/WEB-INF/views/layouts/path/include.jsp"></jsp:include>
 <style>
 .content {
-width: 1130px;
+width: 800px;
 height: 100%;
 border: 1px solid black;
 margin: 0 auto;
 }
 .mb-menu {
-height: 70px;
+height: 120px;
 padding: 5px;
 background: #EDEDED;
 }
 .mb-menu li {
-width: 130px;
-height: 50px;
-border: 1px solid black;
+width: 120px;
+height: 100px;
 background: #fff;
-margin: 5px;
-letter-spacing: 5px;
-cursor: pointer;
-text-align: center;
-line-height: 48px;
+margin: 5.6px;
 }
 .mb-menu a {
 display: inline-block;
-width: 130px;
-height: 50px;
+width: 120px;
+padding: 8px 0;
+font-size: 13px;
+cursor: pointer;
+text-align: center;
+}
+.mb-menu img {
+display: block;
+margin: 0 auto;
+}
+.mb-menu img:hover {
+opacity: 0.5;
+transition: 0.2s;
 }
 </style>
 </head>
@@ -41,11 +47,12 @@ height: 50px;
     <div class="content">
 		<div class="mb-menu">
 			<ul>
-				<li><a href='<c:url value="/pages/member/mb_main" />'>나의 정보</a></li>
-				<li><a href='<c:url value="/pages/member/mb_order" />'>주문 목록</a></li>
-				<li><a href='<c:url value="/pages/member/mb_deliver" />'>배송 현황</a></li>
-				<li><a href='<c:url value="/pages/member/mb_board" />'>문의 내용</a></li>
-				<li><a href='#'>관심 상품</a></li>
+				<li><a href='<c:url value="/pages/member/mb_main" />'><img src="https://img.icons8.com/cotton/64/000000/gender-neutral-user--v1.png"/>나의 정보</a></li>
+				<li><a href='<c:url value="/pages/member/mb_order" />'><img src="https://img.icons8.com/cotton/64/000000/bill--v1.png"/>주문 목록</a></li>
+				<li><a href='<c:url value="/pages/member/mb_deliver" />'><img src="https://img.icons8.com/cotton/64/000000/delivery-person.png"/>배송 현황</a></li>
+				<li><a href='<c:url value="/pages/member/mb_board" />'><img src="https://img.icons8.com/cotton/64/000000/talk.png"/>문의 내용</a></li>
+				<li><a href='#'><img src="https://img.icons8.com/cotton/64/000000/worldwide-delivery.png"/>관심 상품</a></li>
+				<li><a href='#'><img src="https://img.icons8.com/cotton/64/000000/hearts--v3.png"/>위시리스트</a></li>
 			</ul>
 		</div>     
         <tiles:insertAttribute name="body" />

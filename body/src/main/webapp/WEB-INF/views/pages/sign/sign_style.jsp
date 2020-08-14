@@ -92,6 +92,11 @@ color: #51769e;
 [role="chk-desc"]:hover {
 font-weight: bold;
 }
+[data-chk="term"] {
+width: 20px;
+height: 20px;
+background: white;
+}
 </style>
 <script>
 $(document).ready(function() {
