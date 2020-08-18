@@ -12,15 +12,15 @@
         <put-attribute name="footer" value="/WEB-INF/views/common/footer.jsp" />
     </definition>
     
-    <!-- 2번 레이아웃 -->    
+    <!-- 2번 레이아웃 sign -->    
     <definition name=".sign" template="/WEB-INF/views/layouts/signLayout.jsp">
-        <put-attribute name="css" value="/WEB-INF/views/pages/sign/sign_style.jsp" />
+        <put-attribute name="css" value="/WEB-INF/views/pages/sign/css_sign.jsp" />
         <put-attribute name="header" value="/WEB-INF/views/common/header.jsp" />
         <put-attribute name="menu" value="" />   
         <put-attribute name="footer" value="/WEB-INF/views/common/footer.jsp" />
     </definition>
     
-    <!-- 3번 레이아웃 -->    
+    <!-- 3번 레이아웃 item -->    
     <definition name=".item" template="/WEB-INF/views/layouts/itemLayout.jsp">
         <put-attribute name="title" value="" />
         <put-attribute name="header" value="/WEB-INF/views/common/header.jsp" />
@@ -28,7 +28,7 @@
         <put-attribute name="footer" value="/WEB-INF/views/common/footer.jsp" />
     </definition>
     
-    <!-- 4번 레이아웃 -->    
+    <!-- 4번 레이아웃 board -->    
     <definition name=".board" template="/WEB-INF/views/layouts/boardLayout.jsp">
         <put-attribute name="title" value="" />
         <put-attribute name="header" value="/WEB-INF/views/common/header.jsp" />
@@ -36,15 +36,17 @@
         <put-attribute name="footer" value="/WEB-INF/views/common/footer.jsp" />
     </definition>
     
+    <!-- 5번 레이아웃 member -->
     <definition name=".member" template="/WEB-INF/views/layouts/memberLayout.jsp">
-        <put-attribute name="title" value="" />
+        <put-attribute name="css" value="/WEB-INF/views/pages/member/css_mb.jsp" />
         <put-attribute name="header" value="/WEB-INF/views/common/header.jsp" />
         <put-attribute name="menu" value="" />        
         <put-attribute name="footer" value="/WEB-INF/views/common/footer.jsp" />
     </definition>
     
+    <!-- 6번 레이아웃 admin -->
     <definition name=".admin" template="/WEB-INF/views/layouts/adminLayout.jsp">
-        <put-attribute name="title" value="" />
+        <put-attribute name="css" value="/WEB-INF/views/pages/admin/css_ad.jsp" />
         <put-attribute name="header" value="/WEB-INF/views/common/header.jsp" />
         <put-attribute name="menu" value="" />        
         <put-attribute name="footer" value="/WEB-INF/views/common/footer.jsp" />

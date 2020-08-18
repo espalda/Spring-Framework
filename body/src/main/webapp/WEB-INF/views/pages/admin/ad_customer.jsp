@@ -3,12 +3,14 @@
 
 <table class="table">
 	<tr>
-		<th>관리자 번호</th>
-		<th>관리자 이름</th>
-		<th>관리자 등급</th>
-		<th>권한 설정</th>
+		<th>고객 번호</th>
+		<th>고객 이름</th>
+		<th>고객 메일</th>
+		<th>고객 번호</th>
+		<th>고객 등급</th>
 	</tr>
 	<tr>
+		<th>1</th>
 		<th>1</th>
 		<th>1</th>
 		<th>1</th>

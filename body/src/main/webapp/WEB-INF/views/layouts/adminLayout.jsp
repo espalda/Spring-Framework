@@ -4,21 +4,31 @@
 
 <html>
 <head>
-<title>everybody</title>
-<jsp:include page="/WEB-INF/views/layouts/path/include.jsp"></jsp:include>
-<style>
-.content {
-width: 1130px;
-height: 100%;
-border: 1px solid black;
-margin: 0 auto;
-}
-</style>
-</head>
+	<title>everybody</title>
+	<jsp:include page="/WEB-INF/views/layouts/path/include.jsp"></jsp:include>
+	<tiles:insertAttribute name="css" />
+	</head>
 <body>
-    <tiles:insertAttribute name="header"/>
-    <div class="content">        
-        <tiles:insertAttribute name="body" />
+    <tiles:insertAttribute name="header" />
+    <div class="content">
+        <div class="ad-menu">
+			<h1>관리자 메뉴</h1>
+			<ul>
+				<li><a href='<c:url value="/pages/admin/ad_main" />'><img src="https://img.icons8.com/cotton/64/000000/conference-call.png"/>관리자 정보</a></li>
+				<li><a href='<c:url value="/pages/admin/ad_customer" />'><img src="https://img.icons8.com/cotton/64/000000/groups--v1.png"/>고객 정보</a></li>
+				<li><a href='<c:url value="/pages/admin/ad_item" />'><img src="https://img.icons8.com/cotton/64/000000/login-rounded--v1.png"/>상품 등록</a></li>
+				<li><a href='<c:url value="/pages/admin/ad_itemList" />'><img src="https://img.icons8.com/cotton/64/000000/checked.png"/>상품 목록</a></li>
+				<li><a href='<c:url value="/pages/admin/ad_cupon" />'><img src="https://img.icons8.com/cotton/64/000000/login-rounded--v2.png"/>쿠폰 등록</a></li>
+				<li><a href='<c:url value="/pages/admin/ad_event" />'><img src="https://img.icons8.com/cotton/64/000000/delivery-time.png"/>이벤트 등록</a></li>
+				
+				<li><a href='<c:url value="/pages/admin/ad_order" />'><img src="https://img.icons8.com/cotton/64/000000/list--v2.png"/>주문 목록</a></li>
+				<li><a href='<c:url value="#" />'><img src="https://img.icons8.com/cotton/64/000000/send-package.png"/>배송 목록</a></li>
+				<li><a href='<c:url value="#" />'><img src="https://img.icons8.com/cotton/64/000000/cash-register-euro.png"/>매출 기록</a></li>
+				<li><a href='<c:url value="#" />'><img src="https://img.icons8.com/cotton/64/000000/mail-account.png"/>메일 보내기</a></li>
+				<li><a href='<c:url value="/pages/admin/ad_notice" />'><img src="https://img.icons8.com/cotton/64/000000/hearts--v3.png"/>공지 등록</a></li>
+			</ul>
+		</div>
+		<tiles:insertAttribute name="body" />
     </div>                                                  
     <tiles:insertAttribute name="footer" />
 </body>

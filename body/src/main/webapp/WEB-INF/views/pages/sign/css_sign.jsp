@@ -13,8 +13,6 @@ width: 400px;
 }
 .sign-01 h1 {
 padding: 10px;
-font-size: 30px;
-text-align: center;
 }
 .sign-01 img {
 vertical-align: text-bottom;
@@ -92,11 +90,7 @@ color: #51769e;
 [role="chk-desc"]:hover {
 font-weight: bold;
 }
-[data-chk="term"] {
-width: 20px;
-height: 20px;
-background: white;
-}
+
 </style>
 <script>
 $(document).ready(function() {

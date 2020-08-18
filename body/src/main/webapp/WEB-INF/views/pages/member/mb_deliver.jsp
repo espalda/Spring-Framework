@@ -4,7 +4,7 @@
 </style>
 <table class="table table-bordered mb-02">
 <tr>
-	<td>나의 프로필</td>
+	<td>배달 현황</td>
 </tr>
 <tr>
 	<td>등 급 : n 등급<button>혜택보기</button></td>

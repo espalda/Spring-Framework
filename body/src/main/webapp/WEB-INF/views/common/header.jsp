@@ -170,12 +170,14 @@ margin: 0 10px;
 				<li>|</li>
 				<li><a href="<c:url value="/test/it_wish" />" title="관심상품">관심상품</a></li>
 				<li>|</li>
+				<li><a href="<c:url value="/pages/admin/ad_main" />" title="관리자">관리자</a></li>
+				<li>|</li>
 				<li id="mymenu"><a href="<c:url value="/pages/member/mb_main" />" title="나의메뉴">나의메뉴 <img src="https://img.icons8.com/small/16/000000/expand-arrow.png" class="img-sm"></a></li>
 				<li>|</li>
 			</ul>
 		</div>
 	</div>
-	<jsp:include page="/WEB-INF/views/common/basket-md.jsp"></jsp:include>
+	<jsp:include page="/WEB-INF/views/common/basket.jsp"></jsp:include>
 	<div class="h1-hover-list" style="display: none;">
 		<ul>
 			<li>나의메뉴</li>

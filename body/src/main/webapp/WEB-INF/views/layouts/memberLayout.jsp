@@ -4,55 +4,22 @@
 
 <html>
 <head>
-<title>everybody</title>
-<jsp:include page="/WEB-INF/views/layouts/path/include.jsp"></jsp:include>
-<style>
-.content {
-width: 800px;
-height: 100%;
-border: 1px solid black;
-margin: 0 auto;
-}
-.mb-menu {
-height: 120px;
-padding: 5px;
-background: #EDEDED;
-}
-.mb-menu li {
-width: 120px;
-height: 100px;
-background: #fff;
-margin: 5.6px;
-}
-.mb-menu a {
-display: inline-block;
-width: 120px;
-padding: 8px 0;
-font-size: 13px;
-cursor: pointer;
-text-align: center;
-}
-.mb-menu img {
-display: block;
-margin: 0 auto;
-}
-.mb-menu img:hover {
-opacity: 0.5;
-transition: 0.2s;
-}
-</style>
+	<title>everybody</title>
+	<jsp:include page="/WEB-INF/views/layouts/path/include.jsp"></jsp:include>
+	<tiles:insertAttribute name="css"/>
 </head>
 <body>
     <tiles:insertAttribute name="header"/>
     <div class="content">
 		<div class="mb-menu">
+			<h1>나의 메뉴</h1>
 			<ul>
 				<li><a href='<c:url value="/pages/member/mb_main" />'><img src="https://img.icons8.com/cotton/64/000000/gender-neutral-user--v1.png"/>나의 정보</a></li>
 				<li><a href='<c:url value="/pages/member/mb_order" />'><img src="https://img.icons8.com/cotton/64/000000/bill--v1.png"/>주문 목록</a></li>
 				<li><a href='<c:url value="/pages/member/mb_deliver" />'><img src="https://img.icons8.com/cotton/64/000000/delivery-person.png"/>배송 현황</a></li>
 				<li><a href='<c:url value="/pages/member/mb_board" />'><img src="https://img.icons8.com/cotton/64/000000/talk.png"/>문의 내용</a></li>
 				<li><a href='#'><img src="https://img.icons8.com/cotton/64/000000/worldwide-delivery.png"/>관심 상품</a></li>
-				<li><a href='#'><img src="https://img.icons8.com/cotton/64/000000/hearts--v3.png"/>위시리스트</a></li>
+				<li><a href='<c:url value="/test/it_wish" />'><img src="https://img.icons8.com/cotton/64/000000/hearts--v3.png"/>위시리스트</a></li>
 			</ul>
 		</div>     
         <tiles:insertAttribute name="body" />

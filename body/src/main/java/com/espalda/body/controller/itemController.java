@@ -34,10 +34,4 @@ public class itemController {
 		mv.setViewName("/pages/item/basket");
 		return mv;
 	}
-	/** 위시리스트 */
-	@RequestMapping(value="/test/it_wish")
-	public ModelAndView wish(ModelAndView mv){
-		mv.setViewName("/pages/item/it_wish");
-		return mv;
-	}
 }
