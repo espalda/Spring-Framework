@@ -2,35 +2,34 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <style>
 /* -- basket -- */
-.basket-item {
+.bsk {
 position: absolute;
 left: 1200px;
 width: 400px;
 background: #fff;
-border: 1px solid black;
+border: 1px solid #d2d2d2;
+border-radius: 5px;
 z-index: 100;
+padding: .75rem;
 text-align: center;
-padding: 20px;
 }
-.box {
+.bsk-1 {
 float: left;
-width: 100px;
-height: 100px;
-border: 1px solid black;
-}
-.it_detail2 {
-float: left;
-width: 240px;
-height: 100px;
-border: 1px solid black;
-margin-left: 18px;
+width: 100%;
+height: 70px;
+border: 1px solid #d2d2d2;
 }
 </style>
-
-<div class="basket-item" style="display: none;">
-<div>담은 상품이 없습니다.</div>
-<div class="box"></div>
-<div class="it_detail2"></div>
-<div class="btn-2">장바구니 보기</div>
-<div class="btn-2">주문하기</div>
+<div class="bsk">
+	<table class="table">
+		<tr>
+			<th colspan="2"><img src="https://img.icons8.com/small/16/000000/shopping-basket.png"/>장바구니</th>
+		</tr>
+		<tr>
+			<th width="20%" style="padding: .75rem 0;"><div class="bsk-1"></div></th>
+			<th width="80%" style="padding: .75rem 0 .75rem .75rem;"><div class="bsk-1"></div></th>
+		</tr>
+	</table>
+	<input type="button" value="장바구니 보기"/>
+	<input type="button" value="주문하기"/>
 </div>

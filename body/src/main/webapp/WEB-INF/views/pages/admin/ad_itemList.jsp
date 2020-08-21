@@ -3,13 +3,20 @@
 
 <table class="table">
 	<tr>
-		<th>고객 번호</th>
-		<th>고객 이름</th>
-		<th>고객 메일</th>
-		<th>고객 번호</th>
-		<th>고객 등급</th>
+		<th colspan="10">카테고리 선택</th>
 	</tr>
 	<tr>
+		<th width="10%">상품 번호</th>
+		<th width="10%">상품 이미지</th>
+		<th width="20%">상품명</th>
+		<th width="30%">상품 설명</th>
+		<th width="10%">재고 수량</th>
+		<th width="10%">상품 가격</th>
+		<th width="10%">선택</th>
+	</tr>
+	<tr>
+		<th>1</th>
+		<th>1</th>
 		<th>1</th>
 		<th>1</th>
 		<th>1</th>

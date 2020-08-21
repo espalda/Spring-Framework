@@ -166,9 +166,9 @@ margin: 0 10px;
 				<li>|</li>
 				<li><a href="<c:url value="/pages/sign/sign_up" />" title="회원가입">회원가입</a></li>
 				<li>|</li>
-				<li><a href="#" id="basket">장바구니</a></li>
+				<li><a href="<c:url value="#" />" id="basket">장바구니</a></li>
 				<li>|</li>
-				<li><a href="<c:url value="/test/it_wish" />" title="관심상품">관심상품</a></li>
+				<li><a href="<c:url value="#" />" title="관심상품">관심상품</a></li>
 				<li>|</li>
 				<li><a href="<c:url value="/pages/admin/ad_main" />" title="관리자">관리자</a></li>
 				<li>|</li>

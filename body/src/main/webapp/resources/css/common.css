@@ -25,6 +25,9 @@ color: #555;
 label {
 margin-bottom: 0;
 }
+table {
+margin-bottom: 2rem;
+}
 ul {
 padding-left:0px;
 list-style:none;

@@ -27,6 +27,11 @@ public class memberController {
 	    mv.setViewName("/pages/member/mb_board");
 	    return mv;
 	}
+	@RequestMapping(value="/pages/member/mb_edit")
+	public ModelAndView mb_edit(ModelAndView mv){
+	    mv.setViewName("/pages/member/mb_edit");
+	    return mv;
+	}
 	/** 위시리스트 */
 	@RequestMapping(value="/test/it_wish")
 	public ModelAndView wish(ModelAndView mv){

@@ -1,28 +1,45 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
-<table class="table table-borderless">
+<table class="table">
 	<tr>
-		<td>등 급 : n 등급<button>혜택보기</button></td>
+		<th colspan="2">000님 반갑습니다.</th>
+	</tr>
+	<tr class="text-center">
+		<th width="10%">입금대기</th>
+		<th width="5%">></th>
+		<th width="10%">결제완료</th>
+		<th width="5%">></th>
+		<th width="10%">상품준비중</th>
+		<th width="5%">></th>
+		<th width="10%">배송중</th>
+		<th width="5%">></th>
+		<th width="10%">배송완료</th>
+	</tr>
+	<tr class="text-center">
+		<th><h1>0</h1></th>
+		<th></th>
+		<th><h1>0</h1></th>
+		<th></th>
+		<th><h1>0</h1></th>
+		<th></th>
+		<th><h1>0</h1></th>
+		<th></th>
+		<th><h1>0</h1></th>
 	</tr>
 	<tr>
-		<td>보유 적립금 : n 원<button>사용내역</button></td>
+		<th>등급</th>
+		<td class="text-right" colspan="2">브론즈</td>
+		<td>보기</td>
 	</tr>
 	<tr>
-		<td>쿠 폰 : n 장<button>보유 쿠폰</button></td>
+		<th>보유적립금</th>
+		<td class="text-right" colspan="2">1000원</td>
+		<td>보기</td>
 	</tr>
 	<tr>
-		<td>
-			<ul>
-				<li>입금대기</li>
-				<li><img src="https://img.icons8.com/ios-glyphs/32/000000/forward.png"/></li>
-				<li>결제완료</li>
-				<li><img src="https://img.icons8.com/ios-glyphs/32/000000/forward.png"/></li>
-				<li>상품준비중</li>
-				<li><img src="https://img.icons8.com/ios-glyphs/32/000000/forward.png"/></li>
-				<li>배송중</li>
-				<li><img src="https://img.icons8.com/ios-glyphs/32/000000/forward.png"/></li>
-				<li>배송완료</li>
-			</ul>
-		</td>
+		<th>쿠폰</th>
+		<td class="text-right" colspan="2">1장</td>
+		<td>보기</td>
 	</tr>
 </table>

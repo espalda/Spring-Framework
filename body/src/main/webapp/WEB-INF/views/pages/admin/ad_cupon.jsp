@@ -20,11 +20,14 @@
 </table>
 <table class="table">
 	<tr>
+		<th colspan="4">쿠폰 등록</th>
+	</tr>
+	<tr>
 		<th width="50px">쿠폰명</th>
 		<th width="40%">할인대상</th>
 		<th width="10%">쿠폰할인률</th>
 	</tr>
-	<tr>
+	<tr>	
 		<td><input type="text" /></td>
 		<td><input type="checkbox" id="1" /><label for="1">배송비</label>
 			<input type="checkbox" id="2" /><label for="2">신상품</label>

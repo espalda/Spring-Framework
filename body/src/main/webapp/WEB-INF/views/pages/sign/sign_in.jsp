@@ -3,12 +3,12 @@
 
 <div class="sign-01">
 	<h1>로그인</h1>
-	<label class="desc">e-mail</label>
-	<input type="text" id="email" placeholder="please, enter your e-mail"><br>
+	<label class="desc">이메일</label>
+	<input type="text" id="email" /><br>
 	
-	<label class="desc">password</label>
-	<input type="password" id="pw" placeholder="please, enter your password"><br>
-	<input type="button" value="login"><br>
+	<label class="desc">비밀번호</label>
+	<input type="password" id="pw" /><br>
+	<input type="button" value="click" /><br>
 	
 	<input type="checkbox" id="save_id"><label for="save_id">아이디 저장</label>
 	

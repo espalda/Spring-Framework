@@ -64,7 +64,6 @@ margin: 30px 0;
 .sign-01 .desc {
 width: 100px;
 text-align: center;
-font-size: 15px;
 }
 .sign-01 #search_addr {
 all: unset;

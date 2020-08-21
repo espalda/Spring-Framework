@@ -3,9 +3,9 @@
 
 <div class="sign-01">
 	<h1>이메일 찾기</h1>
-	<label class="desc">name</label>
-	<input type="text" id="name" placeholder="please, enter your name"><br>
-	<label class="desc">phone</label>
+	<label class="desc">이름</label>
+	<input type="text" id="name" /><br>
+	<label class="desc">전화번호</label>
 		<select>
 			<option>010</option>
 			<option>011</option>

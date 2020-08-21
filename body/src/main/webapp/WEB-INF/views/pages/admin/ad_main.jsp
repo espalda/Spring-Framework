@@ -15,3 +15,4 @@
 		<th>1</th>
 	</tr>
 </table>
+<input type="button" value="관리자 등록" />

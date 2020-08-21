@@ -20,6 +20,15 @@ public class boardController {
 	    mv.setViewName("/pages/board/board_list");
 	    return mv;
 	}
-	
+	@RequestMapping(value="/pages/board/board_desc")
+	public ModelAndView board_desc(ModelAndView mv){
+	    mv.setViewName("/pages/board/board_desc");
+	    return mv;
+	}
+	@RequestMapping(value="/pages/board/board_write")
+	public ModelAndView board_write(ModelAndView mv){
+	    mv.setViewName("/pages/board/board_write");
+	    return mv;
+	}
 	
 }

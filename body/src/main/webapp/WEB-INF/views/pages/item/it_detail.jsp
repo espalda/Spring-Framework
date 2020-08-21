@@ -39,13 +39,12 @@ background: #CDD8E5;
 h4 {
 text-align: right;
 }
+
 .des-01 {
 width: 1018px;
 height: 41px;
-border-bottom: 1px solid black;
 margin: 0 auto;
 }
-
 .des-01 ul {
 width: 750px;
 height: 40px;
@@ -54,30 +53,44 @@ margin: 0 auto;
 .des-01 li {
 width: 150px;
 height: 40px;
-background: #F1F1F1;
 font-size: 13px;
 line-height: 38px;
 letter-spacing: 3px;
 text-align: center;
 margin: 0 auto;
 cursor: pointer;
-border: 1px solid #ddd;
 margin: 0 0 0 -1px;
 }
-.des-01 li:hover {
-background: #E6ECF2;
-}
+
 .des-01 li.now {
 margin: 0 1px 0 0;
 height: 41px;
-border: 1px solid black;
-border-bottom: 1px solid #fff;
 background: #fff;
 }
 .it-top {
 width: 1020px;
 height: 540px;
 margin: 55px; 
+}
+
+/* animation */
+.des-01 li {
+  position: relative;
+  display: inline-block;
+  transition: .3s;
+}
+.des-01 li::after {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  content: '';
+  width: 0;
+  height: 1px;
+  background: #364E69;
+  transition: .3s;
+}
+.des-01 li:hover::after {
+  width: 100%;
 }
 </style>
 <div class="it-top">
