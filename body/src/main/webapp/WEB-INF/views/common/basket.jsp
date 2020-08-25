@@ -30,6 +30,6 @@ border: 1px solid #d2d2d2;
 			<th width="80%" style="padding: .75rem 0 .75rem .75rem;"><div class="bsk-1"></div></th>
 		</tr>
 	</table>
-	<input type="button" value="장바구니 보기"/>
+	<a href="<c:url value="/test/it_basket" />"><input type="button" value="장바구니 보기"/></a>
 	<input type="button" value="주문하기"/>
 </div>

@@ -65,7 +65,8 @@ margin: 0 0 0 -1px;
 .des-01 li.now {
 margin: 0 1px 0 0;
 height: 41px;
-background: #fff;
+background: #eee;
+border-bottom: 1px solid black;
 }
 .it-top {
 width: 1020px;
@@ -171,56 +172,115 @@ margin: 55px;
 	</div>
 </div>
 
-<div class="des-01">
-	<ul>
-		<li class="now">상품정보</li>
-		<li>구매안내</li>
-		<li>배송안내</li>
-		<li>상품후기</li>
-		<li>상품문의</li>
-	</ul>
+<div class="it_bottom" style="width: 100%; height: 100%" >
+	<div class="des-01">
+		<ul>
+			<li class="now">상품정보</li>
+			<li>구매안내</li>
+			<li>배송안내</li>
+			<li>상품후기</li>
+			<li>상품문의</li>
+		</ul>
+	</div>
+	<div class="des-01">
+		<ul>
+			<li>상품정보</li>
+			<li class="now">구매안내</li>
+			<li>배송안내</li>
+			<li>상품후기</li>
+			<li>상품문의</li>
+		</ul>
+	</div>
+		<div>
+		상품결제정보<br/>
+		상품 구매 방법은 카드결제, 계좌이체, 가상결제가 가능합니다.<br/>
+		고액결제의 경우 안전을 위해 카드사에서 확인 전화를 드릴 수 도 있습니다.<br/>
+		확인 과정에서 도난 카드의 사용이나 타인 명의의 주문 등 정상적인 주문이 아니라고 판단될 경우 임의로 주문을 보류 또는 취소할 수 있으며,<br/>
+		상품 금액의 오류가 있을 경우에도 취소될 수 있습니다.<br/>
+		가상결제의 경우 3일 이내 입금 부탁드립니다. (새벽 5시 취소 예정)<br/>
+		입금이 되지 않을 경우, 입금 계좌가 중지처리되며, 주문이 취소됩니다.<br/>
+		행사제품의 경우, 상황에 따라 주문이 취소처리 될 수 있습니다.<br/>
+		</div>
+	
+	<div class="des-01">
+		<ul>
+			<li>상품정보</li>
+			<li>구매안내</li>
+			<li class="now">배송안내</li>
+			<li>상품후기</li>
+			<li>상품문의</li>
+		</ul>
+	</div>
+	<div>
+	배송정보<br/>
+	배송 방법 : 택배<br/>
+	배송 지역 : 전국지역<br/>
+	배송 비용 : 2,500원<br/>
+	배송 기간 : 1일 ~ 3일<br/>
+	배송 안내 :<br/>
+	- 고객님께서 주문하신 상품은 입금 확인후 배송해 드립니다. 다만, 주문량이 많을 경우 지연될 수 있습니다.<br/>
+	- 일반적으로 평일 오전 8시까지의 주문은 당일 출고되며, 오전 8시 이후의 주문건은 익일 출고 됩니다.<br/>
+	- 주말과 공휴일은 출고처리를 하고 있지 않으니, 주문시 참고하시기 바랍니다.<br/>
+	- 산간벽지나 도서지방은 별도의 추가금액을 지불하셔야 하는 경우가 있습니다. (지역별 금액 상이)<br/>
+	</div>
+	<div class="des-01">
+		<ul>
+			<li>상품정보</li>
+			<li>구매안내</li>
+			<li>배송안내</li>
+			<li class="now">상품후기</li>
+			<li>상품문의</li>
+		</ul>
+	</div>
+	<div>
+		<table class="table" style="width: 900px; margin: 0 auto;">
+			<tr>
+				<th>번호</th>
+				<th>평점</th>
+				<th>제목</th>
+				<th>작성자</th>
+				<th>작성일</th>
+				
+			</tr>
+			<tr>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+			</tr>
+		</table>
+		<input type="button" value="후기작성"/>
+	</div>
+	<div class="des-01">
+		<ul>
+			<li>상품정보</li>
+			<li>구매안내</li>
+			<li>배송안내</li>
+			<li>상품후기</li>
+			<li class="now">상품문의</li>
+		</ul>
+	</div>
+	<div>
+		<table class="table" style="width: 900px; margin: 0 auto;">
+			<tr>
+				<th>번호</th>
+				<th>제목</th>
+				<th>작성자</th>
+				<th>작성일</th>
+				<th>답변상태</th>
+			</tr>
+			<tr>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+			</tr>
+		</table>
+		<input type="button" value="문의작성"/>
+	</div>
 </div>
-
-<div class="des-01">
-	<ul>
-		<li>상품정보</li>
-		<li class="now">구매안내</li>
-		<li>배송안내</li>
-		<li>상품후기</li>
-		<li>상품문의</li>
-	</ul>
-</div>
-
-<div class="des-01">
-	<ul>
-		<li>상품정보</li>
-		<li>구매안내</li>
-		<li class="now">배송안내</li>
-		<li>상품후기</li>
-		<li>상품문의</li>
-	</ul>
-</div>
-
-<div class="des-01">
-	<ul>
-		<li>상품정보</li>
-		<li>구매안내</li>
-		<li>배송안내</li>
-		<li class="now">상품후기</li>
-		<li>상품문의</li>
-	</ul>
-</div>
-
-<div class="des-01">
-	<ul>
-		<li>상품정보</li>
-		<li>구매안내</li>
-		<li>배송안내</li>
-		<li>상품후기</li>
-		<li class="now">상품문의</li>
-	</ul>
-</div>
-
 <script>
 
 </script>

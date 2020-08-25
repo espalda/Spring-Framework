@@ -29,9 +29,9 @@ public class itemController {
 	}
 	
 	/** 장바구니 */
-	@RequestMapping(value="/test/basket")
+	@RequestMapping(value="/test/it_basket")
 	public ModelAndView basket(ModelAndView mv){
-		mv.setViewName("/pages/item/basket");
+		mv.setViewName("/pages/item/it_basket");
 		return mv;
 	}
 }

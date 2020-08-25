@@ -8,7 +8,6 @@
 		<th>상품정보</th>
 		<th>판매가</th>
 		<th>수량</th>
-		<th>적립금</th>
 		<th>배송비</th>
 		<th>총금액</th>
 		<th>선택</th>
@@ -22,7 +21,6 @@
 		<td>6</td>
 		<td>7</td>
 		<td>8</td>
-		<td>9</td>
 	</tr>
 </table>
 

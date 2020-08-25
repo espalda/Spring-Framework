@@ -4,16 +4,9 @@
 
 <html>
 <head>
-<title>everybody</title>
-<jsp:include page="/WEB-INF/views/layouts/path/include.jsp"></jsp:include>
-<style>
-.content {
-width: 1130px;
-height: 100%;
-border: 1px solid black;
-margin: 0 auto;
-}
-</style>
+	<title>everybody</title>
+	<jsp:include page="/WEB-INF/views/layouts/path/include.jsp"></jsp:include>
+	<tiles:insertAttribute name="css" />
 </head>
 <body>
     <tiles:insertAttribute name="header"/>

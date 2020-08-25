@@ -22,7 +22,7 @@
     
     <!-- 3번 레이아웃 item -->    
     <definition name=".item" template="/WEB-INF/views/layouts/itemLayout.jsp">
-        <put-attribute name="title" value="" />
+        <put-attribute name="css" value="/WEB-INF/views/pages/item/css_item.jsp" />
         <put-attribute name="header" value="/WEB-INF/views/common/header.jsp" />
         <put-attribute name="menu" value="" />        
         <put-attribute name="footer" value="/WEB-INF/views/common/footer.jsp" />
