@@ -101,7 +101,7 @@ line-height: 38px;
 cursor: pointer;
 }
 .it-num {
-all:unset;
+all: unset;
 border: 1px solid black;
 width: 40px;
 height: 26px;
