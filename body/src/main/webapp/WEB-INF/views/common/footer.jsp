@@ -5,8 +5,6 @@
 <head>
 <style>
 /* -- footer css --*/
-.foot-detail h1 {
-}
 .foot-info {
 width: 100%;
 height: 40px;

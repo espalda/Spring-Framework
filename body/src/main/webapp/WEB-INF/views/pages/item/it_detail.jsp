@@ -172,7 +172,7 @@ margin: 55px;
 	</div>
 </div>
 
-<div class="it_bottom" style="width: 100%; height: 100%" >
+<div class="it_bottom" style="height: 1000px; border: 1px solid black;" >
 	<div class="des-01">
 		<ul>
 			<li class="now">상품정보</li>
@@ -191,7 +191,7 @@ margin: 55px;
 			<li>상품문의</li>
 		</ul>
 	</div>
-		<div>
+	<div>
 		상품결제정보<br/>
 		상품 구매 방법은 카드결제, 계좌이체, 가상결제가 가능합니다.<br/>
 		고액결제의 경우 안전을 위해 카드사에서 확인 전화를 드릴 수 도 있습니다.<br/>
@@ -200,7 +200,7 @@ margin: 55px;
 		가상결제의 경우 3일 이내 입금 부탁드립니다. (새벽 5시 취소 예정)<br/>
 		입금이 되지 않을 경우, 입금 계좌가 중지처리되며, 주문이 취소됩니다.<br/>
 		행사제품의 경우, 상황에 따라 주문이 취소처리 될 수 있습니다.<br/>
-		</div>
+	</div>
 	
 	<div class="des-01">
 		<ul>
