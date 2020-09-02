@@ -21,26 +21,33 @@ height: 50px;
 border: 1px solid black;
 height: 50px;
 }
+.content {
+width: 1130px;
+border: 1px solid black;
+margin: 0 auto;
+}
 </style>
 <body>
-<img src="#" width="1130px" height="300px">
-<div class="item-info">
-	<div class="item-img"></div>
-	<div class="item-des"></div>
-	<hr>
-	<div class="item-price"></div>
-</div>
-<div class="item-info">
-	<div class="item-img"></div>
-	<div class="item-des"></div>
-	<hr>
-	<div class="item-price"></div>
-</div>
-<div class="item-info">
-	<div class="item-img"></div>
-	<div class="item-des"></div>
-	<hr>
-	<div class="item-price"></div>
+<div class="container">
+	<img src="#" width="1130px" height="300px">
+	<div class="item-info">
+		<div class="item-img"></div>
+		<div class="item-des"></div>
+		<hr>
+		<div class="item-price"></div>
+	</div>
+	<div class="item-info">
+		<div class="item-img"></div>
+		<div class="item-des"></div>
+		<hr>
+		<div class="item-price"></div>
+	</div>
+	<div class="item-info">
+		<div class="item-img"></div>
+		<div class="item-des"></div>
+		<hr>
+		<div class="item-price"></div>
+	</div>
 </div>
 </body>
 <script>

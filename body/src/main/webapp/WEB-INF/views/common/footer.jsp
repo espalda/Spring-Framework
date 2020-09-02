@@ -62,7 +62,6 @@ float: right;
 }
 </style>
 </head>
-<body>
 	<div class="foot-info">
 		<ul>
 			<li><a href="#">회사소개</a></li>
@@ -105,6 +104,4 @@ float: right;
 			</div>
 		</div>
 	</div>
-
-</body>
 </html>

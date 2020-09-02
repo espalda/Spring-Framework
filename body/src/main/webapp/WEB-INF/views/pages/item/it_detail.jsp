@@ -172,7 +172,7 @@ margin: 55px;
 	</div>
 </div>
 
-<div class="it_bottom" style="height: 1000px; border: 1px solid black;" >
+<div class="it_bottom">
 	<div class="des-01">
 		<ul>
 			<li class="now">상품정보</li>

@@ -7,12 +7,36 @@
 	<title>everybody</title>
 	<jsp:include page="/WEB-INF/views/layouts/path/include.jsp"></jsp:include>
 	<tiles:insertAttribute name="css" />
+	<style>
+	html, body {
+	height: 100%;
+	}
+	.wrapper {
+	display: flex;
+	min-height: 100vh;
+	flex-direction: column;
+	}
+	section {
+	flex: 1;
+	}
+	footer {
+	height: 250px;
+	background: #333;
+	color:#fff;
+	}
+		</style>
 </head>
 <body>
-    <tiles:insertAttribute name="header"/>
-    <div class="content">
+<div class="wrapper">
+	<header>
+		<tiles:insertAttribute name="header"/>
+	</header>
+    <section>
         <tiles:insertAttribute name="body" />
-    </div>                                                  
+    </section>
+    <footer>                                       
     <tiles:insertAttribute name="footer" />
+    </footer>
+</div>
 </body>
 </html>
