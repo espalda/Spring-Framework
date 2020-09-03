@@ -13,7 +13,6 @@
 	}
 	.wrapper {
 	display: flex;
-	min-height: 100vh;
 	flex-direction: column;
 	}
 	section {
@@ -27,16 +26,16 @@
 		</style>
 </head>
 <body>
-<div class="wrapper">
-	<header>
-		<tiles:insertAttribute name="header"/>
-	</header>
-    <section>
-        <tiles:insertAttribute name="body" />
-    </section>
-    <footer>                                       
-    <tiles:insertAttribute name="footer" />
-    </footer>
-</div>
+	<div class="wrapper">
+		<header>
+			<tiles:insertAttribute name="header"/>
+		</header>
+	    <section>
+	        <tiles:insertAttribute name="body" />
+	    </section>
+	    <footer>                                       
+	    	<tiles:insertAttribute name="footer" />
+	    </footer>
+	</div>
 </body>
 </html>
