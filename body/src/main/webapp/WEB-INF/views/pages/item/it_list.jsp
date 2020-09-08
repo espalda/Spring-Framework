@@ -9,13 +9,13 @@ flex-direction: row;
 .item-info {
 border: 1px solid black;
 cursor: pointer;
-width: 200px;
-height: 300px;
+width: 360px;
+height: 400px;
 }
 </style>
 <body>
+<img src="#" height="300px" width="1000px">
 <div class="container">
-	<!-- <img src="#" height="300px" width="100%"> -->
 	<div class="item-info"></div>
 	<div class="item-info"></div>
 	<div class="item-info"></div>

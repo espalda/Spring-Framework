@@ -1,6 +1,9 @@
 @charset "UTF-8";
 @font-face { font-family: 'MapoFlowerIsland'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/MapoFlowerIslandA.woff') format('woff'); font-weight: normal; font-style: normal; }
 @font-face { font-family: 'JSArirangPPURI-Regular'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/JSArirangPPURI-RegularA1.woff') format('woff'); font-weight: normal; font-style: normal; }
+/* @font-face { font-family: 'Nanum Gothic'; font-weight: normal; font-style: normal; 
+src: url('<%=request.getContextPath()%>/resources/font/NanumGothic.woff') format('woff'); woff 로 연결하는 방법 찾기
+} */
 h1 {
 font-family: 'MapoFlowerIsland';
 letter-spacing: 5px;
