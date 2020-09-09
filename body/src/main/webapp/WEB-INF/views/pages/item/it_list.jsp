@@ -14,12 +14,9 @@ height: 400px;
 }
 </style>
 <body>
-<img src="#" height="300px" width="1000px">
-<div class="container">
 	<div class="item-info"></div>
 	<div class="item-info"></div>
 	<div class="item-info"></div>
-</div>
 </body>
 <script>
 $('.item-info').click(function(){

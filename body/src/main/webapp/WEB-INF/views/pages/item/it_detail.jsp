@@ -94,7 +94,6 @@ margin: 55px;
   width: 100%;
 }
 </style>
-<div class="container">
 <div class="it-top">
 	<div class="it_img">
 		<div class="it_img1"></div>
@@ -281,7 +280,6 @@ margin: 55px;
 		</table>
 		<input type="button" value="문의작성"/>
 	</div>
-</div>
 </div>
 <script>
 

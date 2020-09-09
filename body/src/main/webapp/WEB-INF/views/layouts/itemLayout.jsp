@@ -19,11 +19,9 @@
 	flex: 1;
 	}
 	footer {
-	height: 250px;
-	background: #333;
-	color:#fff;
+	margin-top: auto;
 	}
-		</style>
+	</style>
 </head>
 <body>
 	<div class="wrapper">
@@ -31,7 +29,9 @@
 			<tiles:insertAttribute name="header"/>
 		</header>
 	    <section>
-	        <tiles:insertAttribute name="body" />
+	    	<div class="container">
+	        	<tiles:insertAttribute name="body" />
+	        </div>
 	    </section>
 	    <footer>                                       
 	    	<tiles:insertAttribute name="footer" />

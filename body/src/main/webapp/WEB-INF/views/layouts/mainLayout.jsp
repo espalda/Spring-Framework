@@ -4,35 +4,37 @@
 
 <html>
 <head>
-<title>everybody</title>
-<jsp:include page="/WEB-INF/views/layouts/path/include.jsp"></jsp:include>
-<style>
-.content {
-width: 1130px;
-height: 100%;
-border: 1px solid black;
-margin: 0 auto;
-}
-.swiper {
-width: 100%;
-height: 500px;
-border: 1px solid #eee;
-margin: 0 auto;
-}
-.swiper img {
-z-index: 0;
-}
-</style>
-
+	<title>everybody</title>
+	<jsp:include page="/WEB-INF/views/layouts/path/include.jsp"></jsp:include>
+	<style>
+	html, body {
+	height: 100%;
+	}
+	.wrapper {
+	display: flex;
+	flex-direction: column;
+	}
+	section {
+	flex: 1;
+	}
+	footer {
+	margin-top: auto;
+	}
+	</style>
 </head>
 <body>
-    <tiles:insertAttribute name="header"/>
-    <div class="swiper">
-    	<img src="<c:url value='/resources/img/main-img2.png' />" width="100%" height="100%;">
-    </div>
-    <div class="content">
-        <tiles:insertAttribute name="body" />
-    </div>                                                  
-    <tiles:insertAttribute name="footer" />
+	<div class="wrapper">
+		<header>
+			<tiles:insertAttribute name="header" />
+		</header>
+	    <section>
+	    	<div class="container">
+	        	<tiles:insertAttribute name="body" />
+	        </div>
+	    </section>
+	    <footer>                                       
+	    	<tiles:insertAttribute name="footer" />
+	    </footer>
+	</div>
 </body>
 </html>
