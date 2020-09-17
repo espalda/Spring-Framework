@@ -21,6 +21,12 @@
 	footer {
 	margin-top: auto;
 	}
+	.container {
+	display: flex;
+	flex-wrap: wrap;
+	flex-direction: row;
+	justify-content: space-between;
+	}
 	</style>
 </head>
 <body>

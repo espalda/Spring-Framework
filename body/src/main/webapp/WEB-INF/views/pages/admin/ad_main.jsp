@@ -3,7 +3,7 @@
 <script>
 $(document).ready(function(){
 	$("#list1").jqGrid({
-	    url:'server.php?q=1',
+	    /* url:'', */
 	    datatype: "xml",
 	    colNames:['관리자 번호','관리자 이름', '관리자 등급', '권한 설정','수정','관리','테스트'],
 	    colModel:[

@@ -18,11 +18,15 @@
 <!-- font -->
 <link rel="stylesheet" href="//fonts.googleapis.com/earlyaccess/nanumgothic.css">
 <!-- jquery-ui -->
-<link rel="stylesheet" href="<%=request.getContextPath()%>/resources/js/jquery-ui-1.12.1/jquery-ui.min.css">
+<link rel="stylesheet" href="<%=request.getContextPath()%>/resources/js/jquery-ui-1.12.1/redmond/jquery-ui.min.css">
 <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/js/jquery.jqGrid-4.4.3/css/ui.jqgrid.css">
+<!-- jquery -->
+<script src="<%=request.getContextPath()%>/resources/js/jquery.jqGrid-4.4.3/js/jquery-1.7.2.min.js"></script>
+<!-- jquery-ui-js -->
+<script src="<%=request.getContextPath()%>/resources/js/jquery-ui-1.12.1/jquery-ui.min.js"></script>
 
 <!-- jqgrid -->
-<script src="<%=request.getContextPath()%>/resources/js/jquery.jqGrid-4.4.3/js/jquery-1.7.2.min.js"></script>
+
 <script src="<%=request.getContextPath()%>/resources/js/jquery.jqGrid-4.4.3/js/i18n/grid.locale-kr.js"></script>
 <script src="<%=request.getContextPath()%>/resources/js/jquery.jqGrid-4.4.3/js/jquery.jqGrid.min.js"></script>
 

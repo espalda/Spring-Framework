@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <style>
-.main {
+.container {
 display: flex;
 flex-direction: row;
 }
@@ -9,9 +9,10 @@ flex-direction: row;
 flex: 1;
 border: 1px solid black;
 height: 450px;
+cursor: pointer;
 }
 </style>
-<div class="main">
+<div class="container">
 	<div class="item">
 	</div>
 

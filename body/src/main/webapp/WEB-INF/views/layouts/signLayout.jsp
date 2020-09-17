@@ -19,10 +19,13 @@
 	flex: 1;
 	}
 	footer {
-	margin-top: auto;
+	margin-top: 20px;
 	}
 	.container {
-	margin: 0 auto;
+	display: flex;
+	flex-wrap: wrap;
+	flex-direction: column;
+	align-content: center;
 	width: 500px;
 	}
 	</style>

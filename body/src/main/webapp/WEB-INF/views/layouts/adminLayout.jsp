@@ -6,31 +6,61 @@
 <head>
 	<title>everybody</title>
 	<jsp:include page="/WEB-INF/views/layouts/path/include.jsp"></jsp:include>
-	<tiles:insertAttribute name="menu" />
-	<tiles:insertAttribute name="css" />
-	</head>
+	<style>
+	html, body {
+	height: 100%;
+	}
+	.wrapper {
+	display: flex;
+	flex-direction: column;
+	}
+	section {
+	flex: 1;
+	}
+	footer {
+	margin-top: auto;
+	}
+	.ad-menu {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: center;
+	}
+	.ad-menu a {
+	flex: 0 160px;
+	width: 250px;
+	text-align: center;
+	}
+	</style>
+</head>
 <body>
-    <tiles:insertAttribute name="header" />
-    <div class="content">
-        <div class="sub-menu">
-			<h1>관리자 메뉴</h1>
-			<ul>
-				<li><a href='<c:url value="/pages/admin/ad_main" />'><img src="https://img.icons8.com/cotton/64/000000/conference-call.png"/>관리자 정보</a></li>
-				<li><a href='<c:url value="/pages/admin/ad_customer" />'><img src="https://img.icons8.com/cotton/64/000000/groups--v1.png"/>고객 정보</a></li>
-				<li><a href='<c:url value="/pages/admin/ad_item" />'><img src="https://img.icons8.com/cotton/64/000000/circled-chevron-down.png"/>상품 등록</a></li>
-				<li><a href='<c:url value="/pages/admin/ad_itemList" />'><img src="https://img.icons8.com/cotton/64/000000/bulleted-list.png"/>상품 목록</a></li>
-				<li><a href='<c:url value="/pages/admin/ad_cupon" />'><img src="https://img.icons8.com/cotton/64/000000/treatment-list.png"/>쿠폰 등록</a></li>
-				<li><a href='<c:url value="/pages/admin/ad_event" />'><img src="https://img.icons8.com/cotton/64/000000/calendar.png"/>이벤트 등록</a></li>
-				
-				<li><a href='<c:url value="/pages/admin/ad_order" />'><img src="https://img.icons8.com/cotton/64/000000/transaction-list--v1.png"/>주문 목록</a></li>
-				<li><a href='<c:url value="#" />'><img src="https://img.icons8.com/cotton/64/000000/handle-with-care--v1.png"/>배송 목록</a></li>
-				<li><a href='<c:url value="#" />'><img src="https://img.icons8.com/cotton/64/000000/bill--v1.png"/>매출 기록</a></li>
-				<li><a href='<c:url value="#" />'><img src="https://img.icons8.com/cotton/64/000000/mailing.png"/>메일 보내기</a></li>
-				<li><a href='<c:url value="/pages/admin/ad_notice" />'><img src="https://img.icons8.com/cotton/64/000000/quill-pen.png"/>공지 등록</a></li>
-			</ul>
-		</div>
-		<tiles:insertAttribute name="body" />
-    </div>                                                  
-    <tiles:insertAttribute name="footer" />
+	<div class="wrapper">
+		<header>
+			<tiles:insertAttribute name="header" />
+		</header>
+	    <section>
+	    	<div class="container">
+	    		<div class="ad-menu">
+					<a href='<c:url value="/pages/admin/ad_main" />'><img src="https://img.icons8.com/cotton/64/000000/conference-call.png"/><br/>관리자 정보</a>
+					<a href='<c:url value="/pages/admin/ad_customer" />'><img src="https://img.icons8.com/cotton/64/000000/groups--v1.png"/><br/>고객 정보</a>
+					<a href='<c:url value="/pages/admin/ad_item" />'><img src="https://img.icons8.com/cotton/64/000000/circled-chevron-down.png"/><br/>상품 등록</a>
+					<a href='<c:url value="/pages/admin/ad_itemList" />'><img src="https://img.icons8.com/cotton/64/000000/bulleted-list.png"/><br/>상품 목록</a>
+					<a href='<c:url value="/pages/admin/ad_cupon" />'><img src="https://img.icons8.com/cotton/64/000000/treatment-list.png"/><br/>쿠폰 등록</a>
+					<a href='<c:url value="/pages/admin/ad_event" />'><img src="https://img.icons8.com/cotton/64/000000/calendar.png"/><br/>이벤트 등록</a>
+					
+					<a href='<c:url value="/pages/admin/ad_order" />'><img src="https://img.icons8.com/cotton/64/000000/transaction-list--v1.png"/><br/>주문 목록</a>
+					<a href='<c:url value="#" />'><img src="https://img.icons8.com/cotton/64/000000/handle-with-care--v1.png"/><br/>배송 목록</a>
+					<a href='<c:url value="#" />'><img src="https://img.icons8.com/cotton/64/000000/bill--v1.png"/><br/>매출 기록</a>
+					<a href='<c:url value="#" />'><img src="https://img.icons8.com/cotton/64/000000/mailing.png"/><br/>메일 보내기</a>
+					<a href='<c:url value="/pages/admin/ad_notice" />'><img src="https://img.icons8.com/cotton/64/000000/quill-pen.png"/><br/>공지 등록</a>
+					<a href='<c:url value="/pages/admin/ad_notice" />'><img src="https://img.icons8.com/cotton/64/000000/quill-pen.png"/><br/>공지 등록</a>
+				</div>
+				<tiles:insertAttribute name="body" />
+			</div>
+	    </section>
+	    <footer>                                       
+	    	<tiles:insertAttribute name="footer" />
+	    </footer>
+	</div>
 </body>
 </html>

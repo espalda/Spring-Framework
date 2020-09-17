@@ -46,9 +46,9 @@
     
     <!-- 6번 레이아웃 admin -->
     <definition name=".admin" template="/WEB-INF/views/layouts/adminLayout.jsp">
-        <put-attribute name="css" value="/WEB-INF/views/pages/admin/css_ad.jsp" />
+        <put-attribute name="css" value="" />
         <put-attribute name="header" value="/WEB-INF/views/common/header.jsp" />
-        <put-attribute name="menu" value="/WEB-INF/views/common/css_menu.jsp" />        
+        <put-attribute name="menu" value="" />
         <put-attribute name="footer" value="/WEB-INF/views/common/footer.jsp" />
     </definition>
  
