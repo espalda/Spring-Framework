@@ -6,14 +6,14 @@
 <html>
 <head>
 <style>
-.hd { display: flex; flex-direction: column; height: 250px; }
+.hd { display: flex; flex-direction: column; height: 270px; }
 .h-item { flex: none; }
-.h-item:nth-child(1) { flex-grow: 1; display:flex; justify-content: flex-end; background: #d0d3dc; }
+.h-item:nth-child(1) { height: 40px; display:flex; justify-content: flex-end; background: #d0d3dc; }
 .h-test2 { display: flex; justify-content: flex-end; }
-.h-test2 a {text-align: center; width: 60px; }
-.h-item:nth-child(2) { flex-grow: 5; display:flex; justify-content: center; }
+.h-test2 a { text-align: center; flex-basis: 60px }
+.h-item:nth-child(2) { height: 180px; display:flex; justify-content: center; }
 
-.h-item:nth-child(3) { flex-grow: 1; display:flex; justify-content: center; border: 1px solid black;}
+.h-item:nth-child(3) { height: 50px; display:flex; justify-content: center; border: 1px solid black;}
 .h-item:nth-child(3) a { flex: 0 100px; text-align: center; font-size: 15px; }
 
 
@@ -34,7 +34,7 @@
 		</div>
 		
 		<div class="h-item">
-			<a href="<c:url value="/" />"><img src="<c:url value='/resources/img/logo-test.png' />" width="200px;"/></a>
+			<a href="<c:url value="/" />"><img src="<c:url value='/resources/img/logo-test.png' />" width="180px"/></a>
 		</div>
 		
 		<div class="h-item">
