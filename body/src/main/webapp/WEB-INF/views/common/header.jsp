@@ -6,17 +6,16 @@
 <html>
 <head>
 <style>
-.hd { display: flex; flex-direction: column; height: 270px; }
-.h-item { flex: none; }
-.h-item:nth-child(1) { height: 40px; display:flex; justify-content: flex-end; background: #d0d3dc; }
-.h-test2 { display: flex; justify-content: flex-end; }
-.h-test2 a { text-align: center; flex-basis: 60px }
-.h-item:nth-child(2) { height: 180px; display:flex; justify-content: center; }
-
-.h-item:nth-child(3) { height: 50px; display:flex; justify-content: center; border: 1px solid black;}
-.h-item:nth-child(3) a { flex: 0 100px; text-align: center; font-size: 15px; }
-
-
+	.hd { display: flex; flex-direction: column; height: 270px; }
+	.h-item { flex: none; }
+	.h-item:nth-child(1) { height: 40px; display:flex; justify-content: flex-end; background: #d0d3dc; }
+	.h-test2 { display: flex; justify-content: flex-end; }
+	.h-test2 a { text-align: center; width: 80px; line-height: 36px; }
+	.h-test2 a:after { content: "|"; margin-left: 10px; }
+	.h-test2 a:not(:last-child) { border-bottom: 1px solid #ccc; }
+	.h-item:nth-child(2) { height: 180px; display:flex; justify-content: center; }
+	.h-item:nth-child(3) { height: 50px; display:flex; justify-content: center; border: 1px solid black;}
+	.h-item:nth-child(3) a { flex: 0 100px; text-align: center; font-size: 15px; line-height: 45px; }
 </style>
 
 </head>
@@ -48,4 +47,8 @@
 		</div>
 	</div>
 </body>
+
+<script>
+//기능 : 현재 h-test2 a 의 끝 부분마다 | 을 집어 넣는다. 하지만 마지막 탭에는 집어 넣지 않는 기능
+</script>
 </html>
