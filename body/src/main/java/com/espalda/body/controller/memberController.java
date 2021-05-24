@@ -1,14 +1,26 @@
 package com.espalda.body.controller;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.espalda.body.service.memberService;
+
 @Controller
 public class memberController {
 	
+	@Autowired
+	memberService memberservice;
+	
 	@RequestMapping(value="/pages/member/mb_main")
 	public ModelAndView mb_main(ModelAndView mv){
+		List <String> list = new ArrayList<String> ();
+		list = memberservice.selectTestList();
+		System.out.println(list);
 	    mv.setViewName("/pages/member/mb_main");
 	    return mv;
 	}
