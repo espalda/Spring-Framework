@@ -14,10 +14,15 @@
 	<!-- Root Context: defines shared resources visible to all other web components -->
 	
 	<!-- mssql 연동 -->
+	<!--dataSource 객체 설정 -->
+
 	<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
-		<property name="driverClassName" value="com.microsoft.sqlserver.jdbc.SQLServerDriver"></property>
-		<property name="url" value="jdbc:sqlserver://localhost:1433;databaseName=body">
-		</property>
+		<property name="driverClassName" value="net.sf.log4jdbc.sql.jdbcapi.DriverSpy" />
+		<property name="url" value="jdbc:log4jdbc:sqlserver://localhost:1433;databaseName=body"></property>
+		
+		<!-- <property name="driverClassName" value="com.microsoft.sqlserver.jdbc.SQLServerDriver"></property>
+			 <property name="url" value="jdbc:sqlserver://localhost:1433;databaseName=body"></property> -->
+			 
 		<property name="username" value="espalda"></property>
 		<property name="password" value="0000"></property>
 	</bean>
@@ -27,7 +32,7 @@
 		<property name="dataSource" ref="dataSource" />
 		<property name="mapperLocations" value="classpath:/mappers/**/*Mapper.xml"></property>
 	</bean>
-	
+	<!-- dao 경로 연결 -->
 	<mybatis-spring:scan base-package="com.espalda.body.dao"/>
 	
 </beans>

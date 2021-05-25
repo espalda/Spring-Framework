@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration>
+    <Appenders>
+        <Console name="console" target="SYSTEM_OUT">
+            <PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss.SSS} %-5level %logger{36} - %msg%n" />
+        </Console>
+        
+        <RollingFile name="file" fileName="D:\\logs\\all.log" 
+                       filePattern="D:\\logs\\all_%d{yyyy-MM-dd}.%i.log">
+            <PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss.SSS} %-5level %logger{36} - %msg%n" />
+            <Policies>
+                <!-- <SizeBasedTriggeringPolicy size="10MB" /> --> <!-- 이 용량이 초과되면 아래 DefaultRolloverStrategy 정책만큼 넘버링 할거다. -->
+                <!-- <DefaultRolloverStrategy max="1000" fileIndex="min" />0부터 1000개 까지만 만들거다 1000개 초과되면 파일이 더생성안된다. -->
+                <TimeBasedTriggeringPolicy interval="1" modulate="true" />
+            </Policies>
+        </RollingFile>
+    </Appenders>
+
+    <loggers>
+        <!-- 모든 로그는 dubug레벨 이상일때만 찍고 -->
+    <root level="ERROR">
+        <Appender-ref ref="console" />
+    </root>
+    
+        <!-- 로그많이 찍어대는 요놈들은 warn수준이상만 찍겠다. -->
+        <logger name="org.springframework" level="ERROR" additivity="false" >
+            <Appender-ref ref="console" />
+            <Appender-ref ref="file" />
+        </logger>
+        <logger name="org.apache.http" level="warn" additivity="false" >
+            <appender-ref ref="console" />
+            <appender-ref ref="file" />
+        </logger>
+        <logger name="java.sql" level="warn" additivity="false" >
+            <appender-ref ref="console" />
+            <appender-ref ref="file" />
+        </logger>
+        <logger name="jdbc.sqlonly" level="INFO" additivity="false" >
+            <appender-ref ref="console" />
+            <appender-ref ref="file" />
+        </logger>
+        <!-- 내패키지는 무조건 찍자 -->
+        <logger name="com.espalda.body" level="ERROR" additivity="false" >
+            <appender-ref ref="console" />
+            <appender-ref ref="file" />
+        </logger>
+    </loggers>
+</Configuration>
